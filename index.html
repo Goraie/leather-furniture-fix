@@ -280,10 +280,6 @@
 			}
 			.btn-social{
 				display: block;
-				transition: all 0.3s ease-in-out;
-			}
-			.btn-social:hover{
-				transform: translateY(-0.25rem);
 			}
 			.btn-social-tg{
 				background-color: #4DB4FF;
@@ -371,28 +367,40 @@
 					</div>
 				</div>
 				<!-- CTA -->
-				<div class="text-center d-flex flex-column items-center max-w-sm mx-auto">
-					<p class="text-md text-400 mb-4">
+				<div class="text-center d-flex flex-column items-center  mx-auto justify-center">
+					<p class="text-md max-w-sm mx-auto text-400 mb-4">
 						Пришлите фото для расчета стоимости удобным для вас способом
 					</p>	
-					<button onclick="lrOpenModal()" class="bg-lr-accent hover:bg-lr-accent-hover text-white font-bold text-lg px-8 py-5 rounded-full shadow-lg transform transition hover:-translate-y-1 w-full">
+					<button onclick="lrOpenModal()" class="max-w-sm mx-auto bg-lr-accent hover:bg-lr-accent-hover text-white font-bold text-lg px-8 py-5 rounded-full shadow-lg transform transition hover:-translate-y-1 w-full">
 						Отправить фото
 					</button>
 					
-					<p class="text-sm text-slate-400 mt-6 mb-4">
+					<p class="max-w-sm mx-auto text-sm text-slate-400 mt-6 mb-4">
 						Или через удобный для вас мессенджер:
 					</p>
 					
-					<a href="https://telegram.me/lenremont_bot" target="_blank" rel="noreferrer" class="btn-social btn-social-tg shadow-lg transform transition hover:-translate-y-1 mb-3 px-8 py-5 rounded-full font-bold text-lg w-full">
-						Telegram
-					</a>
+					<div class="social-wrapp flex flex-col md:flex-row mx-auto max-w-sm md:max-w-none gap-2 md:gap-4">
+						
+						<a href="https://telegram.me/lenremont_bot" target="_blank" rel="noreferrer" class="btn-social btn-social-tg shadow-lg transform transition hover:-translate-y-1 px-8 py-5 rounded-full font-bold text-lg w-full">
+							Telegram
+						</a>
+	
+						<a href="vk.com/?u=2&to=L2FsX2ltLnBocD9zZWw9LTM3MTcyNzAz" target="_blank" rel="noreferrer" class="btn-social btn-social-vk shadow-lg transform transition hover:-translate-y-1 px-8 py-5 rounded-full font-bold text-lg w-full">
+							VK
+						</a>
+	
+						<a href="https://max.ru/id471902475874_3_bot" target="_blank" rel="noreferrer" class="btn-social btn-social-max shadow-lg transform transition hover:-translate-y-1 px-8 py-5 rounded-full font-bold text-lg w-full">
+							Max
+						</a>
+					</div>
 
-					<a href="vk.com/?u=2&to=L2FsX2ltLnBocD9zZWw9LTM3MTcyNzAz" target="_blank" rel="noreferrer" class="btn-social btn-social-vk shadow-lg transform transition hover:-translate-y-1 mb-3 px-8 py-5 rounded-full font-bold text-lg w-full">
-						VK
-					</a>
 
-					<a href="https://max.ru/id471902475874_3_bot" target="_blank" rel="noreferrer" class="btn-social btn-social-max shadow-lg transform transition hover:-translate-y-1 px-8 py-5 rounded-full font-bold text-lg w-full">
-						Max
+					<p class="text-sm text-slate-400 mt-6 mb-4">
+						Или звоните по номеру
+					</p>
+
+					<a href="tel:+78004440243" target="_blank" rel="noreferrer" class="max-w-sm mx-auto btn-social bg-lr-accent-hover hover:bg-lr-accent text-white font-bold text-lg px-8 py-5 rounded-full shadow-lg transform transition hover:-translate-y-1 w-full">
+						+7 (800) 444-02-43
 					</a>
 					
 					<p class="text-sm text-slate-400 mt-4 flex items-center justify-center gap-2">
