@@ -1,0 +1,1508 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Document</title>
+
+		<!-- Tailwind CDN & Config -->
+		<script src="https://cdn.tailwindcss.com"></script>
+		<!-- FontAwesome for icons -->
+		<link
+			rel="stylesheet"
+			href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+		/>
+		<!-- Google Fonts -->
+		<link
+			href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Playfair+Display:wght@700&display=swap"
+			rel="stylesheet"
+		/>
+
+		<link
+			rel="stylesheet"
+			href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"
+		/>
+		<script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+
+		<script>
+			tailwind.config = {
+				theme: {
+					extend: {
+						colors: {
+							'lr-primary': '#0f172a',
+							'lr-secondary': '#1e293b',
+							'lr-accent': '#f59e0b',
+							'lr-accent-hover': '#d97706',
+							'lr-brand': '#0ea5e9',
+						},
+						fontFamily: {
+							sans: ['Inter', 'sans-serif'],
+							serif: ['Playfair Display', 'serif'],
+						},
+					},
+				},
+			}
+		</script>
+
+		<style>
+			/* 
+    * Lenremont Custom Prefix & Core Structure
+    * Mirroring .x-container parameters 
+    */
+			.lr-container {
+				width: 88%;
+				max-width: 1280px;
+				margin: 0 auto;
+			}
+
+			/* Adaptive 2 Column Layout with Mobile Reordering */
+			.lr-2col {
+				display: flex;
+				flex-direction: row;
+				gap: 40px;
+				align-items: center;
+			}
+			.lr-text-left {
+				order: 1;
+				flex: 1;
+			}
+			.lr-img-right {
+				order: 2;
+				flex: 1;
+				min-width: 300px;
+			}
+
+			@media (max-width: 768px) {
+				.lr-2col {
+					flex-direction: column;
+					text-align: left;
+				}
+				.lr-img-right {
+					order: -1;
+					margin-bottom: 20px;
+					width: 100%;
+				}
+				.lr-text-left {
+					order: 1;
+					width: 100%;
+				}
+			}
+
+			/* Typography Clamp */
+			.lr-h1 {
+				font-size: clamp(2rem, 5vw, 3.5rem);
+				line-height: 1.1;
+			}
+			.lr-h2 {
+				font-size: clamp(1.75rem, 4vw, 2.5rem);
+				line-height: 1.2;
+			}
+
+			/* Before/After Slider specific styles */
+			.lr-ba-slider {
+				position: relative;
+				width: 100%;
+				overflow: hidden;
+				border-radius: 0.5rem;
+				user-select: none;
+			}
+			.lr-ba-img-after {
+				width: 100%;
+				display: block;
+				object-fit: cover;
+				aspect-ratio: 16/10;
+			}
+			.lr-ba-img-before {
+				position: absolute;
+				top: 0;
+				left: 0;
+				width: 50%;
+				height: 100%;
+				object-fit: cover;
+				object-position: left;
+				border-right: 3px solid #fff;
+			}
+			.lr-ba-slider-handle {
+				position: absolute;
+				top: 50%;
+				left: 50%;
+				transform: translate(-50%, -50%);
+				width: 48px;
+				height: 48px;
+				background: #fff;
+				border-radius: 50%;
+				display: flex;
+				align-items: center;
+				justify-content: center;
+				cursor: ew-resize;
+				box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+				z-index: 10;
+				color: #f59e0b;
+				font-size: 1.25rem;
+				pointer-events: none;
+			}
+
+			/* Carousel */
+			.lr-carousel {
+				display: flex;
+				overflow-x: auto;
+				gap: 2rem;
+				padding: 1rem 0 2rem;
+				scroll-snap-type: x mandatory;
+				scrollbar-width: none;
+				cursor: grab;
+				overflow: visible;
+			}
+			.lr-carousel:active {
+				cursor: grabbing;
+			}
+			.lr-carousel::-webkit-scrollbar {
+				display: none;
+			}
+			.lr-carousel-card {
+				flex: 0 0 calc(100% - 2rem);
+				scroll-snap-align: center;
+				background: #fff;
+				border-radius: 1rem;
+				box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.1);
+				overflow: hidden;
+				display: flex;
+				flex-direction: column;
+			}
+			@media (min-width: 768px) {
+				.lr-carousel-card {
+					flex: 0 0 calc(50% - 1rem);
+				}
+			}
+
+			/* Modal */
+			.lr-modal {
+				display: none;
+				position: fixed;
+				inset: 0;
+				background: rgba(15, 23, 42, 0.8);
+				z-index: 9999;
+				align-items: center;
+				justify-content: center;
+				backdrop-filter: blur(4px);
+			}
+			.lr-modal.lr-active {
+				display: flex;
+				animation: fadeIn 0.2s ease;
+			}
+			.lr-modal-content {
+				background: white;
+				width: 92%;
+				max-width: 500px;
+				border-radius: 1rem;
+				padding: 2rem;
+				position: relative;
+				max-height: 90vh;
+				overflow-y: auto;
+			}
+			@keyframes fadeIn {
+				from {
+					opacity: 0;
+				}
+				to {
+					opacity: 1;
+				}
+			}
+			/* Smooth scroll */
+			html {
+				scroll-behavior: smooth;
+			}
+
+			/* Utilities */
+			.lr-text-shadow {
+				text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
+			}
+
+			.swiper-button-next,
+			.swiper-button-prev {
+				color: #000;
+				background: #f59e0b;
+				border-radius: 40px;
+				display: flex;
+				align-items: center;
+				justify-content: center;
+				width: 40px;
+				height: 40px;
+				transition: all 0.2s ease-in-out;
+			}
+			.swiper-button-next:hover,
+			.swiper-button-prev:hover {
+				background: #d97706;
+			}
+			.swiper-button-next {
+				right: -20px;
+			}
+			.swiper-button-prev {
+				left: -20px;
+			}
+			.swiper-button-next::after,
+			.swiper-button-prev::after {
+				color: #fff;
+				font-size: 16px;
+			}
+		</style>
+	</head>
+	<body>
+		<!-- HERO SECTION -->
+		<section
+			class="max-w-full bg-lr-primary text-white pt-16 pb-20 relative overflow-hidden"
+		>
+			<!-- subtle texture background -->
+			<div
+				class="absolute inset-0 opacity-10 bg-[url('https://images.unsplash.com/photo-1555041469-a586c61ea9bc?auto=format&fit=crop&q=80&w=2000')] bg-cover bg-center mix-blend-overlay"
+			></div>
+
+			<div class="lr-container relative z-10">
+				<div class="text-center max-w-4xl mx-auto mb-10">
+					<p
+						class="text-lr-accent font-medium uppercase tracking-wide text-sm mb-4"
+					>
+						Вниманию владельцев кожаной мебели в Санкт-Петербурге:
+					</p>
+					<h1 class="font-serif lr-h1 font-bold mb-6 text-white leading-tight">
+						Не выбрасывайте ваш испорченный кожаный диван!
+					</h1>
+					<p class="text-xl text-slate-300 font-light mb-8 leading-relaxed">
+						Мы бесследно устраним прожоги, трещины, царапины от когтей и
+						потертости прямо у вас на дому —
+						<span class="text-white font-semibold border-b-2 border-lr-accent"
+							>за 1/10 от стоимости новой мебели</span
+						>.
+					</p>
+					<p class="text-base text-slate-400 mb-10">
+						Неважно, что случилось: кот изодрал подлокотник, гость прожег
+						сиденье, дорогая кожа выцвела, или дешевый кожзам начал осыпаться.
+						<strong>Мы чиним всё.</strong> Официальная гарантия 2 года от ООО
+						«Ленремонт» (с 1968 г.).
+					</p>
+				</div>
+
+				<!-- Problems Grid -->
+				<div
+					class="grid grid-cols-2 md:grid-cols-4 gap-2 md:gap-4 mb-12 max-w-5xl mx-auto"
+				>
+					<div
+						class="bg-white/10 backdrop-blur-sm px-3 md:px-4 py-3 rounded-lg border border-white/20 flex items-center gap-3"
+					>
+						<i class="fa-solid fa-fire text-red-400 text-xl w-6"></i
+						><span class="text-sm font-medium">Прожоги</span>
+					</div>
+					<div
+						class="bg-white/10 backdrop-blur-sm px-3 md:px-4 py-3 rounded-lg border border-white/20 flex items-center gap-3"
+					>
+						<i class="fa-solid fa-paw text-orange-400 text-xl w-6"></i
+						><span class="text-sm font-medium">Когти животных</span>
+					</div>
+					<div
+						class="bg-white/10 backdrop-blur-sm px-3 md:px-4 py-3 rounded-lg border border-white/20 flex items-center gap-3"
+					>
+						<i class="fa-solid fa-scissors text-slate-300 text-xl w-6"></i
+						><span class="text-sm font-medium">Порезы и разрывы</span>
+					</div>
+					<div
+						class="bg-white/10 backdrop-blur-sm px-3 md:px-4 py-3 rounded-lg border border-white/20 flex items-center gap-3"
+					>
+						<i class="fa-solid fa-droplet text-blue-400 text-xl w-6"></i
+						><span class="text-sm font-medium">Пятна и химия</span>
+					</div>
+					<div
+						class="bg-white/10 backdrop-blur-sm px-3 md:px-4 py-3 rounded-lg border border-white/20 flex items-center gap-3"
+					>
+						<i class="fa-solid fa-sun text-yellow-400 text-xl w-6"></i
+						><span class="text-sm font-medium">Выцветание</span>
+					</div>
+					<div
+						class="bg-white/10 backdrop-blur-sm px-3 md:px-4 py-3 rounded-lg border border-white/20 flex items-center gap-3"
+					>
+						<i class="fa-solid fa-couch text-amber-600 text-xl w-6"></i
+						><span class="text-sm font-medium">Продавленный поролон</span>
+					</div>
+					<div
+						class="bg-white/10 backdrop-blur-sm px-3 md:px-4 py-3 rounded-lg border border-white/20 flex items-center gap-3"
+					>
+						<i class="fa-solid fa-spray-can text-purple-400 text-xl w-6"></i
+						><span class="text-sm font-medium">Полная перекраска</span>
+					</div>
+					<div
+						class="bg-white/10 backdrop-blur-sm px-3 md:px-4 py-3 rounded-lg border border-white/20 flex items-center gap-3"
+					>
+						<i class="fa-solid fa-tape text-emerald-400 text-xl w-6"></i
+						><span class="text-sm font-medium">Расхождение швов</span>
+					</div>
+				</div>
+				<!-- CTA -->
+				<div class="text-center">
+					<button
+						onclick="lrOpenModal()"
+						class="bg-lr-accent hover:bg-lr-accent-hover text-white font-bold text-lg px-8 py-5 rounded-full shadow-lg transform transition hover:-translate-y-1 w-full md:w-auto"
+					>
+						Рассчитать стоимость
+					</button>
+					<p
+						class="text-sm text-slate-400 mt-4 flex items-center justify-center gap-2"
+					>
+						<i class="fa-solid fa-shield-halved text-emerald-400"></i> Мастер
+						приедет сегодня. Точный подбор цвета на месте. Без грязи.
+					</p>
+				</div>
+			</div>
+		</section>
+
+		<!-- AGITATION SECTION -->
+		<section class="max-w-full bg-slate-50 py-16">
+			<div class="lr-container">
+				<div class="lr-2col">
+					<div class="lr-text-left">
+						<h2 class="font-serif lr-h2 font-bold mb-6 text-slate-900">
+							Знакомая ситуация?<br /><span
+								class="text-slate-500 text-3xl font-normal italic"
+								>Вы смотрите на испорченную кожу и думаете: «Только не покупка
+								нового дивана…»</span
+							>
+						</h2>
+						<div class="text-lg text-slate-700 space-y-4 mb-8">
+							<p>Давайте начистоту. Кожаная мебель стоит безумных денег.</p>
+							<p>
+								И когда на идеальном итальянском диване появляется уродливая
+								царапина от собаки, чернильное пятно от ребенка или трещина от
+								времени — это бесит. Вы накрываете это место пледом. Вы ставите
+								туда подушку. Но вы-то знаете, что дыра там.
+							</p>
+						</div>
+
+						<h3 class="font-bold text-xl mb-6">У вас есть 3 пути:</h3>
+						<ul class="space-y-6">
+							<li class="flex gap-4">
+								<div
+									class="w-10 h-10 rounded-full bg-red-100 text-red-600 flex items-center justify-center shrink-0 font-bold"
+								>
+									1
+								</div>
+								<div>
+									<strong class="text-slate-900 block mb-1"
+										>Купить новый диван.</strong
+									>
+									<span class="text-slate-600 text-sm"
+										>Готовьте от 150 000 до 500 000 рублей. Плюс грузчики,
+										содранные обои в дверных проемах и недели ожидания
+										доставки.</span
+									>
+								</div>
+							</li>
+							<li class="flex gap-4">
+								<div
+									class="w-10 h-10 rounded-full bg-orange-100 text-orange-600 flex items-center justify-center shrink-0 font-bold"
+								>
+									2
+								</div>
+								<div>
+									<strong class="text-slate-900 block mb-1"
+										>Вызвать «мастера из гаража» по объявлению.</strong
+									>
+									<span class="text-slate-600 text-sm"
+										>Приедет с дешевой автомобильной краской, замажет дыру так,
+										что она станет жесткой коркой, а через месяц краска
+										отвалится.</span
+									>
+								</div>
+							</li>
+							<li class="flex gap-4">
+								<div
+									class="w-10 h-10 rounded-full bg-emerald-100 text-emerald-600 flex items-center justify-center shrink-0 font-bold"
+								>
+									3
+								</div>
+								<div>
+									<strong class="text-emerald-700 block mb-1"
+										>Вызвать реставраторов «Ленремонта».</strong
+									>
+									<span class="text-slate-600 text-sm"
+										>Мы используем заводские итальянские полимеры. Кожа
+										останется мягкой, цвет совпадет на 100%, а место ремонта вы
+										не найдете даже с лупой.</span
+									>
+								</div>
+							</li>
+						</ul>
+					</div>
+					<div class="lr-img-right">
+						<img
+							src="https://images.unsplash.com/photo-1493663284031-b7e3aefcae8e?auto=format&fit=crop&q=80&w=800"
+							alt="Испорченный диван"
+							class="rounded-xl shadow-xl w-full h-[500px] object-cover"
+						/>
+					</div>
+				</div>
+			</div>
+		</section>
+
+		<!-- PROOFS SECTION (SLIDER ДО/ПОСЛЕ) -->
+		<section class="max-w-full py-16 bg-white overflow-hidden">
+			<div class="lr-container">
+				<div class="text-center max-w-3xl mx-auto mb-12">
+					<h2 class="font-serif lr-h2 font-bold mb-4 text-slate-900">
+						Не верьте нам на слово.
+					</h2>
+					<p class="text-xl text-slate-600">
+						Посмотрите на эти «безнадежные» случаи, которые мы спасли:
+					</p>
+				</div>
+
+				<div class="swiper lr-carousel">
+					<div class="swiper-wrapper">
+						<div class="swiper-slide lr-carousel-card">
+							<!-- Before/After module -->
+							<div
+								class="lr-ba-slider"
+								onmousemove="lrBaMove(event, this)"
+								ontouchmove="lrBaMove(event, this)"
+							>
+								<!-- After Image -->
+								<img
+									class="lr-ba-img-after object-cover"
+									src="https://images.unsplash.com/photo-1555041469-a586c61ea9bc?auto=format&fit=crop&q=80&w=800"
+									alt="После"
+								/>
+								<!-- Before Image Container -->
+								<div class="lr-ba-img-before">
+									<!-- Using a grayscale filter to simulate 'before' visually for mockup purposes -->
+									<img
+										src="https://images.unsplash.com/photo-1555041469-a586c61ea9bc?auto=format&fit=crop&q=80&w=800&sat=-100"
+										class="w-[200%] h-full max-w-none object-cover"
+										alt="До"
+									/>
+								</div>
+								<div class="lr-ba-slider-handle">
+									<i class="fa-solid fa-arrows-left-right"></i>
+								</div>
+								<div
+									class="absolute top-2 left-2 bg-black/60 text-white text-xs px-2 py-1 rounded"
+								>
+									ДО
+								</div>
+								<div
+									class="absolute top-2 right-2 bg-lr-accent/90 text-white text-xs px-2 py-1 rounded"
+								>
+									ПОСЛЕ
+								</div>
+							</div>
+							<!-- Card Body -->
+							<div class="p-6 bg-slate-50 flex-grow">
+								<div
+									class="text-xs uppercase tracking-wide text-lr-accent font-bold mb-2"
+								>
+									КЕЙС 1: «Паникующий хозяин питомца»
+								</div>
+								<h4 class="font-bold text-lg mb-3">
+									Боль: Кот уничтожил дорогую вещь
+								</h4>
+								<p class="text-sm text-slate-600 italic mb-4">
+									«Мой мейн-кун за месяц превратил подлокотник дивана за 200
+									тысяч в лохмотья... Мастер из Ленремонта приехал с
+									чемоданчиком, колдовал 3 часа. Я не знаю, как он это сделал,
+									но он восстановил саму фактуру кожи! Царапин просто НЕТ.»
+								</p>
+								<div class="text-xs text-slate-500 mb-4">
+									— Игорь В., Приморский район.
+								</div>
+								<div
+									class="bg-white p-3 rounded text-sm border border-slate-200"
+								>
+									<strong>Что сделали:</strong> Жидкая кожа, восстановление
+									мереи, колеровка.<br />
+									<strong>Цена:</strong> 5 500 ₽.
+								</div>
+							</div>
+						</div>
+
+						<!-- Card 2 -->
+						<div class="swiper-slide lr-carousel-card">
+							<div
+								class="lr-ba-slider"
+								onmousemove="lrBaMove(event, this)"
+								ontouchmove="lrBaMove(event, this)"
+							>
+								<img
+									class="lr-ba-img-after object-cover"
+									src="https://images.unsplash.com/photo-1486946255434-2466348c2166?auto=format&fit=crop&q=80&w=800"
+									alt="После"
+								/>
+								<div class="lr-ba-img-before">
+									<img
+										src="https://images.unsplash.com/photo-1486946255434-2466348c2166?auto=format&fit=crop&q=80&w=800&sat=-100"
+										class="w-[200%] h-full max-w-none object-cover"
+										alt="До"
+									/>
+								</div>
+								<div class="lr-ba-slider-handle">
+									<i class="fa-solid fa-arrows-left-right"></i>
+								</div>
+								<div
+									class="absolute top-2 left-2 bg-black/60 text-white text-xs px-2 py-1 rounded"
+								>
+									ДО
+								</div>
+								<div
+									class="absolute top-2 right-2 bg-lr-accent/90 text-white text-xs px-2 py-1 rounded"
+								>
+									ПОСЛЕ
+								</div>
+							</div>
+							<div class="p-6 bg-slate-50 flex-grow">
+								<div
+									class="text-xs uppercase tracking-wide text-lr-accent font-bold mb-2"
+								>
+									КЕЙС 2: «Шокированный гостеприимец»
+								</div>
+								<h4 class="font-bold text-lg mb-3">
+									Боль: Прожог на самом видном месте
+								</h4>
+								<p class="text-sm text-slate-600 italic mb-4">
+									«Жильцы прожгли кальянным углем белое кожаное кресло. Дыра
+									прямо по центру! Вызвала Ленремонт. Мастер смешал краску прямо
+									при мне — цвет совпал идеально... Никакого пятна или жесткой
+									корки.»
+								</p>
+								<div class="text-xs text-slate-500 mb-4">
+									— Анна С., ст. м. Маяковская.
+								</div>
+								<div
+									class="bg-white p-3 rounded text-sm border border-slate-200"
+								>
+									<strong>Что сделали:</strong> Термо-ремонт прожога, сетка,
+									покраска.<br />
+									<strong>Цена:</strong> 4 000 ₽.
+								</div>
+							</div>
+						</div>
+
+						<!-- Card 3 -->
+						<div class="swiper-slide lr-carousel-card">
+							<div
+								class="lr-ba-slider"
+								onmousemove="lrBaMove(event, this)"
+								ontouchmove="lrBaMove(event, this)"
+							>
+								<img
+									class="lr-ba-img-after object-cover"
+									src="https://images.unsplash.com/photo-1541558869434-2840d308329a?auto=format&fit=crop&q=80&w=800"
+									alt="После"
+								/>
+								<div class="lr-ba-img-before">
+									<img
+										src="https://images.unsplash.com/photo-1541558869434-2840d308329a?auto=format&fit=crop&q=80&w=800&sat=-100"
+										class="w-[200%] h-full max-w-none object-cover"
+										alt="До"
+									/>
+								</div>
+								<div class="lr-ba-slider-handle">
+									<i class="fa-solid fa-arrows-left-right"></i>
+								</div>
+								<div
+									class="absolute top-2 left-2 bg-black/60 text-white text-xs px-2 py-1 rounded"
+								>
+									ДО
+								</div>
+								<div
+									class="absolute top-2 right-2 bg-lr-accent/90 text-white text-xs px-2 py-1 rounded"
+								>
+									ПОСЛЕ
+								</div>
+							</div>
+							<div class="p-6 bg-slate-50 flex-grow">
+								<div
+									class="text-xs uppercase tracking-wide text-lr-accent font-bold mb-2"
+								>
+									КЕЙС 3: «Экономный эстет»
+								</div>
+								<h4 class="font-bold text-lg mb-3">
+									Боль: Кожзам начал осыпаться хлопьями
+								</h4>
+								<p class="text-sm text-slate-600 italic mb-4">
+									«У кресла начала отваливаться экокожа на сидушке... В
+									Ленремонте честно сказали: красить бесполезно. Просто заменили
+									этот кусок на качественную экокожу и подогнали цвет. Кресло
+									как из магазина!»
+								</p>
+								<div class="text-xs text-slate-500 mb-4">
+									— Дмитрий, Мурино.
+								</div>
+								<div
+									class="bg-white p-3 rounded text-sm border border-slate-200"
+								>
+									<strong>Что сделали:</strong> Локальная перетяжка сиденья.<br />
+									<strong>Цена:</strong> 3 500 ₽.
+								</div>
+							</div>
+						</div>
+
+						<div class="swiper-slide lr-carousel-card">
+							<!-- Before/After module -->
+							<div
+								class="lr-ba-slider"
+								onmousemove="lrBaMove(event, this)"
+								ontouchmove="lrBaMove(event, this)"
+							>
+								<!-- After Image -->
+								<img
+									class="lr-ba-img-after object-cover"
+									src="https://images.unsplash.com/photo-1555041469-a586c61ea9bc?auto=format&fit=crop&q=80&w=800"
+									alt="После"
+								/>
+								<!-- Before Image Container -->
+								<div class="lr-ba-img-before">
+									<!-- Using a grayscale filter to simulate 'before' visually for mockup purposes -->
+									<img
+										src="https://images.unsplash.com/photo-1555041469-a586c61ea9bc?auto=format&fit=crop&q=80&w=800&sat=-100"
+										class="w-[200%] h-full max-w-none object-cover"
+										alt="До"
+									/>
+								</div>
+								<div class="lr-ba-slider-handle">
+									<i class="fa-solid fa-arrows-left-right"></i>
+								</div>
+								<div
+									class="absolute top-2 left-2 bg-black/60 text-white text-xs px-2 py-1 rounded"
+								>
+									ДО
+								</div>
+								<div
+									class="absolute top-2 right-2 bg-lr-accent/90 text-white text-xs px-2 py-1 rounded"
+								>
+									ПОСЛЕ
+								</div>
+							</div>
+							<!-- Card Body -->
+							<div class="p-6 bg-slate-50 flex-grow">
+								<div
+									class="text-xs uppercase tracking-wide text-lr-accent font-bold mb-2"
+								>
+									КЕЙС 1: «Паникующий хозяин питомца»
+								</div>
+								<h4 class="font-bold text-lg mb-3">
+									Боль: Кот уничтожил дорогую вещь
+								</h4>
+								<p class="text-sm text-slate-600 italic mb-4">
+									«Мой мейн-кун за месяц превратил подлокотник дивана за 200
+									тысяч в лохмотья... Мастер из Ленремонта приехал с
+									чемоданчиком, колдовал 3 часа. Я не знаю, как он это сделал,
+									но он восстановил саму фактуру кожи! Царапин просто НЕТ.»
+								</p>
+								<div class="text-xs text-slate-500 mb-4">
+									— Игорь В., Приморский район.
+								</div>
+								<div
+									class="bg-white p-3 rounded text-sm border border-slate-200"
+								>
+									<strong>Что сделали:</strong> Жидкая кожа, восстановление
+									мереи, колеровка.<br />
+									<strong>Цена:</strong> 5 500 ₽.
+								</div>
+							</div>
+						</div>
+
+						<!-- Card 2 -->
+						<div class="swiper-slide lr-carousel-card">
+							<div
+								class="lr-ba-slider"
+								onmousemove="lrBaMove(event, this)"
+								ontouchmove="lrBaMove(event, this)"
+							>
+								<img
+									class="lr-ba-img-after object-cover"
+									src="https://images.unsplash.com/photo-1486946255434-2466348c2166?auto=format&fit=crop&q=80&w=800"
+									alt="После"
+								/>
+								<div class="lr-ba-img-before">
+									<img
+										src="https://images.unsplash.com/photo-1486946255434-2466348c2166?auto=format&fit=crop&q=80&w=800&sat=-100"
+										class="w-[200%] h-full max-w-none object-cover"
+										alt="До"
+									/>
+								</div>
+								<div class="lr-ba-slider-handle">
+									<i class="fa-solid fa-arrows-left-right"></i>
+								</div>
+								<div
+									class="absolute top-2 left-2 bg-black/60 text-white text-xs px-2 py-1 rounded"
+								>
+									ДО
+								</div>
+								<div
+									class="absolute top-2 right-2 bg-lr-accent/90 text-white text-xs px-2 py-1 rounded"
+								>
+									ПОСЛЕ
+								</div>
+							</div>
+							<div class="p-6 bg-slate-50 flex-grow">
+								<div
+									class="text-xs uppercase tracking-wide text-lr-accent font-bold mb-2"
+								>
+									КЕЙС 2: «Шокированный гостеприимец»
+								</div>
+								<h4 class="font-bold text-lg mb-3">
+									Боль: Прожог на самом видном месте
+								</h4>
+								<p class="text-sm text-slate-600 italic mb-4">
+									«Жильцы прожгли кальянным углем белое кожаное кресло. Дыра
+									прямо по центру! Вызвала Ленремонт. Мастер смешал краску прямо
+									при мне — цвет совпал идеально... Никакого пятна или жесткой
+									корки.»
+								</p>
+								<div class="text-xs text-slate-500 mb-4">
+									— Анна С., ст. м. Маяковская.
+								</div>
+								<div
+									class="bg-white p-3 rounded text-sm border border-slate-200"
+								>
+									<strong>Что сделали:</strong> Термо-ремонт прожога, сетка,
+									покраска.<br />
+									<strong>Цена:</strong> 4 000 ₽.
+								</div>
+							</div>
+						</div>
+
+						<!-- Card 3 -->
+						<div class="swiper-slide lr-carousel-card">
+							<div
+								class="lr-ba-slider"
+								onmousemove="lrBaMove(event, this)"
+								ontouchmove="lrBaMove(event, this)"
+							>
+								<img
+									class="lr-ba-img-after object-cover"
+									src="https://images.unsplash.com/photo-1541558869434-2840d308329a?auto=format&fit=crop&q=80&w=800"
+									alt="После"
+								/>
+								<div class="lr-ba-img-before">
+									<img
+										src="https://images.unsplash.com/photo-1541558869434-2840d308329a?auto=format&fit=crop&q=80&w=800&sat=-100"
+										class="w-[200%] h-full max-w-none object-cover"
+										alt="До"
+									/>
+								</div>
+								<div class="lr-ba-slider-handle">
+									<i class="fa-solid fa-arrows-left-right"></i>
+								</div>
+								<div
+									class="absolute top-2 left-2 bg-black/60 text-white text-xs px-2 py-1 rounded"
+								>
+									ДО
+								</div>
+								<div
+									class="absolute top-2 right-2 bg-lr-accent/90 text-white text-xs px-2 py-1 rounded"
+								>
+									ПОСЛЕ
+								</div>
+							</div>
+							<div class="p-6 bg-slate-50 flex-grow">
+								<div
+									class="text-xs uppercase tracking-wide text-lr-accent font-bold mb-2"
+								>
+									КЕЙС 3: «Экономный эстет»
+								</div>
+								<h4 class="font-bold text-lg mb-3">
+									Боль: Кожзам начал осыпаться хлопьями
+								</h4>
+								<p class="text-sm text-slate-600 italic mb-4">
+									«У кресла начала отваливаться экокожа на сидушке... В
+									Ленремонте честно сказали: красить бесполезно. Просто заменили
+									этот кусок на качественную экокожу и подогнали цвет. Кресло
+									как из магазина!»
+								</p>
+								<div class="text-xs text-slate-500 mb-4">
+									— Дмитрий, Мурино.
+								</div>
+								<div
+									class="bg-white p-3 rounded text-sm border border-slate-200"
+								>
+									<strong>Что сделали:</strong> Локальная перетяжка сиденья.<br />
+									<strong>Цена:</strong> 3 500 ₽.
+								</div>
+							</div>
+						</div>
+					</div>
+
+					<!-- кнопки -->
+					<div class="swiper-button-prev"></div>
+					<div class="swiper-button-next"></div>
+				</div>
+			</div>
+		</section>
+
+		<!-- BENEFITS (Карлтон) -->
+		<section class="max-w-full bg-lr-primary text-white py-16">
+			<div class="lr-container">
+				<div class="text-center max-w-3xl mx-auto mb-12">
+					<h2 class="font-serif lr-h2 font-bold mb-4">
+						Что вы получаете, доверяя свою мебель «Ленремонту»
+					</h2>
+					<p class="text-slate-400">(помимо сохраненных нервов и денег)</p>
+				</div>
+				<div class="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-5xl mx-auto">
+					<div class="flex gap-4">
+						<div class="text-lr-accent text-2xl mt-1">
+							<i class="fa-solid fa-circle-check"></i>
+						</div>
+						<div>
+							<strong class="text-lg block mb-1"
+								>Никаких грузчиков и вырванных косяков.</strong
+							>
+							<span class="text-slate-300 text-sm italic"
+								>Вам не нужно нанимать транспорт, спускать тяжелый диван по
+								лестнице и жить в пустой гостиной неделю — 90% ремонтов мы
+								делаем прямо у вас на дому.</span
+							>
+						</div>
+					</div>
+					<div class="flex gap-4">
+						<div class="text-lr-accent text-2xl mt-1">
+							<i class="fa-solid fa-flask"></i>
+						</div>
+						<div>
+							<strong class="text-lg block mb-1"
+								>Хирургически точный подбор цвета.</strong
+							>
+							<span class="text-slate-300 text-sm italic"
+								>Мастер смешивает пигменты прямо при вас. Место ремонта не будет
+								выделяться предательским пятном — оно на 100% сольется с родным
+								цветом.</span
+							>
+						</div>
+					</div>
+					<div class="flex gap-4">
+						<div class="text-lr-accent text-2xl mt-1">
+							<i class="fa-solid fa-leaf"></i>
+						</div>
+						<div>
+							<strong class="text-lg block mb-1"
+								>Сохранение заводской мягкости кожи.</strong
+							>
+							<span class="text-slate-300 text-sm italic"
+								>Мы используем эластичные полимеры, а не жесткий клей. Ваш диван
+								останется мягким и приятным на ощупь, без эффекта «пластиковой
+								заплатки».</span
+							>
+						</div>
+					</div>
+					<div class="flex gap-4">
+						<div class="text-lr-accent text-2xl mt-1">
+							<i class="fa-solid fa-broom"></i>
+						</div>
+						<div>
+							<strong class="text-lg block mb-1"
+								>Никакой грязи и токсичной вони.</strong
+							>
+							<span class="text-slate-300 text-sm italic"
+								>Наши составы безопасны. Мастер застелет пол пленкой и уберет
+								мусор. Вы сможете сидеть на диване в тот же вечер.</span
+							>
+						</div>
+					</div>
+					<div class="flex gap-4 md:col-span-2 md:w-1/2 md:mx-auto">
+						<div class="text-lr-accent text-2xl mt-1">
+							<i class="fa-solid fa-file-contract"></i>
+						</div>
+						<div>
+							<strong class="text-lg block mb-1"
+								>Официальная гарантия юридического лица.</strong
+							>
+							<span class="text-slate-300 text-sm italic"
+								>Мы — ООО «Ленремонт». Вы получаете чек и гарантию до 2 лет.
+								Если что-то пойдет не так, мы переделаем за свой счет.</span
+							>
+						</div>
+					</div>
+				</div>
+			</div>
+		</section>
+
+		<!-- OBJECTIONS SECTION -->
+		<section class="max-w-full py-16 bg-white">
+			<div class="lr-container">
+				<div class="text-center max-w-3xl mx-auto mb-10">
+					<h2 class="font-serif lr-h2 font-bold text-slate-900 mb-4">
+						"А вы точно сможете спасти мою мебель?"
+					</h2>
+					<p class="text-slate-600">Отвечаем прямо без увиливаний:</p>
+				</div>
+
+				<div class="max-w-4xl mx-auto space-y-6">
+					<!-- Q1 -->
+					<div
+						class="bg-slate-50 rounded-xl p-6 border border-slate-100 shadow-sm"
+					>
+						<h4
+							class="font-bold text-lg text-slate-900 mb-3 flex items-center gap-3"
+						>
+							<i class="fa-solid fa-circle-question text-blue-400"></i>
+							«У меня сложный цвет, вы не попадете в тон»
+						</h4>
+						<p class="text-slate-600 pl-8">
+							Сможем. Наши мастера используют спектрометры и колористические
+							таблицы. Мы не покупаем «готовую коричневую краску». Мы создаем
+							оттенок с нуля, добавляя микродозы нужных пигментов, чтобы учесть
+							даже выцветание вашей кожи от солнца.
+						</p>
+					</div>
+					<!-- Q2 -->
+					<div
+						class="bg-slate-50 rounded-xl p-6 border border-slate-100 shadow-sm"
+					>
+						<h4
+							class="font-bold text-lg text-slate-900 mb-3 flex items-center gap-3"
+						>
+							<i class="fa-solid fa-circle-question text-blue-400"></i>
+							«А эта ваша краска не испачкает мне одежду?»
+						</h4>
+						<p class="text-slate-600 pl-8">
+							Исключено. Мы не просто "красим". Последним этапом мы наносим
+							специальный защитный лак (матовый, сатиновый или глянцевый — точно
+							как на заводе). Он намертво "запечатывает" цвет. Вы можете тереть
+							диван влажной тряпкой — краска останется на месте.
+						</p>
+					</div>
+					<!-- Q3 -->
+					<div
+						class="bg-slate-50 rounded-xl p-6 border border-slate-100 shadow-sm"
+					>
+						<h4
+							class="font-bold text-lg text-slate-900 mb-3 flex items-center gap-3"
+						>
+							<i class="fa-solid fa-circle-question text-blue-400"></i>
+							«У меня диван в хлам, там не только кожа, там поролон провалился»
+						</h4>
+						<p class="text-slate-600 pl-8">
+							Мы реставраторы, а не просто маляры. Если нужно — мы заберем диван
+							в наш цех, заменим пружины, добавим плотный ППУ (поролон),
+							перешьем разошедшиеся швы и полностью перекрасим кожу. Вы получите
+							диван из салона.
+						</p>
+					</div>
+				</div>
+			</div>
+		</section>
+
+		<!-- PRICE -->
+		<section class="max-w-full bg-slate-100 py-16 border-t border-slate-200">
+			<div class="lr-container">
+				<div class="lr-2col items-start block md:flex">
+					<div class="lr-text-left">
+						<h2 class="font-serif lr-h2 font-bold text-slate-900 mb-4">
+							Сколько это стоит?
+						</h2>
+						<p class="text-lg text-lr-accent font-semibold mb-6">
+							Подсказка: на 250 000 рублей дешевле нового дивана.
+						</p>
+						<p class="text-slate-600 mb-3">
+							Мы не берем цены с потолка. Но точную смету мастер назовет только
+							после того, как увидит повреждение (вживую или по фото). Почему?
+							Потому что царапина на гладкой коже чинится за час, а царапина на
+							перфорированной коже требует ювелирного восстановления каждой
+							дырочки.
+						</p>
+						<p class="text-slate-500 italic text-sm mb-8">
+							<i class="fa-solid fa-lock text-slate-400 mr-1"></i> Никаких
+							скрытых доплат. Цена фиксируется в договоре ДО начала работ.
+						</p>
+					</div>
+					<div
+						class="lr-img-right bg-white p-6 rounded-xl shadow-lg border border-slate-100 w-full md:w-[450px]"
+					>
+						<h4 class="font-bold text-slate-900 text-lg mb-4 border-b pb-2">
+							Ориентировочные цены:
+						</h4>
+						<ul class="space-y-3">
+							<li
+								class="flex justify-between items-center border-b border-slate-50 pb-2"
+							>
+								<span class="text-slate-700 font-medium"
+									>Точечный прожог / порез</span
+								>
+								<div class="text-right">
+									<span class="font-bold text-slate-900">от 3 000 ₽</span
+									><br /><span class="text-[10px] text-slate-400 leading-none"
+										>1-2 часа</span
+									>
+								</div>
+							</li>
+							<li
+								class="flex justify-between items-center border-b border-slate-50 pb-2"
+							>
+								<span class="text-slate-700 font-medium"
+									>Царапины от животных</span
+								>
+								<div class="text-right">
+									<span class="font-bold text-slate-900">от 3 500 ₽</span
+									><br /><span class="text-[10px] text-slate-400"
+										>2-3 часа</span
+									>
+								</div>
+							</li>
+							<li
+								class="flex justify-between items-center border-b border-slate-50 pb-2"
+							>
+								<span class="text-slate-700 font-medium"
+									>Цвет подлокотников</span
+								>
+								<div class="text-right">
+									<span class="font-bold text-slate-900">от 5 000 ₽</span
+									><br /><span class="text-[10px] text-slate-400"
+										>3-4 часа</span
+									>
+								</div>
+							</li>
+							<li
+								class="flex justify-between items-center border-b border-slate-50 pb-2"
+							>
+								<span class="text-slate-700 font-medium"
+									>Перекраска кресла</span
+								>
+								<div class="text-right">
+									<span class="font-bold text-slate-900">от 8 000 ₽</span
+									><br /><span class="text-[10px] text-slate-400">1 день</span>
+								</div>
+							</li>
+							<li
+								class="flex justify-between items-center border-b border-slate-50 pb-2"
+							>
+								<span class="text-slate-700 font-medium"
+									>Ремонт провалившегося сиденья</span
+								>
+								<div class="text-right">
+									<span class="font-bold text-slate-900">от 6 000 ₽</span>
+								</div>
+							</li>
+							<li
+								class="flex justify-between items-center bg-green-50 p-2 rounded -mx-2 mt-2"
+							>
+								<span class="text-green-800 font-bold">Осмотр мастера</span>
+								<span class="font-bold text-green-700">БЕСПЛАТНО</span>
+							</li>
+						</ul>
+					</div>
+				</div>
+			</div>
+		</section>
+
+		<!-- QUIZ SECTION -->
+		<section
+			class="max-w-full bg-lr-primary py-16 text-center text-white relative"
+		>
+			<div
+				class="absolute inset-0 bg-[url('https://images.unsplash.com/photo-1540574163026-643ea20ade25?auto=format&fit=crop&q=80&w=2000')] bg-cover bg-center opacity-10 mix-blend-overlay"
+			></div>
+			<div class="lr-container relative z-10">
+				<div
+					class="inline-block bg-white/20 px-4 py-1 rounded-full text-sm font-semibold tracking-wider uppercase mb-4 shadow-sm border border-white/20"
+				>
+					Онлайн-диагностика
+				</div>
+				<h2 class="font-serif lr-h2 font-bold mb-4">
+					Узнайте точную стоимость за 60 секунд
+				</h2>
+				<p class="text-lg text-slate-300 max-w-2xl mx-auto mb-8">
+					Не хотите ждать мастера? Ответьте на 4 простых вопроса, прикрепите
+					фото повреждения, и наш старший технолог пришлет вам расчет в WhatsApp
+					через 10 минут.
+				</p>
+				<button
+					onclick="lrOpenModal()"
+					class="bg-lr-accent hover:bg-lr-accent-hover text-white font-bold text-lg px-8 py-4 rounded-full shadow-lg transform transition hover:-translate-y-1"
+				>
+					<i class="fa-solid fa-clipboard-list mr-2"></i> Начать
+					онлайн-диагностику
+				</button>
+			</div>
+		</section>
+
+		<!-- FINAL CTA -->
+		<section class="max-w-full py-20 bg-white">
+			<div class="lr-container max-w-4xl text-center">
+				<h2 class="font-serif lr-h1 font-bold text-slate-900 mb-6">
+					Ваша мебель разрушается каждый день.
+					<span class="text-red-600">Остановите это сейчас.</span>
+				</h2>
+				<p class="text-lg text-slate-600 mb-8">
+					Маленькая трещина на коже завтра превратится в рваную дыру. Небольшая
+					потертость начнет впитывать грязь и пот, разрушая кожу изнутри. Чем
+					дольше вы ждете, тем дороже будет ремонт.
+				</p>
+
+				<div
+					class="bg-slate-50 border border-slate-200 rounded-2xl p-8 mb-10 relative overflow-hidden text-left"
+				>
+					<div class="absolute top-0 left-0 w-2 h-full bg-lr-accent"></div>
+					<h3 class="font-bold text-xl mb-2 text-slate-900">
+						<i class="fa-solid fa-gift text-lr-accent mr-2"></i> БОНУС ЗА
+						БЫСТРОЕ РЕШЕНИЕ:
+					</h3>
+					<p class="text-slate-700">
+						Оставьте заявку сегодня, и после ремонта мы
+						<strong
+							>БЕСПЛАТНО нанесем профессиональный защитный кондиционер</strong
+						>
+						(обычная цена 1500 руб.), который защитит кожу от высыхания на
+						полгода.
+					</p>
+				</div>
+
+				<div
+					class="flex flex-col md:flex-row gap-6 justify-center items-center"
+				>
+					<button
+						onclick="lrOpenModal()"
+						class="bg-emerald-600 hover:bg-emerald-700 text-white font-bold text-lg px-8 py-5 rounded-full shadow-lg transform transition hover:-translate-y-1 w-full md:w-auto text-center flex justify-center items-center gap-2"
+					>
+						<span>Вызвать мастера + забрать бонус</span>
+					</button>
+
+					<div class="text-left">
+						<div
+							class="text-sm text-slate-500 uppercase font-bold text-center md:text-left"
+						>
+							Круглосуточно:
+						</div>
+						<div class="text-2xl font-bold text-slate-900 mb-1">
+							<i class="fa-solid fa-phone text-slate-400 mr-1 text-lg"></i> 8
+							(812) 344-44-44
+						</div>
+						<div class="flex gap-3 justify-center md:justify-start">
+							<a
+								href="#"
+								class="w-8 h-8 rounded-full bg-green-500 text-white flex justify-center items-center hover:bg-green-600 transition"
+								><i class="fa-brands fa-whatsapp"></i
+							></a>
+							<a
+								href="#"
+								class="w-8 h-8 rounded-full bg-blue-500 text-white flex justify-center items-center hover:bg-blue-600 transition"
+								><i class="fa-brands fa-telegram"></i
+							></a>
+						</div>
+					</div>
+				</div>
+			</div>
+		</section>
+
+		<!-- Mobile Sticky CTA -->
+		<div class="lr-sticky-cta md:hidden">
+			<button
+				onclick="lrOpenModal()"
+				class="bg-emerald-600 text-white font-bold p-4 rounded-full shadow-2xl flex items-center justify-center animate-bounce"
+			>
+				<i class="fa-solid fa-phone-volume text-xl"></i>
+			</button>
+		</div>
+
+		<!-- Modal / Quiz Form -->
+		<div
+			id="lr-quiz-modal"
+			class="lr-modal"
+			onclick="if(event.target === this) lrCloseModal()"
+		>
+			<div class="lr-modal-content">
+				<button
+					onclick="lrCloseModal()"
+					class="absolute top-4 right-4 text-slate-400 hover:text-slate-600 text-2xl"
+					aria-label="Закрыть"
+				>
+					&times;
+				</button>
+
+				<!-- Step 1 -->
+				<div id="lr-step-1" class="lr-step block">
+					<div
+						class="text-xs font-bold text-slate-400 uppercase tracking-widest mb-1"
+					>
+						Шаг 1 из 4
+					</div>
+					<h3 class="font-serif text-2xl font-bold text-slate-900 mb-6">
+						Какая мебель требует спасения?
+					</h3>
+					<div class="grid grid-cols-2 gap-3 mb-6">
+						<label
+							class="border rounded-lg p-3 text-center cursor-pointer hover:border-lr-accent hover:bg-slate-50 transition"
+						>
+							<input type="radio" name="furniture" class="hidden" />
+							<i
+								class="fa-solid fa-couch text-2xl text-slate-400 mb-2 block"
+							></i>
+							<span class="font-medium text-slate-700">Диван</span>
+						</label>
+						<label
+							class="border rounded-lg p-3 text-center cursor-pointer hover:border-lr-accent hover:bg-slate-50 transition"
+						>
+							<input type="radio" name="furniture" class="hidden" />
+							<i
+								class="fa-solid fa-chair text-2xl text-slate-400 mb-2 block"
+							></i>
+							<span class="font-medium text-slate-700">Кресло</span>
+						</label>
+						<label
+							class="border rounded-lg p-3 text-center cursor-pointer hover:border-lr-accent hover:bg-slate-50 transition"
+						>
+							<input type="radio" name="furniture" class="hidden" />
+							<i class="fa-solid fa-bed text-2xl text-slate-400 mb-2 block"></i>
+							<span class="font-medium text-slate-700">Изголовье кровати</span>
+						</label>
+						<label
+							class="border rounded-lg p-3 text-center cursor-pointer hover:border-lr-accent hover:bg-slate-50 transition"
+						>
+							<input type="radio" name="furniture" class="hidden" />
+							<i
+								class="fa-solid fa-ellipsis text-2xl text-slate-400 mb-2 block"
+							></i>
+							<span class="font-medium text-slate-700">Другое</span>
+						</label>
+					</div>
+					<button
+						onclick="lrNextStep(2)"
+						class="w-full bg-lr-primary text-white font-bold py-3 rounded-lg hover:bg-lr-secondary transition"
+					>
+						Далее <i class="fa-solid fa-arrow-right ml-2 text-sm"></i>
+					</button>
+				</div>
+
+				<!-- Step 2 -->
+				<div id="lr-step-2" class="lr-step hidden">
+					<div
+						class="text-xs font-bold text-slate-400 uppercase tracking-widest mb-1"
+					>
+						Шаг 2 из 4
+					</div>
+					<h3 class="font-serif text-2xl font-bold text-slate-900 mb-6">
+						Что случилось?
+					</h3>
+					<div class="space-y-2 mb-6">
+						<label
+							class="flex items-center gap-3 p-3 border rounded-lg cursor-pointer hover:bg-slate-50"
+						>
+							<input type="checkbox" class="w-5 h-5 text-lr-accent" />
+							<span class="font-medium text-slate-700">Прожог / порез</span>
+						</label>
+						<label
+							class="flex items-center gap-3 p-3 border rounded-lg cursor-pointer hover:bg-slate-50"
+						>
+							<input type="checkbox" class="w-5 h-5 text-lr-accent" />
+							<span class="font-medium text-slate-700">Царапины от когтей</span>
+						</label>
+						<label
+							class="flex items-center gap-3 p-3 border rounded-lg cursor-pointer hover:bg-slate-50"
+						>
+							<input type="checkbox" class="w-5 h-5 text-lr-accent" />
+							<span class="font-medium text-slate-700"
+								>Потертости / выцветание</span
+							>
+						</label>
+						<label
+							class="flex items-center gap-3 p-3 border rounded-lg cursor-pointer hover:bg-slate-50"
+						>
+							<input type="checkbox" class="w-5 h-5 text-lr-accent" />
+							<span class="font-medium text-slate-700">Облезает (экокожа)</span>
+						</label>
+					</div>
+					<div class="flex gap-3">
+						<button
+							onclick="lrNextStep(1)"
+							class="px-4 py-3 bg-slate-100 text-slate-600 rounded-lg hover:bg-slate-200"
+						>
+							<i class="fa-solid fa-arrow-left"></i>
+						</button>
+						<button
+							onclick="lrNextStep(3)"
+							class="flex-1 bg-lr-primary text-white font-bold py-3 rounded-lg hover:bg-lr-secondary transition"
+						>
+							Далее
+						</button>
+					</div>
+				</div>
+
+				<!-- Step 3 -->
+				<div id="lr-step-3" class="lr-step hidden">
+					<div
+						class="text-xs font-bold text-slate-400 uppercase tracking-widest mb-1"
+					>
+						Шаг 3 из 4
+					</div>
+					<h3 class="font-serif text-2xl font-bold text-slate-900 mb-6">
+						Прикрепите фото (необязательно)
+					</h3>
+					<p class="text-sm text-slate-500 mb-4">
+						Фото поможет мастеру сразу оценить масштаб проблемы.
+					</p>
+
+					<div
+						class="border-2 border-dashed border-slate-300 rounded-xl p-8 text-center mb-6 bg-slate-50 relative cursor-pointer hover:bg-slate-100 transition"
+					>
+						<input
+							type="file"
+							class="absolute inset-0 w-full h-full opacity-0 cursor-pointer"
+							accept="image/*"
+						/>
+						<i
+							class="fa-solid fa-cloud-arrow-up text-4xl text-slate-400 mb-3 block"
+						></i>
+						<span class="font-medium text-lr-primary"
+							>Нажмите, чтобы загрузить фото</span
+						>
+						<span class="block text-xs text-slate-400 mt-1"
+							>или перетащите файл сюда</span
+						>
+					</div>
+
+					<div class="flex gap-3">
+						<button
+							onclick="lrNextStep(2)"
+							class="px-4 py-3 bg-slate-100 text-slate-600 rounded-lg hover:bg-slate-200"
+						>
+							<i class="fa-solid fa-arrow-left"></i>
+						</button>
+						<button
+							onclick="lrNextStep(4)"
+							class="flex-1 bg-lr-primary text-white font-bold py-3 rounded-lg hover:bg-lr-secondary transition"
+						>
+							Далее (Последний шаг)
+						</button>
+					</div>
+				</div>
+
+				<!-- Step 4 -->
+				<div id="lr-step-4" class="lr-step hidden">
+					<div
+						class="text-xs font-bold text-slate-400 uppercase tracking-widest mb-1"
+					>
+						ФИНАЛ
+					</div>
+					<h3 class="font-serif text-2xl font-bold text-slate-900 mb-6">
+						Куда прислать расчет стоимости?
+					</h3>
+
+					<div class="space-y-4 mb-6">
+						<div>
+							<label class="block text-sm font-medium text-slate-700 mb-1"
+								>Ваше имя</label
+							>
+							<input
+								type="text"
+								placeholder="Иван"
+								class="w-full border border-slate-300 rounded-lg p-3 outline-none focus:border-lr-accent focus:ring-1 focus:ring-lr-accent"
+							/>
+						</div>
+						<div>
+							<label class="block text-sm font-medium text-slate-700 mb-1"
+								>Телефон (для связи в WhatsApp)</label
+							>
+							<input
+								type="tel"
+								placeholder="+7 (___) ___--"
+								class="w-full border border-slate-300 rounded-lg p-3 outline-none focus:border-lr-accent focus:ring-1 focus:ring-lr-accent"
+							/>
+						</div>
+					</div>
+
+					<div class="flex gap-3">
+						<button
+							onclick="lrNextStep(3)"
+							class="px-4 py-3 bg-slate-100 text-slate-600 rounded-lg hover:bg-slate-200"
+						>
+							<i class="fa-solid fa-arrow-left"></i>
+						</button>
+						<button
+							type="button"
+							onclick="alert('Заявка отправлена (демо)!')"
+							class="flex-1 bg-emerald-600 text-white font-bold py-3 rounded-lg hover:bg-emerald-700 transition shadow-lg"
+						>
+							Получить расчет
+						</button>
+					</div>
+					<p class="text-[10px] text-center text-slate-400 mt-4">
+						Нажимая кнопку, вы соглашаетесь с условиями обработки персональных
+						данных.
+					</p>
+				</div>
+			</div>
+		</div>
+
+		<script>
+			/* --- Before/After Slider Logic --- */
+
+			function lrBaMove(e, container) {
+				// Prevent default to stop scrolling if touching
+				if (e.type === 'touchmove') {
+					// allow scroll if moving vertically more than horizontally, but let's keep it simple
+				}
+
+				const rect = container.getBoundingClientRect()
+				// Get X position relative to container
+				let xPos = 0
+				if (e.type === 'touchmove') {
+					xPos = e.touches[0].clientX - rect.left
+				} else {
+					xPos = e.clientX - rect.left
+				}
+
+				// Calculate percentage
+				let percent = (xPos / rect.width) * 100
+
+				// Constrain bounds
+				if (percent < 0) percent = 0
+				if (percent > 100) percent = 100
+
+				// Apply width to Before image and left position to Handle
+				const beforeImg = container.querySelector('.lr-ba-img-before')
+				const handle = container.querySelector('.lr-ba-slider-handle')
+
+				beforeImg.style.width = percent + '%'
+				handle.style.left = percent + '%'
+			}
+
+			const swiper = new Swiper('.lr-carousel', {
+				slidesPerView: 1,
+				spaceBetween: 10,
+				centeredSlides: false,
+				loop: true,
+				navigation: {
+					nextEl: '.swiper-button-next',
+					prevEl: '.swiper-button-prev',
+				},
+
+				breakpoints: {
+					640: {
+						slidesPerView: 1,
+						spaceBetween: 20,
+					},
+					1024: {
+						slidesPerView: 2,
+						spaceBetween: 20,
+					},
+				},
+			})
+
+			/* --- Modal Logic --- */
+			function lrOpenModal() {
+				const modal = document.getElementById('lr-quiz-modal')
+				modal.classList.add('lr-active')
+				lrNextStep(1) // Reset to step 1
+			}
+
+			function lrCloseModal() {
+				const modal = document.getElementById('lr-quiz-modal')
+				modal.classList.remove('lr-active')
+			}
+
+			function lrNextStep(stepNum) {
+				// Hide all
+				document
+					.querySelectorAll('.lr-step')
+					.forEach(step => step.classList.add('hidden'))
+				// Show target
+				document.getElementById('lr-step-' + stepNum).classList.remove('hidden')
+			}
+		</script>
+	</body>
+</html>
