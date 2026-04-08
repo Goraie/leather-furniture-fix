@@ -24,6 +24,9 @@
 		/>
 		<script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
 
+		<link href="https://cdn.jsdelivr.net/npm/glightbox/dist/css/glightbox.min.css" rel="stylesheet">
+		<script src="https://cdn.jsdelivr.net/npm/glightbox/dist/js/glightbox.min.js"></script>
+
 		<script>
 			tailwind.config = {
 				theme: {
@@ -46,9 +49,9 @@
 
 		<style>
 			/* 
-    * Lenremont Custom Prefix & Core Structure
-    * Mirroring .x-container parameters 
-    */
+			* Lenremont Custom Prefix & Core Structure
+			* Mirroring .x-container parameters 
+			*/
 			.lr-container {
 				width: 88%;
 				max-width: 1280px;
@@ -245,6 +248,37 @@
 				color: #fff;
 				font-size: 16px;
 			}
+			.lr-card-image {
+			display: block;
+			position: relative;
+			overflow: hidden;
+			border-radius: 12px;
+			cursor: pointer;
+			height: 240px;
+			}
+
+			.lr-card-image img {
+			transition: transform 0.3s ease;
+			height: 100%;
+			object-fit: cover;
+			}
+
+			.lr-card-image:hover img {
+			transform: scale(1.05);
+			}
+			.swiper-slide{
+				display: flex;
+				flex-direction: column;
+				height: auto;
+			}
+			.swiper-card-bottom{
+				flex: 1;
+				height: 100%;
+				display: flex;
+				flex-direction: column;
+				justify-content: space-between;
+			}
+
 		</style>
 	</head>
 	<body>
@@ -455,192 +489,113 @@
 
 				<div class="swiper lr-carousel">
 					<div class="swiper-wrapper">
-						<!-- Card 1 -->
-						<div class="swiper-slide lr-carousel-card">
-							<!-- Before/After module -->
-							<div
-								class="lr-ba-slider"
-								onmousemove="lrBaMove(event, this)"
-								ontouchmove="lrBaMove(event, this)"
-							>
-								<!-- After Image -->
-								<img
-									class="lr-ba-img-after object-cover"
-									src="https://images.unsplash.com/photo-1555041469-a586c61ea9bc?auto=format&fit=crop&q=80&w=800"
-									alt="После"
-								/>
-								<!-- Before Image Container -->
-								<div class="lr-ba-img-before">
-									<!-- Using a grayscale filter to simulate 'before' visually for mockup purposes -->
-									<img
-										src="https://images.unsplash.com/photo-1555041469-a586c61ea9bc?auto=format&fit=crop&q=80&w=800&sat=-100"
-										class="w-[200%] h-full max-w-none object-cover"
-										alt="До"
-									/>
-								</div>
-								<div class="lr-ba-slider-handle">
-									<i class="fa-solid fa-arrows-left-right"></i>
-								</div>
-								<div
-									class="absolute top-2 left-2 bg-black/60 text-white text-xs px-2 py-1 rounded"
-								>
-									ДО
-								</div>
-								<div
-									class="absolute top-2 right-2 bg-lr-accent/90 text-white text-xs px-2 py-1 rounded"
-								>
-									ПОСЛЕ
-								</div>
-							</div>
-							<!-- Card Body -->
-							<div class="p-6 bg-slate-50 flex-grow">
-								<div
-									class="text-xs uppercase tracking-wide text-lr-accent font-bold mb-2"
-								>
-									КЕЙС 1: «Паникующий хозяин питомца»
-								</div>
-								<h4 class="font-bold text-lg mb-3">
-									Боль: Кот уничтожил дорогую вещь
-								</h4>
-								<p class="text-sm text-slate-600 italic mb-4">
-									«Мой мейн-кун за месяц превратил подлокотник дивана за 200
-									тысяч в лохмотья... Мастер из Ленремонта приехал с
-									чемоданчиком, колдовал 3 часа. Я не знаю, как он это сделал,
-									но он восстановил саму фактуру кожи! Царапин просто НЕТ.»
-								</p>
-								<div class="text-xs text-slate-500 mb-4">
-									— Игорь В., Приморский район.
-								</div>
-								<div
-									class="bg-white p-3 rounded text-sm border border-slate-200"
-								>
-									<strong>Что сделали:</strong> Жидкая кожа, восстановление
-									мереи, колеровка.<br />
-									<strong>Цена:</strong> 5 500 ₽.
-								</div>
-							</div>
-						</div>
 
-						<!-- Card 2 -->
-						<div class="swiper-slide lr-carousel-card">
-							<div
-								class="lr-ba-slider"
-								onmousemove="lrBaMove(event, this)"
-								ontouchmove="lrBaMove(event, this)"
-							>
-								<img
-									class="lr-ba-img-after object-cover"
-									src="https://images.unsplash.com/photo-1486946255434-2466348c2166?auto=format&fit=crop&q=80&w=800"
-									alt="После"
-								/>
-								<div class="lr-ba-img-before">
-									<img
-										src="https://images.unsplash.com/photo-1486946255434-2466348c2166?auto=format&fit=crop&q=80&w=800&sat=-100"
-										class="w-[200%] h-full max-w-none object-cover"
-										alt="До"
-									/>
-								</div>
-								<div class="lr-ba-slider-handle">
-									<i class="fa-solid fa-arrows-left-right"></i>
-								</div>
-								<div
-									class="absolute top-2 left-2 bg-black/60 text-white text-xs px-2 py-1 rounded"
-								>
-									ДО
-								</div>
-								<div
-									class="absolute top-2 right-2 bg-lr-accent/90 text-white text-xs px-2 py-1 rounded"
-								>
-									ПОСЛЕ
-								</div>
+					<!-- Card 1 -->
+					<div class="swiper-slide bg-slate-50 lr-carousel-card">
+						<a href="https://images.unsplash.com/photo-1555041469-a586c61ea9bc?auto=format&fit=crop&q=80&w=1600" class="glightbox lr-card-image" data-gallery="cases">
+						<img src="https://images.unsplash.com/photo-1555041469-a586c61ea9bc?auto=format&fit=crop&q=80&w=800" class="object-cover w-full h-[220px]" alt="">
+						<div class="absolute top-2 right-2 bg-lr-accent/90 text-white text-xs px-2 py-1 rounded">Смотреть</div>
+						</a>
+						<div class="p-6 flex-grow swiper-card-bottom">
+							
+							<div class="mb-4">
+								<div class="text-xs uppercase tracking-wide text-lr-accent font-bold mb-2">КЕЙС 1: Срочный ремонт</div>
+								<h4 class="font-bold text-lg mb-3">Боль: Прожог от сигареты перед сдачей квартиры</h4>
+								<p class="text-sm text-slate-600 italic mb-4">«Нашёл прожог за день до сдачи квартиры. Думал — всё, депозит не вернут. Мастер приехал вечером, всё восстановил за 2 часа. Даже не видно, где было.»</p>
+								<div class="text-xs text-slate-500">— Алексей, аренда квартиры</div>
 							</div>
-							<div class="p-6 bg-slate-50 flex-grow">
-								<div
-									class="text-xs uppercase tracking-wide text-lr-accent font-bold mb-2"
-								>
-									КЕЙС 2: «Шокированный гостеприимец»
-								</div>
-								<h4 class="font-bold text-lg mb-3">
-									Боль: Прожог на самом видном месте
-								</h4>
-								<p class="text-sm text-slate-600 italic mb-4">
-									«Жильцы прожгли кальянным углем белое кожаное кресло. Дыра
-									прямо по центру! Вызвала Ленремонт. Мастер смешал краску прямо
-									при мне — цвет совпал идеально... Никакого пятна или жесткой
-									корки.»
-								</p>
-								<div class="text-xs text-slate-500 mb-4">
-									— Анна С., ст. м. Маяковская.
-								</div>
-								<div
-									class="bg-white p-3 rounded text-sm border border-slate-200"
-								>
-									<strong>Что сделали:</strong> Термо-ремонт прожога, сетка,
-									покраска.<br />
-									<strong>Цена:</strong> 4 000 ₽.
-								</div>
+							
+							<div class=" bg-white p-3 rounded text-sm border border-slate-200">
+								<strong>Что сделали:</strong> Ремонт прожога, локальная покраска.<br>
+								<strong>Цена:</strong> 3 000 ₽.
 							</div>
 						</div>
+					</div>
 
-						<!-- Card 3 -->
-						<div class="swiper-slide lr-carousel-card">
-							<div
-								class="lr-ba-slider"
-								onmousemove="lrBaMove(event, this)"
-								ontouchmove="lrBaMove(event, this)"
-							>
-								<img
-									class="lr-ba-img-after object-cover"
-									src="https://images.unsplash.com/photo-1541558869434-2840d308329a?auto=format&fit=crop&q=80&w=800"
-									alt="После"
-								/>
-								<div class="lr-ba-img-before">
-									<img
-										src="https://images.unsplash.com/photo-1541558869434-2840d308329a?auto=format&fit=crop&q=80&w=800&sat=-100"
-										class="w-[200%] h-full max-w-none object-cover"
-										alt="До"
-									/>
-								</div>
-								<div class="lr-ba-slider-handle">
-									<i class="fa-solid fa-arrows-left-right"></i>
-								</div>
-								<div
-									class="absolute top-2 left-2 bg-black/60 text-white text-xs px-2 py-1 rounded"
-								>
-									ДО
-								</div>
-								<div
-									class="absolute top-2 right-2 bg-lr-accent/90 text-white text-xs px-2 py-1 rounded"
-								>
-									ПОСЛЕ
-								</div>
-							</div>
-							<div class="p-6 bg-slate-50 flex-grow">
-								<div
-									class="text-xs uppercase tracking-wide text-lr-accent font-bold mb-2"
-								>
-									КЕЙС 3: «Экономный эстет»
-								</div>
-								<h4 class="font-bold text-lg mb-3">
-									Боль: Кожзам начал осыпаться хлопьями
-								</h4>
-								<p class="text-sm text-slate-600 italic mb-4">
-									«У кресла начала отваливаться экокожа на сидушке... В
-									Ленремонте честно сказали: красить бесполезно. Просто заменили
-									этот кусок на качественную экокожу и подогнали цвет. Кресло
-									как из магазина!»
-								</p>
-								<div class="text-xs text-slate-500 mb-4">
-									— Дмитрий, Мурино.
-								</div>
-								<div
-									class="bg-white p-3 rounded text-sm border border-slate-200"
-								>
-									<strong>Что сделали:</strong> Локальная перетяжка сиденья.<br />
-									<strong>Цена:</strong> 3 500 ₽.
-								</div>
-							</div>
+					<!-- Card 2 -->
+					<div class="swiper-slide bg-slate-50 lr-carousel-card">
+						<a href="https://images.unsplash.com/photo-1486946255434-2466348c2166?auto=format&fit=crop&q=80&w=1600" class="glightbox lr-card-image" data-gallery="cases">
+						<img src="https://images.unsplash.com/photo-1486946255434-2466348c2166?auto=format&fit=crop&q=80&w=800" class="object-cover w-full h-[220px]" alt="">
+						<div class="absolute top-2 right-2 bg-lr-accent/90 text-white text-xs px-2 py-1 rounded">Смотреть</div>
+						</a>
+						<div class="p-6 flex-grow swiper-card-bottom">
+						<div class="mb-4">
+
+							<div class="text-xs uppercase tracking-wide text-lr-accent font-bold mb-2">КЕЙС 2: После гостей</div>
+							<h4 class="font-bold text-lg mb-3">Боль: Пятна и потертости на светлом диване</h4>
+							<p class="text-sm text-slate-600 italic mb-4">«После гостей диван выглядел как после войны. Пятна, потертости... Уже думала менять. Почистили и подкрасили — стал как новый.»</p>
+							<div class="text-xs text-slate-500">— Марина, новостройка</div>
+						</div>	
+						<div class=" bg-white p-3 rounded text-sm border border-slate-200">
+							<strong>Что сделали:</strong> Чистка + восстановление цвета.<br>
+							<strong>Цена:</strong> 4 200 ₽.
 						</div>
+						</div>
+					</div>
+
+					<!-- Card 3 -->
+					<div class="swiper-slide bg-slate-50 lr-carousel-card">
+						<a href="https://images.unsplash.com/photo-1541558869434-2840d308329a?auto=format&fit=crop&q=80&w=1600" class="glightbox lr-card-image" data-gallery="cases">
+						<img src="https://images.unsplash.com/photo-1541558869434-2840d308329a?auto=format&fit=crop&q=80&w=800" class="object-cover w-full h-[220px]" alt="">
+						<div class="absolute top-2 right-2 bg-lr-accent/90 text-white text-xs px-2 py-1 rounded">Смотреть</div>
+						</a>
+						<div class="p-6 flex-grow swiper-card-bottom">
+						<div class="mb-4">
+
+							<div class="text-xs uppercase tracking-wide text-lr-accent font-bold mb-2">КЕЙС 3: Когти животного</div>
+							<h4 class="font-bold text-lg mb-3">Боль: Глубокие царапины от собаки</h4>
+							<p class="text-sm text-slate-600 italic mb-4">«Собака разодрала бок дивана. Уже думали выкидывать. Восстановили текстуру — даже при свете не видно.»</p>
+							<div class="text-xs text-slate-500">— Ирина, семья с собакой</div>
+						</div>	
+						<div class=" bg-white p-3 rounded text-sm border border-slate-200">
+							<strong>Что сделали:</strong> Жидкая кожа, восстановление фактуры.<br>
+							<strong>Цена:</strong> 5 800 ₽.
+						</div>
+						</div>
+					</div>
+
+					<!-- Card 4 -->
+					<div class="swiper-slide bg-slate-50 lr-carousel-card">
+						<a href="https://images.unsplash.com/photo-1505691938895-1758d7feb511?auto=format&fit=crop&q=80&w=1600" class="glightbox lr-card-image" data-gallery="cases">
+						<img src="https://images.unsplash.com/photo-1505691938895-1758d7feb511?auto=format&fit=crop&q=80&w=800" class="object-cover w-full h-[220px]" alt="">
+						<div class="absolute top-2 right-2 bg-lr-accent/90 text-white text-xs px-2 py-1 rounded">Смотреть</div>
+						</a>
+						<div class="p-6 flex-grow swiper-card-bottom">
+						<div class="mb-4">
+
+							<div class="text-xs uppercase tracking-wide text-lr-accent font-bold mb-2">КЕЙС 4: Старый диван</div>
+							<h4 class="font-bold text-lg mb-3">Боль: Потеря цвета и трещины</h4>
+							<p class="text-sm text-slate-600 italic mb-4">«Дивану 7 лет, весь выцвел и потрескался. После восстановления выглядит как новый из салона.»</p>
+							<div class="text-xs text-slate-500">— Олег, загородный дом</div>
+						</div>	
+						<div class=" bg-white p-3 rounded text-sm border border-slate-200">
+							<strong>Что сделали:</strong> Полная покраска и защита кожи.<br>
+							<strong>Цена:</strong> 7 500 ₽.
+						</div>
+						</div>
+					</div>
+
+					<!-- Card 5 -->
+					<div class="swiper-slide bg-slate-50 lr-carousel-card">
+						<a href="https://images.unsplash.com/photo-1493666438817-866a91353ca9?auto=format&fit=crop&q=80&w=1600" class="glightbox lr-card-image" data-gallery="cases">
+						<img src="https://images.unsplash.com/photo-1493666438817-866a91353ca9?auto=format&fit=crop&q=80&w=800" class="object-cover w-full h-[220px]" alt="">
+						<div class="absolute top-2 right-2 bg-lr-accent/90 text-white text-xs px-2 py-1 rounded">Смотреть</div>
+						</a>
+						<div class="p-6 flex-grow swiper-card-bottom">
+						<div class="mb-4">
+
+							<div class="text-xs uppercase tracking-wide text-lr-accent font-bold mb-2">КЕЙС 5: Офисная мебель</div>
+							<h4 class="font-bold text-lg mb-3">Боль: Износ кресел в офисе</h4>
+							<p class="text-sm text-slate-600 italic mb-4">«Кресла в переговорке были убитые. Заменять дорого — решили восстановить. Теперь выглядят презентабельно.»</p>
+							<div class="text-xs text-slate-500">— Сергей, офис</div>
+						</div>	
+						<div class=" bg-white p-3 rounded text-sm border border-slate-200">
+							<strong>Что сделали:</strong> Реставрация + покраска.<br>
+							<strong>Цена:</strong> 3 200 ₽ / шт.
+						</div>
+						</div>
+					</div>
+
 					</div>
 
 					<!-- кнопки -->
@@ -1147,7 +1102,7 @@
 					<h3 class="font-serif text-2xl font-bold text-slate-900 mb-6">
 						Прикрепите фото (необязательно)
 					</h3>
-					<p class="text-sm text-slate-500 mb-4">
+					<p class="text-sm text-slate-500">
 						Фото поможет мастеру сразу оценить масштаб проблемы.
 					</p>
 
@@ -1246,35 +1201,6 @@
 		<script>
 			/* --- Before/After Slider Logic --- */
 
-			function lrBaMove(e, container) {
-				// Prevent default to stop scrolling if touching
-				if (e.type === 'touchmove') {
-					// allow scroll if moving vertically more than horizontally, but let's keep it simple
-				}
-
-				const rect = container.getBoundingClientRect()
-				// Get X position relative to container
-				let xPos = 0
-				if (e.type === 'touchmove') {
-					xPos = e.touches[0].clientX - rect.left
-				} else {
-					xPos = e.clientX - rect.left
-				}
-
-				// Calculate percentage
-				let percent = (xPos / rect.width) * 100
-
-				// Constrain bounds
-				if (percent < 0) percent = 0
-				if (percent > 100) percent = 100
-
-				// Apply width to Before image and left position to Handle
-				const beforeImg = container.querySelector('.lr-ba-img-before')
-				const handle = container.querySelector('.lr-ba-slider-handle')
-
-				beforeImg.style.width = percent + '%'
-				handle.style.left = percent + '%'
-			}
 
 			const swiper = new Swiper('.lr-carousel', {
 				slidesPerView: 1,
@@ -1297,6 +1223,12 @@
 					},
 				},
 			})
+
+			const lightbox = GLightbox({
+				selector: '.glightbox',
+				touchNavigation: true,
+				loop: true
+			});
 
 			/* --- Modal Logic --- */
 			function lrOpenModal() {
