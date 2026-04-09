@@ -5,7 +5,7 @@
 	--lr-accent-opa: #f59f0b2f;
 	--lr-accent-hover: #d97706;
 	--lr-brand: #0ea5e9;
-	--lr-brand-hover: #0B64C0;
+	--lr-brand-hover: #0b64c0;
 }
 
 .lr-container {
@@ -124,11 +124,15 @@
 .lr-carousel-card {
 	background: #fff;
 	border-radius: 1rem;
-	box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.1);
+	box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
 	overflow: hidden;
 	height: auto;
+	transition: box-shadow 0.3s ease-in-out;
 }
 
+.lr-carousel-card:hover {
+	box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
+}
 
 /* Modal */
 .lr-modal {
@@ -284,21 +288,35 @@ html {
 
 .btn-social {
 	display: block;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+
+.btn-social img {
+	display: block;
+	height: 32px;
 }
 
 .btn-social-tg {
-	background-color: #4DB4FF;
+	background-color: #4db4ff;
 	color: white;
 }
 
 .btn-social-vk {
-	background-color: #4A8CF7;
-	;
+	background-color: #4a8cf7;
 	color: white;
 }
 
 .btn-social-max {
-	background: linear-gradient(135deg, #5b51d8, #7c4dff 20%, #8b5cf6 50%, #a855f7 70%, #d946ef);
+	background: linear-gradient(
+		135deg,
+		#5b51d8,
+		#7c4dff 20%,
+		#8b5cf6 50%,
+		#a855f7 70%,
+		#d946ef
+	);
 	color: white;
 }
 
@@ -306,7 +324,6 @@ html {
 	overflow: hidden;
 	text-align: center;
 }
-
 
 .benefits-icon {
 	min-width: 32px;
@@ -335,7 +352,6 @@ html {
 		height: auto;
 		min-height: 240px;
 	}
-
 }
 
 /* Quiz Improvements */

@@ -32,6 +32,8 @@
 						'lr-accent-hover': '#d97706',
 						'lr-brand': '#0ea5e9',
 						'lr-brand-hover': '#0B64C0',
+						'lr-green': '#399e5f',
+						'lr-green-hover': '#27884c',
 					},
 					fontFamily: {
 						sans: ['Inter', 'sans-serif'],
@@ -164,17 +166,22 @@
 
 					<a href="https://telegram.me/lenremont_bot" target="_blank" rel="noreferrer"
 						class="btn-social btn-social-tg shadow-lg transform transition hover:-translate-y-1 px-8 py-5 rounded-full font-bold text-lg w-full">
-						Telegram
+						<!-- Telegram -->
+						<img src="/assets/icons/tg.svg" alt="">
 					</a>
 
 					<a href="vk.com/?u=2&to=L2FsX2ltLnBocD9zZWw9LTM3MTcyNzAz" target="_blank" rel="noreferrer"
 						class="btn-social btn-social-vk shadow-lg transform transition hover:-translate-y-1 px-8 py-5 rounded-full font-bold text-lg w-full">
-						VK
+						<!-- VK -->
+						<img src="/assets/icons/vk.svg" alt="">
+
 					</a>
 
 					<a href="https://max.ru/id471902475874_3_bot" target="_blank" rel="noreferrer"
 						class="btn-social btn-social-max shadow-lg transform transition hover:-translate-y-1 px-8 py-5 rounded-full font-bold text-lg w-full">
-						Max
+						<!-- Max -->
+						<img src="/assets/icons/max.svg" alt="">
+
 					</a>
 				</div>
 
@@ -184,8 +191,8 @@
 				</p>
 
 				<a href="tel:+78004440243"
-					class="max-w-sm mx-auto btn-social bg-lr-accent-hover hover:bg-lr-accent text-white font-bold text-lg px-8 py-5 rounded-full shadow-lg transform transition hover:-translate-y-1 w-full">
-					+7&nbsp;(800)&nbsp;444-02-43
+					class="max-w-sm mx-auto btn-social bg-lr-green hover:bg-lr-green-hover text-white font-bold text-lg px-8 py-5 rounded-full shadow-lg transform transition hover:-translate-y-1 w-full">
+					Позвонить
 				</a>
 
 				<p class="text-sm text-slate-400 mt-4 flex items-center justify-center gap-2">
@@ -596,6 +603,10 @@
 						Ориентировочные цены:
 					</h4>
 					<ul class="space-y-3">
+						<li class="flex justify-between items-center bg-green-50 p-2 rounded-mx-2 mb-2">
+							<span class="text-green-800 font-bold">Осмотр мастера</span>
+							<span class="font-bold text-green-700">БЕСПЛАТНО</span>
+						</li>
 						<li
 							class="flex justify-between hover:bg-slate-50 p-2 transition items-start border-b border-slate-50">
 							<span class="text-slate-700 font-medium">
@@ -651,10 +662,7 @@
 								</span>
 							</div>
 						</li>
-						<li class="flex justify-between items-center bg-green-50 p-2 rounded -mx-2 mt-2">
-							<span class="text-green-800 font-bold">Осмотр мастера</span>
-							<span class="font-bold text-green-700">БЕСПЛАТНО</span>
-						</li>
+						
 					</ul>
 				</div>
 			</div>
@@ -783,28 +791,28 @@
 					<label
 						class="lr-choice-label border rounded-lg p-3 text-center cursor-pointer hover:border-lr-accent hover:bg-slate-50 transition">
 						<input type="radio" name="furniture" value="Диван" class="hidden"
-							onchange="lrHandleSelection(this)" />
+							onchange="lrHandleSelection(this)" onclick="lrNextStep(2)" />
 						<i class="fa-solid fa-couch text-2xl text-slate-400 mb-2 block"></i>
 						<span class="font-medium text-slate-700">Диван</span>
 					</label>
 					<label
 						class="lr-choice-label border rounded-lg p-3 text-center cursor-pointer hover:border-lr-accent hover:bg-slate-50 transition">
 						<input type="radio" name="furniture" value="Кресло" class="hidden"
-							onchange="lrHandleSelection(this)" />
+							onchange="lrHandleSelection(this)" onclick="lrNextStep(2)" />
 						<i class="fa-solid fa-chair text-2xl text-slate-400 mb-2 block"></i>
 						<span class="font-medium text-slate-700">Кресло</span>
 					</label>
 					<label
 						class="lr-choice-label border rounded-lg p-3 text-center cursor-pointer hover:border-lr-accent hover:bg-slate-50 transition">
 						<input type="radio" name="furniture" value="Изголовье" class="hidden"
-							onchange="lrHandleSelection(this)" />
+							onchange="lrHandleSelection(this)" onclick="lrNextStep(2)" />
 						<i class="fa-solid fa-bed text-2xl text-slate-400 mb-2 block"></i>
 						<span class="font-medium text-slate-700">Изголовье кровати</span>
 					</label>
 					<label
 						class="lr-choice-label border rounded-lg p-3 text-center cursor-pointer hover:border-lr-accent hover:bg-slate-50 transition">
 						<input type="radio" name="furniture" value="Другое" class="hidden"
-							onchange="lrHandleSelection(this)" />
+							onchange="lrHandleSelection(this)" onclick="lrNextStep(2)" />
 						<i class="fa-solid fa-ellipsis text-2xl text-slate-400 mb-2 block"></i>
 						<span class="font-medium text-slate-700">Другое</span>
 					</label>
