@@ -43,6 +43,17 @@
 							sans: ['Inter', 'sans-serif'],
 							serif: ['Playfair Display', 'serif'],
 						},
+						keyframes: {
+							ping: {
+							'75%, 100%': {
+								transform: 'scale(2)',
+								opacity: '0',
+							},
+							},
+						},
+						animation: {
+							'ping-slow': 'ping 3s cubic-bezier(0, 0, 0.2, 1) infinite',
+						},
 					},
 				},
 			}
@@ -178,7 +189,7 @@
 		<!-- AGITATION SECTION -->
 		<section class="max-w-full bg-slate-50 py-16">
 			<div class="lr-container">
-				<div class="lr-2col">
+				<div class="lr-2col lr-2col-b">
 					<div class="lr-text-left">
 						<h2 class="font-serif lr-h2 font-bold mb-6 text-slate-900">
 							Знакомая ситуация?
@@ -257,9 +268,9 @@
 					</div>
 					<div class="lr-img-right">
 						<img
-							src="https://images.unsplash.com/photo-1493663284031-b7e3aefcae8e?auto=format&fit=crop&q=80&w=800"
+							src="/assets/sofa.jpg"
 							alt="Испорченный диван"
-							class="rounded-xl shadow-xl w-full h-[500px] object-cover"
+							class="agit-img rounded-xl shadow-xl w-full object-cover "
 						/>
 					</div>
 				</div>
@@ -565,9 +576,7 @@
 							скрытых доплат. Цена фиксируется в договоре ДО начала работ.
 						</p>
 					</div>
-					<div
-						class="lr-img-right bg-white p-6 rounded-xl shadow-lg border border-slate-100 w-full md:w-[450px]"
-					>
+					<div class="lr-img-right bg-white p-6 rounded-xl shadow-lg border border-slate-100 w-full md:w-[450px]">
 						<h4 class="font-bold text-slate-900 text-lg mb-4 border-b pb-2">
 							Ориентировочные цены:
 						</h4>
@@ -653,7 +662,7 @@
 				</p>
 				<button
 					onclick="lrOpenModal()"
-					class="bg-lr-accent hover:bg-lr-accent-hover text-white font-bold text-lg px-8 py-4 rounded-full shadow-lg transform transition hover:-translate-y-1"
+					class="bg-lr-accent hover:bg-lr-accent-hover text-white font-bold  text-sm sm:text-lg px-8 py-4 rounded-full shadow-lg transform transition hover:-translate-y-1"
 				>
 					<i class="fa-solid fa-clipboard-list mr-2"></i> Начать
 					онлайн-диагностику
@@ -674,9 +683,7 @@
 					дольше вы ждете, тем дороже будет ремонт.
 				</p>
 
-				<div
-					class="bg-slate-50 border border-slate-200 rounded-2xl p-8 mb-10 relative overflow-hidden text-left"
-				>
+				<div class="bg-slate-50 border border-slate-200 rounded-2xl p-8 mb-10 relative overflow-hidden text-left">
 					<div class="absolute top-0 left-0 w-2 h-full bg-lr-accent"></div>
 					<h3 class="font-bold text-xl mb-2 text-slate-900">
 						<i class="fa-solid fa-gift text-lr-accent mr-2"></i> БОНУС ЗА
@@ -690,35 +697,24 @@
 					</p>
 				</div>
 
-				<div
-					class="flex flex-col md:flex-row gap-6 justify-center items-center"
-				>
-					<button
-						onclick="lrOpenModal()"
-						class="bg-lr-brand hover:bg-lr-brand-hover text-white font-bold text-lg px-8 py-5 rounded-full shadow-lg transform transition hover:-translate-y-1 w-full md:w-auto text-center flex justify-center items-center gap-2"
-					>
+				<div class="flex flex-col md:flex-row gap-6 justify-center items-center">
+					<button onclick="lrOpenModal()" class="bg-lr-brand hover:bg-lr-brand-hover text-white font-bold text-sm smc:text-lg px-8 py-5 rounded-full shadow-lg transform transition hover:-translate-y-1 w-full md:w-auto text-center flex justify-center items-center gap-2">
 						<span>Вызвать мастера + забрать бонус</span>
 					</button>
 
 					<div class="text-left">
-						<div
-							class="text-sm text-slate-500 uppercase font-bold text-center md:text-left"
-						>
+						<div class="text-sm text-slate-500 uppercase font-bold text-center md:text-left">
 							Круглосуточно:
 						</div>
 						<div class="text-2xl font-bold text-slate-900 mb-1">
-							<i class="fa-solid fa-phone text-slate-400 mr-1 text-lg"></i> 8
-							(812) 344-44-44
+							<i class="fa-solid fa-phone text-slate-400 mr-1 text-lg"></i> 
+							8 (812) 344-44-44
 						</div>
 						<div class="flex gap-3 justify-center md:justify-start">
-							<a
-								href="#"
-								class="w-8 h-8 rounded-full bg-green-500 text-white flex justify-center items-center hover:bg-green-600 transition"
-								><i class="fa-brands fa-whatsapp"></i
-							></a>
-							<a
-								href="#"
-								class="w-8 h-8 rounded-full bg-blue-500 text-white flex justify-center items-center hover:bg-blue-600 transition"
+							<a href="#" class="w-8 h-8 rounded-full bg-green-500 text-white flex justify-center items-center hover:bg-green-600 transition">
+								<i class="fa-brands fa-whatsapp"></i>
+							</a>
+							<a href="#" class="w-8 h-8 rounded-full bg-blue-500 text-white flex justify-center items-center hover:bg-blue-600 transition"
 								><i class="fa-brands fa-telegram"></i
 							></a>
 						</div>
@@ -729,11 +725,16 @@
 
 		<!-- Mobile Sticky CTA -->
 		<div class="lr-sticky-cta md:hidden">
-			<button
+			<!-- <button
 				onclick="lrOpenModal()"
-				class="bg-emerald-600 text-white font-bold p-4 rounded-full shadow-2xl flex items-center justify-center animate-bounce"
-			>
+				class="bg-emerald-600 text-white font-bold p-4 rounded-full shadow-2xl flex items-center justify-center animate-bounce">
 				<i class="fa-solid fa-phone-volume text-xl"></i>
+			</button> -->
+			<button onclick="lrOpenModal()" class="bg-emerald-600 text-white font-bold p-4 rounded-full shadow-2xl flex items-center justify-center relative ">
+			<span class="absolute inline-flex h-full w-full animate-ping-slow rounded-full bg-emerald-600 opacity-75"></span>
+			<span class="relative inline-flex rounded-full bg-emerald-600">
+				<i class="fa-solid fa-phone-volume text-md"></i>
+			</span>
 			</button>
 		</div>
 
