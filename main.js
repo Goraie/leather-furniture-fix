@@ -2,6 +2,7 @@
 const swiper = new Swiper('.lr-carousel', {
     slidesPerView: 1,
     spaceBetween: 10,
+    centeredSlides: true,
     loop: true,
     navigation: {
         nextEl: '.swiper-button-next',
@@ -14,7 +15,11 @@ const swiper = new Swiper('.lr-carousel', {
             spaceBetween: 20,
         },
         1024: {
-            slidesPerView: 2,
+            slidesPerView: 1,
+            spaceBetween: 20,
+        },
+        1200: {
+            slidesPerView: 3,
             spaceBetween: 20,
         },
     },

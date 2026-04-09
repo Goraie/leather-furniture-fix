@@ -73,7 +73,6 @@
 .lr-ba-slider {
 	position: relative;
 	width: 100%;
-	overflow: hidden;
 	border-radius: 0.5rem;
 	user-select: none;
 }
@@ -119,7 +118,6 @@
 /* Carousel */
 .lr-carousel {
 	display: flex;
-	overflow-x: auto;
 	gap: 2rem;
 	padding: 1rem 0 2rem;
 	scroll-snap-type: x mandatory;
@@ -234,7 +232,7 @@ html {
 	position: relative;
 	overflow: hidden;
 	border-radius: 12px;
-	height: 240px;
+	/* height: 240px; */
 }
 
 .lr-card-image img {
@@ -265,6 +263,22 @@ html {
 	display: flex;
 	flex-direction: column;
 	height: auto;
+}
+
+.swiper-slide img {
+	height: 320px;
+}
+
+@media (max-width: 768px) {
+	.swiper-slide img {
+		height: 220px;
+	}
+}
+
+@media (max-width: 640px) {
+	.swiper-slide img {
+		height: 200px;
+	}
 }
 
 .swiper-card-bottom {
