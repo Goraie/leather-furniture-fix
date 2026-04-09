@@ -246,4 +246,5 @@ transform: scale(1.05);
 }
 .hero-card{
 	overflow: hidden;
+	text-align: center;
 }
