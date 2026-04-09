@@ -115,37 +115,20 @@
 	pointer-events: none;
 }
 
-/* Carousel */
+/* Carousel - Swiper handled */
 .lr-carousel {
-	display: flex;
-	gap: 2rem;
-	padding: 1rem 0 2rem;
-	scroll-snap-type: x mandatory;
-	scrollbar-width: none;
+	padding: 1rem 0 3rem;
 	overflow: visible;
 }
 
-.lr-carousel:active {
-	cursor: grabbing;
-}
-
-.lr-carousel::-webkit-scrollbar {
-	display: none;
-}
-
 .lr-carousel-card {
-	scroll-snap-align: center;
 	background: #fff;
 	border-radius: 1rem;
 	box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.1);
 	overflow: hidden;
+	height: auto;
 }
 
-@media (min-width: 768px) {
-	.lr-carousel-card {
-		flex: 0 0 calc(50% - 1rem);
-	}
-}
 
 /* Modal */
 .lr-modal {
@@ -225,6 +208,16 @@ html {
 .swiper-button-prev::after {
 	color: #fff;
 	font-size: 16px;
+}
+
+.swiper-pagination-bullet {
+	background: #94a3b8;
+	opacity: 0.5;
+}
+
+.swiper-pagination-bullet-active {
+	background: var(--lr-accent) !important;
+	opacity: 1;
 }
 
 .lr-card-image {
