@@ -47,254 +47,7 @@
 			}
 		</script>
 
-		<style>
-			/* 
-			* Lenremont Custom Prefix & Core Structure
-			* Mirroring .x-container parameters 
-			*/
-			.lr-container {
-				width: 88%;
-				max-width: 1280px;
-				margin: 0 auto;
-			}
-
-			/* Adaptive 2 Column Layout with Mobile Reordering */
-			.lr-2col {
-				display: flex;
-				flex-direction: row;
-				gap: 40px;
-				align-items: center;
-			}
-			.lr-text-left {
-				order: 1;
-				flex: 1;
-			}
-			.lr-img-right {
-				order: 2;
-				flex: 1;
-				min-width: 300px;
-			}
-
-			@media (max-width: 768px) {
-				.lr-2col {
-					flex-direction: column;
-					text-align: left;
-				}
-				.lr-img-right {
-					order: -1;
-					margin-bottom: 20px;
-					width: 100%;
-				}
-				.lr-text-left {
-					order: 1;
-					width: 100%;
-				}
-			}
-
-			/* Typography Clamp */
-			.lr-h1 {
-				font-size: clamp(2rem, 5vw, 3.5rem);
-				line-height: 1.1;
-			}
-			.lr-h2 {
-				font-size: clamp(1.75rem, 4vw, 2.5rem);
-				line-height: 1.2;
-			}
-
-			/* Before/After Slider specific styles */
-			.lr-ba-slider {
-				position: relative;
-				width: 100%;
-				overflow: hidden;
-				border-radius: 0.5rem;
-				user-select: none;
-			}
-			.lr-ba-img-after {
-				width: 100%;
-				display: block;
-				object-fit: cover;
-				aspect-ratio: 16/10;
-			}
-			.lr-ba-img-before {
-				position: absolute;
-				top: 0;
-				left: 0;
-				width: 50%;
-				height: 100%;
-				object-fit: cover;
-				object-position: left;
-				border-right: 3px solid #fff;
-			}
-			.lr-ba-slider-handle {
-				position: absolute;
-				top: 50%;
-				left: 50%;
-				transform: translate(-50%, -50%);
-				width: 48px;
-				height: 48px;
-				background: #fff;
-				border-radius: 50%;
-				display: flex;
-				align-items: center;
-				justify-content: center;
-				cursor: ew-resize;
-				box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
-				z-index: 10;
-				color: #f59e0b;
-				font-size: 1.25rem;
-				pointer-events: none;
-			}
-
-			/* Carousel */
-			.lr-carousel {
-				display: flex;
-				overflow-x: auto;
-				gap: 2rem;
-				padding: 1rem 0 2rem;
-				scroll-snap-type: x mandatory;
-				scrollbar-width: none;
-				cursor: grab;
-				overflow: visible;
-			}
-			.lr-carousel:active {
-				cursor: grabbing;
-			}
-			.lr-carousel::-webkit-scrollbar {
-				display: none;
-			}
-			.lr-carousel-card {
-				flex: 0 0 calc(100% - 2rem);
-				scroll-snap-align: center;
-				background: #fff;
-				border-radius: 1rem;
-				box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.1);
-				overflow: hidden;
-				display: flex;
-				flex-direction: column;
-			}
-			@media (min-width: 768px) {
-				.lr-carousel-card {
-					flex: 0 0 calc(50% - 1rem);
-				}
-			}
-
-			/* Modal */
-			.lr-modal {
-				display: none;
-				position: fixed;
-				inset: 0;
-				background: rgba(15, 23, 42, 0.8);
-				z-index: 9999;
-				align-items: center;
-				justify-content: center;
-				backdrop-filter: blur(4px);
-			}
-			.lr-modal.lr-active {
-				display: flex;
-				animation: fadeIn 0.2s ease;
-			}
-			.lr-modal-content {
-				background: white;
-				width: 92%;
-				max-width: 500px;
-				border-radius: 1rem;
-				padding: 2rem;
-				position: relative;
-				max-height: 90vh;
-				overflow-y: auto;
-			}
-			@keyframes fadeIn {
-				from {
-					opacity: 0;
-				}
-				to {
-					opacity: 1;
-				}
-			}
-			/* Smooth scroll */
-			html {
-				scroll-behavior: smooth;
-			}
-
-			/* Utilities */
-			.lr-text-shadow {
-				text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
-			}
-
-			.swiper-button-next,
-			.swiper-button-prev {
-				color: #000;
-				background: #f59e0b;
-				border-radius: 40px;
-				display: flex;
-				align-items: center;
-				justify-content: center;
-				width: 40px;
-				height: 40px;
-				transition: all 0.2s ease-in-out;
-			}
-			.swiper-button-next:hover,
-			.swiper-button-prev:hover {
-				background: #d97706;
-			}
-			.swiper-button-next {
-				right: -20px;
-			}
-			.swiper-button-prev {
-				left: -20px;
-			}
-			.swiper-button-next::after,
-			.swiper-button-prev::after {
-				color: #fff;
-				font-size: 16px;
-			}
-			.lr-card-image {
-			display: block;
-			position: relative;
-			overflow: hidden;
-			border-radius: 12px;
-			cursor: pointer;
-			height: 240px;
-			}
-
-			.lr-card-image img {
-			transition: transform 0.3s ease;
-			height: 100%;
-			object-fit: cover;
-			}
-
-			.lr-card-image:hover img {
-			transform: scale(1.05);
-			}
-			.swiper-slide{
-				display: flex;
-				flex-direction: column;
-				height: auto;
-			}
-			.swiper-card-bottom{
-				flex: 1;
-				height: 100%;
-				display: flex;
-				flex-direction: column;
-				justify-content: space-between;
-			}
-			.btn-social{
-				display: block;
-			}
-			.btn-social-tg{
-				background-color: #4DB4FF;
-				color: white;
-			}
-			.btn-social-vk{
-				background-color: #4A8CF7;;
-				color: white;
-			}
-			.btn-social-max{
-				background: linear-gradient(135deg, #5b51d8, #7c4dff 20%, #8b5cf6 50%, #a855f7 70%, #d946ef);
-				color: white;
-			}
-
-		</style>
+		<link rel="stylesheet" href="style.css">
 	</head>
 	<body>
 		<!-- HERO SECTION -->
@@ -333,37 +86,53 @@
 
 				<!-- Problems Grid -->
 				<div class="grid grid-cols-2 md:grid-cols-4 gap-2 md:gap-4 mb-12 max-w-5xl mx-auto" >
-					<div class="bg-white/10 backdrop-blur-sm px-3 md:px-4 py-3 rounded-lg border border-white/20 flex items-center gap-3">
-						<i class="fa-solid fa-fire text-red-400 text-xl w-6"></i
-						><span class="text-sm font-medium">Прожоги</span>
+					<div class="hero-card bg-white/10 backdrop-blur-sm rounded-lg border border-white/20 flex flex-col items-center gap-4">
+						<a class="glightbox hero-card-link" data-gallery="cases" href="/assets/drafts/burn-marks.jpg" alt="">
+						<img class="hero-card-img" src="/assets/drafts/burn-marks.jpg" alt="">
+						</a>
+						<span class="text-sm font-medium px-3 md:px-4 py-3 ">Прожоги</span>
 					</div>
-					<div class="bg-white/10 backdrop-blur-sm px-3 md:px-4 py-3 rounded-lg border border-white/20 flex items-center gap-3" >
-						<i class="fa-solid fa-paw text-orange-400 text-xl w-6"></i
-						><span class="text-sm font-medium">Когти животных</span>
+					<div class="hero-card bg-white/10 backdrop-blur-sm rounded-lg border border-white/20 flex flex-col items-center gap-4" >
+						<a class="glightbox hero-card-link" data-gallery="cases" href="/assets/drafts/claws.jpg" alt="">
+						<img class="hero-card-img" src="/assets/drafts/claws.jpg" alt="">
+						</a>
+						<span class="text-sm font-medium px-3 md:px-4 py-3 ">Когти животных</span>
 					</div>
-					<div class="bg-white/10 backdrop-blur-sm px-3 md:px-4 py-3 rounded-lg border border-white/20 flex items-center gap-3">
-						<i class="fa-solid fa-scissors text-slate-300 text-xl w-6"></i
-						><span class="text-sm font-medium">Порезы и разрывы</span>
+					<div class="hero-card bg-white/10 backdrop-blur-sm rounded-lg border border-white/20 flex flex-col items-center gap-4">
+						<a class="glightbox hero-card-link" data-gallery="cases" href="/assets/drafts/cuts.jpg" alt="">
+						<img class="hero-card-img" src="/assets/drafts/cuts.jpg" alt="">
+						</a>
+						<span class="text-sm font-medium px-3 md:px-4 py-3 ">Порезы и разрывы</span>
 					</div>
-					<div class="bg-white/10 backdrop-blur-sm px-3 md:px-4 py-3 rounded-lg border border-white/20 flex items-center gap-3">
-						<i class="fa-solid fa-droplet text-blue-400 text-xl w-6"></i
-						><span class="text-sm font-medium">Пятна и химия</span>
+					<div class="hero-card bg-white/10 backdrop-blur-sm rounded-lg border border-white/20 flex flex-col items-center gap-4">
+						<a class="glightbox hero-card-link" data-gallery="cases" href="/assets/drafts/chemicals.jpg" alt="">
+						<img class="hero-card-img" src="/assets/drafts/chemicals.jpg" alt="">
+						</a>
+						<span class="text-sm font-medium px-3 md:px-4 py-3 ">Пятна и химия</span>
 					</div>
-					<div class="bg-white/10 backdrop-blur-sm px-3 md:px-4 py-3 rounded-lg border border-white/20 flex items-center gap-3">
-						<i class="fa-solid fa-sun text-yellow-400 text-xl w-6"></i
-						><span class="text-sm font-medium">Выцветание</span>
+					<div class="hero-card bg-white/10 backdrop-blur-sm rounded-lg border border-white/20 flex flex-col items-center gap-4">
+						<a class="glightbox hero-card-link" data-gallery="cases" href="/assets/drafts/fading.jpg" alt="">
+						<img class="hero-card-img" src="/assets/drafts/fading.jpg" alt="">
+						</a>
+						<span class="text-sm font-medium px-3 md:px-4 py-3 ">Выцветание</span>
 					</div>
-					<div class="bg-white/10 backdrop-blur-sm px-3 md:px-4 py-3 rounded-lg border border-white/20 flex items-center gap-3">
-						<i class="fa-solid fa-couch text-amber-600 text-xl w-6"></i
-						><span class="text-sm font-medium">Продавленный поролон</span>
+					<div class="hero-card bg-white/10 backdrop-blur-sm rounded-lg border border-white/20 flex flex-col items-center gap-4">
+						<a class="glightbox hero-card-link" data-gallery="cases" href="/assets/drafts/sagging-foam.jpg" alt="">
+						<img class="hero-card-img" src="/assets/drafts/sagging-foam.jpg" alt="">
+						</a>
+						<span class="text-sm font-medium px-3 md:px-4 py-3 ">Продавленный поролон</span>
 					</div>
-					<div class="bg-white/10 backdrop-blur-sm px-3 md:px-4 py-3 rounded-lg border border-white/20 flex items-center gap-3">
-						<i class="fa-solid fa-spray-can text-purple-400 text-xl w-6"></i
-						><span class="text-sm font-medium">Полная перекраска</span>
+					<div class="hero-card bg-white/10 backdrop-blur-sm rounded-lg border border-white/20 flex flex-col items-center gap-4">
+						<a class="glightbox hero-card-link" data-gallery="cases" href="/assets/drafts/rename.jpg" alt="">
+						<img class="hero-card-img" src="/assets/drafts/rename.jpg" alt="">
+						</a>
+						<span class="text-sm font-medium px-3 md:px-4 py-3 ">Полная перекраска</span>
 					</div>
-					<div class="bg-white/10 backdrop-blur-sm px-3 md:px-4 py-3 rounded-lg border border-white/20 flex items-center gap-3">
-						<i class="fa-solid fa-tape text-emerald-400 text-xl w-6"></i
-						><span class="text-sm font-medium">Расхождение швов</span>
+					<div class="hero-card bg-white/10 backdrop-blur-sm rounded-lg border border-white/20 flex flex-col items-center gap-4">
+						<a class="glightbox hero-card-link" data-gallery="cases" href="/assets/drafts/scar.jpg" alt="">
+						<img class="hero-card-img" src="/assets/drafts/scar.jpg" alt="">
+						</a>
+						<span class="text-sm font-medium px-3 md:px-4 py-3 ">Расхождение швов</span>
 					</div>
 				</div>
 				<!-- CTA -->
