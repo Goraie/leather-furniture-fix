@@ -749,6 +749,11 @@
 					&times;
 				</button>
 
+				<!-- Progress Bar -->
+				<div class="lr-progress-container">
+					<div id="lr-progress-fill" class="lr-progress-bar"></div>
+				</div>
+
 				<!-- Step 1 -->
 				<div id="lr-step-1" class="lr-step block">
 					<div
@@ -761,34 +766,34 @@
 					</h3>
 					<div class="grid grid-cols-2 gap-3 mb-6">
 						<label
-							class="border rounded-lg p-3 text-center cursor-pointer hover:border-lr-accent hover:bg-slate-50 transition"
+							class="lr-choice-label border rounded-lg p-3 text-center cursor-pointer hover:border-lr-accent hover:bg-slate-50 transition"
 						>
-							<input type="radio" name="furniture" class="hidden" />
+							<input type="radio" name="furniture" value="Диван" class="hidden" onchange="lrHandleSelection(this)" />
 							<i
 								class="fa-solid fa-couch text-2xl text-slate-400 mb-2 block"
 							></i>
 							<span class="font-medium text-slate-700">Диван</span>
 						</label>
 						<label
-							class="border rounded-lg p-3 text-center cursor-pointer hover:border-lr-accent hover:bg-slate-50 transition"
+							class="lr-choice-label border rounded-lg p-3 text-center cursor-pointer hover:border-lr-accent hover:bg-slate-50 transition"
 						>
-							<input type="radio" name="furniture" class="hidden" />
+							<input type="radio" name="furniture" value="Кресло" class="hidden" onchange="lrHandleSelection(this)" />
 							<i
 								class="fa-solid fa-chair text-2xl text-slate-400 mb-2 block"
 							></i>
 							<span class="font-medium text-slate-700">Кресло</span>
 						</label>
 						<label
-							class="border rounded-lg p-3 text-center cursor-pointer hover:border-lr-accent hover:bg-slate-50 transition"
+							class="lr-choice-label border rounded-lg p-3 text-center cursor-pointer hover:border-lr-accent hover:bg-slate-50 transition"
 						>
-							<input type="radio" name="furniture" class="hidden" />
+							<input type="radio" name="furniture" value="Изголовье" class="hidden" onchange="lrHandleSelection(this)" />
 							<i class="fa-solid fa-bed text-2xl text-slate-400 mb-2 block"></i>
 							<span class="font-medium text-slate-700">Изголовье кровати</span>
 						</label>
 						<label
-							class="border rounded-lg p-3 text-center cursor-pointer hover:border-lr-accent hover:bg-slate-50 transition"
+							class="lr-choice-label border rounded-lg p-3 text-center cursor-pointer hover:border-lr-accent hover:bg-slate-50 transition"
 						>
-							<input type="radio" name="furniture" class="hidden" />
+							<input type="radio" name="furniture" value="Другое" class="hidden" onchange="lrHandleSelection(this)" />
 							<i
 								class="fa-solid fa-ellipsis text-2xl text-slate-400 mb-2 block"
 							></i>
@@ -796,8 +801,10 @@
 						</label>
 					</div>
 					<button
+						id="lr-next-1"
 						onclick="lrNextStep(2)"
-						class="w-full bg-lr-primary text-white font-bold py-3 rounded-lg hover:bg-lr-secondary transition"
+						disabled
+						class="w-full bg-lr-primary text-white font-bold py-3 rounded-lg hover:bg-lr-secondary transition opacity-50 cursor-not-allowed"
 					>
 						Далее <i class="fa-solid fa-arrow-right ml-2 text-sm"></i>
 					</button>
@@ -815,42 +822,44 @@
 					</h3>
 					<div class="space-y-2 mb-6">
 						<label
-							class="flex items-center gap-3 p-3 border rounded-lg cursor-pointer hover:bg-slate-50"
+							class="lr-choice-label flex items-center gap-3 p-3 border rounded-lg cursor-pointer hover:bg-slate-50"
 						>
-							<input type="checkbox" class="w-5 h-5 text-lr-accent" />
+							<input type="checkbox" name="problem" value="Прожог" class="w-5 h-5 text-lr-accent" onchange="lrHandleSelection(this)" />
 							<span class="font-medium text-slate-700">Прожог / порез</span>
 						</label>
 						<label
-							class="flex items-center gap-3 p-3 border rounded-lg cursor-pointer hover:bg-slate-50"
+							class="lr-choice-label flex items-center gap-3 p-3 border rounded-lg cursor-pointer hover:bg-slate-50"
 						>
-							<input type="checkbox" class="w-5 h-5 text-lr-accent" />
+							<input type="checkbox" name="problem" value="Когти" class="w-5 h-5 text-lr-accent" onchange="lrHandleSelection(this)" />
 							<span class="font-medium text-slate-700">Царапины от когтей</span>
 						</label>
 						<label
-							class="flex items-center gap-3 p-3 border rounded-lg cursor-pointer hover:bg-slate-50"
+							class="lr-choice-label flex items-center gap-3 p-3 border rounded-lg cursor-pointer hover:bg-slate-50"
 						>
-							<input type="checkbox" class="w-5 h-5 text-lr-accent" />
+							<input type="checkbox" name="problem" value="Потертости" class="w-5 h-5 text-lr-accent" onchange="lrHandleSelection(this)" />
 							<span class="font-medium text-slate-700"
 								>Потертости / выцветание</span
 							>
 						</label>
 						<label
-							class="flex items-center gap-3 p-3 border rounded-lg cursor-pointer hover:bg-slate-50"
+							class="lr-choice-label flex items-center gap-3 p-3 border rounded-lg cursor-pointer hover:bg-slate-50"
 						>
-							<input type="checkbox" class="w-5 h-5 text-lr-accent" />
+							<input type="checkbox" name="problem" value="Экокожа" class="w-5 h-5 text-lr-accent" onchange="lrHandleSelection(this)" />
 							<span class="font-medium text-slate-700">Облезает (экокожа)</span>
 						</label>
 					</div>
 					<div class="flex gap-3">
 						<button
-							onclick="lrNextStep(1)"
+							onclick="lrPrevStep(1)"
 							class="px-4 py-3 bg-slate-100 text-slate-600 rounded-lg hover:bg-slate-200"
 						>
 							<i class="fa-solid fa-arrow-left"></i>
 						</button>
 						<button
+							id="lr-next-2"
 							onclick="lrNextStep(3)"
-							class="flex-1 bg-lr-primary text-white font-bold py-3 rounded-lg hover:bg-lr-secondary transition"
+							disabled
+							class="flex-1 bg-lr-primary text-white font-bold py-3 rounded-lg hover:bg-lr-secondary transition opacity-50 cursor-not-allowed"
 						>
 							Далее
 						</button>
@@ -872,12 +881,14 @@
 					</p>
 
 					<div
-						class="border-2 border-dashed border-slate-300 rounded-xl p-8 text-center mb-6 bg-slate-50 relative cursor-pointer hover:bg-slate-100 transition"
+						class="border-2 border-dashed border-slate-300 rounded-xl p-8 text-center mb-4 bg-slate-50 relative cursor-pointer hover:bg-slate-100 transition"
 					>
 						<input
 							type="file"
+							id="lr-quiz-file"
 							class="absolute inset-0 w-full h-full opacity-0 cursor-pointer"
 							accept="image/*"
+							onchange="lrHandleFileSelect(this)"
 						/>
 						<i
 							class="fa-solid fa-cloud-arrow-up text-4xl text-slate-400 mb-3 block"
@@ -890,9 +901,17 @@
 						>
 					</div>
 
-					<div class="flex gap-3">
+					<div id="lr-file-info" class="lr-file-preview">
+						<i class="fa-solid fa-image text-lr-accent"></i>
+						<span id="lr-file-name" class="truncate">filename.jpg</span>
+						<button onclick="lrResetFile()" class="ml-auto text-slate-400 hover:text-red-500">
+							<i class="fa-solid fa-xmark"></i>
+						</button>
+					</div>
+
+					<div class="flex gap-3 mt-6">
 						<button
-							onclick="lrNextStep(2)"
+							onclick="lrPrevStep(2)"
 							class="px-4 py-3 bg-slate-100 text-slate-600 rounded-lg hover:bg-slate-200"
 						>
 							<i class="fa-solid fa-arrow-left"></i>
@@ -942,19 +961,42 @@
 
 					<div class="flex gap-3">
 						<button
-							onclick="lrNextStep(3)"
+							onclick="lrPrevStep(3)"
 							class="px-4 py-3 bg-slate-100 text-slate-600 rounded-lg hover:bg-slate-200"
 						>
 							<i class="fa-solid fa-arrow-left"></i>
 						</button>
 						<button
 							type="button"
-							onclick="alert('Заявка отправлена (демо)!')"
+							id="lr-submit-btn"
+							onclick="lrSubmitQuiz()"
 							class="flex-1 bg-emerald-600 text-white font-bold py-3 rounded-lg hover:bg-emerald-700 transition shadow-lg"
 						>
 							Получить расчет
 						</button>
 					</div>
+				</div>
+
+				<!-- Step 5 (Success) -->
+				<div id="lr-step-5" class="lr-step hidden">
+					<div class="lr-step-success">
+						<div class="lr-success-icon">
+							<i class="fa-solid fa-check"></i>
+						</div>
+						<h3 class="font-serif text-2xl font-bold text-slate-900 mb-4">
+							Заявка успешно отправлена!
+						</h3>
+						<p class="text-slate-600 mb-8">
+							Спасибо за доверие! Наш старший технолог уже изучает вашу проблему. Ваш расчет будет готов в течение 10-15 минут и придет вам в WhatsApp.
+						</p>
+						<button
+							onclick="lrCloseModal()"
+							class="w-full bg-lr-primary text-white font-bold py-3 rounded-lg hover:bg-lr-secondary transition"
+						>
+							Закрыть окно
+						</button>
+					</div>
+				</div>
 					<p class="text-[10px] text-center text-slate-400 mt-4">
 						Нажимая кнопку, вы соглашаетесь с условиями обработки персональных
 						данных.

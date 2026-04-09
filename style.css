@@ -297,3 +297,70 @@ transform: scale(1.05);
 	}
 	
 }
+
+/* Quiz Improvements */
+.lr-progress-container {
+	width: 100%;
+	height: 6px;
+	background: #e2e8f0;
+	border-radius: 3px;
+	margin-bottom: 1.5rem;
+	overflow: hidden;
+}
+
+.lr-progress-bar {
+	height: 100%;
+	background: var(--lr-accent);
+	width: 0%;
+	transition: width 0.3s ease;
+}
+
+.lr-choice-label {
+	border-width: 2px;
+	transition: all 0.2s ease;
+}
+
+.lr-choice-label.active {
+	border-color: var(--lr-accent);
+	background-color: #fffbeb;
+	box-shadow: 0 0 0 1px var(--lr-accent);
+}
+
+.lr-choice-label.active i {
+	color: var(--lr-accent);
+}
+
+.lr-file-preview {
+	display: none;
+	margin-top: 1rem;
+	padding: 0.5rem;
+	background: #f8fafc;
+	border-radius: 0.5rem;
+	font-size: 0.875rem;
+	color: var(--lr-primary);
+	border: 1px solid #e2e8f0;
+	align-items: center;
+	gap: 0.5rem;
+}
+
+.lr-file-preview.active {
+	display: flex;
+}
+
+.lr-step-success {
+	text-align: center;
+	padding: 1rem 0;
+}
+
+.lr-success-icon {
+	width: 64px;
+	height: 64px;
+	background: #dcfce7;
+	color: #16a34a;
+	border-radius: 50%;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	margin: 0 auto 1.5rem;
+	font-size: 2rem;
+}
