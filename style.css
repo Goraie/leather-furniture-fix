@@ -1,8 +1,13 @@
+:root{
+	--lr-primary: #0f172a;
+	--lr-secondary: #1e293b;
+	--lr-accent: #f59e0b;
+	--lr-accent-opa: #f59f0b2f;
+	--lr-accent-hover: #d97706;
+	--lr-brand: #0ea5e9;
+	--lr-brand-hover: #0B64C0;
+}
 
-/* 
-* Lenremont Custom Prefix & Core Structure
-* Mirroring .x-container parameters 
-*/
 .lr-container {
 	width: 88%;
 	max-width: 1280px;
@@ -247,4 +252,20 @@ transform: scale(1.05);
 .hero-card{
 	overflow: hidden;
 	text-align: center;
+}
+.benefits-icon{
+	min-width: 32px;
+}
+.text-bg{
+	background: var(--lr-accent-hover);
+	padding-inline: 0.5rem;
+	border-radius: 0.25rem;
+}
+
+.text-quote{
+	background: var(--lr-accent-opa);
+	padding: 1.5rem;
+	border-radius: 0 0.25rem 0.25rem 0;
+	border-left: 0.25rem solid var(--lr-accent);
+	color: var(--lr-primary);
 }

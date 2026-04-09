@@ -37,6 +37,7 @@
 							'lr-accent': '#f59e0b',
 							'lr-accent-hover': '#d97706',
 							'lr-brand': '#0ea5e9',
+							'lr-brand-hover': '#0B64C0',
 						},
 						fontFamily: {
 							sans: ['Inter', 'sans-serif'],
@@ -51,30 +52,24 @@
 	</head>
 	<body>
 		<!-- HERO SECTION -->
-		<section
-			class="max-w-full bg-lr-primary text-white pt-16 pb-20 relative overflow-hidden"
-		>
+		<section class="max-w-full bg-lr-primary text-white pt-16 pb-20 relative overflow-hidden">
 			<!-- subtle texture background -->
-			<div
-				class="absolute inset-0 opacity-10 bg-[url('https://images.unsplash.com/photo-1555041469-a586c61ea9bc?auto=format&fit=crop&q=80&w=2000')] bg-cover bg-center mix-blend-overlay"
-			></div>
+			<div class="absolute inset-0 opacity-10 bg-[url('https://images.unsplash.com/photo-1555041469-a586c61ea9bc?auto=format&fit=crop&q=80&w=2000')] bg-cover bg-center mix-blend-overlay"></div>
 
 			<div class="lr-container relative z-10">
 				<div class="text-center max-w-4xl mx-auto mb-10">
-					<p
-						class="text-lr-accent font-medium uppercase tracking-wide text-sm mb-4"
-					>
+					<p class="text-lr-accent font-medium uppercase tracking-wide text-sm mb-4">
 						Вниманию владельцев кожаной мебели в Санкт-Петербурге:
 					</p>
 					<h1 class="font-serif lr-h1 font-bold mb-6 text-white leading-tight">
-						Не выбрасывайте ваш испорченный кожаный диван!
+						<span class="text-bg">Не выбрасывайте</span> ваш испорченный кожаный диван!
 					</h1>
 					<p class="text-xl text-slate-300 font-light mb-8 leading-relaxed">
 						Мы бесследно устраним прожоги, трещины, царапины от когтей и
 						потертости прямо у вас на дому —
-						<span class="text-white font-semibold border-b-2 border-lr-accent"
-							>за 1/10 от стоимости новой мебели</span
-						>
+						<span class="text-white font-semibold border-b-2 border-lr-accent">
+							за 1/10 от стоимости новой мебели
+						</span>
 					</p>
 					<p class="text-base text-slate-400 mb-10">
 						Неважно, что случилось: кот изодрал подлокотник, гость прожег
@@ -87,50 +82,50 @@
 				<!-- Problems Grid -->
 				<div class="grid grid-cols-2 md:grid-cols-4 gap-2 md:gap-4 mb-12 max-w-5xl mx-auto" >
 					<div class="hero-card bg-white/10 backdrop-blur-sm rounded-lg border border-white/20 flex flex-col items-center">
-						<a class="glightbox hero-card-link" data-gallery="cases" href="/assets/drafts/burn-marks.jpg" alt="">
-						<img class="hero-card-img" src="/assets/drafts/burn-marks.jpg" alt="">
+						<a class="glightbox hero-card-link" data-gallery="cases" href="/assets/burn-marks.jpg" alt="">
+						<img class="hero-card-img" src="/assets/burn-marks.jpg" alt="">
 						</a>
 						<span class="text-sm font-medium px-3 md:px-4 py-3 ">Прожоги</span>
 					</div>
 					<div class="hero-card bg-white/10 backdrop-blur-sm rounded-lg border border-white/20 flex flex-col items-center" >
-						<a class="glightbox hero-card-link" data-gallery="cases" href="/assets/drafts/claws.jpg" alt="">
-						<img class="hero-card-img" src="/assets/drafts/claws.jpg" alt="">
+						<a class="glightbox hero-card-link" data-gallery="cases" href="/assets/claws.jpg" alt="">
+						<img class="hero-card-img" src="/assets/claws.jpg" alt="">
 						</a>
 						<span class="text-sm font-medium px-3 md:px-4 py-3 ">Когти животных</span>
 					</div>
 					<div class="hero-card bg-white/10 backdrop-blur-sm rounded-lg border border-white/20 flex flex-col items-center">
-						<a class="glightbox hero-card-link" data-gallery="cases" href="/assets/drafts/cuts.jpg" alt="">
-						<img class="hero-card-img" src="/assets/drafts/cuts.jpg" alt="">
+						<a class="glightbox hero-card-link" data-gallery="cases" href="/assets/cuts.jpg" alt="">
+						<img class="hero-card-img" src="/assets/cuts.jpg" alt="">
 						</a>
 						<span class="text-sm font-medium px-3 md:px-4 py-3 ">Порезы и разрывы</span>
 					</div>
 					<div class="hero-card bg-white/10 backdrop-blur-sm rounded-lg border border-white/20 flex flex-col items-center">
-						<a class="glightbox hero-card-link" data-gallery="cases" href="/assets/drafts/chemicals.jpg" alt="">
-						<img class="hero-card-img" src="/assets/drafts/chemicals.jpg" alt="">
+						<a class="glightbox hero-card-link" data-gallery="cases" href="/assets/chemicals.jpg" alt="">
+						<img class="hero-card-img" src="/assets/chemicals.jpg" alt="">
 						</a>
 						<span class="text-sm font-medium px-3 md:px-4 py-3 ">Пятна и химия</span>
 					</div>
 					<div class="hero-card bg-white/10 backdrop-blur-sm rounded-lg border border-white/20 flex flex-col items-center">
-						<a class="glightbox hero-card-link" data-gallery="cases" href="/assets/drafts/fading.jpg" alt="">
-						<img class="hero-card-img" src="/assets/drafts/fading.jpg" alt="">
+						<a class="glightbox hero-card-link" data-gallery="cases" href="/assets/fading.jpg" alt="">
+						<img class="hero-card-img" src="/assets/fading.jpg" alt="">
 						</a>
 						<span class="text-sm font-medium px-3 md:px-4 py-3 ">Выцветание</span>
 					</div>
 					<div class="hero-card bg-white/10 backdrop-blur-sm rounded-lg border border-white/20 flex flex-col items-center">
-						<a class="glightbox hero-card-link" data-gallery="cases" href="/assets/drafts/sagging-foam.jpg" alt="">
-						<img class="hero-card-img" src="/assets/drafts/sagging-foam.jpg" alt="">
+						<a class="glightbox hero-card-link" data-gallery="cases" href="/assets/sagging-foam.jpg" alt="">
+						<img class="hero-card-img" src="/assets/sagging-foam.jpg" alt="">
 						</a>
 						<span class="text-sm font-medium px-3 md:px-4 py-3 ">Продавленный поролон</span>
 					</div>
 					<div class="hero-card bg-white/10 backdrop-blur-sm rounded-lg border border-white/20 flex flex-col items-center">
-						<a class="glightbox hero-card-link" data-gallery="cases" href="/assets/drafts/rename.jpg" alt="">
-						<img class="hero-card-img" src="/assets/drafts/rename.jpg" alt="">
+						<a class="glightbox hero-card-link" data-gallery="cases" href="/assets/rename.jpg" alt="">
+						<img class="hero-card-img" src="/assets/rename.jpg" alt="">
 						</a>
 						<span class="text-sm font-medium px-3 md:px-4 py-3 ">Полная перекраска</span>
 					</div>
 					<div class="hero-card bg-white/10 backdrop-blur-sm rounded-lg border border-white/20 flex flex-col items-center">
-						<a class="glightbox hero-card-link" data-gallery="cases" href="/assets/drafts/scar.jpg" alt="">
-						<img class="hero-card-img" src="/assets/drafts/scar.jpg" alt="">
+						<a class="glightbox hero-card-link" data-gallery="cases" href="/assets/scar.jpg" alt="">
+						<img class="hero-card-img" src="/assets/scar.jpg" alt="">
 						</a>
 						<span class="text-sm font-medium px-3 md:px-4 py-3 ">Расхождение швов</span>
 					</div>
@@ -186,12 +181,15 @@
 				<div class="lr-2col">
 					<div class="lr-text-left">
 						<h2 class="font-serif lr-h2 font-bold mb-6 text-slate-900">
-							Знакомая ситуация?<br /><span
-								class="text-slate-500 text-3xl font-normal italic"
-								>Вы смотрите на испорченную кожу и думаете: «Только не покупка
-								нового дивана…»</span
-							>
+							Знакомая ситуация?
 						</h2>
+						<p class="text-quote font-serif text-2xl font-normal mb-4">
+							Вы смотрите на испорченную кожу и думаете: 
+							<br>
+							<span class="italic mt-1 block">
+								«Только не покупка нового дивана…»
+							</span>
+						</p>
 						<div class="text-lg text-slate-700 space-y-4 mb-8">
 							<p>Давайте начистоту. Кожаная мебель стоит безумных денег.</p>
 							<p>
@@ -402,14 +400,14 @@
 		<section class="max-w-full bg-lr-primary text-white py-16">
 			<div class="lr-container">
 				<div class="text-center max-w-3xl mx-auto mb-12">
-					<h2 class="font-serif lr-h2 font-bold mb-4">
-						Что вы получаете, доверяя свою мебель «Ленремонту»
+					<h2 class=" lr-h2 font-bold mb-4">
+						Что вы получаете, доверяя свою мебель <span class="text-bg">ЛенРемонту</span>
 					</h2>
 					<p class="text-slate-400">(помимо сохраненных нервов и денег)</p>
 				</div>
 				<div class="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-5xl mx-auto">
 					<div class="flex gap-4">
-						<div class="text-lr-accent text-2xl mt-1">
+						<div class="text-lr-accent text-2xl mt-1 benefits-icon">
 							<i class="fa-solid fa-circle-check"></i>
 						</div>
 						<div>
@@ -424,7 +422,7 @@
 						</div>
 					</div>
 					<div class="flex gap-4">
-						<div class="text-lr-accent text-2xl mt-1">
+						<div class="text-lr-accent text-2xl mt-1 benefits-icon">
 							<i class="fa-solid fa-flask"></i>
 						</div>
 						<div>
@@ -439,7 +437,7 @@
 						</div>
 					</div>
 					<div class="flex gap-4">
-						<div class="text-lr-accent text-2xl mt-1">
+						<div class="text-lr-accent text-2xl mt-1 benefits-icon">
 							<i class="fa-solid fa-leaf"></i>
 						</div>
 						<div>
@@ -454,7 +452,7 @@
 						</div>
 					</div>
 					<div class="flex gap-4">
-						<div class="text-lr-accent text-2xl mt-1">
+						<div class="text-lr-accent text-2xl mt-1 benefits-icon">
 							<i class="fa-solid fa-broom"></i>
 						</div>
 						<div>
@@ -468,7 +466,7 @@
 						</div>
 					</div>
 					<div class="flex gap-4 md:col-span-2 md:w-1/2 md:mx-auto">
-						<div class="text-lr-accent text-2xl mt-1">
+						<div class="text-lr-accent text-2xl mt-1 benefits-icon">
 							<i class="fa-solid fa-file-contract"></i>
 						</div>
 						<div>
@@ -497,12 +495,8 @@
 
 				<div class="max-w-4xl mx-auto space-y-6">
 					<!-- Q1 -->
-					<div
-						class="bg-slate-50 rounded-xl p-6 border border-slate-100 shadow-sm"
-					>
-						<h4
-							class="font-bold text-lg text-slate-900 mb-3 flex items-center gap-3"
-						>
+					<div class="bg-slate-50 hover:bg-slate-100 transition rounded-xl p-6 border border-slate-100 shadow-sm">
+						<h4 class="font-bold text-lg text-slate-900 mb-3 flex items-center gap-3">
 							<i class="fa-solid fa-circle-question text-blue-400"></i>
 							«У меня сложный цвет, вы не попадете в тон»
 						</h4>
@@ -514,12 +508,8 @@
 						</p>
 					</div>
 					<!-- Q2 -->
-					<div
-						class="bg-slate-50 rounded-xl p-6 border border-slate-100 shadow-sm"
-					>
-						<h4
-							class="font-bold text-lg text-slate-900 mb-3 flex items-center gap-3"
-						>
+					<div class="bg-slate-50 hover:bg-slate-100 transition rounded-xl p-6 border border-slate-100 shadow-sm">
+						<h4 class="font-bold text-lg text-slate-900 mb-3 flex items-center gap-3">
 							<i class="fa-solid fa-circle-question text-blue-400"></i>
 							«А эта ваша краска не испачкает мне одежду?»
 						</h4>
@@ -531,12 +521,8 @@
 						</p>
 					</div>
 					<!-- Q3 -->
-					<div
-						class="bg-slate-50 rounded-xl p-6 border border-slate-100 shadow-sm"
-					>
-						<h4
-							class="font-bold text-lg text-slate-900 mb-3 flex items-center gap-3"
-						>
+					<div class="bg-slate-50 hover:bg-slate-100 transition rounded-xl p-6 border border-slate-100 shadow-sm">
+						<h4 class="font-bold text-lg text-slate-900 mb-3 flex items-center gap-3">
 							<i class="fa-solid fa-circle-question text-blue-400"></i>
 							«У меня диван в хлам, там не только кожа, там поролон провалился»
 						</h4>
@@ -559,8 +545,13 @@
 						<h2 class="font-serif lr-h2 font-bold text-slate-900 mb-4">
 							Сколько это стоит?
 						</h2>
-						<p class="text-lg text-lr-accent font-semibold mb-6">
+						<!-- <p class="text-lg text-lr-accent font-semibold mb-6">
 							Подсказка: на 250 000 рублей дешевле нового дивана.
+						</p> -->
+						<p class="text-quote text-xl text-primary font-bold mb-6">
+							Подсказка: 
+							<br>
+							<span class="block mt-2 text-lg font-normal">на <span class="border-lr-secondary border-b-[3px] border-solid">250 000 рублей</span> дешевле нового дивана</span>
 						</p>
 						<p class="text-slate-600 mb-3">
 							Мы не берем цены с потолка. Но точную смету мастер назовет только
@@ -581,69 +572,57 @@
 							Ориентировочные цены:
 						</h4>
 						<ul class="space-y-3">
-							<li
-								class="flex justify-between items-center border-b border-slate-50 pb-2"
-							>
-								<span class="text-slate-700 font-medium"
-									>Точечный прожог / порез</span
-								>
+							<li class="flex justify-between hover:bg-slate-50 p-2 transition items-start border-b border-slate-50">
+								<span class="text-slate-700 font-medium">
+									Точечный прожог / порез
+								</span>
 								<div class="text-right">
-									<span class="font-bold text-slate-900">от 3 000 ₽</span
-									><br /><span class="text-[10px] text-slate-400 leading-none"
-										>1-2 часа</span
-									>
+									<span class="font-bold text-slate-900">от&nbsp;3&nbsp;000&nbsp;₽</span>
+									<br />
+									<span class="text-[10px] text-slate-400 leading-none">
+										1-2&nbsp;часа
+									</span>
 								</div>
 							</li>
-							<li
-								class="flex justify-between items-center border-b border-slate-50 pb-2"
-							>
-								<span class="text-slate-700 font-medium"
-									>Царапины от животных</span
-								>
+							<li class="flex justify-between hover:bg-slate-50 p-2 transition items-start border-b border-slate-50">
+								<span class="text-slate-700 font-medium">Царапины от животных</span>
 								<div class="text-right">
-									<span class="font-bold text-slate-900">от 3 500 ₽</span
-									><br /><span class="text-[10px] text-slate-400"
-										>2-3 часа</span
-									>
+									<span class="font-bold text-slate-900">от&nbsp;3&nbsp;500&nbsp;₽</span>
+									<br />
+									<span class="text-[10px] text-slate-400">
+										2-3 часа
+									</span>
 								</div>
 							</li>
-							<li
-								class="flex justify-between items-center border-b border-slate-50 pb-2"
-							>
-								<span class="text-slate-700 font-medium"
-									>Цвет подлокотников</span
-								>
+							<li class="flex justify-between hover:bg-slate-50 p-2 transition items-start border-b border-slate-50">
+								<span class="text-slate-700 font-medium">Цвет подлокотников</span>
 								<div class="text-right">
-									<span class="font-bold text-slate-900">от 5 000 ₽</span
-									><br /><span class="text-[10px] text-slate-400"
-										>3-4 часа</span
-									>
+									<span class="font-bold text-slate-900">от&nbsp;5&nbsp;000&nbsp;₽</span>
+									<br />
+									<span class="text-[10px] text-slate-400">
+										3-4&nbsp;часа
+									</span>
 								</div>
 							</li>
-							<li
-								class="flex justify-between items-center border-b border-slate-50 pb-2"
-							>
-								<span class="text-slate-700 font-medium"
-									>Перекраска кресла</span
-								>
+							<li class="flex justify-between hover:bg-slate-50 p-2 transition items-start border-b border-slate-50">
+								<span class="text-slate-700 font-medium">Перекраска кресла</span>
 								<div class="text-right">
-									<span class="font-bold text-slate-900">от 8 000 ₽</span
-									><br /><span class="text-[10px] text-slate-400">1 день</span>
+									<span class="font-bold text-slate-900">от&nbsp;8&nbsp;000&nbsp;₽</span>
+									<br />
+									<span class="text-[10px] text-slate-400">
+										1&nbsp;день
+									</span>
 								</div>
 							</li>
-							<li
-								class="flex justify-between items-center border-b border-slate-50 pb-2"
-							>
-								<span class="text-slate-700 font-medium"
-									>Ремонт провалившегося сиденья</span
-								>
+							<li class="flex justify-between hover:bg-slate-50 p-2 transition items-start border-b border-slate-50">
+								<span class="text-slate-700 font-medium">Ремонт провалившегося сиденья</span>
 								<div class="text-right">
-									<span class="font-bold text-slate-900">от 6 000 ₽</span>
+									<span class="font-bold text-slate-900">
+										от&nbsp;6&nbsp;000&nbsp;₽
+									</span>
 								</div>
 							</li>
-							<li
-								class="flex justify-between items-center bg-green-50 p-2 rounded -mx-2 mt-2"
-							>
+							<li class="flex justify-between items-center bg-green-50 p-2 rounded -mx-2 mt-2">
 								<span class="text-green-800 font-bold">Осмотр мастера</span>
 								<span class="font-bold text-green-700">БЕСПЛАТНО</span>
 							</li>
@@ -654,9 +633,7 @@
 		</section>
 
 		<!-- QUIZ SECTION -->
-		<section
-			class="max-w-full bg-lr-primary py-16 text-center text-white relative"
-		>
+		<section class="max-w-full bg-lr-primary py-16 text-center text-white relative">
 			<div
 				class="absolute inset-0 bg-[url('https://images.unsplash.com/photo-1540574163026-643ea20ade25?auto=format&fit=crop&q=80&w=2000')] bg-cover bg-center opacity-10 mix-blend-overlay"
 			></div>
@@ -703,13 +680,11 @@
 					<div class="absolute top-0 left-0 w-2 h-full bg-lr-accent"></div>
 					<h3 class="font-bold text-xl mb-2 text-slate-900">
 						<i class="fa-solid fa-gift text-lr-accent mr-2"></i> БОНУС ЗА
-						БЫСТРОЕ РЕШЕНИЕ:
+						<span class="border-lr-secondary border-b-[3px] border-solid">БЫСТРОЕ</span> РЕШЕНИЕ:
 					</h3>
 					<p class="text-slate-700">
 						Оставьте заявку сегодня, и после ремонта мы
-						<strong
-							>БЕСПЛАТНО нанесем профессиональный защитный кондиционер</strong
-						>
+						<strong>БЕСПЛАТНО нанесем профессиональный защитный кондиционер</strong>
 						(обычная цена 1500 руб.), который защитит кожу от высыхания на
 						полгода.
 					</p>
@@ -720,7 +695,7 @@
 				>
 					<button
 						onclick="lrOpenModal()"
-						class="bg-emerald-600 hover:bg-emerald-700 text-white font-bold text-lg px-8 py-5 rounded-full shadow-lg transform transition hover:-translate-y-1 w-full md:w-auto text-center flex justify-center items-center gap-2"
+						class="bg-lr-brand hover:bg-lr-brand-hover text-white font-bold text-lg px-8 py-5 rounded-full shadow-lg transform transition hover:-translate-y-1 w-full md:w-auto text-center flex justify-center items-center gap-2"
 					>
 						<span>Вызвать мастера + забрать бонус</span>
 					</button>
@@ -763,11 +738,7 @@
 		</div>
 
 		<!-- Modal / Quiz Form -->
-		<div
-			id="lr-quiz-modal"
-			class="lr-modal"
-			onclick="if(event.target === this) lrCloseModal()"
-		>
+		<div id="lr-quiz-modal" class="lr-modal" onclick="if(event.target === this) lrCloseModal()">
 			<div class="lr-modal-content">
 				<button
 					onclick="lrCloseModal()"
@@ -991,59 +962,7 @@
 			</div>
 		</div>
 
-		<script>
-			/* --- Before/After Slider Logic --- */
-
-
-			const swiper = new Swiper('.lr-carousel', {
-				slidesPerView: 1,
-				spaceBetween: 10,
-				centeredSlides: false,
-				loop: true,
-				navigation: {
-					nextEl: '.swiper-button-next',
-					prevEl: '.swiper-button-prev',
-				},
-
-				breakpoints: {
-					640: {
-						slidesPerView: 1,
-						spaceBetween: 20,
-					},
-					1024: {
-						slidesPerView: 2,
-						spaceBetween: 20,
-					},
-				},
-			})
-
-			const lightbox = GLightbox({
-				selector: '.glightbox',
-				touchNavigation: true,
-				loop: true
-			});
-
-			/* --- Modal Logic --- */
-			function lrOpenModal() {
-				const modal = document.getElementById('lr-quiz-modal')
-				modal.classList.add('lr-active')
-				lrNextStep(1) // Reset to step 1
-			}
-
-			function lrCloseModal() {
-				const modal = document.getElementById('lr-quiz-modal')
-				modal.classList.remove('lr-active')
-			}
-
-			function lrNextStep(stepNum) {
-				// Hide all
-				document
-					.querySelectorAll('.lr-step')
-					.forEach(step => step.classList.add('hidden'))
-				// Show target
-				document.getElementById('lr-step-' + stepNum).classList.remove('hidden')
-			}
-		</script>
+		<script src="main.js"></script>
 		<!--  -->
 	</body>
 </html>
