@@ -1,4 +1,4 @@
-:root{
+:root {
 	--lr-primary: #0f172a;
 	--lr-secondary: #1e293b;
 	--lr-accent: #f59e0b;
@@ -21,10 +21,12 @@
 	gap: 40px;
 	align-items: center;
 }
+
 .lr-text-left {
 	order: 1;
 	flex: 1;
 }
+
 .lr-img-right {
 	order: 2;
 	flex: 1;
@@ -36,16 +38,19 @@
 		flex-direction: column;
 		text-align: left;
 	}
+
 	.lr-img-right {
 		order: -1;
 		margin-bottom: 20px;
 		width: 100%;
 	}
+
 	.lr-text-left {
 		order: 1;
 		width: 100%;
 	}
 }
+
 @media (max-width: 768px) {
 	.lr-2col {
 		flex-direction: column;
@@ -58,6 +63,7 @@
 	font-size: clamp(2rem, 5vw, 3.5rem);
 	line-height: 1.1;
 }
+
 .lr-h2 {
 	font-size: clamp(1.75rem, 4vw, 2.5rem);
 	line-height: 1.2;
@@ -71,12 +77,14 @@
 	border-radius: 0.5rem;
 	user-select: none;
 }
+
 .lr-ba-img-after {
 	width: 100%;
 	display: block;
 	object-fit: cover;
 	aspect-ratio: 16/10;
 }
+
 .lr-ba-img-before {
 	position: absolute;
 	top: 0;
@@ -87,6 +95,7 @@
 	object-position: left;
 	border-right: 3px solid #fff;
 }
+
 .lr-ba-slider-handle {
 	position: absolute;
 	top: 50%;
@@ -115,15 +124,17 @@
 	padding: 1rem 0 2rem;
 	scroll-snap-type: x mandatory;
 	scrollbar-width: none;
-	cursor: grab;
 	overflow: visible;
 }
+
 .lr-carousel:active {
 	cursor: grabbing;
 }
+
 .lr-carousel::-webkit-scrollbar {
 	display: none;
 }
+
 .lr-carousel-card {
 	scroll-snap-align: center;
 	background: #fff;
@@ -131,6 +142,7 @@
 	box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.1);
 	overflow: hidden;
 }
+
 @media (min-width: 768px) {
 	.lr-carousel-card {
 		flex: 0 0 calc(50% - 1rem);
@@ -148,10 +160,12 @@
 	justify-content: center;
 	backdrop-filter: blur(4px);
 }
+
 .lr-modal.lr-active {
 	display: flex;
 	animation: fadeIn 0.2s ease;
 }
+
 .lr-modal-content {
 	background: white;
 	width: 92%;
@@ -162,14 +176,17 @@
 	max-height: 90vh;
 	overflow-y: auto;
 }
+
 @keyframes fadeIn {
 	from {
 		opacity: 0;
 	}
+
 	to {
 		opacity: 1;
 	}
 }
+
 /* Smooth scroll */
 html {
 	scroll-behavior: smooth;
@@ -192,38 +209,42 @@ html {
 	height: 40px;
 	transition: all 0.2s ease-in-out;
 }
+
 .swiper-button-next:hover,
 .swiper-button-prev:hover {
 	background: #d97706;
 }
+
 .swiper-button-next {
 	right: -20px;
 }
+
 .swiper-button-prev {
 	left: -20px;
 }
+
 .swiper-button-next::after,
 .swiper-button-prev::after {
 	color: #fff;
 	font-size: 16px;
 }
+
 .lr-card-image {
-display: block;
-position: relative;
-overflow: hidden;
-border-radius: 12px;
-cursor: pointer;
-height: 240px;
+	display: block;
+	position: relative;
+	overflow: hidden;
+	border-radius: 12px;
+	height: 240px;
 }
 
 .lr-card-image img {
-transition: transform 0.3s ease;
-height: 100%;
-object-fit: cover;
+	transition: transform 0.3s ease;
+	height: 100%;
+	object-fit: cover;
 }
 
 .lr-card-image:hover img {
-transform: scale(1.05);
+	transform: scale(1.05);
 }
 
 .lr-sticky-cta {
@@ -234,68 +255,80 @@ transform: scale(1.05);
 	width: 44px;
 	z-index: 777;
 }
-.lr-sticky-cta button{
+
+.lr-sticky-cta button {
 	width: 100%;
 	height: 100%;
 }
 
-.swiper-slide{
+.swiper-slide {
 	display: flex;
 	flex-direction: column;
 	height: auto;
 }
-.swiper-card-bottom{
+
+.swiper-card-bottom {
 	flex: 1;
 	height: 100%;
 	display: flex;
 	flex-direction: column;
 	justify-content: space-between;
 }
-.btn-social{
+
+.btn-social {
 	display: block;
 }
-.btn-social-tg{
+
+.btn-social-tg {
 	background-color: #4DB4FF;
 	color: white;
 }
-.btn-social-vk{
-	background-color: #4A8CF7;;
+
+.btn-social-vk {
+	background-color: #4A8CF7;
+	;
 	color: white;
 }
-.btn-social-max{
+
+.btn-social-max {
 	background: linear-gradient(135deg, #5b51d8, #7c4dff 20%, #8b5cf6 50%, #a855f7 70%, #d946ef);
 	color: white;
 }
-.hero-card{
+
+.hero-card {
 	overflow: hidden;
 	text-align: center;
 }
-.benefits-icon{
+
+
+.benefits-icon {
 	min-width: 32px;
 }
-.text-bg{
+
+.text-bg {
 	background: var(--lr-accent-hover);
 	padding-inline: 0.5rem;
 	border-radius: 0.25rem;
 }
 
-.text-quote{
+.text-quote {
 	background: var(--lr-accent-opa);
 	padding: 1.5rem;
 	border-radius: 0 0.25rem 0.25rem 0;
 	border-left: 0.25rem solid var(--lr-accent);
 	color: var(--lr-primary);
 }
-.agit-img{
+
+.agit-img {
 	height: 500px;
 }
 
 @media (max-width: 640px) {
-	.agit-img{
+	.agit-img {
 		height: auto;
 		min-height: 240px;
 	}
-	
+
 }
 
 /* Quiz Improvements */
@@ -363,4 +396,8 @@ transform: scale(1.05);
 	justify-content: center;
 	margin: 0 auto 1.5rem;
 	font-size: 2rem;
+}
+
+.gslide-media {
+	background: transparents;
 }

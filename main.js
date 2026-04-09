@@ -2,7 +2,6 @@
 const swiper = new Swiper('.lr-carousel', {
     slidesPerView: 1,
     spaceBetween: 10,
-    centeredSlides: false,
     loop: true,
     navigation: {
         nextEl: '.swiper-button-next',
@@ -21,11 +20,11 @@ const swiper = new Swiper('.lr-carousel', {
     },
 })
 
-// lightbox
 const lightbox = GLightbox({
     selector: '.glightbox',
     touchNavigation: true,
-    loop: true
+    loop: true,
+
 });
 
 // Modal & Quiz Logic
