@@ -1,11 +1,41 @@
 :root {
-	--lr-primary: #0f172a;
-	--lr-secondary: #1e293b;
-	--lr-accent: #f59e0b;
-	--lr-accent-opa: #f59f0b2f;
-	--lr-accent-hover: #d97706;
-	--lr-brand: #0ea5e9;
-	--lr-brand-hover: #0b64c0;
+	--lr-primary: #1a120b;
+	/* Espresso Dark */
+	--lr-secondary: #2d2016;
+	/* Cocoa Brown */
+	--lr-accent: #c59d5f;
+	/* Golden Cognac */
+	--lr-accent-opa: rgba(197, 157, 95, 0.15);
+	--lr-accent-hover: #b48a4d;
+	--lr-brand: #8b5e3c;
+	/* Saddle Brown */
+	--lr-brand-hover: #724b30;
+	--lr-bg-light: #fdfaf3;
+	--lr-bg-light: #fdfaf3;
+	--lr-bg-green: #586432;
+	--lr-bg-green-hover: #4e582a;
+
+	/* Soft Cream */
+}
+
+.lr-leather-texture {
+	position: relative;
+}
+
+.lr-leather-texture::before {
+	content: "";
+	position: absolute;
+	inset: 0;
+	background-image: url('https://www.transparenttextures.com/patterns/leather.png');
+	opacity: 0.05;
+	pointer-events: none;
+	z-index: 1;
+}
+
+/* Ensure content is above texture if needed */
+.lr-leather-texture>* {
+	position: relative;
+	z-index: 2;
 }
 
 .lr-container {
@@ -454,4 +484,8 @@ html {
 
 .gslide-media {
 	background: transparents;
+}
+
+.slider-sec {
+	overflow: hidden;
 }
