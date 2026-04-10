@@ -154,7 +154,7 @@
 				<p class="text-md max-w-sm mx-auto text-400 mb-4">
 					Пришлите фото для&nbsp;расчета стоимости удобным для&nbsp;вас способом
 				</p>
-				<button onclick="lrOpenModal()"
+				<button id="submit-image" onclick="lrOpenPhotoModal()"
 					class="max-w-sm mx-auto bg-lr-accent hover:bg-lr-accent-hover text-white font-bold text-lg px-8 py-5 rounded-full shadow-lg transform transition hover:-translate-y-1 w-full">
 					Отправить фото
 				</button>
@@ -981,6 +981,118 @@
 			</p>
 		</div>
 	</div>
+	</div>
+
+	<!-- Photo Modal -->
+	<div id="lr-photo-modal" class="lr-modal" onclick="if(event.target === this) lrClosePhotoModal()">
+		<div class="lr-modal-content">
+			<button onclick="lrClosePhotoModal()" class="absolute top-4 right-4 text-slate-400 hover:text-slate-600 text-2xl"
+				aria-label="Закрыть">
+				&times;
+			</button>
+
+			<!-- Progress Bar -->
+			<div class="lr-progress-container">
+				<div id="lr-photo-progress-fill" class="lr-progress-bar"></div>
+			</div>
+
+			<!-- Step 1 (Photo) -->
+			<div id="lr-photo-step-1" class="lr-step block">
+				<div class="text-xs font-bold text-slate-400 uppercase tracking-widest mb-1">
+					Шаг&nbsp;1 из&nbsp;2
+				</div>
+				<h3 class="font-serif text-2xl font-bold text-slate-900 mb-6">
+					Прикрепите фото (необязательно)
+				</h3>
+				<p class="text-sm text-slate-500">
+					Фото&nbsp;поможет мастеру сразу&nbsp;оценить масштаб проблемы.
+				</p>
+
+				<div
+					class="border-2 border-dashed border-slate-300 rounded-xl p-8 text-center mb-4 bg-slate-50 relative cursor-pointer hover:bg-slate-100 transition">
+					<input type="file" id="lr-photo-file-input" class="absolute inset-0 w-full h-full opacity-0 cursor-pointer"
+						accept="image/*" onchange="lrHandlePhotoFileSelect(this)" />
+					<i class="fa-solid fa-cloud-arrow-up text-4xl text-slate-400 mb-3 block"></i>
+					<span class="font-medium text-lr-primary">Нажмите, чтобы загрузить фото</span>
+					<span class="block text-xs text-slate-400 mt-1">или перетащите файл сюда</span>
+				</div>
+
+				<div id="lr-photo-file-info" class="lr-file-preview">
+					<i class="fa-solid fa-image text-lr-accent"></i>
+					<span id="lr-photo-file-name" class="truncate">filename.jpg</span>
+					<button onclick="lrResetPhotoFile()" class="ml-auto text-slate-400 hover:text-red-500">
+						<i class="fa-solid fa-xmark"></i>
+					</button>
+				</div>
+
+				<div class="flex gap-3 mt-6">
+					<button onclick="lrPhotoGoToStep(2)"
+						class="flex-1 bg-lr-primary text-white font-bold py-3 rounded-lg hover:bg-lr-secondary transition">
+						Далее (Последний шаг)
+					</button>
+				</div>
+			</div>
+
+			<!-- Step 2 (Contacts) -->
+			<div id="lr-photo-step-2" class="lr-step hidden">
+				<div class="text-xs font-bold text-slate-400 uppercase tracking-widest mb-1">
+					ФИНАЛ
+				</div>
+				<h3 class="font-serif text-2xl font-bold text-slate-900 mb-6">
+					Куда прислать расчет стоимости?
+				</h3>
+
+				<div class="space-y-4 mb-6">
+					<div>
+						<label class="block text-sm font-medium text-slate-700 mb-1">Ваше имя</label>
+						<input type="text" placeholder="Иван"
+							class="w-full border border-slate-300 rounded-lg p-3 outline-none focus:border-lr-accent focus:ring-1 focus:ring-lr-accent" />
+					</div>
+					<div>
+						<label class="block text-sm font-medium text-slate-700 mb-1">Телефон (для&nbsp;связи
+							в&nbsp;WhatsApp)</label>
+						<input type="tel" placeholder="+7 (___) ___--"
+							class="w-full border border-slate-300 rounded-lg p-3 outline-none focus:border-lr-accent focus:ring-1 focus:ring-lr-accent" />
+					</div>
+				</div>
+
+				<div class="flex gap-3">
+					<button onclick="lrPhotoGoToStep(1)"
+						class="px-4 py-3 bg-slate-100 text-slate-600 rounded-lg hover:bg-slate-200">
+						<i class="fa-solid fa-arrow-left"></i>
+					</button>
+					<button type="button" id="lr-photo-submit-btn" onclick="lrSubmitPhotoForm()"
+						class="flex-1 bg-emerald-600 text-white font-bold py-3 rounded-lg hover:bg-emerald-700 transition shadow-lg">
+						Получить расчет
+					</button>
+				</div>
+			</div>
+
+			<!-- Step 3 (Success) -->
+			<div id="lr-photo-step-3" class="lr-step hidden">
+				<div class="lr-step-success">
+					<div class="lr-success-icon">
+						<i class="fa-solid fa-check"></i>
+					</div>
+					<h3 class="font-serif text-2xl font-bold text-slate-900 mb-4">
+						Заявка успешно отправлена!
+					</h3>
+					<p class="text-slate-600 mb-8">
+						Спасибо за&nbsp;доверие! Наш&nbsp;старший технолог уже&nbsp;изучает вашу проблему.
+						Ваш&nbsp;расчет будет готов в&nbsp;течение 10-15&nbsp;минут и&nbsp;придет вам в&nbsp;WhatsApp.
+					</p>
+					<button onclick="lrClosePhotoModal()"
+						class="w-full bg-lr-primary text-white font-bold py-3 rounded-lg hover:bg-lr-secondary transition">
+						Закрыть окно
+					</button>
+				</div>
+			</div>
+
+			<p class="text-[10px] text-center text-slate-400 mt-4">
+				Нажимая кнопку, вы соглашаетесь с условиями обработки персональных
+				данных.
+			</p>
+		</div>
 	</div>
 
 	<script src="main.js"></script>

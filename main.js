@@ -168,10 +168,94 @@ function lrResetQuiz() {
         .forEach(label => label.classList.remove('active'))
     // Reset progress and file
     lrResetFile()
-    const progressContainer = document.querySelector('.lr-progress-container')
+    const progressContainer = document.querySelector('#lr-quiz-modal .lr-progress-container')
     if (progressContainer) progressContainer.style.display = 'block'
     lrUpdateProgressBar(1)
     // Reset buttons
     lrToggleBtnState(document.getElementById('lr-next-1'), false)
     lrToggleBtnState(document.getElementById('lr-next-2'), false)
+}
+
+// Photo Modal Logic
+const totalPhotoSteps = 2
+let currentPhotoStep = 1
+
+function lrOpenPhotoModal() {
+    const modal = document.getElementById('lr-photo-modal')
+    if (modal) {
+        modal.classList.add('lr-active')
+        lrPhotoGoToStep(1)
+    }
+}
+
+function lrClosePhotoModal() {
+    const modal = document.getElementById('lr-photo-modal')
+    if (modal) {
+        modal.classList.remove('lr-active')
+        setTimeout(() => {
+            lrResetPhotoModal()
+        }, 300)
+    }
+}
+
+function lrPhotoGoToStep(stepNum) {
+    currentPhotoStep = stepNum
+    const modal = document.getElementById('lr-photo-modal')
+    if (!modal) return
+
+    modal.querySelectorAll('.lr-step').forEach(step => step.classList.add('hidden'))
+    const targetStep = document.getElementById('lr-photo-step-' + stepNum)
+    if (targetStep) {
+        targetStep.classList.remove('hidden')
+        lrUpdatePhotoProgressBar(stepNum)
+        const modalContent = modal.querySelector('.lr-modal-content')
+        if (modalContent) modalContent.scrollTop = 0
+    }
+}
+
+function lrUpdatePhotoProgressBar(step) {
+    const progressFill = document.getElementById('lr-photo-progress-fill')
+    if (progressFill) {
+        const percentage = (step / totalPhotoSteps) * 100
+        progressFill.style.width = percentage + '%'
+    }
+}
+
+function lrHandlePhotoFileSelect(input) {
+    const fileInfo = document.getElementById('lr-photo-file-info')
+    const fileName = document.getElementById('lr-photo-file-name')
+
+    if (input.files && input.files[0]) {
+        fileName.textContent = input.files[0].name
+        fileInfo.classList.add('active')
+    } else {
+        lrResetPhotoFile()
+    }
+}
+
+function lrResetPhotoFile() {
+    const fileInput = document.getElementById('lr-photo-file-input')
+    const fileInfo = document.getElementById('lr-photo-file-info')
+    if (fileInput) fileInput.value = ''
+    if (fileInfo) fileInfo.classList.remove('active')
+}
+
+function lrSubmitPhotoForm() {
+    // Show success step
+    lrPhotoGoToStep(3)
+    // Hide progress bar on success
+    const progressContainer = document.querySelector('#lr-photo-modal .lr-progress-container')
+    if (progressContainer) progressContainer.style.display = 'none'
+}
+
+function lrResetPhotoModal() {
+    // Reset inputs
+    document.querySelectorAll('#lr-photo-modal input').forEach(input => {
+        input.value = ''
+    })
+    // Reset progress and file
+    lrResetPhotoFile()
+    const progressContainer = document.querySelector('#lr-photo-modal .lr-progress-container')
+    if (progressContainer) progressContainer.style.display = 'block'
+    lrUpdatePhotoProgressBar(1)
 }
