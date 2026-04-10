@@ -583,6 +583,25 @@ html {
 	overflow: hidden;
 }
 
+/* Custom Dialpad – responsive toggle */
+.lr-desktop-phone {
+	display: block;
+}
+
+.lr-mobile-phone {
+	display: none;
+}
+
+@media (max-width: 768px) {
+	.lr-desktop-phone {
+		display: none;
+	}
+
+	.lr-mobile-phone {
+		display: block;
+	}
+}
+
 /* Custom Dialpad */
 .lr-phone-display {
 	background: var(--lr-primary);

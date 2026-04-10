@@ -1054,37 +1054,42 @@
 				</h3>
 				<p class="text-sm text-slate-500 mb-4">Номер, привязанный к выбранному способу связи</p>
 
-				<!-- Phone display -->
-				<div class="lr-phone-display" id="lr-phone-display">+7</div>
-
-				<!-- Custom Dialpad (visible on all devices) -->
-				<div class="lr-dialpad" id="lr-dialpad">
-					<button type="button" class="lr-dialpad-key" onclick="lrDialpadInput('1')"><span
-							class="lr-key-num">1</span></button>
-					<button type="button" class="lr-dialpad-key" onclick="lrDialpadInput('2')"><span
-							class="lr-key-num">2</span><span class="lr-key-letters">АБВ</span></button>
-					<button type="button" class="lr-dialpad-key" onclick="lrDialpadInput('3')"><span
-							class="lr-key-num">3</span><span class="lr-key-letters">ГДЕ</span></button>
-					<button type="button" class="lr-dialpad-key" onclick="lrDialpadInput('4')"><span
-							class="lr-key-num">4</span><span class="lr-key-letters">ЖЗИ</span></button>
-					<button type="button" class="lr-dialpad-key" onclick="lrDialpadInput('5')"><span
-							class="lr-key-num">5</span><span class="lr-key-letters">КЛМ</span></button>
-					<button type="button" class="lr-dialpad-key" onclick="lrDialpadInput('6')"><span
-							class="lr-key-num">6</span><span class="lr-key-letters">НОП</span></button>
-					<button type="button" class="lr-dialpad-key" onclick="lrDialpadInput('7')"><span
-							class="lr-key-num">7</span><span class="lr-key-letters">РСТ</span></button>
-					<button type="button" class="lr-dialpad-key" onclick="lrDialpadInput('8')"><span
-							class="lr-key-num">8</span><span class="lr-key-letters">УФХ</span></button>
-					<button type="button" class="lr-dialpad-key" onclick="lrDialpadInput('9')"><span
-							class="lr-key-num">9</span><span class="lr-key-letters">ЦЧШ</span></button>
-					<button type="button" class="lr-dialpad-key lr-dialpad-backspace" onclick="lrDialpadBackspace()"><i
-							class="fa-solid fa-delete-left"></i></button>
-					<button type="button" class="lr-dialpad-key" onclick="lrDialpadInput('0')"><span
-							class="lr-key-num">0</span></button>
-					<div class="lr-dialpad-key" style="visibility:hidden"></div>
+				<!-- Desktop: standard input -->
+				<div class="lr-desktop-phone">
+					<input type="tel" id="lr-phone-input-desktop" placeholder="+7 (___) ___-__-__"
+						class="w-full border border-slate-300 rounded-lg p-4 text-lg outline-none focus:border-lr-accent focus:ring-1 focus:ring-lr-accent" />
 				</div>
 
-				<!-- Hidden real input for form data -->
+				<!-- Mobile: dialpad -->
+				<div class="lr-mobile-phone">
+					<div class="lr-phone-display" id="lr-phone-display">+7</div>
+					<div class="lr-dialpad" id="lr-dialpad">
+						<button type="button" class="lr-dialpad-key" onclick="lrDialpadInput('1')"><span
+								class="lr-key-num">1</span></button>
+						<button type="button" class="lr-dialpad-key" onclick="lrDialpadInput('2')"><span
+								class="lr-key-num">2</span><span class="lr-key-letters">АБВ</span></button>
+						<button type="button" class="lr-dialpad-key" onclick="lrDialpadInput('3')"><span
+								class="lr-key-num">3</span><span class="lr-key-letters">ГДЕ</span></button>
+						<button type="button" class="lr-dialpad-key" onclick="lrDialpadInput('4')"><span
+								class="lr-key-num">4</span><span class="lr-key-letters">ЖЗИ</span></button>
+						<button type="button" class="lr-dialpad-key" onclick="lrDialpadInput('5')"><span
+								class="lr-key-num">5</span><span class="lr-key-letters">КЛМ</span></button>
+						<button type="button" class="lr-dialpad-key" onclick="lrDialpadInput('6')"><span
+								class="lr-key-num">6</span><span class="lr-key-letters">НОП</span></button>
+						<button type="button" class="lr-dialpad-key" onclick="lrDialpadInput('7')"><span
+								class="lr-key-num">7</span><span class="lr-key-letters">РСТ</span></button>
+						<button type="button" class="lr-dialpad-key" onclick="lrDialpadInput('8')"><span
+								class="lr-key-num">8</span><span class="lr-key-letters">УФХ</span></button>
+						<button type="button" class="lr-dialpad-key" onclick="lrDialpadInput('9')"><span
+								class="lr-key-num">9</span><span class="lr-key-letters">ЦЧШ</span></button>
+						<button type="button" class="lr-dialpad-key lr-dialpad-backspace"
+							onclick="lrDialpadBackspace()"><i class="fa-solid fa-delete-left"></i></button>
+						<button type="button" class="lr-dialpad-key" onclick="lrDialpadInput('0')"><span
+								class="lr-key-num">0</span></button>
+						<div class="lr-dialpad-key" style="visibility:hidden"></div>
+					</div>
+				</div>
+
 				<input type="hidden" id="lr-phone-value" name="phone" />
 
 				<div class="flex gap-3 mt-4">
@@ -1094,7 +1099,8 @@
 					</button>
 					<button type="button" id="lr-submit-btn" onclick="lrSubmitQuiz()"
 						class="flex-1 bg-lr-green text-white font-bold py-3 rounded-lg hover:bg-lr-green-hover transition shadow-lg">
-						<i class="fa-solid fa-phone mr-2"></i> Получить расчет
+						<!-- <i class="fa-solid fa-phone mr-2"></i>  -->
+						Получить расчет
 					</button>
 				</div>
 			</div>
@@ -1252,34 +1258,40 @@
 				</h3>
 				<p class="text-sm text-slate-500 mb-4">Номер, привязанный к выбранному способу связи</p>
 
-				<!-- Phone display -->
-				<div class="lr-phone-display" id="lr-photo-phone-display">+7</div>
+				<!-- Desktop: standard input -->
+				<div class="lr-desktop-phone">
+					<input type="tel" id="lr-photo-phone-input-desktop" placeholder="+7 (___) ___-__-__"
+						class="w-full border border-slate-300 rounded-lg p-4 text-lg outline-none focus:border-lr-accent focus:ring-1 focus:ring-lr-accent" />
+				</div>
 
-				<!-- Custom Dialpad -->
-				<div class="lr-dialpad" id="lr-photo-dialpad">
-					<button type="button" class="lr-dialpad-key" onclick="lrDialpadInput('1','photo')"><span
-							class="lr-key-num">1</span></button>
-					<button type="button" class="lr-dialpad-key" onclick="lrDialpadInput('2','photo')"><span
-							class="lr-key-num">2</span><span class="lr-key-letters">АБВ</span></button>
-					<button type="button" class="lr-dialpad-key" onclick="lrDialpadInput('3','photo')"><span
-							class="lr-key-num">3</span><span class="lr-key-letters">ГДЕ</span></button>
-					<button type="button" class="lr-dialpad-key" onclick="lrDialpadInput('4','photo')"><span
-							class="lr-key-num">4</span><span class="lr-key-letters">ЖЗИ</span></button>
-					<button type="button" class="lr-dialpad-key" onclick="lrDialpadInput('5','photo')"><span
-							class="lr-key-num">5</span><span class="lr-key-letters">КЛМ</span></button>
-					<button type="button" class="lr-dialpad-key" onclick="lrDialpadInput('6','photo')"><span
-							class="lr-key-num">6</span><span class="lr-key-letters">НОП</span></button>
-					<button type="button" class="lr-dialpad-key" onclick="lrDialpadInput('7','photo')"><span
-							class="lr-key-num">7</span><span class="lr-key-letters">РСТ</span></button>
-					<button type="button" class="lr-dialpad-key" onclick="lrDialpadInput('8','photo')"><span
-							class="lr-key-num">8</span><span class="lr-key-letters">УФХ</span></button>
-					<button type="button" class="lr-dialpad-key" onclick="lrDialpadInput('9','photo')"><span
-							class="lr-key-num">9</span><span class="lr-key-letters">ЦЧШ</span></button>
-					<button type="button" class="lr-dialpad-key lr-dialpad-backspace"
-						onclick="lrDialpadBackspace('photo')"><i class="fa-solid fa-delete-left"></i></button>
-					<button type="button" class="lr-dialpad-key" onclick="lrDialpadInput('0','photo')"><span
-							class="lr-key-num">0</span></button>
-					<div class="lr-dialpad-key" style="visibility:hidden"></div>
+				<!-- Mobile: dialpad -->
+				<div class="lr-mobile-phone">
+					<div class="lr-phone-display" id="lr-photo-phone-display">+7</div>
+					<div class="lr-dialpad" id="lr-photo-dialpad">
+						<button type="button" class="lr-dialpad-key" onclick="lrDialpadInput('1','photo')"><span
+								class="lr-key-num">1</span></button>
+						<button type="button" class="lr-dialpad-key" onclick="lrDialpadInput('2','photo')"><span
+								class="lr-key-num">2</span><span class="lr-key-letters">АБВ</span></button>
+						<button type="button" class="lr-dialpad-key" onclick="lrDialpadInput('3','photo')"><span
+								class="lr-key-num">3</span><span class="lr-key-letters">ГДЕ</span></button>
+						<button type="button" class="lr-dialpad-key" onclick="lrDialpadInput('4','photo')"><span
+								class="lr-key-num">4</span><span class="lr-key-letters">ЖЗИ</span></button>
+						<button type="button" class="lr-dialpad-key" onclick="lrDialpadInput('5','photo')"><span
+								class="lr-key-num">5</span><span class="lr-key-letters">КЛМ</span></button>
+						<button type="button" class="lr-dialpad-key" onclick="lrDialpadInput('6','photo')"><span
+								class="lr-key-num">6</span><span class="lr-key-letters">НОП</span></button>
+						<button type="button" class="lr-dialpad-key" onclick="lrDialpadInput('7','photo')"><span
+								class="lr-key-num">7</span><span class="lr-key-letters">РСТ</span></button>
+						<button type="button" class="lr-dialpad-key" onclick="lrDialpadInput('8','photo')"><span
+								class="lr-key-num">8</span><span class="lr-key-letters">УФХ</span></button>
+						<button type="button" class="lr-dialpad-key" onclick="lrDialpadInput('9','photo')"><span
+								class="lr-key-num">9</span><span class="lr-key-letters">ЦЧШ</span></button>
+						<button type="button" class="lr-dialpad-key lr-dialpad-backspace"
+							onclick="lrDialpadBackspace('photo')"><i class="fa-solid fa-delete-left"></i></button>
+						<button type="button" class="lr-dialpad-key" onclick="lrDialpadInput('0','photo')"><span
+								class="lr-key-num">0</span></button>
+						<div class="lr-dialpad-key" style="visibility:hidden"></div>
+					</div>
 				</div>
 
 				<input type="hidden" id="lr-photo-phone-value" name="photo_phone" />
