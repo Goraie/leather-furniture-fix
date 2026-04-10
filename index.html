@@ -61,22 +61,33 @@
 
 <body>
 	<!-- HERO SECTION -->
-	<section class="max-w-full bg-lr-primary text-white pt-[6rem] pb-20 relative overflow-hidden lr-leather-texture">
+	<section
+		class="max-w-full bg-lr-primary text-white pt-[2rem] lg:pt-[6rem]  pb-20 relative overflow-hidden lr-leather-texture">
 		<!-- subtle texture background -->
 		<!-- <div
 			class="absolute inset-0 opacity-70 bg-[url('https://images.unsplash.com/photo-1555041469-a586c61ea9bc?auto=format&fit=crop&q=80&w=2000')] bg-cover bg-center mix-blend-overlay">
 		</div> -->
 
 		<div class="lr-container relative z-10">
+
+
 			<div class="lr-2col items-center mb-16">
 				<!-- Left Column: Copy & Actions -->
 				<div class="lr-text-left text-left">
+					<div class="lg:hidden mb-10">
+						<div class="lr-hero-visual">
+							<img src="assets/offer.jpg" alt="Премиальная реставрация кожи">
+						</div>
+					</div>
+
 					<p class="text-lr-accent font-medium uppercase tracking-wide text-xs md:text-sm mb-4">
 						Вниманию владельцев кожаной мебели в&nbsp;Санкт-Петербурге:
 					</p>
+
 					<h1 class="font-serif lr-h1 font-bold mb-6 text-white leading-tight">
 						<span class="text-bg">Не&nbsp;выбрасывайте</span> ваш испорченный кожаный диван!
 					</h1>
+
 					<p class="text-lg md:text-xl text-slate-300 font-light mb-12 leading-relaxed max-w-2xl">
 						Мы&nbsp;бесследно устраним прожоги, трещины, царапины от&nbsp;когтей и
 						потертости прямо у&nbsp;вас на&nbsp;дому&nbsp;—
@@ -125,17 +136,13 @@
 				<!-- Right Column: Premium Visual -->
 				<div class="lr-img-right hidden lg:block">
 					<div class="lr-hero-visual shadow-2xl">
-						<img src="assets/hero-sofa.png" alt="Премиальная реставрация кожи">
+						<img src="assets/offer.jpg" alt="Премиальная реставрация кожи">
 					</div>
 				</div>
 			</div>
 
 			<!-- Mobile Visual (Visible only on mobile/tablet) -->
-			<div class="lg:hidden mb-12">
-				<div class="lr-hero-visual">
-					<img src="assets/hero-sofa.png" alt="Премиальная реставрация кожи">
-				</div>
-			</div>
+
 
 			<!-- Problems Grid -->
 			<div class="text-center mb-6">
@@ -219,20 +226,20 @@
 					class="social-wrapp flex flex-col md:flex-row mx-auto max-w-sm md:max-w-none gap-2 md:gap-4 justify-center">
 
 					<a href="https://telegram.me/lenremont_bot" target="_blank" rel="noreferrer"
-						class="btn-social btn-social-tg shadow-lg transform transition hover:-translate-y-1 rounded-full font-bold text-lg w-14 h-14">
+						class="btn-social btn-social-tg shadow-lg transform transition hover:-translate-y-1 rounded-full font-bold text-lg">
 						<!-- Telegram -->
 						<img src="/assets/icons/tg.svg" alt="">
 					</a>
 
 					<a href="vk.com/?u=2&to=L2FsX2ltLnBocD9zZWw9LTM3MTcyNzAz" target="_blank" rel="noreferrer"
-						class="btn-social btn-social-vk shadow-lg transform transition hover:-translate-y-1 rounded-full font-bold text-lg w-14 h-14">
+						class="btn-social btn-social-vk shadow-lg transform transition hover:-translate-y-1 rounded-full font-bold text-lg">
 						<!-- VK -->
 						<img src="/assets/icons/vk.svg" alt="">
 
 					</a>
 
 					<a href="https://max.ru/id471902475874_3_bot" target="_blank" rel="noreferrer"
-						class="btn-social btn-social-max shadow-lg transform transition hover:-translate-y-1 rounded-full font-bold text-lg w-14 h-14">
+						class="btn-social btn-social-max shadow-lg transform transition hover:-translate-y-1 rounded-full font-bold text-lg">
 						<!-- Max -->
 						<img src="/assets/icons/max.svg" alt="">
 
@@ -812,38 +819,21 @@
 					class="social-wrapp flex flex-col md:flex-row w-full max-w-sm md:max-w-3xl gap-2 md:gap-4 justify-center">
 
 					<a href="https://telegram.me/lenremont_bot" target="_blank" rel="noreferrer"
-						class="w-14 h-14  border border-white/10 rounded-full flex items-center justify-center btn-social transition shadow-lg btn-social-tg">
+						class="border border-white/10 rounded-full flex items-center justify-center btn-social transition shadow-lg btn-social-tg">
 						<img src="/assets/icons/tg.svg" class="w-6 h-6" alt="Telegram">
 					</a>
 					<a href="https://vk.com/lenremont" target="_blank" rel="noreferrer"
-						class="w-14 h-14  border border-white/10 rounded-full flex items-center justify-center btn-social transition shadow-lg btn-social-vk">
+						class="border border-white/10 rounded-full flex items-center justify-center btn-social transition shadow-lg btn-social-vk">
 						<img src="/assets/icons/vk.svg" class="w-6 h-6" alt="VK">
 					</a>
 					<a href="https://max.ru/id471902475874_3_bot" target="_blank" rel="noreferrer"
-						class="w-14 h-14  border border-white/10 rounded-full flex items-center justify-center btn-social transition shadow-lg btn-social-max">
+						class="border border-white/10 rounded-full flex items-center justify-center btn-social transition shadow-lg btn-social-max">
 						<img src="/assets/icons/max.svg" class="w-6 h-6" alt="Max">
 					</a>
 				</div>
 			</div>
 		</div>
 	</section>
-
-	<!-- Mobile Sticky CTA -->
-	<div class="lr-sticky-cta md:hidden">
-		<!-- <button
-				onclick="lrOpenModal()"
-				class="bg-emerald-600 text-white font-bold p-4 rounded-full shadow-2xl flex items-center justify-center animate-bounce">
-				<i class="fa-solid fa-phone-volume text-xl"></i>
-			</button> -->
-		<button onclick="lrOpenPhotoModal()"
-			class="bg-lr-green text-white font-bold p-4 rounded-full shadow-2xl flex items-center justify-center relative ">
-			<span
-				class="absolute inline-flex h-full w-full animate-ping-slow rounded-full bg-lr-green opacity-75"></span>
-			<span class="relative inline-flex rounded-full bg-lr-green">
-				<i class="fa-solid fa-phone-volume text-md"></i>
-			</span>
-		</button>
-	</div>
 
 	<!-- Modal / Quiz Form -->
 	<div id="lr-quiz-modal" class="lr-modal" onclick="if(event.target === this) lrCloseModal()">
@@ -861,7 +851,7 @@
 			<!-- Step 1 -->
 			<div id="lr-step-1" class="lr-step block">
 				<div class="text-xs font-bold text-slate-400 uppercase tracking-widest mb-1">
-					Шаг&nbsp;1 из&nbsp;4
+					Шаг&nbsp;1 из&nbsp;5
 				</div>
 				<h3 class="font-serif text-2xl font-bold text-slate-900 mb-6">
 					Какое изделие нужно восстановить?
@@ -905,7 +895,7 @@
 			<!-- Step 2 -->
 			<div id="lr-step-2" class="lr-step hidden">
 				<div class="text-xs font-bold text-slate-400 uppercase tracking-widest mb-1">
-					Шаг&nbsp;2 из&nbsp;4
+					Шаг&nbsp;2 из&nbsp;5
 				</div>
 				<h3 class="font-serif text-2xl font-bold text-slate-900 mb-6">
 					Что случилось?
@@ -951,7 +941,7 @@
 			<!-- Step 3 -->
 			<div id="lr-step-3" class="lr-step hidden">
 				<div class="text-xs font-bold text-slate-400 uppercase tracking-widest mb-1">
-					Шаг&nbsp;3 из&nbsp;4
+					Шаг&nbsp;3 из&nbsp;5
 				</div>
 				<h3 class="font-serif text-2xl font-bold text-slate-900 mb-6">
 					Прикрепите фото (необязательно)
@@ -984,58 +974,143 @@
 					</button>
 					<button onclick="lrNextStep(4)"
 						class="flex-1 bg-lr-primary text-white font-bold py-3 rounded-lg hover:bg-lr-secondary transition">
-						Далее (Последний шаг)
+						Далее
 					</button>
 				</div>
 			</div>
 
-			<!-- Step 4 -->
+			<!-- Step 4 (Communication Method) -->
 			<div id="lr-step-4" class="lr-step hidden">
 				<div class="text-xs font-bold text-slate-400 uppercase tracking-widest mb-1">
-					ФИНАЛ
+					Шаг&nbsp;4 из&nbsp;5
 				</div>
 				<h3 class="font-serif text-2xl font-bold text-slate-900 mb-6">
-					Куда прислать расчет стоимости?
+					Как Вам удобнее получить расчет стоимости:
 				</h3>
-
-				<div class="space-y-4 mb-6">
-					<div>
-						<label class="block text-sm font-medium text-slate-700 mb-1">Ваше имя</label>
-						<input type="text" placeholder="Иван"
-							class="w-full border border-slate-300 rounded-lg p-3 outline-none focus:border-lr-accent focus:ring-1 focus:ring-lr-accent" />
-					</div>
-					<div>
-						<label class="block text-sm font-medium text-slate-700 mb-1">Телефон (для&nbsp;связи
-							в&nbsp;WhatsApp)</label>
-						<input type="tel" placeholder="+7 (___) ___--"
-							class="w-full border border-slate-300 rounded-lg p-3 outline-none focus:border-lr-accent focus:ring-1 focus:ring-lr-accent" />
-					</div>
+				<div class="grid grid-cols-2 md:grid-cols-3 gap-3 mb-6">
+					<label
+						class="lr-choice-label border rounded-lg p-3 text-center cursor-pointer hover:border-lr-accent hover:bg-slate-50 transition">
+						<input type="radio" name="contact_method" value="Позвонить" class="hidden"
+							onchange="lrHandleSelection(this)" onclick="lrNextStep(5)" />
+						<i class="fa-solid fa-phone text-2xl text-slate-400 mb-2 block"></i>
+						<span class="font-medium text-slate-700">Позвонить</span>
+					</label>
+					<label
+						class="lr-choice-label border rounded-lg p-3 text-center cursor-pointer hover:border-lr-accent hover:bg-slate-50 transition">
+						<input type="radio" name="contact_method" value="Вотсап" class="hidden"
+							onchange="lrHandleSelection(this)" onclick="lrNextStep(5)" />
+						<i class="fa-brands fa-whatsapp text-2xl text-slate-400 mb-2 block"></i>
+						<span class="font-medium text-slate-700">Вотсап</span>
+					</label>
+					<label
+						class="lr-choice-label border rounded-lg p-3 text-center cursor-pointer hover:border-lr-accent hover:bg-slate-50 transition">
+						<input type="radio" name="contact_method" value="Телеграм" class="hidden"
+							onchange="lrHandleSelection(this)" onclick="lrNextStep(5)" />
+						<i class="fa-brands fa-telegram text-2xl text-slate-400 mb-2 block"></i>
+						<span class="font-medium text-slate-700">Телеграм</span>
+					</label>
+					<label
+						class="lr-choice-label border rounded-lg p-3 text-center cursor-pointer hover:border-lr-accent hover:bg-slate-50 transition">
+						<input type="radio" name="contact_method" value="Макс" class="hidden"
+							onchange="lrHandleSelection(this)" onclick="lrNextStep(5)" />
+						<img src="/assets/icons/max.svg" class="w-6 h-6 mx-auto mb-2 opacity-50 grayscale lr-max-icon"
+							alt="">
+						<span class="font-medium text-slate-700">Макс</span>
+					</label>
+					<label
+						class="lr-choice-label border rounded-lg p-3 text-center cursor-pointer hover:border-lr-accent hover:bg-slate-50 transition">
+						<input type="radio" name="contact_method" value="ВК" class="hidden"
+							onchange="lrHandleSelection(this)" onclick="lrNextStep(5)" />
+						<i class="fa-brands fa-vk text-2xl text-slate-400 mb-2 block"></i>
+						<span class="font-medium text-slate-700">ВК</span>
+					</label>
+					<label
+						class="lr-choice-label border rounded-lg p-3 text-center cursor-pointer hover:border-lr-accent hover:bg-slate-50 transition">
+						<input type="radio" name="contact_method" value="СМС" class="hidden"
+							onchange="lrHandleSelection(this)" onclick="lrNextStep(5)" />
+						<i class="fa-solid fa-envelope text-2xl text-slate-400 mb-2 block"></i>
+						<span class="font-medium text-slate-700">СМС</span>
+					</label>
 				</div>
-
 				<div class="flex gap-3">
 					<button onclick="lrPrevStep(3)"
 						class="px-4 py-3 bg-slate-100 text-slate-600 rounded-lg hover:bg-slate-200">
 						<i class="fa-solid fa-arrow-left"></i>
 					</button>
-					<button type="button" id="lr-submit-btn" onclick="lrSubmitQuiz()"
-						class="flex-1 bg-lr-green text-white font-bold py-3 rounded-lg hover:bg-lr-green-hover transition shadow-lg">
-						Получить расчет
+					<button id="lr-next-4" onclick="lrNextStep(5)" disabled
+						class="flex-1 bg-lr-primary text-white font-bold py-3 rounded-lg hover:bg-lr-secondary transition opacity-50 cursor-not-allowed">
+						Далее
 					</button>
 				</div>
 			</div>
 
-			<!-- Step 5 (Success) -->
+			<!-- Step 5 (Phone Input with Custom Dialpad) -->
 			<div id="lr-step-5" class="lr-step hidden">
+				<div class="text-xs font-bold text-slate-400 uppercase tracking-widest mb-1">
+					Шаг&nbsp;5 из&nbsp;5
+				</div>
+				<h3 class="font-serif text-2xl font-bold text-slate-900 mb-2">
+					Введите номер телефона
+				</h3>
+				<p class="text-sm text-slate-500 mb-4">Номер, привязанный к выбранному способу связи</p>
+
+				<!-- Phone display -->
+				<div class="lr-phone-display" id="lr-phone-display">+7</div>
+
+				<!-- Custom Dialpad (visible on all devices) -->
+				<div class="lr-dialpad" id="lr-dialpad">
+					<button type="button" class="lr-dialpad-key" onclick="lrDialpadInput('1')"><span
+							class="lr-key-num">1</span></button>
+					<button type="button" class="lr-dialpad-key" onclick="lrDialpadInput('2')"><span
+							class="lr-key-num">2</span><span class="lr-key-letters">АБВ</span></button>
+					<button type="button" class="lr-dialpad-key" onclick="lrDialpadInput('3')"><span
+							class="lr-key-num">3</span><span class="lr-key-letters">ГДЕ</span></button>
+					<button type="button" class="lr-dialpad-key" onclick="lrDialpadInput('4')"><span
+							class="lr-key-num">4</span><span class="lr-key-letters">ЖЗИ</span></button>
+					<button type="button" class="lr-dialpad-key" onclick="lrDialpadInput('5')"><span
+							class="lr-key-num">5</span><span class="lr-key-letters">КЛМ</span></button>
+					<button type="button" class="lr-dialpad-key" onclick="lrDialpadInput('6')"><span
+							class="lr-key-num">6</span><span class="lr-key-letters">НОП</span></button>
+					<button type="button" class="lr-dialpad-key" onclick="lrDialpadInput('7')"><span
+							class="lr-key-num">7</span><span class="lr-key-letters">РСТ</span></button>
+					<button type="button" class="lr-dialpad-key" onclick="lrDialpadInput('8')"><span
+							class="lr-key-num">8</span><span class="lr-key-letters">УФХ</span></button>
+					<button type="button" class="lr-dialpad-key" onclick="lrDialpadInput('9')"><span
+							class="lr-key-num">9</span><span class="lr-key-letters">ЦЧШ</span></button>
+					<button type="button" class="lr-dialpad-key lr-dialpad-backspace" onclick="lrDialpadBackspace()"><i
+							class="fa-solid fa-delete-left"></i></button>
+					<button type="button" class="lr-dialpad-key" onclick="lrDialpadInput('0')"><span
+							class="lr-key-num">0</span></button>
+					<div class="lr-dialpad-key" style="visibility:hidden"></div>
+				</div>
+
+				<!-- Hidden real input for form data -->
+				<input type="hidden" id="lr-phone-value" name="phone" />
+
+				<div class="flex gap-3 mt-4">
+					<button onclick="lrPrevStep(4)"
+						class="px-4 py-3 bg-slate-100 text-slate-600 rounded-lg hover:bg-slate-200">
+						<i class="fa-solid fa-arrow-left"></i>
+					</button>
+					<button type="button" id="lr-submit-btn" onclick="lrSubmitQuiz()"
+						class="flex-1 bg-lr-green text-white font-bold py-3 rounded-lg hover:bg-lr-green-hover transition shadow-lg">
+						<i class="fa-solid fa-phone mr-2"></i> Получить расчет
+					</button>
+				</div>
+			</div>
+
+			<!-- Step 6 (Success) -->
+			<div id="lr-step-6" class="lr-step hidden">
 				<div class="lr-step-success">
 					<div class="lr-success-icon">
 						<i class="fa-solid fa-check"></i>
 					</div>
 					<h3 class="font-serif text-2xl font-bold text-slate-900 mb-4">
-						Заявка успешно отправлена!
+						Спасибо за заявку!
 					</h3>
 					<p class="text-slate-600 mb-8">
-						Спасибо за&nbsp;доверие! Наш&nbsp;старший технолог уже&nbsp;изучает вашу проблему.
-						Ваш&nbsp;расчет будет готов в&nbsp;течение 10-15&nbsp;минут и&nbsp;придет вам в&nbsp;WhatsApp.
+						Наш&nbsp;старший технолог уже&nbsp;изучает вашу проблему.
+						Ваш&nbsp;расчет будет готов в&nbsp;течение 10-15&nbsp;минут.
 					</p>
 					<button onclick="lrCloseModal()"
 						class="w-full bg-lr-primary text-white font-bold py-3 rounded-lg hover:bg-lr-secondary transition">
@@ -1067,10 +1142,10 @@
 			<!-- Step 1 (Photo) -->
 			<div id="lr-photo-step-1" class="lr-step block">
 				<div class="text-xs font-bold text-slate-400 uppercase tracking-widest mb-1">
-					Шаг&nbsp;1 из&nbsp;2
+					Шаг&nbsp;1 из&nbsp;3
 				</div>
 				<h3 class="font-serif text-2xl font-bold text-slate-900 mb-6">
-					Прикрепите фото (необязательно)
+					Прикрепите фото
 				</h3>
 				<p class="text-sm text-slate-500">
 					Фото&nbsp;поможет мастеру сразу&nbsp;оценить масштаб проблемы.
@@ -1097,58 +1172,142 @@
 				<div class="flex gap-3 mt-6">
 					<button onclick="lrPhotoGoToStep(2)"
 						class="flex-1 bg-lr-primary text-white font-bold py-3 rounded-lg hover:bg-lr-secondary transition">
-						Далее (Последний шаг)
+						Далее
 					</button>
 				</div>
 			</div>
 
-			<!-- Step 2 (Contacts) -->
+			<!-- Step 2 (Contact Method) -->
 			<div id="lr-photo-step-2" class="lr-step hidden">
 				<div class="text-xs font-bold text-slate-400 uppercase tracking-widest mb-1">
-					ФИНАЛ
+					Шаг&nbsp;2 из&nbsp;3
 				</div>
 				<h3 class="font-serif text-2xl font-bold text-slate-900 mb-6">
-					Куда прислать расчет стоимости?
+					Как Вам удобнее получить расчет стоимости:
 				</h3>
-
-				<div class="space-y-4 mb-6">
-					<div>
-						<label class="block text-sm font-medium text-slate-700 mb-1">Ваше имя</label>
-						<input type="text" placeholder="Иван"
-							class="w-full border border-slate-300 rounded-lg p-3 outline-none focus:border-lr-accent focus:ring-1 focus:ring-lr-accent" />
-					</div>
-					<div>
-						<label class="block text-sm font-medium text-slate-700 mb-1">Телефон (для&nbsp;связи
-							в&nbsp;WhatsApp)</label>
-						<input type="tel" placeholder="+7 (___) ___--"
-							class="w-full border border-slate-300 rounded-lg p-3 outline-none focus:border-lr-accent focus:ring-1 focus:ring-lr-accent" />
-					</div>
+				<div class="grid grid-cols-2 md:grid-cols-3 gap-3 mb-6">
+					<label
+						class="lr-choice-label border rounded-lg p-3 text-center cursor-pointer hover:border-lr-accent hover:bg-slate-50 transition">
+						<input type="radio" name="photo_contact_method" value="Позвонить" class="hidden"
+							onchange="lrHandlePhotoSelection(this)" onclick="lrPhotoGoToStep(3)" />
+						<i class="fa-solid fa-phone text-2xl text-slate-400 mb-2 block"></i>
+						<span class="font-medium text-slate-700">Позвонить</span>
+					</label>
+					<label
+						class="lr-choice-label border rounded-lg p-3 text-center cursor-pointer hover:border-lr-accent hover:bg-slate-50 transition">
+						<input type="radio" name="photo_contact_method" value="Вотсап" class="hidden"
+							onchange="lrHandlePhotoSelection(this)" onclick="lrPhotoGoToStep(3)" />
+						<i class="fa-brands fa-whatsapp text-2xl text-slate-400 mb-2 block"></i>
+						<span class="font-medium text-slate-700">Вотсап</span>
+					</label>
+					<label
+						class="lr-choice-label border rounded-lg p-3 text-center cursor-pointer hover:border-lr-accent hover:bg-slate-50 transition">
+						<input type="radio" name="photo_contact_method" value="Телеграм" class="hidden"
+							onchange="lrHandlePhotoSelection(this)" onclick="lrPhotoGoToStep(3)" />
+						<i class="fa-brands fa-telegram text-2xl text-slate-400 mb-2 block"></i>
+						<span class="font-medium text-slate-700">Телеграм</span>
+					</label>
+					<label
+						class="lr-choice-label border rounded-lg p-3 text-center cursor-pointer hover:border-lr-accent hover:bg-slate-50 transition">
+						<input type="radio" name="photo_contact_method" value="Макс" class="hidden"
+							onchange="lrHandlePhotoSelection(this)" onclick="lrPhotoGoToStep(3)" />
+						<img src="/assets/icons/max.svg" class="w-6 h-6 mx-auto mb-2 opacity-50 grayscale lr-max-icon"
+							alt="">
+						<span class="font-medium text-slate-700">Макс</span>
+					</label>
+					<label
+						class="lr-choice-label border rounded-lg p-3 text-center cursor-pointer hover:border-lr-accent hover:bg-slate-50 transition">
+						<input type="radio" name="photo_contact_method" value="ВК" class="hidden"
+							onchange="lrHandlePhotoSelection(this)" onclick="lrPhotoGoToStep(3)" />
+						<i class="fa-brands fa-vk text-2xl text-slate-400 mb-2 block"></i>
+						<span class="font-medium text-slate-700">ВК</span>
+					</label>
+					<label
+						class="lr-choice-label border rounded-lg p-3 text-center cursor-pointer hover:border-lr-accent hover:bg-slate-50 transition">
+						<input type="radio" name="photo_contact_method" value="СМС" class="hidden"
+							onchange="lrHandlePhotoSelection(this)" onclick="lrPhotoGoToStep(3)" />
+						<i class="fa-solid fa-envelope text-2xl text-slate-400 mb-2 block"></i>
+						<span class="font-medium text-slate-700">СМС</span>
+					</label>
 				</div>
-
 				<div class="flex gap-3">
 					<button onclick="lrPhotoGoToStep(1)"
 						class="px-4 py-3 bg-slate-100 text-slate-600 rounded-lg hover:bg-slate-200">
 						<i class="fa-solid fa-arrow-left"></i>
 					</button>
-					<button type="button" id="lr-photo-submit-btn" onclick="lrSubmitPhotoForm()"
-						class="flex-1 bg-lr-green text-white font-bold py-3 rounded-lg hover:bg-lr-green-hover transition shadow-lg">
-						Получить расчет
+					<button id="lr-photo-next-2" onclick="lrPhotoGoToStep(3)" disabled
+						class="flex-1 bg-lr-primary text-white font-bold py-3 rounded-lg hover:bg-lr-secondary transition opacity-50 cursor-not-allowed">
+						Далее
 					</button>
 				</div>
 			</div>
 
-			<!-- Step 3 (Success) -->
+			<!-- Step 3 (Phone Input with Dialpad) -->
 			<div id="lr-photo-step-3" class="lr-step hidden">
+				<div class="text-xs font-bold text-slate-400 uppercase tracking-widest mb-1">
+					Шаг&nbsp;3 из&nbsp;3
+				</div>
+				<h3 class="font-serif text-2xl font-bold text-slate-900 mb-2">
+					Введите номер телефона
+				</h3>
+				<p class="text-sm text-slate-500 mb-4">Номер, привязанный к выбранному способу связи</p>
+
+				<!-- Phone display -->
+				<div class="lr-phone-display" id="lr-photo-phone-display">+7</div>
+
+				<!-- Custom Dialpad -->
+				<div class="lr-dialpad" id="lr-photo-dialpad">
+					<button type="button" class="lr-dialpad-key" onclick="lrDialpadInput('1','photo')"><span
+							class="lr-key-num">1</span></button>
+					<button type="button" class="lr-dialpad-key" onclick="lrDialpadInput('2','photo')"><span
+							class="lr-key-num">2</span><span class="lr-key-letters">АБВ</span></button>
+					<button type="button" class="lr-dialpad-key" onclick="lrDialpadInput('3','photo')"><span
+							class="lr-key-num">3</span><span class="lr-key-letters">ГДЕ</span></button>
+					<button type="button" class="lr-dialpad-key" onclick="lrDialpadInput('4','photo')"><span
+							class="lr-key-num">4</span><span class="lr-key-letters">ЖЗИ</span></button>
+					<button type="button" class="lr-dialpad-key" onclick="lrDialpadInput('5','photo')"><span
+							class="lr-key-num">5</span><span class="lr-key-letters">КЛМ</span></button>
+					<button type="button" class="lr-dialpad-key" onclick="lrDialpadInput('6','photo')"><span
+							class="lr-key-num">6</span><span class="lr-key-letters">НОП</span></button>
+					<button type="button" class="lr-dialpad-key" onclick="lrDialpadInput('7','photo')"><span
+							class="lr-key-num">7</span><span class="lr-key-letters">РСТ</span></button>
+					<button type="button" class="lr-dialpad-key" onclick="lrDialpadInput('8','photo')"><span
+							class="lr-key-num">8</span><span class="lr-key-letters">УФХ</span></button>
+					<button type="button" class="lr-dialpad-key" onclick="lrDialpadInput('9','photo')"><span
+							class="lr-key-num">9</span><span class="lr-key-letters">ЦЧШ</span></button>
+					<button type="button" class="lr-dialpad-key lr-dialpad-backspace"
+						onclick="lrDialpadBackspace('photo')"><i class="fa-solid fa-delete-left"></i></button>
+					<button type="button" class="lr-dialpad-key" onclick="lrDialpadInput('0','photo')"><span
+							class="lr-key-num">0</span></button>
+					<div class="lr-dialpad-key" style="visibility:hidden"></div>
+				</div>
+
+				<input type="hidden" id="lr-photo-phone-value" name="photo_phone" />
+
+				<div class="flex gap-3 mt-4">
+					<button onclick="lrPhotoGoToStep(2)"
+						class="px-4 py-3 bg-slate-100 text-slate-600 rounded-lg hover:bg-slate-200">
+						<i class="fa-solid fa-arrow-left"></i>
+					</button>
+					<button type="button" id="lr-photo-submit-btn" onclick="lrSubmitPhotoForm()"
+						class="flex-1 bg-lr-green text-white font-bold py-3 rounded-lg hover:bg-lr-green-hover transition shadow-lg">
+						<i class="fa-solid fa-phone mr-2"></i> Получить расчет
+					</button>
+				</div>
+			</div>
+
+			<!-- Step 4 (Success) -->
+			<div id="lr-photo-step-4" class="lr-step hidden">
 				<div class="lr-step-success">
 					<div class="lr-success-icon">
 						<i class="fa-solid fa-check"></i>
 					</div>
 					<h3 class="font-serif text-2xl font-bold text-slate-900 mb-4">
-						Заявка успешно отправлена!
+						Спасибо за заявку!
 					</h3>
 					<p class="text-slate-600 mb-8">
-						Спасибо за&nbsp;доверие! Наш&nbsp;старший технолог уже&nbsp;изучает вашу проблему.
-						Ваш&nbsp;расчет будет готов в&nbsp;течение 10-15&nbsp;минут и&nbsp;придет вам в&nbsp;WhatsApp.
+						Наш&nbsp;старший технолог уже&nbsp;изучает вашу проблему.
+						Ваш&nbsp;расчет будет готов в&nbsp;течение 10-15&nbsp;минут.
 					</p>
 					<button onclick="lrClosePhotoModal()"
 						class="w-full bg-lr-primary text-white font-bold py-3 rounded-lg hover:bg-lr-secondary transition">

@@ -438,7 +438,8 @@ html {
 	display: flex;
 	align-items: center;
 	justify-content: center;
-	padding: 0;
+	padding: 1rem 2rem;
+	width: 100%;
 	transition: all 0.3s ease;
 }
 
@@ -580,4 +581,84 @@ html {
 
 .slider-sec {
 	overflow: hidden;
+}
+
+/* Custom Dialpad */
+.lr-phone-display {
+	background: var(--lr-primary);
+	color: white;
+	font-size: 1.75rem;
+	font-weight: 700;
+	text-align: center;
+	padding: 1rem 1.5rem;
+	border-radius: 0.75rem;
+	margin-bottom: 1rem;
+	letter-spacing: 2px;
+	min-height: 60px;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+
+.lr-dialpad {
+	display: grid;
+	grid-template-columns: repeat(3, 1fr);
+	gap: 8px;
+	max-width: 360px;
+	margin: 0 auto;
+}
+
+.lr-dialpad-key {
+	background: #f1f5f9;
+	border: 1px solid #e2e8f0;
+	border-radius: 12px;
+	padding: 14px 8px;
+	text-align: center;
+	cursor: pointer;
+	transition: all 0.15s ease;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+	user-select: none;
+	-webkit-tap-highlight-color: transparent;
+}
+
+.lr-dialpad-key:hover {
+	background: #e2e8f0;
+}
+
+.lr-dialpad-key:active {
+	background: #cbd5e1;
+	transform: scale(0.95);
+}
+
+.lr-key-num {
+	font-size: 1.5rem;
+	font-weight: 700;
+	color: var(--lr-primary);
+	line-height: 1;
+}
+
+.lr-key-letters {
+	font-size: 0.6rem;
+	color: #94a3b8;
+	text-transform: uppercase;
+	letter-spacing: 2px;
+	margin-top: 2px;
+}
+
+.lr-dialpad-backspace {
+	background: #fee2e2;
+	border-color: #fecaca;
+	color: #dc2626;
+	font-size: 1.25rem;
+}
+
+.lr-dialpad-backspace:hover {
+	background: #fecaca;
+}
+
+.lr-dialpad-backspace:active {
+	background: #fca5a5;
 }

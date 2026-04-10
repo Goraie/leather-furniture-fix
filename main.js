@@ -32,18 +32,20 @@ const lightbox = GLightbox({
 })
 
 // Modal & Quiz Logic
-const totalSteps = 4
+const totalSteps = 5
 let currentStep = 1
 
 function lrOpenModal() {
     const modal = document.getElementById('lr-quiz-modal')
     modal.classList.add('lr-active')
+    document.body.style.overflow = 'hidden'
     lrGoToStep(1)
 }
 
 function lrCloseModal() {
     const modal = document.getElementById('lr-quiz-modal')
     modal.classList.remove('lr-active')
+    document.body.style.overflow = ''
     // Reset quiz state when closing
     setTimeout(() => {
         lrResetQuiz()
@@ -109,6 +111,10 @@ function lrValidateStep(step) {
         isValid = !!document.querySelector('input[name="problem"]:checked')
         const nextBtn = document.getElementById('lr-next-2')
         lrToggleBtnState(nextBtn, isValid)
+    } else if (step === 4) {
+        isValid = !!document.querySelector('input[name="contact_method"]:checked')
+        const nextBtn = document.getElementById('lr-next-4')
+        lrToggleBtnState(nextBtn, isValid)
     } else {
         isValid = true
     }
@@ -146,8 +152,8 @@ function lrResetFile() {
 }
 
 function lrSubmitQuiz() {
-    // Show step 5 (Success)
-    lrGoToStep(5)
+    // Show step 6 (Success)
+    lrGoToStep(6)
     // Hide progress bar on success
     const progressContainer = document.querySelector('.lr-progress-container')
     if (progressContainer) progressContainer.style.display = 'none'
@@ -164,26 +170,76 @@ function lrResetQuiz() {
     })
     // Reset labels
     document
-        .querySelectorAll('.lr-choice-label')
+        .querySelectorAll('#lr-quiz-modal .lr-choice-label')
         .forEach(label => label.classList.remove('active'))
     // Reset progress and file
     lrResetFile()
+    // Reset phone dialpad
+    lrPhoneDigits = ''
+    const phoneDisplay = document.getElementById('lr-phone-display')
+    if (phoneDisplay) phoneDisplay.textContent = '+7'
     const progressContainer = document.querySelector('#lr-quiz-modal .lr-progress-container')
     if (progressContainer) progressContainer.style.display = 'block'
     lrUpdateProgressBar(1)
     // Reset buttons
     lrToggleBtnState(document.getElementById('lr-next-1'), false)
     lrToggleBtnState(document.getElementById('lr-next-2'), false)
+    lrToggleBtnState(document.getElementById('lr-next-4'), false)
+}
+
+// Dialpad Logic (shared by both quiz and photo modals)
+let lrPhoneDigits = ''       // digits for quiz modal
+let lrPhotoPhoneDigits = ''  // digits for photo modal
+
+function lrFormatPhone(digits) {
+    if (digits.length === 0) return '+7'
+    let d = digits.slice(0, 10)
+    let result = '+7 ('
+    result += d.substring(0, 3)
+    if (d.length >= 3) result += ') '
+    result += d.substring(3, 6)
+    if (d.length >= 6) result += '-'
+    result += d.substring(6, 8)
+    if (d.length >= 8) result += '-'
+    result += d.substring(8, 10)
+    return result
+}
+
+function lrDialpadInput(digit, context) {
+    if (context === 'photo') {
+        if (lrPhotoPhoneDigits.length >= 10) return
+        lrPhotoPhoneDigits += digit
+        document.getElementById('lr-photo-phone-display').textContent = lrFormatPhone(lrPhotoPhoneDigits)
+        document.getElementById('lr-photo-phone-value').value = '+7' + lrPhotoPhoneDigits
+    } else {
+        if (lrPhoneDigits.length >= 10) return
+        lrPhoneDigits += digit
+        document.getElementById('lr-phone-display').textContent = lrFormatPhone(lrPhoneDigits)
+        document.getElementById('lr-phone-value').value = '+7' + lrPhoneDigits
+    }
+}
+
+function lrDialpadBackspace(context) {
+    if (context === 'photo') {
+        lrPhotoPhoneDigits = lrPhotoPhoneDigits.slice(0, -1)
+        document.getElementById('lr-photo-phone-display').textContent = lrFormatPhone(lrPhotoPhoneDigits)
+        document.getElementById('lr-photo-phone-value').value = '+7' + lrPhotoPhoneDigits
+    } else {
+        lrPhoneDigits = lrPhoneDigits.slice(0, -1)
+        document.getElementById('lr-phone-display').textContent = lrFormatPhone(lrPhoneDigits)
+        document.getElementById('lr-phone-value').value = '+7' + lrPhoneDigits
+    }
 }
 
 // Photo Modal Logic
-const totalPhotoSteps = 2
+const totalPhotoSteps = 3
 let currentPhotoStep = 1
 
 function lrOpenPhotoModal() {
     const modal = document.getElementById('lr-photo-modal')
     if (modal) {
         modal.classList.add('lr-active')
+        document.body.style.overflow = 'hidden'
         lrPhotoGoToStep(1)
     }
 }
@@ -192,6 +248,7 @@ function lrClosePhotoModal() {
     const modal = document.getElementById('lr-photo-modal')
     if (modal) {
         modal.classList.remove('lr-active')
+        document.body.style.overflow = ''
         setTimeout(() => {
             lrResetPhotoModal()
         }, 300)
@@ -221,6 +278,19 @@ function lrUpdatePhotoProgressBar(step) {
     }
 }
 
+function lrHandlePhotoSelection(input) {
+    const container = input.closest('.grid') || input.closest('.space-y-2')
+    if (input.type === 'radio') {
+        container
+            .querySelectorAll('.lr-choice-label')
+            .forEach(label => label.classList.remove('active'))
+        input.closest('.lr-choice-label').classList.add('active')
+    }
+    // Enable next button
+    const nextBtn = document.getElementById('lr-photo-next-2')
+    if (nextBtn) lrToggleBtnState(nextBtn, true)
+}
+
 function lrHandlePhotoFileSelect(input) {
     const fileInfo = document.getElementById('lr-photo-file-info')
     const fileName = document.getElementById('lr-photo-file-name')
@@ -241,8 +311,8 @@ function lrResetPhotoFile() {
 }
 
 function lrSubmitPhotoForm() {
-    // Show success step
-    lrPhotoGoToStep(3)
+    // Show success step (step 4)
+    lrPhotoGoToStep(4)
     // Hide progress bar on success
     const progressContainer = document.querySelector('#lr-photo-modal .lr-progress-container')
     if (progressContainer) progressContainer.style.display = 'none'
@@ -251,11 +321,24 @@ function lrSubmitPhotoForm() {
 function lrResetPhotoModal() {
     // Reset inputs
     document.querySelectorAll('#lr-photo-modal input').forEach(input => {
-        input.value = ''
+        if (input.type === 'radio' || input.type === 'checkbox') {
+            input.checked = false
+        } else {
+            input.value = ''
+        }
     })
-    // Reset progress and file
+    // Reset labels
+    document.querySelectorAll('#lr-photo-modal .lr-choice-label')
+        .forEach(label => label.classList.remove('active'))
+    // Reset progress, file, and phone
     lrResetPhotoFile()
+    lrPhotoPhoneDigits = ''
+    const phoneDisplay = document.getElementById('lr-photo-phone-display')
+    if (phoneDisplay) phoneDisplay.textContent = '+7'
     const progressContainer = document.querySelector('#lr-photo-modal .lr-progress-container')
     if (progressContainer) progressContainer.style.display = 'block'
     lrUpdatePhotoProgressBar(1)
+    // Reset next button
+    const nextBtn = document.getElementById('lr-photo-next-2')
+    if (nextBtn) lrToggleBtnState(nextBtn, false)
 }
