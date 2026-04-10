@@ -63,6 +63,84 @@
 	min-width: 300px;
 }
 
+/* Hero Visual */
+.lr-hero-visual {
+	width: 100%;
+	max-width: 900px;
+	margin: 0 auto;
+	border-radius: 1.5rem;
+	overflow: hidden;
+	box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.6);
+	border: 1px solid rgba(197, 157, 95, 0.2);
+	position: relative;
+	transform: translateY(0);
+	transition: transform 0.3s ease;
+}
+
+.lr-hero-visual:hover {
+	transform: translateY(-5px);
+}
+
+.lr-hero-visual img {
+	width: 100%;
+	height: 100%;
+	object-fit: cover;
+	display: block;
+}
+
+/* Button variants */
+.lr-btn-primary {
+	background-color: var(--lr-accent);
+	color: white;
+	transition: all 0.3s ease;
+}
+
+.lr-btn-primary:hover {
+	background-color: var(--lr-accent-hover);
+	transform: translateY(-2px);
+	box-shadow: 0 10px 20px -5px rgba(197, 157, 95, 0.4);
+}
+
+.lr-btn-outline {
+	background-color: transparent;
+	border: 2px solid var(--lr-accent);
+	color: var(--lr-accent);
+	transition: all 0.3s ease;
+}
+
+.lr-btn-outline:hover {
+	background-color: var(--lr-accent-opa);
+	transform: translateY(-2px);
+}
+
+@media (max-width: 1024px) {
+	.lr-2col {
+		flex-direction: column;
+		text-align: center;
+		gap: 30px;
+	}
+
+	.lr-text-left {
+		width: 100%;
+	}
+
+	.lr-img-right {
+		width: 100%;
+	}
+
+	.lr-hero-visual {
+		margin-bottom: 2rem;
+	}
+}
+
+.lr-hero-visual::after {
+	content: "";
+	position: absolute;
+	inset: 0;
+	box-shadow: inset 0 0 80px rgba(0, 0, 0, 0.3);
+	pointer-events: none;
+}
+
 @media (max-width: 1024px) {
 	.lr-2col-b {
 		flex-direction: column;
@@ -215,7 +293,7 @@ html {
 .swiper-button-next,
 .swiper-button-prev {
 	color: #000;
-	background: #f59e0b;
+	background: var(--lr-accent);
 	border-radius: 40px;
 	display: flex;
 	align-items: center;
@@ -227,7 +305,7 @@ html {
 
 .swiper-button-next:hover,
 .swiper-button-prev:hover {
-	background: #d97706;
+	background: var(--lr-accent-hover);
 }
 
 .swiper-button-next {
@@ -245,8 +323,14 @@ html {
 }
 
 .swiper-pagination-bullet {
-	background: #94a3b8;
-	opacity: 0.5;
+	background: var(--lr-accent);
+	opacity: 0.2;
+	transition: all 0.2s ease-in-out;
+}
+
+.swiper-pagination-bullet:hover {
+	background: var(--lr-accent);
+	opacity: 0.4;
 }
 
 .swiper-pagination-bullet-active {
@@ -354,11 +438,19 @@ html {
 	display: flex;
 	align-items: center;
 	justify-content: center;
+	padding: 0;
+	transition: all 0.3s ease;
+}
+
+.btn-social:hover {
+	transform: translateY(-5px);
+
 }
 
 .btn-social img {
 	display: block;
-	height: 32px;
+	height: 28px;
+	width: 28px;
 }
 
 .btn-social-tg {

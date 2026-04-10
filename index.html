@@ -61,88 +61,140 @@
 
 <body>
 	<!-- HERO SECTION -->
-	<section class="max-w-full bg-lr-primary text-white pt-16 pb-20 relative overflow-hidden lr-leather-texture">
+	<section class="max-w-full bg-lr-primary text-white pt-[8rem] pb-20 relative overflow-hidden lr-leather-texture">
 		<!-- subtle texture background -->
 		<!-- <div
 			class="absolute inset-0 opacity-70 bg-[url('https://images.unsplash.com/photo-1555041469-a586c61ea9bc?auto=format&fit=crop&q=80&w=2000')] bg-cover bg-center mix-blend-overlay">
 		</div> -->
 
 		<div class="lr-container relative z-10">
-			<div class="text-center max-w-4xl mx-auto mb-10">
-				<p class="text-lr-accent font-medium uppercase tracking-wide text-sm mb-4">
-					Вниманию владельцев кожаной мебели в&nbsp;Санкт-Петербурге:
-				</p>
-				<h1 class="font-serif lr-h1 font-bold mb-6 text-white leading-tight">
-					<span class="text-bg">Не&nbsp;выбрасывайте</span> ваш испорченный кожаный диван!
-				</h1>
-				<p class="text-xl text-slate-300 font-light mb-8 leading-relaxed">
-					Мы&nbsp;бесследно устраним прожоги, трещины, царапины от&nbsp;когтей и
-					потертости прямо у&nbsp;вас на&nbsp;дому&nbsp;—
-					<span class="text-white font-semibold border-b-2 border-lr-accent">
-						за&nbsp;1/10 от&nbsp;стоимости новой мебели
-					</span>
-				</p>
-				<p class="text-base text-slate-400 mb-10">
-					Неважно, что случилось: кот&nbsp;изодрал подлокотник, гость&nbsp;прожег
-					сиденье, дорогая кожа выцвела, или дешевый кожзам начал осыпаться.
-					<strong>Мы&nbsp;чиним всё.</strong> Официальная гарантия 2&nbsp;года от&nbsp;ООО
-					«Ленремонт» (с&nbsp;1968&nbsp;г.).
-				</p>
+			<div class="lr-2col items-center mb-16">
+				<!-- Left Column: Copy & Actions -->
+				<div class="lr-text-left text-left">
+					<p class="text-lr-accent font-medium uppercase tracking-wide text-xs md:text-sm mb-4">
+						Вниманию владельцев кожаной мебели в&nbsp;Санкт-Петербурге:
+					</p>
+					<h1 class="font-serif lr-h1 font-bold mb-6 text-white leading-tight">
+						<span class="text-bg">Не&nbsp;выбрасывайте</span> ваш испорченный кожаный диван!
+					</h1>
+					<p class="text-lg md:text-xl text-slate-300 font-light mb-12 leading-relaxed max-w-2xl">
+						Мы&nbsp;бесследно устраним прожоги, трещины, царапины от&nbsp;когтей и
+						потертости прямо у&nbsp;вас на&nbsp;дому&nbsp;—
+						<span class="text-white font-semibold border-b-2 border-lr-accent">
+							за&nbsp;1/10 от&nbsp;стоимости новой мебели
+						</span>
+					</p>
+
+					<div class="flex flex-col sm:flex-row gap-4">
+						<button onclick="lrOpenModal()"
+							class="lr-btn-primary text-white font-bold text-lg px-8 py-5 rounded-full shadow-lg transform transition w-full sm:w-auto text-center">
+							Рассчитать стоимость
+						</button>
+						<!-- <button onclick="lrOpenPhotoModal()"
+							class="lr-btn-outline font-bold text-lg px-8 py-5 rounded-full shadow-lg transform transition w-full sm:w-auto text-center">
+							Отправить фото
+						</button> -->
+					</div>
+
+					<!-- <div class="mb-8">
+						<p class="text-sm text-slate-400 mb-4">
+							Или через&nbsp;удобный мессенджер:
+						</p>
+						<div class="social-wrapp flex gap-3">
+							<a href="https://telegram.me/lenremont_bot" target="_blank" rel="noreferrer"
+								class="w-14 h-14  border border-white/10 rounded-full flex items-center justify-center  transition shadow-lg btn-social btn-social-tg">
+								<img src="/assets/icons/tg.svg" class="w-6 h-6" alt="Telegram">
+							</a>
+							<a href="https://vk.com/lenremont" target="_blank" rel="noreferrer"
+								class="w-14 h-14  border border-white/10 rounded-full flex items-center justify-center  transition shadow-lg btn-social btn-social-vk">
+								<img src="/assets/icons/vk.svg" class="w-6 h-6" alt="VK">
+							</a>
+							<a href="https://max.ru/id471902475874_3_bot" target="_blank" rel="noreferrer"
+								class="w-14 h-14  border border-white/10 rounded-full flex items-center justify-center  transition shadow-lg btn-social btn-social-max">
+								<img src="/assets/icons/max.svg" class="w-6 h-6" alt="Max">
+							</a>
+						</div>
+					</div>
+
+					<p class="text-xs md:text-sm text-slate-400 flex items-center gap-2">
+						<i class="fa-solid fa-shield-halved text-emerald-400"></i>
+						Мастер&nbsp;приедет сегодня. Без&nbsp;грязи. Гарантия 2&nbsp;года.
+					</p> -->
+				</div>
+
+				<!-- Right Column: Premium Visual -->
+				<div class="lr-img-right hidden lg:block">
+					<div class="lr-hero-visual shadow-2xl">
+						<img src="assets/hero-sofa.png" alt="Премиальная реставрация кожи">
+					</div>
+				</div>
+			</div>
+
+			<!-- Mobile Visual (Visible only on mobile/tablet) -->
+			<div class="lg:hidden mb-12">
+				<div class="lr-hero-visual">
+					<img src="assets/hero-sofa.png" alt="Премиальная реставрация кожи">
+				</div>
 			</div>
 
 			<!-- Problems Grid -->
-			<div class="grid grid-cols-2 md:grid-cols-4 gap-2 md:gap-4 mb-12 max-w-5xl mx-auto">
+			<div class="text-center mb-6">
+				<h3 class="text-slate-400 text-sm font-medium uppercase tracking-widest mb-8">
+					Бесследно чиним следующие повреждения:
+				</h3>
+			</div>
+			<div class="grid grid-cols-2 lg:grid-cols-4 gap-3 md:gap-4 max-w-6xl mx-auto mb-8">
 				<div
-					class="hero-card bg-white/10 backdrop-blur-sm rounded-lg border border-white/20 flex flex-col items-center">
+					class="hero-card bg-white/5 backdrop-blur-sm rounded-xl border border-white/10 flex flex-col items-center hover:bg-white/10 transition">
 					<a class="glightbox hero-card-link" data-gallery="cases" href="/assets/burn-marks.jpg" alt="">
 						<img class="hero-card-img" src="/assets/burn-marks.jpg" alt="">
 					</a>
 					<span class="text-sm font-medium px-3 md:px-4 py-3 ">Прожоги</span>
 				</div>
 				<div
-					class="hero-card bg-white/10 backdrop-blur-sm rounded-lg border border-white/20 flex flex-col items-center">
+					class="hero-card bg-white/5  backdrop-blur-sm rounded-lg border border-white/20 flex flex-col items-center hover:bg-white/10 transition">
 					<a class="glightbox hero-card-link" data-gallery="cases" href="/assets/claws.jpg" alt="">
 						<img class="hero-card-img" src="/assets/claws.jpg" alt="">
 					</a>
 					<span class="text-sm font-medium px-3 md:px-4 py-3 ">Когти животных</span>
 				</div>
 				<div
-					class="hero-card bg-white/10 backdrop-blur-sm rounded-lg border border-white/20 flex flex-col items-center">
+					class="hero-card bg-white/5  backdrop-blur-sm rounded-lg border border-white/20 flex flex-col items-center hover:bg-white/10 transition">
 					<a class="glightbox hero-card-link" data-gallery="cases" href="/assets/cuts.jpg" alt="">
 						<img class="hero-card-img" src="/assets/cuts.jpg" alt="">
 					</a>
 					<span class="text-sm font-medium px-3 md:px-4 py-3 ">Порезы и разрывы</span>
 				</div>
 				<div
-					class="hero-card bg-white/10 backdrop-blur-sm rounded-lg border border-white/20 flex flex-col items-center">
+					class="hero-card bg-white/5  backdrop-blur-sm rounded-lg border border-white/20 flex flex-col items-center hover:bg-white/10 transition">
 					<a class="glightbox hero-card-link" data-gallery="cases" href="/assets/chemicals.jpg" alt="">
 						<img class="hero-card-img" src="/assets/chemicals.jpg" alt="">
 					</a>
 					<span class="text-sm font-medium px-3 md:px-4 py-3 ">Пятна и химия</span>
 				</div>
 				<div
-					class="hero-card bg-white/10 backdrop-blur-sm rounded-lg border border-white/20 flex flex-col items-center">
+					class="hero-card bg-white/5  backdrop-blur-sm rounded-lg border border-white/20 flex flex-col items-center hover:bg-white/10 transition">
 					<a class="glightbox hero-card-link" data-gallery="cases" href="/assets/fading.jpg" alt="">
 						<img class="hero-card-img" src="/assets/fading.jpg" alt="">
 					</a>
 					<span class="text-sm font-medium px-3 md:px-4 py-3 ">Выцветание</span>
 				</div>
 				<div
-					class="hero-card bg-white/10 backdrop-blur-sm rounded-lg border border-white/20 flex flex-col items-center">
+					class="hero-card bg-white/5  backdrop-blur-sm rounded-lg border border-white/20 flex flex-col items-center hover:bg-white/10 transition">
 					<a class="glightbox hero-card-link" data-gallery="cases" href="/assets/sagging-foam.jpg" alt="">
 						<img class="hero-card-img" src="/assets/sagging-foam.jpg" alt="">
 					</a>
 					<span class="text-sm font-medium px-3 md:px-4 py-3 ">Продавленный поролон</span>
 				</div>
 				<div
-					class="hero-card bg-white/10 backdrop-blur-sm rounded-lg border border-white/20 flex flex-col items-center">
+					class="hero-card bg-white/5  backdrop-blur-sm rounded-lg border border-white/20 flex flex-col items-center hover:bg-white/10 transition">
 					<a class="glightbox hero-card-link" data-gallery="cases" href="/assets/rename.jpg" alt="">
 						<img class="hero-card-img" src="/assets/rename.jpg" alt="">
 					</a>
 					<span class="text-sm font-medium px-3 md:px-4 py-3 ">Полная перекраска</span>
 				</div>
 				<div
-					class="hero-card bg-white/10 backdrop-blur-sm rounded-lg border border-white/20 flex flex-col items-center">
+					class="hero-card bg-white/5  backdrop-blur-sm rounded-lg border border-white/20 flex flex-col items-center hover:bg-white/10 transition">
 					<a class="glightbox hero-card-link" data-gallery="cases" href="/assets/scar.jpg" alt="">
 						<img class="hero-card-img" src="/assets/scar.jpg" alt="">
 					</a>
@@ -163,23 +215,24 @@
 					Или через&nbsp;удобный для&nbsp;вас мессенджер:
 				</p>
 
-				<div class="social-wrapp flex flex-col md:flex-row mx-auto max-w-sm md:max-w-none gap-2 md:gap-4">
+				<div
+					class="social-wrapp flex flex-col md:flex-row mx-auto max-w-sm md:max-w-none gap-2 md:gap-4 justify-center">
 
 					<a href="https://telegram.me/lenremont_bot" target="_blank" rel="noreferrer"
-						class="btn-social btn-social-tg shadow-lg transform transition hover:-translate-y-1 px-8 py-5 rounded-full font-bold text-lg w-full">
+						class="btn-social btn-social-tg shadow-lg transform transition hover:-translate-y-1 rounded-full font-bold text-lg w-14 h-14">
 						<!-- Telegram -->
 						<img src="/assets/icons/tg.svg" alt="">
 					</a>
 
 					<a href="vk.com/?u=2&to=L2FsX2ltLnBocD9zZWw9LTM3MTcyNzAz" target="_blank" rel="noreferrer"
-						class="btn-social btn-social-vk shadow-lg transform transition hover:-translate-y-1 px-8 py-5 rounded-full font-bold text-lg w-full">
+						class="btn-social btn-social-vk shadow-lg transform transition hover:-translate-y-1 rounded-full font-bold text-lg w-14 h-14">
 						<!-- VK -->
 						<img src="/assets/icons/vk.svg" alt="">
 
 					</a>
 
 					<a href="https://max.ru/id471902475874_3_bot" target="_blank" rel="noreferrer"
-						class="btn-social btn-social-max shadow-lg transform transition hover:-translate-y-1 px-8 py-5 rounded-full font-bold text-lg w-full">
+						class="btn-social btn-social-max shadow-lg transform transition hover:-translate-y-1 rounded-full font-bold text-lg w-14 h-14">
 						<!-- Max -->
 						<img src="/assets/icons/max.svg" alt="">
 
@@ -460,7 +513,7 @@
 	<section class="max-w-full bg-lr-primary text-white py-16">
 		<div class="lr-container">
 			<div class="text-center max-w-3xl mx-auto mb-12">
-				<h2 class=" lr-h2 font-bold mb-4">
+				<h2 class="font-serif lr-h2 font-bold mb-4">
 					Что вы получаете, доверяя свою мебель <span class="text-bg">ЛенРемонту</span>
 				</h2>
 				<p class="text-slate-400">(помимо сохраненных нервов и денег)</p>
@@ -755,26 +808,20 @@
 					Или через&nbsp;удобный для&nbsp;вас мессенджер:
 				</p>
 
-				<div class="social-wrapp flex flex-col md:flex-row w-full max-w-sm md:max-w-3xl gap-2 md:gap-4">
+				<div
+					class="social-wrapp flex flex-col md:flex-row w-full max-w-sm md:max-w-3xl gap-2 md:gap-4 justify-center">
 
 					<a href="https://telegram.me/lenremont_bot" target="_blank" rel="noreferrer"
-						class="btn-social btn-social-tg shadow-lg transform transition hover:-translate-y-1 px-8 py-5 rounded-full font-bold text-lg w-full">
-						<!-- Telegram -->
-						<img src="/assets/icons/tg.svg" alt="">
+						class="w-14 h-14  border border-white/10 rounded-full flex items-center justify-center btn-social transition shadow-lg btn-social-tg">
+						<img src="/assets/icons/tg.svg" class="w-6 h-6" alt="Telegram">
 					</a>
-
-					<a href="vk.com/?u=2&to=L2FsX2ltLnBocD9zZWw9LTM3MTcyNzAz" target="_blank" rel="noreferrer"
-						class="btn-social btn-social-vk shadow-lg transform transition hover:-translate-y-1 px-8 py-5 rounded-full font-bold text-lg w-full">
-						<!-- VK -->
-						<img src="/assets/icons/vk.svg" alt="">
-
+					<a href="https://vk.com/lenremont" target="_blank" rel="noreferrer"
+						class="w-14 h-14  border border-white/10 rounded-full flex items-center justify-center btn-social transition shadow-lg btn-social-vk">
+						<img src="/assets/icons/vk.svg" class="w-6 h-6" alt="VK">
 					</a>
-
 					<a href="https://max.ru/id471902475874_3_bot" target="_blank" rel="noreferrer"
-						class="btn-social btn-social-max shadow-lg transform transition hover:-translate-y-1 px-8 py-5 rounded-full font-bold text-lg w-full">
-						<!-- Max -->
-						<img src="/assets/icons/max.svg" alt="">
-
+						class="w-14 h-14  border border-white/10 rounded-full flex items-center justify-center btn-social transition shadow-lg btn-social-max">
+						<img src="/assets/icons/max.svg" class="w-6 h-6" alt="Max">
 					</a>
 				</div>
 			</div>
