@@ -55,7 +55,691 @@
 		}
 	</script>
 
-	<link rel="stylesheet" href="style.css">
+	<style>
+		:root {
+			--lr-primary: #1a120b;
+			/* Espresso Dark */
+			--lr-secondary: #2d2016;
+			/* Cocoa Brown */
+			--lr-accent: #c59d5f;
+			/* Golden Cognac */
+			--lr-accent-opa: rgba(197, 157, 95, 0.15);
+			--lr-accent-hover: #b48a4d;
+			--lr-brand: #8b5e3c;
+			/* Saddle Brown */
+			--lr-brand-hover: #724b30;
+			--lr-bg-light: #fdfaf3;
+			--lr-bg-light: #fdfaf3;
+			--lr-bg-green: #58863e;
+			--lr-bg-green-hover: #446d2c;
+
+			/* Soft Cream */
+		}
+
+		.lr-leather-texture {
+			position: relative;
+		}
+
+		.lr-leather-texture::before {
+			content: "";
+			position: absolute;
+			inset: 0;
+			background-image: url('https://www.transparenttextures.com/patterns/leather.png');
+			opacity: 0.05;
+			pointer-events: none;
+			z-index: 1;
+		}
+
+		/* Ensure content is above texture if needed */
+		.lr-leather-texture>* {
+			position: relative;
+			z-index: 2;
+		}
+
+		.lr-container {
+			width: 88%;
+			max-width: 1280px;
+			margin: 0 auto;
+		}
+
+		/* Adaptive 2 Column Layout with Mobile Reordering */
+		.lr-2col {
+			display: flex;
+			flex-direction: row;
+			gap: 40px;
+			align-items: center;
+		}
+
+		.lr-text-left {
+			order: 1;
+			flex: 1;
+		}
+
+		.lr-img-right {
+			order: 2;
+			flex: 1;
+			min-width: 300px;
+		}
+
+		/* Hero Visual */
+		.lr-hero-visual {
+			width: 100%;
+			max-width: 900px;
+			margin: 0 auto;
+			border-radius: 1.5rem;
+			overflow: hidden;
+			box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.6);
+			border: 1px solid rgba(197, 157, 95, 0.2);
+			position: relative;
+			transform: translateY(0);
+			transition: transform 0.3s ease;
+		}
+
+		.lr-hero-visual:hover {
+			transform: translateY(-5px);
+		}
+
+		.lr-hero-visual img {
+			width: 100%;
+			height: 100%;
+			object-fit: cover;
+			display: block;
+		}
+
+		/* Button variants */
+		.lr-btn-primary {
+			background-color: var(--lr-accent);
+			color: white;
+			transition: all 0.3s ease;
+		}
+
+		.lr-btn-primary:hover {
+			background-color: var(--lr-accent-hover);
+			transform: translateY(-2px);
+			box-shadow: 0 10px 20px -5px rgba(197, 157, 95, 0.4);
+		}
+
+		.lr-btn-outline {
+			background-color: transparent;
+			border: 2px solid var(--lr-accent);
+			color: var(--lr-accent);
+			transition: all 0.3s ease;
+		}
+
+		.lr-btn-outline:hover {
+			background-color: var(--lr-accent-opa);
+			transform: translateY(-2px);
+		}
+
+		@media (max-width: 1024px) {
+			.lr-2col {
+				flex-direction: column;
+				text-align: center;
+				gap: 30px;
+			}
+
+			.lr-text-left {
+				width: 100%;
+			}
+
+			.lr-img-right {
+				width: 100%;
+			}
+
+			.lr-hero-visual {
+				margin-bottom: 2rem;
+			}
+		}
+
+		.lr-hero-visual::after {
+			content: "";
+			position: absolute;
+			inset: 0;
+			box-shadow: inset 0 0 80px rgba(0, 0, 0, 0.3);
+			pointer-events: none;
+		}
+
+		@media (max-width: 1024px) {
+			.lr-2col-b {
+				flex-direction: column;
+				text-align: left;
+			}
+
+			.lr-img-right {
+				order: -1;
+				margin-bottom: 20px;
+				width: 100%;
+			}
+
+			.lr-text-left {
+				order: 1;
+				width: 100%;
+			}
+		}
+
+		@media (max-width: 768px) {
+			.lr-2col {
+				flex-direction: column;
+				text-align: left;
+			}
+		}
+
+		/* Typography Clamp */
+		.lr-h1 {
+			font-size: clamp(2rem, 5vw, 3.5rem);
+			line-height: 1.1;
+		}
+
+		.lr-h2 {
+			font-size: clamp(1.75rem, 4vw, 2.5rem);
+			line-height: 1.2;
+		}
+
+		/* Before/After Slider specific styles */
+		.lr-ba-slider {
+			position: relative;
+			width: 100%;
+			border-radius: 0.5rem;
+			user-select: none;
+		}
+
+		.lr-ba-img-after {
+			width: 100%;
+			display: block;
+			object-fit: cover;
+			aspect-ratio: 16/10;
+		}
+
+		.lr-ba-img-before {
+			position: absolute;
+			top: 0;
+			left: 0;
+			width: 50%;
+			height: 100%;
+			object-fit: cover;
+			object-position: left;
+			border-right: 3px solid #fff;
+		}
+
+		.lr-ba-slider-handle {
+			position: absolute;
+			top: 50%;
+			left: 50%;
+			transform: translate(-50%, -50%);
+			width: 48px;
+			height: 48px;
+			background: #fff;
+			border-radius: 50%;
+			display: flex;
+			align-items: center;
+			justify-content: center;
+			cursor: ew-resize;
+			box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+			z-index: 10;
+			color: #f59e0b;
+			font-size: 1.25rem;
+			pointer-events: none;
+		}
+
+		/* Carousel - Swiper handled */
+		.lr-carousel {
+			padding: 1rem 0 3rem;
+			overflow: visible;
+		}
+
+		.lr-carousel-card {
+			background: #fff;
+			border-radius: 1rem;
+			box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+			overflow: hidden;
+			height: auto;
+			transition: box-shadow 0.3s ease-in-out;
+		}
+
+		.lr-carousel-card:hover {
+			box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
+		}
+
+		/* Modal */
+		.lr-modal {
+			display: none;
+			position: fixed;
+			inset: 0;
+			background: rgba(15, 23, 42, 0.8);
+			z-index: 9999;
+			align-items: center;
+			justify-content: center;
+			backdrop-filter: blur(4px);
+		}
+
+		.lr-modal.lr-active {
+			display: flex;
+			animation: fadeIn 0.2s ease;
+		}
+
+		.lr-modal-content {
+			background: white;
+			width: 92%;
+			max-width: 500px;
+			border-radius: 1rem;
+			padding: 2rem;
+			position: relative;
+			max-height: 90vh;
+			overflow-y: auto;
+		}
+
+		@keyframes fadeIn {
+			from {
+				opacity: 0;
+			}
+
+			to {
+				opacity: 1;
+			}
+		}
+
+		/* Smooth scroll */
+		html {
+			scroll-behavior: smooth;
+		}
+
+		/* Utilities */
+		.lr-text-shadow {
+			text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
+		}
+
+		.swiper-button-next,
+		.swiper-button-prev {
+			color: #000;
+			background: var(--lr-accent);
+			border-radius: 40px;
+			display: flex;
+			align-items: center;
+			justify-content: center;
+			width: 40px;
+			height: 40px;
+			transition: all 0.2s ease-in-out;
+		}
+
+		.swiper-button-next:hover,
+		.swiper-button-prev:hover {
+			background: var(--lr-accent-hover);
+		}
+
+		.swiper-button-next {
+			right: -20px;
+		}
+
+		.swiper-button-prev {
+			left: -20px;
+		}
+
+		.swiper-button-next::after,
+		.swiper-button-prev::after {
+			color: #fff;
+			font-size: 16px;
+		}
+
+		.swiper-pagination-bullet {
+			background: var(--lr-accent);
+			opacity: 0.2;
+			transition: all 0.2s ease-in-out;
+		}
+
+		.swiper-pagination-bullet:hover {
+			background: var(--lr-accent);
+			opacity: 0.4;
+		}
+
+		.swiper-pagination-bullet-active {
+			background: var(--lr-accent) !important;
+			opacity: 1;
+		}
+
+		.lr-card-image {
+			display: block;
+			position: relative;
+			overflow: hidden;
+			border-radius: 12px;
+			position: relative;
+		}
+
+		.lr-card-img-before,
+		.lr-card-img-after {
+			position: absolute;
+			top: 0;
+			left: 0;
+			width: 100%;
+			height: 100%;
+			object-fit: cover;
+			transition: all 0.3s ease;
+		}
+
+		.lr-card-img-before {
+			z-index: 1;
+		}
+
+		.lr-card-img-after {
+			z-index: 2;
+			opacity: 0;
+			transition: all 0.3s ease;
+		}
+
+		.lr-card-image:hover img {
+			transform: scale(1.05);
+		}
+
+		.lr-card-image:hover .lr-card-img-after {
+			opacity: 1;
+		}
+
+		@media (max-width: 768px) {
+			.lr-card-img-after {
+				transition-duration: 1s;
+				transition-delay: .8s;
+				transition-timing-function: ease;
+				transition-property: all;
+			}
+
+			.swiper-slide-active .lr-card-img-after {
+				opacity: 1;
+			}
+		}
+
+
+		.lr-sticky-cta {
+			position: fixed;
+			bottom: 0.5rem;
+			right: 0.5rem;
+			height: 44px;
+			width: 44px;
+			z-index: 777;
+		}
+
+		.lr-sticky-cta button {
+			width: 100%;
+			height: 100%;
+		}
+
+		.swiper-slide {
+			display: flex;
+			flex-direction: column;
+			height: auto;
+		}
+
+		.lr-card-image {
+			height: 320px;
+		}
+
+		@media (max-width: 768px) {
+			.lr-card-image {
+				height: 220px;
+			}
+		}
+
+		@media (max-width: 640px) {
+			.lr-card-image {
+				height: 200px;
+			}
+		}
+
+		.swiper-card-bottom {
+			flex: 1;
+			height: 100%;
+			display: flex;
+			flex-direction: column;
+			justify-content: space-between;
+		}
+
+		.btn-social {
+			display: block;
+			display: flex;
+			align-items: center;
+			justify-content: center;
+			padding: 1rem 2rem;
+			width: 100%;
+			transition: all 0.3s ease;
+		}
+
+		.btn-social:hover {
+			transform: translateY(-5px);
+
+		}
+
+		.btn-social img {
+			display: block;
+			height: 28px;
+			width: 28px;
+		}
+
+		.btn-social-tg {
+			background-color: #4db4ff;
+			color: white;
+		}
+
+		.btn-social-vk {
+			background-color: #4a8cf7;
+			color: white;
+		}
+
+		.btn-social-max {
+			background: linear-gradient(135deg,
+					#5b51d8,
+					#7c4dff 20%,
+					#8b5cf6 50%,
+					#a855f7 70%,
+					#d946ef);
+			color: white;
+		}
+
+		.hero-card {
+			overflow: hidden;
+			text-align: center;
+		}
+
+		.benefits-icon {
+			min-width: 32px;
+		}
+
+		.text-bg {
+			background: var(--lr-accent-hover);
+			padding-inline: 0.5rem;
+			border-radius: 0.25rem;
+		}
+
+		.text-quote {
+			background: var(--lr-accent-opa);
+			padding: 1.5rem;
+			border-radius: 0 0.25rem 0.25rem 0;
+			border-left: 0.25rem solid var(--lr-accent);
+			color: var(--lr-primary);
+		}
+
+		.agit-img {
+			height: 500px;
+		}
+
+		@media (max-width: 640px) {
+			.agit-img {
+				height: auto;
+				min-height: 240px;
+			}
+		}
+
+		/* Quiz Improvements */
+		.lr-progress-container {
+			width: 100%;
+			height: 6px;
+			background: #e2e8f0;
+			border-radius: 3px;
+
+			overflow: hidden;
+		}
+
+		.lr-progress-bar {
+			height: 100%;
+			background: var(--lr-accent);
+			width: 0%;
+			transition: width 0.3s ease;
+		}
+
+		.lr-choice-label {
+			border-width: 2px;
+			transition: all 0.2s ease;
+		}
+
+		.lr-choice-label.active {
+			border-color: var(--lr-accent);
+			background-color: #fffbeb;
+			box-shadow: 0 0 0 1px var(--lr-accent);
+		}
+
+		.lr-choice-label.active i {
+			color: var(--lr-accent);
+		}
+
+		.lr-file-preview {
+			display: none;
+			margin-top: 1rem;
+			padding: 0.5rem;
+			background: #f8fafc;
+			border-radius: 0.5rem;
+			font-size: 0.875rem;
+			color: var(--lr-primary);
+			border: 1px solid #e2e8f0;
+			align-items: center;
+			gap: 0.5rem;
+		}
+
+		.lr-file-preview.active {
+			display: flex;
+		}
+
+		.lr-step-success {
+			text-align: center;
+			padding: 1rem 0;
+		}
+
+		.lr-success-icon {
+			width: 64px;
+			height: 64px;
+			background: #dcfce7;
+			color: #16a34a;
+			border-radius: 50%;
+			display: flex;
+			align-items: center;
+			justify-content: center;
+			margin: 0 auto 1.5rem;
+			font-size: 2rem;
+		}
+
+		.gslide-media {
+			background: transparents;
+		}
+
+		.slider-sec {
+			overflow: hidden;
+		}
+
+		/* Custom Dialpad – responsive toggle */
+		.lr-desktop-phone {
+			display: block;
+		}
+
+		.lr-mobile-phone {
+			display: none;
+		}
+
+		@media (max-width: 768px) {
+			.lr-desktop-phone {
+				display: none;
+			}
+
+			.lr-mobile-phone {
+				display: block;
+			}
+		}
+
+		/* Custom Dialpad */
+		.lr-phone-display {
+			background: var(--lr-primary);
+			color: white;
+			font-size: 1.75rem;
+			font-weight: 700;
+			text-align: center;
+			padding: 1rem 1.5rem;
+			border-radius: 0.75rem;
+			margin-bottom: 1rem;
+			letter-spacing: 2px;
+			min-height: 60px;
+			display: flex;
+			align-items: center;
+			justify-content: center;
+		}
+
+		.lr-dialpad {
+			display: grid;
+			grid-template-columns: repeat(3, 1fr);
+			gap: 8px;
+			/* max-width: 360px; */
+			margin: 0 auto;
+		}
+
+		.lr-dialpad-key {
+			background: #f1f5f9;
+			border: 1px solid #e2e8f0;
+			border-radius: 12px;
+			padding: 14px 8px;
+			text-align: center;
+			cursor: pointer;
+			transition: all 0.15s ease;
+			display: flex;
+			flex-direction: column;
+			align-items: center;
+			justify-content: center;
+			user-select: none;
+			-webkit-tap-highlight-color: transparent;
+		}
+
+		.lr-dialpad-key:hover {
+			background: #e2e8f0;
+		}
+
+		.lr-dialpad-key:active {
+			background: #cbd5e1;
+			transform: scale(0.95);
+		}
+
+		.lr-key-num {
+			font-size: 1.5rem;
+			font-weight: 700;
+			color: var(--lr-primary);
+			line-height: 1;
+		}
+
+		.lr-key-letters {
+			font-size: 0.6rem;
+			color: #94a3b8;
+			text-transform: uppercase;
+			letter-spacing: 2px;
+			margin-top: 2px;
+		}
+
+		.lr-dialpad-backspace {
+			background: #fee2e2;
+			border-color: #fecaca;
+			color: #dc2626;
+			font-size: 1.25rem;
+		}
+
+		.lr-dialpad-backspace:hover {
+			background: #fecaca;
+		}
+
+		.lr-dialpad-backspace:active {
+			background: #fca5a5;
+		}
+	</style>
 </head>
 
 
@@ -76,7 +760,7 @@
 				<div class="lr-text-left text-left">
 					<div class="lg:hidden mb-10">
 						<div class="lr-hero-visual">
-							<img src="assets/offer.jpg" alt="Премиальная реставрация кожи">
+							<img src="assets/offer.webp" alt="Премиальная реставрация кожи">
 						</div>
 					</div>
 
@@ -109,7 +793,7 @@
 				<!-- Right Column: Premium Visual -->
 				<div class="lr-img-right hidden lg:block">
 					<div class="lr-hero-visual shadow-2xl">
-						<img src="assets/offer.jpg" alt="Премиальная реставрация кожи">
+						<img src="assets/offer.webp" alt="Премиальная реставрация кожи">
 					</div>
 				</div>
 			</div>
@@ -126,57 +810,57 @@
 			<div class="grid grid-cols-2 lg:grid-cols-4 gap-3 md:gap-4 max-w-6xl mx-auto mb-8">
 				<div
 					class="hero-card bg-white/5 backdrop-blur-sm rounded-xl border border-white/10 flex flex-col items-center hover:bg-white/10 transition">
-					<a class="glightbox hero-card-link" data-gallery="cases" href="/assets/burn-marks.jpg" alt="">
-						<img class="hero-card-img" src="/assets/burn-marks.jpg" alt="">
+					<a class="glightbox hero-card-link" data-gallery="cases" href="/assets/burn-marks.webp" alt="">
+						<img class="hero-card-img" src="/assets/burn-marks.webp" alt="">
 					</a>
 					<span class="text-sm font-medium px-3 md:px-4 py-3 ">Прожоги</span>
 				</div>
 				<div
 					class="hero-card bg-white/5  backdrop-blur-sm rounded-lg border border-white/20 flex flex-col items-center hover:bg-white/10 transition">
-					<a class="glightbox hero-card-link" data-gallery="cases" href="/assets/claws.jpg" alt="">
-						<img class="hero-card-img" src="/assets/claws.jpg" alt="">
+					<a class="glightbox hero-card-link" data-gallery="cases" href="/assets/claws.webp" alt="">
+						<img class="hero-card-img" src="/assets/claws.webp" alt="">
 					</a>
 					<span class="text-sm font-medium px-3 md:px-4 py-3 ">Когти животных</span>
 				</div>
 				<div
 					class="hero-card bg-white/5  backdrop-blur-sm rounded-lg border border-white/20 flex flex-col items-center hover:bg-white/10 transition">
-					<a class="glightbox hero-card-link" data-gallery="cases" href="/assets/cuts.jpg" alt="">
-						<img class="hero-card-img" src="/assets/cuts.jpg" alt="">
+					<a class="glightbox hero-card-link" data-gallery="cases" href="/assets/cuts.webp" alt="">
+						<img class="hero-card-img" src="/assets/cuts.webp" alt="">
 					</a>
 					<span class="text-sm font-medium px-3 md:px-4 py-3 ">Порезы и разрывы</span>
 				</div>
 				<div
 					class="hero-card bg-white/5  backdrop-blur-sm rounded-lg border border-white/20 flex flex-col items-center hover:bg-white/10 transition">
-					<a class="glightbox hero-card-link" data-gallery="cases" href="/assets/chemicals.jpg" alt="">
-						<img class="hero-card-img" src="/assets/chemicals.jpg" alt="">
+					<a class="glightbox hero-card-link" data-gallery="cases" href="/assets/chemicals.webp" alt="">
+						<img class="hero-card-img" src="/assets/chemicals.webp" alt="">
 					</a>
 					<span class="text-sm font-medium px-3 md:px-4 py-3 ">Пятна и химия</span>
 				</div>
 				<div
 					class="hero-card bg-white/5  backdrop-blur-sm rounded-lg border border-white/20 flex flex-col items-center hover:bg-white/10 transition">
-					<a class="glightbox hero-card-link" data-gallery="cases" href="/assets/fading.jpg" alt="">
-						<img class="hero-card-img" src="/assets/fading.jpg" alt="">
+					<a class="glightbox hero-card-link" data-gallery="cases" href="/assets/fading.webp" alt="">
+						<img class="hero-card-img" src="/assets/fading.webp" alt="">
 					</a>
 					<span class="text-sm font-medium px-3 md:px-4 py-3 ">Выцветание</span>
 				</div>
 				<div
 					class="hero-card bg-white/5  backdrop-blur-sm rounded-lg border border-white/20 flex flex-col items-center hover:bg-white/10 transition">
-					<a class="glightbox hero-card-link" data-gallery="cases" href="/assets/sagging-foam.jpg" alt="">
-						<img class="hero-card-img" src="/assets/sagging-foam.jpg" alt="">
+					<a class="glightbox hero-card-link" data-gallery="cases" href="/assets/sagging-foam.webp" alt="">
+						<img class="hero-card-img" src="/assets/sagging-foam.webp" alt="">
 					</a>
 					<span class="text-sm font-medium px-3 md:px-4 py-3 ">Продавленный поролон</span>
 				</div>
 				<div
 					class="hero-card bg-white/5  backdrop-blur-sm rounded-lg border border-white/20 flex flex-col items-center hover:bg-white/10 transition">
-					<a class="glightbox hero-card-link" data-gallery="cases" href="/assets/rename.jpg" alt="">
-						<img class="hero-card-img" src="/assets/rename.jpg" alt="">
+					<a class="glightbox hero-card-link" data-gallery="cases" href="/assets/rename.webp" alt="">
+						<img class="hero-card-img" src="/assets/rename.webp" alt="">
 					</a>
 					<span class="text-sm font-medium px-3 md:px-4 py-3 ">Полная перекраска</span>
 				</div>
 				<div
 					class="hero-card bg-white/5  backdrop-blur-sm rounded-lg border border-white/20 flex flex-col items-center hover:bg-white/10 transition">
-					<a class="glightbox hero-card-link" data-gallery="cases" href="/assets/scar.jpg" alt="">
-						<img class="hero-card-img" src="/assets/scar.jpg" alt="">
+					<a class="glightbox hero-card-link" data-gallery="cases" href="/assets/scar.webp" alt="">
+						<img class="hero-card-img" src="/assets/scar.webp" alt="">
 					</a>
 					<span class="text-sm font-medium px-3 md:px-4 py-3 ">Расхождение швов</span>
 				</div>
@@ -315,7 +999,7 @@
 					</ul>
 				</div>
 				<div class="lr-img-right">
-					<img src="/assets/sofa.jpg" alt="Испорченный диван"
+					<img src="/assets/sofa.webp" alt="Испорченный диван"
 						class="agit-img rounded-xl shadow-xl w-full object-cover " />
 				</div>
 			</div>
@@ -340,10 +1024,8 @@
 					<!-- Card 1 -->
 					<div class="swiper-slide bg-[#fdfaf3] lr-carousel-card">
 						<div class="lr-card-image" data-gallery="cases">
-							<img src="/assets/before-after/1-before.jpg" class="lr-card-img-before object-cover w-full"
-								alt="">
-							<img src="/assets/before-after/1-after.jpg" class="lr-card-img-after object-cover w-full"
-								alt="">
+							<img src="/assets/1-before.webp" class="lr-card-img-before object-cover w-full" alt="">
+							<img src="/assets/1-after.webp" class="lr-card-img-after object-cover w-full" alt="">
 							<div class="absolute top-2 right-2 bg-lr-accent/90 text-white text-xs px-2 py-1 rounded">
 								Смотреть</div>
 						</div>
@@ -373,10 +1055,8 @@
 					<!-- Card 2 -->
 					<div class="swiper-slide bg-[#fdfaf3] lr-carousel-card">
 						<div class=" lr-card-image" data-gallery="cases">
-							<img src="/assets/before-after/2-before.jpg" class="lr-card-img-before object-cover w-full"
-								alt="">
-							<img src="/assets/before-after/2-after.jpg" class="lr-card-img-after object-cover w-full"
-								alt="">
+							<img src="/assets/2-before.webp" class="lr-card-img-before object-cover w-full" alt="">
+							<img src="/assets/2-after.webp" class="lr-card-img-after object-cover w-full" alt="">
 							<div class="absolute top-2 right-2 bg-lr-accent/90 text-white text-xs px-2 py-1 rounded">
 								Смотреть</div>
 						</div>
@@ -403,10 +1083,8 @@
 					<!-- Card 3 -->
 					<div class="swiper-slide bg-[#fdfaf3] lr-carousel-card">
 						<div class=" lr-card-image" data-gallery="cases">
-							<img src="/assets/before-after/3-before.jpg" class="lr-card-img-before object-cover w-full"
-								alt="">
-							<img src="/assets/before-after/3-after.jpg" class="lr-card-img-after object-cover w-full"
-								alt="">
+							<img src="/assets/3-before.webp" class="lr-card-img-before object-cover w-full" alt="">
+							<img src="/assets/3-after.webp" class="lr-card-img-after object-cover w-full" alt="">
 							<div class="absolute top-2 right-2 bg-lr-accent/90 text-white text-xs px-2 py-1 rounded">
 								Смотреть</div>
 						</div>
@@ -431,10 +1109,8 @@
 					<!-- Card 4 -->
 					<div class="swiper-slide bg-[#fdfaf3] lr-carousel-card">
 						<div class=" lr-card-image" data-gallery="cases">
-							<img src="/assets/before-after/4-before.jpg" class="lr-card-img-before object-cover w-full"
-								alt="">
-							<img src="/assets/before-after/4-after.jpg" class="lr-card-img-after object-cover w-full"
-								alt="">
+							<img src="/assets/4-before.webp" class="lr-card-img-before object-cover w-full" alt="">
+							<img src="/assets/4-after.webp" class="lr-card-img-after object-cover w-full" alt="">
 							<div class="absolute top-2 right-2 bg-lr-accent/90 text-white text-xs px-2 py-1 rounded">
 								Смотреть</div>
 						</div>
@@ -459,10 +1135,8 @@
 					<!-- Card 5 -->
 					<div class="swiper-slide bg-[#fdfaf3] lr-carousel-card">
 						<div class=" lr-card-image" data-gallery="cases">
-							<img src="/assets/before-after/5-before.jpg" class="lr-card-img-before object-cover w-full"
-								alt="">
-							<img src="/assets/before-after/5-after.jpg" class="lr-card-img-after object-cover w-full"
-								alt="">
+							<img src="/assets/5-before.webp" class="lr-card-img-before object-cover w-full" alt="">
+							<img src="/assets/5-after.webp" class="lr-card-img-after object-cover w-full" alt="">
 							<div class="absolute top-2 right-2 bg-lr-accent/90 text-white text-xs px-2 py-1 rounded">
 								Смотреть</div>
 						</div>
@@ -1361,7 +2035,383 @@
 		</div>
 	</div>
 
-	<script src="main.js"></script>
+	<script>
+		// swiper
+		const swiper = new Swiper('.lr-carousel', {
+			slidesPerView: 1,
+			spaceBetween: 10,
+			loop: false,
+			grabCursor: false,
+			watchSlidesProgress: true,
+			navigation: {
+				nextEl: '.swiper-button-next',
+				prevEl: '.swiper-button-prev',
+			},
+			pagination: {
+				el: '.swiper-pagination',
+				clickable: true,
+			},
+			breakpoints: {
+				640: {
+					slidesPerView: 2,
+					spaceBetween: 20,
+				},
+				1024: {
+					slidesPerView: 2,
+					spaceBetween: 20,
+				},
+			},
+		})
+
+		const lightbox = GLightbox({
+			selector: '.glightbox',
+			touchNavigation: true,
+			loop: true,
+		})
+
+		// Modal & Quiz Logic
+		const totalSteps = 5
+		let currentStep = 1
+
+		function lrOpenModal() {
+			const modal = document.getElementById('lr-quiz-modal')
+			modal.classList.add('lr-active')
+			document.body.style.overflow = 'hidden'
+			lrGoToStep(1)
+		}
+
+		function lrCloseModal() {
+			const modal = document.getElementById('lr-quiz-modal')
+			modal.classList.remove('lr-active')
+			document.body.style.overflow = ''
+			// Reset quiz state when closing
+			setTimeout(() => {
+				lrResetQuiz()
+			}, 300)
+		}
+
+		function lrNextStep(stepNum) {
+			if (lrValidateStep(stepNum - 1)) {
+				lrGoToStep(stepNum)
+			}
+		}
+
+		function lrPrevStep(stepNum) {
+			lrGoToStep(stepNum)
+		}
+
+		function lrGoBack() {
+			if (currentStep > 1) {
+				lrGoToStep(currentStep - 1)
+			}
+		}
+
+		function lrGoToStep(stepNum) {
+			currentStep = stepNum
+			document
+				.querySelectorAll('#lr-quiz-modal .lr-step')
+				.forEach(step => step.classList.add('hidden'))
+			const targetStep = document.getElementById('lr-step-' + stepNum)
+			if (targetStep) {
+				targetStep.classList.remove('hidden')
+				lrUpdateProgressBar(stepNum)
+				// Scroll modal to top
+				const modalContent = document.querySelector('#lr-quiz-modal .lr-modal-content')
+				if (modalContent) modalContent.scrollTop = 0
+			}
+			// Show/hide header back button
+			const backBtn = document.getElementById('lr-quiz-back-btn')
+			if (backBtn) {
+				if (stepNum > 1 && stepNum <= totalSteps) {
+					backBtn.classList.remove('hidden')
+				} else {
+					backBtn.classList.add('hidden')
+				}
+			}
+		}
+
+		function lrUpdateProgressBar(step) {
+			const progressFill = document.getElementById('lr-progress-fill')
+			if (progressFill) {
+				const percentage = (step / totalSteps) * 100
+				progressFill.style.width = percentage + '%'
+			}
+		}
+
+		function lrHandleSelection(input) {
+			const name = input.getAttribute('name')
+			const container = input.closest('.grid') || input.closest('.space-y-2')
+
+			if (input.type === 'radio') {
+				container
+					.querySelectorAll('.lr-choice-label')
+					.forEach(label => label.classList.remove('active'))
+				input.closest('.lr-choice-label').classList.add('active')
+			} else if (input.type === 'checkbox') {
+				input.closest('.lr-choice-label').classList.toggle('active', input.checked)
+			}
+
+			lrValidateStep(currentStep)
+		}
+
+		function lrValidateStep(step) {
+			let isValid = false
+			if (step === 1) {
+				isValid = !!document.querySelector('input[name="furniture"]:checked')
+				const nextBtn = document.getElementById('lr-next-1')
+				lrToggleBtnState(nextBtn, isValid)
+			} else if (step === 2) {
+				isValid = !!document.querySelector('input[name="problem"]:checked')
+				const nextBtn = document.getElementById('lr-next-2')
+				lrToggleBtnState(nextBtn, isValid)
+			} else if (step === 4) {
+				isValid = !!document.querySelector('input[name="contact_method"]:checked')
+				const nextBtn = document.getElementById('lr-next-4')
+				lrToggleBtnState(nextBtn, isValid)
+			} else {
+				isValid = true
+			}
+			return isValid
+		}
+
+		function lrToggleBtnState(btn, isValid) {
+			if (!btn) return
+			if (isValid) {
+				btn.disabled = false
+				btn.classList.remove('opacity-50', 'cursor-not-allowed')
+			} else {
+				btn.disabled = true
+				btn.classList.add('opacity-50', 'cursor-not-allowed')
+			}
+		}
+
+		function lrHandleFileSelect(input) {
+			const fileInfo = document.getElementById('lr-file-info')
+			const fileName = document.getElementById('lr-file-name')
+
+			if (input.files && input.files[0]) {
+				fileName.textContent = input.files[0].name
+				fileInfo.classList.add('active')
+			} else {
+				lrResetFile()
+			}
+		}
+
+		function lrResetFile() {
+			const fileInput = document.getElementById('lr-quiz-file')
+			const fileInfo = document.getElementById('lr-file-info')
+			if (fileInput) fileInput.value = ''
+			if (fileInfo) fileInfo.classList.remove('active')
+		}
+
+		function lrSubmitQuiz() {
+			// Show step 6 (Success)
+			lrGoToStep(6)
+			// Hide progress bar and back button on success
+			const header = document.querySelector('#lr-quiz-modal .flex.items-center.gap-3.mb-2')
+			if (header) header.style.display = 'none'
+		}
+
+		function lrResetQuiz() {
+			// Reset all inputs
+			document.querySelectorAll('#lr-quiz-modal input').forEach(input => {
+				if (input.type === 'radio' || input.type === 'checkbox') {
+					input.checked = false
+				} else {
+					input.value = ''
+				}
+			})
+			// Reset labels
+			document
+				.querySelectorAll('#lr-quiz-modal .lr-choice-label')
+				.forEach(label => label.classList.remove('active'))
+			// Reset progress and file
+			lrResetFile()
+			// Reset phone dialpad
+			lrPhoneDigits = ''
+			const phoneDisplay = document.getElementById('lr-phone-display')
+			if (phoneDisplay) phoneDisplay.textContent = '+7'
+			const header = document.querySelector('#lr-quiz-modal .flex.items-center.gap-3.mb-2')
+			if (header) header.style.display = ''
+			lrUpdateProgressBar(1)
+			// Reset buttons
+			lrToggleBtnState(document.getElementById('lr-next-1'), false)
+			lrToggleBtnState(document.getElementById('lr-next-2'), false)
+			lrToggleBtnState(document.getElementById('lr-next-4'), false)
+		}
+
+		// Dialpad Logic (shared by both quiz and photo modals)
+		let lrPhoneDigits = ''       // digits for quiz modal
+		let lrPhotoPhoneDigits = ''  // digits for photo modal
+
+		function lrFormatPhone(digits) {
+			if (digits.length === 0) return '+7'
+			let d = digits.slice(0, 10)
+			let result = '+7 ('
+			result += d.substring(0, 3)
+			if (d.length >= 3) result += ') '
+			result += d.substring(3, 6)
+			if (d.length >= 6) result += '-'
+			result += d.substring(6, 8)
+			if (d.length >= 8) result += '-'
+			result += d.substring(8, 10)
+			return result
+		}
+
+		function lrDialpadInput(digit, context) {
+			if (context === 'photo') {
+				if (lrPhotoPhoneDigits.length >= 10) return
+				lrPhotoPhoneDigits += digit
+				document.getElementById('lr-photo-phone-display').textContent = lrFormatPhone(lrPhotoPhoneDigits)
+				document.getElementById('lr-photo-phone-value').value = '+7' + lrPhotoPhoneDigits
+			} else {
+				if (lrPhoneDigits.length >= 10) return
+				lrPhoneDigits += digit
+				document.getElementById('lr-phone-display').textContent = lrFormatPhone(lrPhoneDigits)
+				document.getElementById('lr-phone-value').value = '+7' + lrPhoneDigits
+			}
+		}
+
+		function lrDialpadBackspace(context) {
+			if (context === 'photo') {
+				lrPhotoPhoneDigits = lrPhotoPhoneDigits.slice(0, -1)
+				document.getElementById('lr-photo-phone-display').textContent = lrFormatPhone(lrPhotoPhoneDigits)
+				document.getElementById('lr-photo-phone-value').value = '+7' + lrPhotoPhoneDigits
+			} else {
+				lrPhoneDigits = lrPhoneDigits.slice(0, -1)
+				document.getElementById('lr-phone-display').textContent = lrFormatPhone(lrPhoneDigits)
+				document.getElementById('lr-phone-value').value = '+7' + lrPhoneDigits
+			}
+		}
+
+		// Photo Modal Logic
+		const totalPhotoSteps = 3
+		let currentPhotoStep = 1
+
+		function lrOpenPhotoModal() {
+			const modal = document.getElementById('lr-photo-modal')
+			if (modal) {
+				modal.classList.add('lr-active')
+				document.body.style.overflow = 'hidden'
+				lrPhotoGoToStep(1)
+			}
+		}
+
+		function lrClosePhotoModal() {
+			const modal = document.getElementById('lr-photo-modal')
+			if (modal) {
+				modal.classList.remove('lr-active')
+				document.body.style.overflow = ''
+				setTimeout(() => {
+					lrResetPhotoModal()
+				}, 300)
+			}
+		}
+
+		function lrPhotoGoToStep(stepNum) {
+			currentPhotoStep = stepNum
+			const modal = document.getElementById('lr-photo-modal')
+			if (!modal) return
+
+			modal.querySelectorAll('.lr-step').forEach(step => step.classList.add('hidden'))
+			const targetStep = document.getElementById('lr-photo-step-' + stepNum)
+			if (targetStep) {
+				targetStep.classList.remove('hidden')
+				lrUpdatePhotoProgressBar(stepNum)
+				const modalContent = modal.querySelector('.lr-modal-content')
+				if (modalContent) modalContent.scrollTop = 0
+			}
+			// Show/hide header back button
+			const backBtn = document.getElementById('lr-photo-back-btn')
+			if (backBtn) {
+				if (stepNum > 1 && stepNum <= totalPhotoSteps) {
+					backBtn.classList.remove('hidden')
+				} else {
+					backBtn.classList.add('hidden')
+				}
+			}
+		}
+
+		function lrPhotoGoBack() {
+			if (currentPhotoStep > 1) {
+				lrPhotoGoToStep(currentPhotoStep - 1)
+			}
+		}
+
+		function lrUpdatePhotoProgressBar(step) {
+			const progressFill = document.getElementById('lr-photo-progress-fill')
+			if (progressFill) {
+				const percentage = (step / totalPhotoSteps) * 100
+				progressFill.style.width = percentage + '%'
+			}
+		}
+
+		function lrHandlePhotoSelection(input) {
+			const container = input.closest('.grid') || input.closest('.space-y-2')
+			if (input.type === 'radio') {
+				container
+					.querySelectorAll('.lr-choice-label')
+					.forEach(label => label.classList.remove('active'))
+				input.closest('.lr-choice-label').classList.add('active')
+			}
+			// Enable next button
+			const nextBtn = document.getElementById('lr-photo-next-2')
+			if (nextBtn) lrToggleBtnState(nextBtn, true)
+		}
+
+		function lrHandlePhotoFileSelect(input) {
+			const fileInfo = document.getElementById('lr-photo-file-info')
+			const fileName = document.getElementById('lr-photo-file-name')
+
+			if (input.files && input.files[0]) {
+				fileName.textContent = input.files[0].name
+				fileInfo.classList.add('active')
+			} else {
+				lrResetPhotoFile()
+			}
+		}
+
+		function lrResetPhotoFile() {
+			const fileInput = document.getElementById('lr-photo-file-input')
+			const fileInfo = document.getElementById('lr-photo-file-info')
+			if (fileInput) fileInput.value = ''
+			if (fileInfo) fileInfo.classList.remove('active')
+		}
+
+		function lrSubmitPhotoForm() {
+			// Show success step (step 4)
+			lrPhotoGoToStep(4)
+			// Hide header (progress bar + back button) on success
+			const header = document.querySelector('#lr-photo-modal .flex.items-center.gap-3.mb-2')
+			if (header) header.style.display = 'none'
+		}
+
+		function lrResetPhotoModal() {
+			// Reset inputs
+			document.querySelectorAll('#lr-photo-modal input').forEach(input => {
+				if (input.type === 'radio' || input.type === 'checkbox') {
+					input.checked = false
+				} else {
+					input.value = ''
+				}
+			})
+			// Reset labels
+			document.querySelectorAll('#lr-photo-modal .lr-choice-label')
+				.forEach(label => label.classList.remove('active'))
+			// Reset progress, file, and phone
+			lrResetPhotoFile()
+			lrPhotoPhoneDigits = ''
+			const phoneDisplay = document.getElementById('lr-photo-phone-display')
+			if (phoneDisplay) phoneDisplay.textContent = '+7'
+			const header = document.querySelector('#lr-photo-modal .flex.items-center.gap-3.mb-2')
+			if (header) header.style.display = ''
+			lrUpdatePhotoProgressBar(1)
+			// Reset next button
+			const nextBtn = document.getElementById('lr-photo-next-2')
+			if (nextBtn) lrToggleBtnState(nextBtn, false)
+		}
+
+	</script>
 	<!--  -->
 </body>
 
