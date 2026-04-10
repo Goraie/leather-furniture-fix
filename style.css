@@ -623,7 +623,7 @@ html {
 	display: grid;
 	grid-template-columns: repeat(3, 1fr);
 	gap: 8px;
-	max-width: 360px;
+	/* max-width: 360px; */
 	margin: 0 auto;
 }
 

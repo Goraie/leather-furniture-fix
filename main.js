@@ -62,18 +62,33 @@ function lrPrevStep(stepNum) {
     lrGoToStep(stepNum)
 }
 
+function lrGoBack() {
+    if (currentStep > 1) {
+        lrGoToStep(currentStep - 1)
+    }
+}
+
 function lrGoToStep(stepNum) {
     currentStep = stepNum
     document
-        .querySelectorAll('.lr-step')
+        .querySelectorAll('#lr-quiz-modal .lr-step')
         .forEach(step => step.classList.add('hidden'))
     const targetStep = document.getElementById('lr-step-' + stepNum)
     if (targetStep) {
         targetStep.classList.remove('hidden')
         lrUpdateProgressBar(stepNum)
         // Scroll modal to top
-        const modalContent = document.querySelector('.lr-modal-content')
+        const modalContent = document.querySelector('#lr-quiz-modal .lr-modal-content')
         if (modalContent) modalContent.scrollTop = 0
+    }
+    // Show/hide header back button
+    const backBtn = document.getElementById('lr-quiz-back-btn')
+    if (backBtn) {
+        if (stepNum > 1 && stepNum <= totalSteps) {
+            backBtn.classList.remove('hidden')
+        } else {
+            backBtn.classList.add('hidden')
+        }
     }
 }
 
@@ -154,9 +169,9 @@ function lrResetFile() {
 function lrSubmitQuiz() {
     // Show step 6 (Success)
     lrGoToStep(6)
-    // Hide progress bar on success
-    const progressContainer = document.querySelector('.lr-progress-container')
-    if (progressContainer) progressContainer.style.display = 'none'
+    // Hide progress bar and back button on success
+    const header = document.querySelector('#lr-quiz-modal .flex.items-center.gap-3.mb-2')
+    if (header) header.style.display = 'none'
 }
 
 function lrResetQuiz() {
@@ -178,8 +193,8 @@ function lrResetQuiz() {
     lrPhoneDigits = ''
     const phoneDisplay = document.getElementById('lr-phone-display')
     if (phoneDisplay) phoneDisplay.textContent = '+7'
-    const progressContainer = document.querySelector('#lr-quiz-modal .lr-progress-container')
-    if (progressContainer) progressContainer.style.display = 'block'
+    const header = document.querySelector('#lr-quiz-modal .flex.items-center.gap-3.mb-2')
+    if (header) header.style.display = ''
     lrUpdateProgressBar(1)
     // Reset buttons
     lrToggleBtnState(document.getElementById('lr-next-1'), false)
@@ -268,6 +283,21 @@ function lrPhotoGoToStep(stepNum) {
         const modalContent = modal.querySelector('.lr-modal-content')
         if (modalContent) modalContent.scrollTop = 0
     }
+    // Show/hide header back button
+    const backBtn = document.getElementById('lr-photo-back-btn')
+    if (backBtn) {
+        if (stepNum > 1 && stepNum <= totalPhotoSteps) {
+            backBtn.classList.remove('hidden')
+        } else {
+            backBtn.classList.add('hidden')
+        }
+    }
+}
+
+function lrPhotoGoBack() {
+    if (currentPhotoStep > 1) {
+        lrPhotoGoToStep(currentPhotoStep - 1)
+    }
 }
 
 function lrUpdatePhotoProgressBar(step) {
@@ -313,9 +343,9 @@ function lrResetPhotoFile() {
 function lrSubmitPhotoForm() {
     // Show success step (step 4)
     lrPhotoGoToStep(4)
-    // Hide progress bar on success
-    const progressContainer = document.querySelector('#lr-photo-modal .lr-progress-container')
-    if (progressContainer) progressContainer.style.display = 'none'
+    // Hide header (progress bar + back button) on success
+    const header = document.querySelector('#lr-photo-modal .flex.items-center.gap-3.mb-2')
+    if (header) header.style.display = 'none'
 }
 
 function lrResetPhotoModal() {
@@ -335,8 +365,8 @@ function lrResetPhotoModal() {
     lrPhotoPhoneDigits = ''
     const phoneDisplay = document.getElementById('lr-photo-phone-display')
     if (phoneDisplay) phoneDisplay.textContent = '+7'
-    const progressContainer = document.querySelector('#lr-photo-modal .lr-progress-container')
-    if (progressContainer) progressContainer.style.display = 'block'
+    const header = document.querySelector('#lr-photo-modal .flex.items-center.gap-3.mb-2')
+    if (header) header.style.display = ''
     lrUpdatePhotoProgressBar(1)
     // Reset next button
     const nextBtn = document.getElementById('lr-photo-next-2')
