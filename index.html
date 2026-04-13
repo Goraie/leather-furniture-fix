@@ -1,2418 +1,2402 @@
-<!DOCTYPE html>
-<html lang="en">
+<!-- HEAD SECTION -->
+<!-- Tailwind CDN & Config -->
+<script src="https://cdn.tailwindcss.com"></script>
+<!-- FontAwesome for icons -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+<!-- Google Fonts -->
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Playfair+Display:wght@700&display=swap" rel="stylesheet" />
+<!-- Swiper Slider -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+<script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+<!-- Lightbox -->
+<link href="https://cdn.jsdelivr.net/npm/glightbox/dist/css/glightbox.min.css" rel="stylesheet">
+<script src="https://cdn.jsdelivr.net/npm/glightbox/dist/js/glightbox.min.js"></script>
 
-<head>
-	<meta charset="UTF-8" />
-	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-	<title>Ремонт кожаной мебели в Санкт-Петербурге - ЛЕНРЕМОНТ</title>
-
-	<!-- Tailwind CDN & Config -->
-	<script src="https://cdn.tailwindcss.com"></script>
-	<!-- FontAwesome for icons -->
-	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
-	<!-- Google Fonts -->
-	<link
-		href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Playfair+Display:wght@700&display=swap"
-		rel="stylesheet" />
-
-	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
-	<script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
-
-	<link href="https://cdn.jsdelivr.net/npm/glightbox/dist/css/glightbox.min.css" rel="stylesheet">
-	<script src="https://cdn.jsdelivr.net/npm/glightbox/dist/js/glightbox.min.js"></script>
-
-	<script>
-		tailwind.config = {
-			theme: {
-				extend: {
-					colors: {
-						'lr-primary': '#1a120b',
-						'lr-secondary': '#2d2016',
-						'lr-accent': '#c59d5f',
-						'lr-accent-hover': '#b48a4d',
-						'lr-brand': '#8b5e3c',
-						'lr-brand-hover': '#724b30',
-						'lr-green': '#58863e',
-						'lr-green-hover': '#446d2c',
-					},
-					fontFamily: {
-						sans: ['Inter', 'sans-serif'],
-						serif: ['Playfair Display', 'serif'],
-					},
-					keyframes: {
-						ping: {
-							'75%, 100%': {
-								transform: 'scale(2)',
-								opacity: '0',
-							},
+<script>
+	tailwind.config = {
+		theme: {
+			extend: {
+				colors: {
+					'lr-primary': '#1a120b',
+					'lr-secondary': '#2d2016',
+					'lr-accent': '#c59d5f',
+					'lr-accent-hover': '#b48a4d',
+					'lr-brand': '#8b5e3c',
+					'lr-brand-hover': '#724b30',
+					'lr-green': '#58863e',
+					'lr-green-hover': '#446d2c',
+				},
+				fontFamily: {
+					sans: ['Inter', 'sans-serif'],
+					serif: ['Playfair Display', 'serif'],
+				},
+				keyframes: {
+					ping: {
+						'75%, 100%': {
+							transform: 'scale(2)',
+							opacity: '0',
 						},
 					},
-					animation: {
-						'ping-slow': 'ping 3s cubic-bezier(0, 0, 0.2, 1) infinite',
-					},
+				},
+				animation: {
+					'ping-slow': 'ping 3s cubic-bezier(0, 0, 0.2, 1) infinite',
 				},
 			},
-		}
-	</script>
+		},
+	}
+</script>
 
-	<style>
-		:root {
-			--lr-primary: #1a120b;
-			/* Espresso Dark */
-			--lr-secondary: #2d2016;
-			/* Cocoa Brown */
-			--lr-accent: #c59d5f;
-			/* Golden Cognac */
-			--lr-accent-opa: rgba(197, 157, 95, 0.15);
-			--lr-accent-hover: #b48a4d;
-			--lr-brand: #8b5e3c;
-			/* Saddle Brown */
-			--lr-brand-hover: #724b30;
-			--lr-bg-light: #fdfaf3;
-			--lr-bg-light: #fdfaf3;
-			--lr-bg-green: #58863e;
-			--lr-bg-green-hover: #446d2c;
+<style>
+	:root {
+		--lr-primary: #1a120b;
+		/* Espresso Dark */
+		--lr-secondary: #2d2016;
+		/* Cocoa Brown */
+		--lr-accent: #c59d5f;
+		/* Golden Cognac */
+		--lr-accent-opa: rgba(197, 157, 95, 0.15);
+		--lr-accent-hover: #b48a4d;
+		--lr-brand: #8b5e3c;
+		/* Saddle Brown */
+		--lr-brand-hover: #724b30;
+		--lr-bg-light: #fdfaf3;
+		--lr-bg-light: #fdfaf3;
+		--lr-bg-green: #58863e;
+		--lr-bg-green-hover: #446d2c;
 
-			/* Soft Cream */
-		}
+		/* Soft Cream */
+	}
 
-		.lr-leather-texture {
-			position: relative;
-		}
+	.lr-leather-texture {
+		position: relative;
+	}
 
-		.lr-leather-texture::before {
-			content: "";
-			position: absolute;
-			inset: 0;
-			background-image: url('https://www.transparenttextures.com/patterns/leather.png');
-			opacity: 0.05;
-			pointer-events: none;
-			z-index: 1;
-		}
+	.lr-leather-texture::before {
+		content: "";
+		position: absolute;
+		inset: 0;
+		background-image: url('https://www.transparenttextures.com/patterns/leather.png');
+		opacity: 0.05;
+		pointer-events: none;
+		z-index: 1;
+	}
 
-		/* Ensure content is above texture if needed */
-		.lr-leather-texture>* {
-			position: relative;
-			z-index: 2;
-		}
+	/* Ensure content is above texture if needed */
+	.lr-leather-texture>* {
+		position: relative;
+		z-index: 2;
+	}
 
-		.lr-container {
-			width: 88%;
-			max-width: 1280px;
-			margin: 0 auto;
-		}
+	.lr-container {
+		width: 88%;
+		max-width: 1280px;
+		margin: 0 auto;
+	}
 
-		/* Adaptive 2 Column Layout with Mobile Reordering */
+	/* Adaptive 2 Column Layout with Mobile Reordering */
+	.lr-2col {
+		display: flex;
+		flex-direction: row;
+		gap: 40px;
+		align-items: center;
+	}
+
+	.lr-text-left {
+		order: 1;
+		flex: 1;
+	}
+
+	.lr-img-right {
+		order: 2;
+		flex: 1;
+		min-width: 300px;
+	}
+
+	/* Hero Visual */
+	.lr-hero-visual {
+		width: 100%;
+		max-width: 900px;
+		margin: 0 auto;
+		border-radius: 1.5rem;
+		overflow: hidden;
+		box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.6);
+		border: 1px solid rgba(197, 157, 95, 0.2);
+		position: relative;
+		transform: translateY(0);
+		transition: transform 0.3s ease;
+	}
+
+	.lr-hero-visual:hover {
+		transform: translateY(-5px);
+	}
+
+	.lr-hero-visual img {
+		width: 100%;
+		height: 100%;
+		object-fit: cover;
+		display: block;
+	}
+
+	/* Button variants */
+	.lr-btn-primary {
+		background-color: var(--lr-accent);
+		color: white;
+		transition: all 0.3s ease;
+	}
+
+	.lr-btn-primary:hover {
+		background-color: var(--lr-accent-hover);
+		transform: translateY(-2px);
+		box-shadow: 0 10px 20px -5px rgba(197, 157, 95, 0.4);
+	}
+
+	.lr-btn-outline {
+		background-color: transparent;
+		border: 2px solid var(--lr-accent);
+		color: var(--lr-accent);
+		transition: all 0.3s ease;
+	}
+
+	.lr-btn-outline:hover {
+		background-color: var(--lr-accent-opa);
+		transform: translateY(-2px);
+	}
+
+	@media (max-width: 1024px) {
 		.lr-2col {
-			display: flex;
-			flex-direction: row;
-			gap: 40px;
-			align-items: center;
+			flex-direction: column;
+			text-align: center;
+			gap: 30px;
+		}
+
+		.lr-text-left {
+			width: 100%;
+		}
+
+		.lr-img-right {
+			width: 100%;
+		}
+
+		.lr-hero-visual {
+			margin-bottom: 2rem;
+		}
+	}
+
+	.lr-hero-visual::after {
+		content: "";
+		position: absolute;
+		inset: 0;
+		box-shadow: inset 0 0 80px rgba(0, 0, 0, 0.3);
+		pointer-events: none;
+	}
+
+	@media (max-width: 1024px) {
+		.lr-2col-b {
+			flex-direction: column;
+			text-align: left;
+		}
+
+		.lr-img-right {
+			order: -1;
+			margin-bottom: 20px;
+			width: 100%;
 		}
 
 		.lr-text-left {
 			order: 1;
-			flex: 1;
-		}
-
-		.lr-img-right {
-			order: 2;
-			flex: 1;
-			min-width: 300px;
-		}
-
-		/* Hero Visual */
-		.lr-hero-visual {
 			width: 100%;
-			max-width: 900px;
-			margin: 0 auto;
-			border-radius: 1.5rem;
-			overflow: hidden;
-			box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.6);
-			border: 1px solid rgba(197, 157, 95, 0.2);
-			position: relative;
-			transform: translateY(0);
-			transition: transform 0.3s ease;
 		}
+	}
 
-		.lr-hero-visual:hover {
-			transform: translateY(-5px);
+	@media (max-width: 768px) {
+		.lr-2col {
+			flex-direction: column;
+			text-align: left;
 		}
+	}
 
-		.lr-hero-visual img {
-			width: 100%;
-			height: 100%;
-			object-fit: cover;
-			display: block;
-		}
+	/* Typography Clamp */
+	.lr-h1 {
+		font-size: clamp(2rem, 5vw, 3.5rem);
+		line-height: 1.1;
+	}
 
-		/* Button variants */
-		.lr-btn-primary {
-			background-color: var(--lr-accent);
-			color: white;
-			transition: all 0.3s ease;
-		}
+	.lr-h2 {
+		font-size: clamp(1.75rem, 4vw, 2.5rem);
+		line-height: 1.2;
+	}
 
-		.lr-btn-primary:hover {
-			background-color: var(--lr-accent-hover);
-			transform: translateY(-2px);
-			box-shadow: 0 10px 20px -5px rgba(197, 157, 95, 0.4);
-		}
+	/* Before/After Slider specific styles */
+	.lr-ba-slider {
+		position: relative;
+		width: 100%;
+		border-radius: 0.5rem;
+		user-select: none;
+	}
 
-		.lr-btn-outline {
-			background-color: transparent;
-			border: 2px solid var(--lr-accent);
-			color: var(--lr-accent);
-			transition: all 0.3s ease;
-		}
+	.lr-ba-img-after {
+		width: 100%;
+		display: block;
+		object-fit: cover;
+		aspect-ratio: 16/10;
+	}
 
-		.lr-btn-outline:hover {
-			background-color: var(--lr-accent-opa);
-			transform: translateY(-2px);
-		}
+	.lr-ba-img-before {
+		position: absolute;
+		top: 0;
+		left: 0;
+		width: 50%;
+		height: 100%;
+		object-fit: cover;
+		object-position: left;
+		border-right: 3px solid #fff;
+	}
 
-		@media (max-width: 1024px) {
-			.lr-2col {
-				flex-direction: column;
-				text-align: center;
-				gap: 30px;
-			}
+	.lr-ba-slider-handle {
+		position: absolute;
+		top: 50%;
+		left: 50%;
+		transform: translate(-50%, -50%);
+		width: 48px;
+		height: 48px;
+		background: #fff;
+		border-radius: 50%;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		cursor: ew-resize;
+		box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+		z-index: 10;
+		color: #f59e0b;
+		font-size: 1.25rem;
+		pointer-events: none;
+	}
 
-			.lr-text-left {
-				width: 100%;
-			}
+	/* Carousel - Swiper handled */
+	.lr-carousel {
+		padding: 1rem 0 3rem;
+		overflow: visible;
+	}
 
-			.lr-img-right {
-				width: 100%;
-			}
+	.lr-carousel-card {
+		background: #fff;
+		border-radius: 1rem;
+		box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+		overflow: hidden;
+		height: auto;
+		transition: box-shadow 0.3s ease-in-out;
+	}
 
-			.lr-hero-visual {
-				margin-bottom: 2rem;
-			}
-		}
+	.lr-carousel-card:hover {
+		box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
+	}
 
-		.lr-hero-visual::after {
-			content: "";
-			position: absolute;
-			inset: 0;
-			box-shadow: inset 0 0 80px rgba(0, 0, 0, 0.3);
-			pointer-events: none;
-		}
+	/* Modal */
+	.lr-modal {
+		display: none;
+		position: fixed;
+		inset: 0;
+		background: rgba(15, 23, 42, 0.8);
+		z-index: 9999;
+		align-items: center;
+		justify-content: center;
+		backdrop-filter: blur(4px);
+	}
 
-		@media (max-width: 1024px) {
-			.lr-2col-b {
-				flex-direction: column;
-				text-align: left;
-			}
+	.lr-modal.lr-active {
+		display: flex;
+		animation: fadeIn 0.2s ease;
+	}
 
-			.lr-img-right {
-				order: -1;
-				margin-bottom: 20px;
-				width: 100%;
-			}
+	.lr-modal-content {
+		background: white;
+		width: 92%;
+		max-width: 500px;
+		border-radius: 1rem;
+		padding: 2rem;
+		position: relative;
+		max-height: 90vh;
+		overflow-y: auto;
+	}
 
-			.lr-text-left {
-				order: 1;
-				width: 100%;
-			}
-		}
-
-		@media (max-width: 768px) {
-			.lr-2col {
-				flex-direction: column;
-				text-align: left;
-			}
-		}
-
-		/* Typography Clamp */
-		.lr-h1 {
-			font-size: clamp(2rem, 5vw, 3.5rem);
-			line-height: 1.1;
-		}
-
-		.lr-h2 {
-			font-size: clamp(1.75rem, 4vw, 2.5rem);
-			line-height: 1.2;
-		}
-
-		/* Before/After Slider specific styles */
-		.lr-ba-slider {
-			position: relative;
-			width: 100%;
-			border-radius: 0.5rem;
-			user-select: none;
-		}
-
-		.lr-ba-img-after {
-			width: 100%;
-			display: block;
-			object-fit: cover;
-			aspect-ratio: 16/10;
-		}
-
-		.lr-ba-img-before {
-			position: absolute;
-			top: 0;
-			left: 0;
-			width: 50%;
-			height: 100%;
-			object-fit: cover;
-			object-position: left;
-			border-right: 3px solid #fff;
-		}
-
-		.lr-ba-slider-handle {
-			position: absolute;
-			top: 50%;
-			left: 50%;
-			transform: translate(-50%, -50%);
-			width: 48px;
-			height: 48px;
-			background: #fff;
-			border-radius: 50%;
-			display: flex;
-			align-items: center;
-			justify-content: center;
-			cursor: ew-resize;
-			box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
-			z-index: 10;
-			color: #f59e0b;
-			font-size: 1.25rem;
-			pointer-events: none;
-		}
-
-		/* Carousel - Swiper handled */
-		.lr-carousel {
-			padding: 1rem 0 3rem;
-			overflow: visible;
-		}
-
-		.lr-carousel-card {
-			background: #fff;
-			border-radius: 1rem;
-			box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
-			overflow: hidden;
-			height: auto;
-			transition: box-shadow 0.3s ease-in-out;
-		}
-
-		.lr-carousel-card:hover {
-			box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
-		}
-
-		/* Modal */
-		.lr-modal {
-			display: none;
-			position: fixed;
-			inset: 0;
-			background: rgba(15, 23, 42, 0.8);
-			z-index: 9999;
-			align-items: center;
-			justify-content: center;
-			backdrop-filter: blur(4px);
-		}
-
-		.lr-modal.lr-active {
-			display: flex;
-			animation: fadeIn 0.2s ease;
-		}
-
-		.lr-modal-content {
-			background: white;
-			width: 92%;
-			max-width: 500px;
-			border-radius: 1rem;
-			padding: 2rem;
-			position: relative;
-			max-height: 90vh;
-			overflow-y: auto;
-		}
-
-		@keyframes fadeIn {
-			from {
-				opacity: 0;
-			}
-
-			to {
-				opacity: 1;
-			}
-		}
-
-		/* Smooth scroll */
-		html {
-			scroll-behavior: smooth;
-		}
-
-		/* Utilities */
-		.lr-text-shadow {
-			text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
-		}
-
-		.swiper-button-next,
-		.swiper-button-prev {
-			color: #000;
-			background: var(--lr-accent);
-			border-radius: 40px;
-			display: flex;
-			align-items: center;
-			justify-content: center;
-			width: 40px;
-			height: 40px;
-			transition: all 0.2s ease-in-out;
-		}
-
-		.swiper-button-next:hover,
-		.swiper-button-prev:hover {
-			background: var(--lr-accent-hover);
-		}
-
-		.swiper-button-next {
-			right: -20px;
-		}
-
-		.swiper-button-prev {
-			left: -20px;
-		}
-
-		.swiper-button-next::after,
-		.swiper-button-prev::after {
-			color: #fff;
-			font-size: 16px;
-		}
-
-		.swiper-pagination-bullet {
-			background: var(--lr-accent);
-			opacity: 0.2;
-			transition: all 0.2s ease-in-out;
-		}
-
-		.swiper-pagination-bullet:hover {
-			background: var(--lr-accent);
-			opacity: 0.4;
-		}
-
-		.swiper-pagination-bullet-active {
-			background: var(--lr-accent) !important;
-			opacity: 1;
-		}
-
-		.lr-card-image {
-			display: block;
-			position: relative;
-			overflow: hidden;
-			border-radius: 12px;
-			position: relative;
-		}
-
-		.lr-card-img-before,
-		.lr-card-img-after {
-			position: absolute;
-			top: 0;
-			left: 0;
-			width: 100%;
-			height: 100%;
-			object-fit: cover;
-			transition: all 0.3s ease;
-		}
-
-		.lr-card-img-before {
-			z-index: 1;
-		}
-
-		.lr-card-img-after {
-			z-index: 2;
+	@keyframes fadeIn {
+		from {
 			opacity: 0;
-			transition: all 0.3s ease;
 		}
 
-		.lr-card-image:hover img {
-			transform: scale(1.05);
-		}
-
-		.lr-card-image:hover .lr-card-img-after {
+		to {
 			opacity: 1;
 		}
+	}
 
-		@media (max-width: 768px) {
-			.lr-card-img-after {
-				transition-duration: 1s;
-				transition-delay: .8s;
-				transition-timing-function: ease;
-				transition-property: all;
-			}
+	/* Smooth scroll */
+	html {
+		scroll-behavior: smooth;
+	}
 
-			.swiper-slide-active .lr-card-img-after {
-				opacity: 1;
-			}
+	/* Utilities */
+	.lr-text-shadow {
+		text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
+	}
+
+	.swiper-button-next,
+	.swiper-button-prev {
+		color: #000;
+		background: var(--lr-accent);
+		border-radius: 40px;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		width: 40px;
+		height: 40px;
+		transition: all 0.2s ease-in-out;
+	}
+
+	.swiper-button-next:hover,
+	.swiper-button-prev:hover {
+		background: var(--lr-accent-hover);
+	}
+
+	.swiper-button-next {
+		right: -20px;
+	}
+
+	.swiper-button-prev {
+		left: -20px;
+	}
+
+	.swiper-button-next::after,
+	.swiper-button-prev::after {
+		color: #fff;
+		font-size: 16px;
+	}
+
+	.swiper-pagination-bullet {
+		background: var(--lr-accent);
+		opacity: 0.2;
+		transition: all 0.2s ease-in-out;
+	}
+
+	.swiper-pagination-bullet:hover {
+		background: var(--lr-accent);
+		opacity: 0.4;
+	}
+
+	.swiper-pagination-bullet-active {
+		background: var(--lr-accent) !important;
+		opacity: 1;
+	}
+
+	.lr-card-image {
+		display: block;
+		position: relative;
+		overflow: hidden;
+		border-radius: 12px;
+		position: relative;
+	}
+
+	.lr-card-img-before,
+	.lr-card-img-after {
+		position: absolute;
+		top: 0;
+		left: 0;
+		width: 100%;
+		height: 100%;
+		object-fit: cover;
+		transition: all 0.3s ease;
+	}
+
+	.lr-card-img-before {
+		z-index: 1;
+	}
+
+	.lr-card-img-after {
+		z-index: 2;
+		opacity: 0;
+		transition: all 0.3s ease;
+	}
+
+	.lr-card-image:hover img {
+		transform: scale(1.05);
+	}
+
+	.lr-card-image:hover .lr-card-img-after {
+		opacity: 1;
+	}
+
+	@media (max-width: 768px) {
+		.lr-card-img-after {
+			transition-duration: 1s;
+			transition-delay: .8s;
+			transition-timing-function: ease;
+			transition-property: all;
 		}
 
-
-		.lr-sticky-cta {
-			position: fixed;
-			bottom: 0.5rem;
-			right: 0.5rem;
-			height: 44px;
-			width: 44px;
-			z-index: 777;
+		.swiper-slide-active .lr-card-img-after {
+			opacity: 1;
 		}
+	}
 
-		.lr-sticky-cta button {
-			width: 100%;
-			height: 100%;
-		}
 
-		.swiper-slide {
-			display: flex;
-			flex-direction: column;
-			height: auto;
-		}
+	.lr-sticky-cta {
+		position: fixed;
+		bottom: 0.5rem;
+		right: 0.5rem;
+		height: 44px;
+		width: 44px;
+		z-index: 777;
+	}
 
+	.lr-sticky-cta button {
+		width: 100%;
+		height: 100%;
+	}
+
+	.swiper-slide {
+		display: flex;
+		flex-direction: column;
+		height: auto;
+	}
+
+	.lr-card-image {
+		height: 320px;
+	}
+
+	@media (max-width: 768px) {
 		.lr-card-image {
-			height: 320px;
+			height: 220px;
 		}
+	}
 
-		@media (max-width: 768px) {
-			.lr-card-image {
-				height: 220px;
-			}
+	@media (max-width: 640px) {
+		.lr-card-image {
+			height: 200px;
 		}
+	}
 
-		@media (max-width: 640px) {
-			.lr-card-image {
-				height: 200px;
-			}
-		}
+	.swiper-card-bottom {
+		flex: 1;
+		height: 100%;
+		display: flex;
+		flex-direction: column;
+		justify-content: space-between;
+	}
 
-		.swiper-card-bottom {
-			flex: 1;
-			height: 100%;
-			display: flex;
-			flex-direction: column;
-			justify-content: space-between;
-		}
+	.btn-social {
+		display: block;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		padding: 1rem 2rem;
+		width: 100%;
+		transition: all 0.3s ease;
+	}
 
-		.btn-social {
-			display: block;
-			display: flex;
-			align-items: center;
-			justify-content: center;
-			padding: 1rem 2rem;
-			width: 100%;
-			transition: all 0.3s ease;
-		}
+	.btn-social:hover {
+		transform: translateY(-5px);
 
-		.btn-social:hover {
-			transform: translateY(-5px);
+	}
 
-		}
+	.btn-social img {
+		display: block;
+		height: 28px;
+		width: 28px;
+	}
 
-		.btn-social img {
-			display: block;
-			height: 28px;
-			width: 28px;
-		}
+	.btn-social-tg {
+		background-color: #4db4ff;
+		color: white;
+	}
 
-		.btn-social-tg {
-			background-color: #4db4ff;
-			color: white;
-		}
+	.btn-social-vk {
+		background-color: #4a8cf7;
+		color: white;
+	}
 
-		.btn-social-vk {
-			background-color: #4a8cf7;
-			color: white;
-		}
+	.btn-social-max {
+		background: linear-gradient(135deg,
+				#5b51d8,
+				#7c4dff 20%,
+				#8b5cf6 50%,
+				#a855f7 70%,
+				#d946ef);
+		color: white;
+	}
 
-		.btn-social-max {
-			background: linear-gradient(135deg,
-					#5b51d8,
-					#7c4dff 20%,
-					#8b5cf6 50%,
-					#a855f7 70%,
-					#d946ef);
-			color: white;
-		}
+	.hero-card {
+		overflow: hidden;
+		text-align: center;
+	}
 
-		.hero-card {
-			overflow: hidden;
-			text-align: center;
-		}
+	.benefits-icon {
+		min-width: 32px;
+	}
 
-		.benefits-icon {
-			min-width: 32px;
-		}
+	.text-bg {
+		background: var(--lr-accent-hover);
+		padding-inline: 0.5rem;
+		border-radius: 0.25rem;
+	}
 
-		.text-bg {
-			background: var(--lr-accent-hover);
-			padding-inline: 0.5rem;
-			border-radius: 0.25rem;
-		}
+	.text-quote {
+		background: var(--lr-accent-opa);
+		padding: 1.5rem;
+		border-radius: 0 0.25rem 0.25rem 0;
+		border-left: 0.25rem solid var(--lr-accent);
+		color: var(--lr-primary);
+	}
 
-		.text-quote {
-			background: var(--lr-accent-opa);
-			padding: 1.5rem;
-			border-radius: 0 0.25rem 0.25rem 0;
-			border-left: 0.25rem solid var(--lr-accent);
-			color: var(--lr-primary);
-		}
+	.agit-img {
+		height: 500px;
+	}
 
+	@media (max-width: 640px) {
 		.agit-img {
-			height: 500px;
+			height: auto;
+			min-height: 240px;
 		}
+	}
 
-		@media (max-width: 640px) {
-			.agit-img {
-				height: auto;
-				min-height: 240px;
-			}
-		}
+	/* Quiz Improvements */
+	.lr-progress-container {
+		width: 100%;
+		height: 6px;
+		background: #e2e8f0;
+		border-radius: 3px;
 
-		/* Quiz Improvements */
-		.lr-progress-container {
-			width: 100%;
-			height: 6px;
-			background: #e2e8f0;
-			border-radius: 3px;
+		overflow: hidden;
+	}
 
-			overflow: hidden;
-		}
+	.lr-progress-bar {
+		height: 100%;
+		background: var(--lr-accent);
+		width: 0%;
+		transition: width 0.3s ease;
+	}
 
-		.lr-progress-bar {
-			height: 100%;
-			background: var(--lr-accent);
-			width: 0%;
-			transition: width 0.3s ease;
-		}
+	.lr-choice-label {
+		border-width: 2px;
+		transition: all 0.2s ease;
+	}
 
-		.lr-choice-label {
-			border-width: 2px;
-			transition: all 0.2s ease;
-		}
+	.lr-choice-label.active {
+		border-color: var(--lr-accent);
+		background-color: #fffbeb;
+		box-shadow: 0 0 0 1px var(--lr-accent);
+	}
 
-		.lr-choice-label.active {
-			border-color: var(--lr-accent);
-			background-color: #fffbeb;
-			box-shadow: 0 0 0 1px var(--lr-accent);
-		}
+	.lr-choice-label.active i {
+		color: var(--lr-accent);
+	}
 
-		.lr-choice-label.active i {
-			color: var(--lr-accent);
-		}
+	.lr-file-preview {
+		display: none;
+		margin-top: 1rem;
+		padding: 0.5rem;
+		background: #f8fafc;
+		border-radius: 0.5rem;
+		font-size: 0.875rem;
+		color: var(--lr-primary);
+		border: 1px solid #e2e8f0;
+		align-items: center;
+		gap: 0.5rem;
+	}
 
-		.lr-file-preview {
-			display: none;
-			margin-top: 1rem;
-			padding: 0.5rem;
-			background: #f8fafc;
-			border-radius: 0.5rem;
-			font-size: 0.875rem;
-			color: var(--lr-primary);
-			border: 1px solid #e2e8f0;
-			align-items: center;
-			gap: 0.5rem;
-		}
+	.lr-file-preview.active {
+		display: flex;
+	}
 
-		.lr-file-preview.active {
-			display: flex;
-		}
+	.lr-step-success {
+		text-align: center;
+		padding: 1rem 0;
+	}
 
-		.lr-step-success {
-			text-align: center;
-			padding: 1rem 0;
-		}
+	.lr-success-icon {
+		width: 64px;
+		height: 64px;
+		background: #dcfce7;
+		color: #16a34a;
+		border-radius: 50%;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		margin: 0 auto 1.5rem;
+		font-size: 2rem;
+	}
 
-		.lr-success-icon {
-			width: 64px;
-			height: 64px;
-			background: #dcfce7;
-			color: #16a34a;
-			border-radius: 50%;
-			display: flex;
-			align-items: center;
-			justify-content: center;
-			margin: 0 auto 1.5rem;
-			font-size: 2rem;
-		}
+	.gslide-media {
+		background: transparents;
+	}
 
-		.gslide-media {
-			background: transparents;
-		}
+	.slider-sec {
+		overflow: hidden;
+	}
 
-		.slider-sec {
-			overflow: hidden;
-		}
+	/* Custom Dialpad – responsive toggle */
+	.lr-desktop-phone {
+		display: block;
+	}
 
-		/* Custom Dialpad – responsive toggle */
+	.lr-mobile-phone {
+		display: none;
+	}
+
+	@media (max-width: 768px) {
 		.lr-desktop-phone {
-			display: block;
+			display: none;
 		}
 
 		.lr-mobile-phone {
-			display: none;
+			display: block;
 		}
+	}
 
-		@media (max-width: 768px) {
-			.lr-desktop-phone {
-				display: none;
-			}
+	/* Custom Dialpad */
+	.lr-phone-display {
+		background: var(--lr-primary);
+		color: white;
+		font-size: 1.75rem;
+		font-weight: 700;
+		text-align: center;
+		padding: 1rem 1.5rem;
+		border-radius: 0.75rem;
+		margin-bottom: 1rem;
+		letter-spacing: 2px;
+		min-height: 60px;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+	}
 
-			.lr-mobile-phone {
-				display: block;
-			}
-		}
+	.lr-dialpad {
+		display: grid;
+		grid-template-columns: repeat(3, 1fr);
+		gap: 8px;
+		/* max-width: 360px; */
+		margin: 0 auto;
+	}
 
-		/* Custom Dialpad */
-		.lr-phone-display {
-			background: var(--lr-primary);
-			color: white;
-			font-size: 1.75rem;
-			font-weight: 700;
-			text-align: center;
-			padding: 1rem 1.5rem;
-			border-radius: 0.75rem;
-			margin-bottom: 1rem;
-			letter-spacing: 2px;
-			min-height: 60px;
-			display: flex;
-			align-items: center;
-			justify-content: center;
-		}
+	.lr-dialpad-key {
+		background: #f1f5f9;
+		border: 1px solid #e2e8f0;
+		border-radius: 12px;
+		padding: 14px 8px;
+		text-align: center;
+		cursor: pointer;
+		transition: all 0.15s ease;
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		justify-content: center;
+		user-select: none;
+		-webkit-tap-highlight-color: transparent;
+	}
 
-		.lr-dialpad {
-			display: grid;
-			grid-template-columns: repeat(3, 1fr);
-			gap: 8px;
-			/* max-width: 360px; */
-			margin: 0 auto;
-		}
+	.lr-dialpad-key:hover {
+		background: #e2e8f0;
+	}
 
-		.lr-dialpad-key {
-			background: #f1f5f9;
-			border: 1px solid #e2e8f0;
-			border-radius: 12px;
-			padding: 14px 8px;
-			text-align: center;
-			cursor: pointer;
-			transition: all 0.15s ease;
-			display: flex;
-			flex-direction: column;
-			align-items: center;
-			justify-content: center;
-			user-select: none;
-			-webkit-tap-highlight-color: transparent;
-		}
+	.lr-dialpad-key:active {
+		background: #cbd5e1;
+		transform: scale(0.95);
+	}
 
-		.lr-dialpad-key:hover {
-			background: #e2e8f0;
-		}
+	.lr-key-num {
+		font-size: 1.5rem;
+		font-weight: 700;
+		color: var(--lr-primary);
+		line-height: 1;
+	}
 
-		.lr-dialpad-key:active {
-			background: #cbd5e1;
-			transform: scale(0.95);
-		}
+	.lr-key-letters {
+		font-size: 0.6rem;
+		color: #94a3b8;
+		text-transform: uppercase;
+		letter-spacing: 2px;
+		margin-top: 2px;
+	}
 
-		.lr-key-num {
-			font-size: 1.5rem;
-			font-weight: 700;
-			color: var(--lr-primary);
-			line-height: 1;
-		}
+	.lr-dialpad-backspace {
+		background: #fee2e2;
+		border-color: #fecaca;
+		color: #dc2626;
+		font-size: 1.25rem;
+	}
 
-		.lr-key-letters {
-			font-size: 0.6rem;
-			color: #94a3b8;
-			text-transform: uppercase;
-			letter-spacing: 2px;
-			margin-top: 2px;
-		}
+	.lr-dialpad-backspace:hover {
+		background: #fecaca;
+	}
 
-		.lr-dialpad-backspace {
-			background: #fee2e2;
-			border-color: #fecaca;
-			color: #dc2626;
-			font-size: 1.25rem;
-		}
+	.lr-dialpad-backspace:active {
+		background: #fca5a5;
+	}
+</style>
 
-		.lr-dialpad-backspace:hover {
-			background: #fecaca;
-		}
+<!-- HERO SECTION -->
+<section
+	class="max-w-full bg-lr-primary text-white pt-[2rem] lg:pt-[6rem]  pb-20 relative overflow-hidden lr-leather-texture">
+	<!-- subtle texture background -->
+	<!-- <div
+		class="absolute inset-0 opacity-70 bg-[url('https://images.unsplash.com/photo-1555041469-a586c61ea9bc?auto=format&fit=crop&q=80&w=2000')] bg-cover bg-center mix-blend-overlay">
+	</div> -->
 
-		.lr-dialpad-backspace:active {
-			background: #fca5a5;
-		}
-	</style>
-</head>
-
-
-<body>
-	<!-- HERO SECTION -->
-	<section
-		class="max-w-full bg-lr-primary text-white pt-[2rem] lg:pt-[6rem]  pb-20 relative overflow-hidden lr-leather-texture">
-		<!-- subtle texture background -->
-		<!-- <div
-			class="absolute inset-0 opacity-70 bg-[url('https://images.unsplash.com/photo-1555041469-a586c61ea9bc?auto=format&fit=crop&q=80&w=2000')] bg-cover bg-center mix-blend-overlay">
-		</div> -->
-
-		<div class="lr-container relative z-10">
+	<div class="lr-container relative z-10">
 
 
-			<div class="lr-2col items-center mb-16">
-				<!-- Left Column: Copy & Actions -->
-				<div class="lr-text-left text-left">
-					<div class="lg:hidden mb-10">
-						<div class="lr-hero-visual">
-							<img src="assets/offer.webp" alt="Премиальная реставрация кожи">
-						</div>
-					</div>
-
-					<p class="text-lr-accent font-medium uppercase tracking-wide text-xs md:text-sm mb-4">
-						Вниманию владельцев кожаной мебели в&nbsp;Санкт-Петербурге:
-					</p>
-
-					<h1 class="font-serif lr-h1 font-bold mb-6 text-white leading-tight">
-						<span class="text-bg">Не&nbsp;выбрасывайте</span> ваш испорченный кожаный диван!
-					</h1>
-
-					<p class="text-md md:text-xl text-slate-300 font-light mb-6	 md:mb-12 leading-relaxed max-w-2xl">
-						Мы&nbsp;бесследно устраним прожоги, трещины, царапины от&nbsp;когтей и
-						потертости прямо у&nbsp;вас на&nbsp;дому&nbsp;—
-						<span class="text-white font-semibold border-b-2 border-lr-accent">
-							за&nbsp;1/10 от&nbsp;стоимости новой мебели
-						</span>
-					</p>
-
-					<div class="flex flex-col sm:flex-row gap-4">
-						<button onclick="lrOpenModal()"
-							class="lr-btn-primary text-white font-bold text-lg px-8 py-5 rounded-full shadow-lg transform transition w-full sm:w-auto text-center">
-							Рассчитать стоимость
-						</button>
-
-					</div>
-
-				</div>
-
-				<!-- Right Column: Premium Visual -->
-				<div class="lr-img-right hidden lg:block">
-					<div class="lr-hero-visual shadow-2xl">
+		<div class="lr-2col items-center mb-16">
+			<!-- Left Column: Copy & Actions -->
+			<div class="lr-text-left text-left">
+				<div class="lg:hidden mb-10">
+					<div class="lr-hero-visual">
 						<img src="assets/offer.webp" alt="Премиальная реставрация кожи">
 					</div>
 				</div>
-			</div>
 
-			<!-- Mobile Visual (Visible only on mobile/tablet) -->
-
-
-			<!-- Problems Grid -->
-			<div class="text-center mb-6">
-				<h3 class="text-slate-400 text-sm font-medium uppercase tracking-widest mb-8">
-					Бесследно чиним следующие повреждения:
-				</h3>
-			</div>
-			<div class="grid grid-cols-2 lg:grid-cols-4 gap-3 md:gap-4 max-w-6xl mx-auto mb-8">
-				<div
-					class="hero-card bg-white/5 backdrop-blur-sm rounded-xl border border-white/10 flex flex-col items-center hover:bg-white/10 transition">
-					<a class="glightbox hero-card-link" data-gallery="cases" href="/assets/burn-marks.webp" alt="">
-						<img class="hero-card-img" src="/assets/burn-marks.webp" alt="">
-					</a>
-					<span class="text-sm font-medium px-3 md:px-4 py-3 ">Прожоги</span>
-				</div>
-				<div
-					class="hero-card bg-white/5  backdrop-blur-sm rounded-lg border border-white/20 flex flex-col items-center hover:bg-white/10 transition">
-					<a class="glightbox hero-card-link" data-gallery="cases" href="/assets/claws.webp" alt="">
-						<img class="hero-card-img" src="/assets/claws.webp" alt="">
-					</a>
-					<span class="text-sm font-medium px-3 md:px-4 py-3 ">Когти животных</span>
-				</div>
-				<div
-					class="hero-card bg-white/5  backdrop-blur-sm rounded-lg border border-white/20 flex flex-col items-center hover:bg-white/10 transition">
-					<a class="glightbox hero-card-link" data-gallery="cases" href="/assets/cuts.webp" alt="">
-						<img class="hero-card-img" src="/assets/cuts.webp" alt="">
-					</a>
-					<span class="text-sm font-medium px-3 md:px-4 py-3 ">Порезы и разрывы</span>
-				</div>
-				<div
-					class="hero-card bg-white/5  backdrop-blur-sm rounded-lg border border-white/20 flex flex-col items-center hover:bg-white/10 transition">
-					<a class="glightbox hero-card-link" data-gallery="cases" href="/assets/chemicals.webp" alt="">
-						<img class="hero-card-img" src="/assets/chemicals.webp" alt="">
-					</a>
-					<span class="text-sm font-medium px-3 md:px-4 py-3 ">Пятна и химия</span>
-				</div>
-				<div
-					class="hero-card bg-white/5  backdrop-blur-sm rounded-lg border border-white/20 flex flex-col items-center hover:bg-white/10 transition">
-					<a class="glightbox hero-card-link" data-gallery="cases" href="/assets/fading.webp" alt="">
-						<img class="hero-card-img" src="/assets/fading.webp" alt="">
-					</a>
-					<span class="text-sm font-medium px-3 md:px-4 py-3 ">Выцветание</span>
-				</div>
-				<div
-					class="hero-card bg-white/5  backdrop-blur-sm rounded-lg border border-white/20 flex flex-col items-center hover:bg-white/10 transition">
-					<a class="glightbox hero-card-link" data-gallery="cases" href="/assets/sagging-foam.webp" alt="">
-						<img class="hero-card-img" src="/assets/sagging-foam.webp" alt="">
-					</a>
-					<span class="text-sm font-medium px-3 md:px-4 py-3 ">Продавленный поролон</span>
-				</div>
-				<div
-					class="hero-card bg-white/5  backdrop-blur-sm rounded-lg border border-white/20 flex flex-col items-center hover:bg-white/10 transition">
-					<a class="glightbox hero-card-link" data-gallery="cases" href="/assets/rename.webp" alt="">
-						<img class="hero-card-img" src="/assets/rename.webp" alt="">
-					</a>
-					<span class="text-sm font-medium px-3 md:px-4 py-3 ">Полная перекраска</span>
-				</div>
-				<div
-					class="hero-card bg-white/5  backdrop-blur-sm rounded-lg border border-white/20 flex flex-col items-center hover:bg-white/10 transition">
-					<a class="glightbox hero-card-link" data-gallery="cases" href="/assets/scar.webp" alt="">
-						<img class="hero-card-img" src="/assets/scar.webp" alt="">
-					</a>
-					<span class="text-sm font-medium px-3 md:px-4 py-3 ">Расхождение швов</span>
-				</div>
-			</div>
-			<!-- CTA -->
-			<div class="text-center d-flex flex-column items-center  mx-auto justify-center">
-				<p class="text-md max-w-sm mx-auto text-400 mb-4">
-					Пришлите фото для&nbsp;расчета стоимости удобным для&nbsp;вас способом
-				</p>
-				<button id="submit-image" onclick="lrOpenPhotoModal()"
-					class="max-w-sm mx-auto bg-lr-accent hover:bg-lr-accent-hover text-white font-bold text-lg px-8 py-5 rounded-full shadow-lg transform transition hover:-translate-y-1 w-full">
-					Отправить фото
-				</button>
-
-				<p class="text-sm text-slate-400 mt-6 mb-4">
-					Или через&nbsp;удобный для&nbsp;вас мессенджер:
+				<p class="text-lr-accent font-medium uppercase tracking-wide text-xs md:text-sm mb-4">
+					Вниманию владельцев кожаной мебели в&nbsp;Санкт-Петербурге:
 				</p>
 
-				<div
-					class="social-wrapp flex flex-col md:flex-row mx-auto max-w-sm md:max-w-none gap-2 md:gap-4 justify-center">
+				<h1 class="font-serif lr-h1 font-bold mb-6 text-white leading-tight">
+					<span class="text-bg">Не&nbsp;выбрасывайте</span> ваш испорченный кожаный диван!
+				</h1>
 
-					<a href="https://telegram.me/lenremont_bot" target="_blank" rel="noreferrer"
-						class="btn-social btn-social-tg shadow-lg transform transition hover:-translate-y-1 rounded-full font-bold text-lg">
-						<!-- Telegram -->
-						<svg class="w-6 h-6" viewBox="0 0 24 20" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
-							<path
-								d="M21.9539 0.176566C21.9539 0.176566 24.1741 -0.689148 23.989 1.4133C23.9274 2.27903 23.3724 5.30902 22.9406 8.58639L21.4605 18.2948C21.4605 18.2948 21.3372 19.717 20.2271 19.9644C19.117 20.2117 17.4519 19.0987 17.1435 18.8513C16.8968 18.6658 12.5182 15.8831 10.9763 14.5227C10.5446 14.1517 10.0513 13.4096 11.038 12.5439L17.5136 6.36028C18.2536 5.61823 18.9937 3.8868 15.9101 5.98925L7.27606 11.8638C7.27606 11.8638 6.28932 12.4821 4.4392 11.9256L0.430526 10.6888C0.430526 10.6888 -1.04959 9.76131 1.47894 8.83371C7.64612 5.92737 15.2317 2.9592 21.9539 0.176566Z" />
-						</svg>
-					</a>
-
-					<a href="https://vk.com/lenremont" target="_blank" rel="noreferrer"
-						class="btn-social btn-social-vk shadow-lg transform transition hover:-translate-y-1 rounded-full font-bold text-lg">
-						<!-- VK -->
-						<svg class="w-6 h-6" viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
-							<path fill-rule="evenodd" clip-rule="evenodd"
-								d="M12.4805 0C17.9107 0 20.6255.000487 22.3125 1.6875 23.9995 3.37452 24 6.08927 24 11.5195V12.4805C24 17.9107 23.9995 20.6255 22.3125 22.3125 20.6255 23.9995 17.9107 24 12.4805 24H11.5195C6.08927 24 3.37452 23.9995 1.6875 22.3125.000487 20.6255 0 17.9107 0 12.4805V11.5195C0 6.08927.000483 3.37452 1.6875 1.6875 3.37452.000483 6.08927 0 11.5195 0H12.4805ZM4.05078 7.30078C4.18079 13.5408 7.3005 17.291 12.7705 17.291H13.0801V13.7207C15.0901 13.9207 16.6107 15.391 17.2207 17.291H20.0605C19.2805 14.451 17.2302 12.8803 15.9502 12.2803 17.2302 11.5402 19.03 9.74064 19.46 7.30078H16.8799C16.3198 9.28075 14.6601 11.081 13.0801 11.251V7.30078H10.5V14.2207C8.90006 13.8206 6.88003 11.8805 6.79004 7.30078H4.05078Z" />
-						</svg>
-
-					</a>
-
-					<a href="https://max.ru/id471902475874_3_bot" target="_blank" rel="noreferrer"
-						class="btn-social btn-social-max shadow-lg transform transition hover:-translate-y-1 rounded-full font-bold text-lg">
-						<!-- Max -->
-						<svg class="w-6 h-6" viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
-							<path fill-rule="evenodd" clip-rule="evenodd"
-								d="M12.2589 23.9315C9.90029 23.9315 8.80729 23.5862 6.90892 22.2049 5.70086 23.7588 1.89262 24.9733 1.73154 22.8955 1.73154 21.3358 1.38063 20.0177.995206 18.5789.52349 16.8062 0 14.832 0 11.9715 0 5.13969 5.58006 0 12.1956 0 18.8111 0 24 5.39869 24 12.0406 24 18.6825 18.65 23.9373 12.2589 23.9373M12.3567 5.91093C9.13519 5.74402 6.62129 7.98293 6.06903 11.4938 5.60882 14.4003 6.4257 17.94 7.12177 18.1242 7.44967 18.2048 8.28955 17.5256 8.80729 17.0019 9.65868 17.5601 10.6366 17.986 11.7239 18.0436 15.0259 18.2163 17.954 15.6263 18.1323 12.3053 18.1955 10.6964 17.6263 9.12671 16.5467 7.93255 15.4671 6.7384 13.963 6.01477 12.3567 5.91669" />
-						</svg>
-
-					</a>
-				</div>
-
-
-				<p class="text-sm text-slate-400 mt-6 mb-4">
-					Или&nbsp;звоните по&nbsp;номеру
+				<p class="text-md md:text-xl text-slate-300 font-light mb-6	 md:mb-12 leading-relaxed max-w-2xl">
+					Мы&nbsp;бесследно устраним прожоги, трещины, царапины от&nbsp;когтей и
+					потертости прямо у&nbsp;вас на&nbsp;дому&nbsp;—
+					<span class="text-white font-semibold border-b-2 border-lr-accent">
+						за&nbsp;1/10 от&nbsp;стоимости новой мебели
+					</span>
 				</p>
 
-				<a href="tel:+78004440243"
-					class="max-w-sm mx-auto btn-social bg-lr-green hover:bg-lr-green-hover text-white font-bold text-lg px-8 py-5 rounded-full shadow-lg transform transition hover:-translate-y-1 w-full">
-					Позвонить
+				<div class="flex flex-col sm:flex-row gap-4">
+					<button onclick="lrOpenModal()"
+						class="lr-btn-primary text-white font-bold text-lg px-8 py-5 rounded-full shadow-lg transform transition w-full sm:w-auto text-center">
+						Рассчитать стоимость
+					</button>
+
+				</div>
+
+			</div>
+
+			<!-- Right Column: Premium Visual -->
+			<div class="lr-img-right hidden lg:block">
+				<div class="lr-hero-visual shadow-2xl">
+					<img src="assets/offer.webp" alt="Премиальная реставрация кожи">
+				</div>
+			</div>
+		</div>
+
+		<!-- Mobile Visual (Visible only on mobile/tablet) -->
+
+
+		<!-- Problems Grid -->
+		<div class="text-center mb-6">
+			<h3 class="text-slate-400 text-sm font-medium uppercase tracking-widest mb-8">
+				Бесследно чиним следующие повреждения:
+			</h3>
+		</div>
+		<div class="grid grid-cols-2 lg:grid-cols-4 gap-3 md:gap-4 max-w-6xl mx-auto mb-8">
+			<div
+				class="hero-card bg-white/5 backdrop-blur-sm rounded-xl border border-white/10 flex flex-col items-center hover:bg-white/10 transition">
+				<a class="glightbox hero-card-link" data-gallery="cases" href="/assets/burn-marks.webp" alt="">
+					<img class="hero-card-img" src="/assets/burn-marks.webp" alt="">
+				</a>
+				<span class="text-sm font-medium px-3 md:px-4 py-3 ">Прожоги</span>
+			</div>
+			<div
+				class="hero-card bg-white/5  backdrop-blur-sm rounded-lg border border-white/20 flex flex-col items-center hover:bg-white/10 transition">
+				<a class="glightbox hero-card-link" data-gallery="cases" href="/assets/claws.webp" alt="">
+					<img class="hero-card-img" src="/assets/claws.webp" alt="">
+				</a>
+				<span class="text-sm font-medium px-3 md:px-4 py-3 ">Когти животных</span>
+			</div>
+			<div
+				class="hero-card bg-white/5  backdrop-blur-sm rounded-lg border border-white/20 flex flex-col items-center hover:bg-white/10 transition">
+				<a class="glightbox hero-card-link" data-gallery="cases" href="/assets/cuts.webp" alt="">
+					<img class="hero-card-img" src="/assets/cuts.webp" alt="">
+				</a>
+				<span class="text-sm font-medium px-3 md:px-4 py-3 ">Порезы и разрывы</span>
+			</div>
+			<div
+				class="hero-card bg-white/5  backdrop-blur-sm rounded-lg border border-white/20 flex flex-col items-center hover:bg-white/10 transition">
+				<a class="glightbox hero-card-link" data-gallery="cases" href="/assets/chemicals.webp" alt="">
+					<img class="hero-card-img" src="/assets/chemicals.webp" alt="">
+				</a>
+				<span class="text-sm font-medium px-3 md:px-4 py-3 ">Пятна и химия</span>
+			</div>
+			<div
+				class="hero-card bg-white/5  backdrop-blur-sm rounded-lg border border-white/20 flex flex-col items-center hover:bg-white/10 transition">
+				<a class="glightbox hero-card-link" data-gallery="cases" href="/assets/fading.webp" alt="">
+					<img class="hero-card-img" src="/assets/fading.webp" alt="">
+				</a>
+				<span class="text-sm font-medium px-3 md:px-4 py-3 ">Выцветание</span>
+			</div>
+			<div
+				class="hero-card bg-white/5  backdrop-blur-sm rounded-lg border border-white/20 flex flex-col items-center hover:bg-white/10 transition">
+				<a class="glightbox hero-card-link" data-gallery="cases" href="/assets/sagging-foam.webp" alt="">
+					<img class="hero-card-img" src="/assets/sagging-foam.webp" alt="">
+				</a>
+				<span class="text-sm font-medium px-3 md:px-4 py-3 ">Продавленный поролон</span>
+			</div>
+			<div
+				class="hero-card bg-white/5  backdrop-blur-sm rounded-lg border border-white/20 flex flex-col items-center hover:bg-white/10 transition">
+				<a class="glightbox hero-card-link" data-gallery="cases" href="/assets/rename.webp" alt="">
+					<img class="hero-card-img" src="/assets/rename.webp" alt="">
+				</a>
+				<span class="text-sm font-medium px-3 md:px-4 py-3 ">Полная перекраска</span>
+			</div>
+			<div
+				class="hero-card bg-white/5  backdrop-blur-sm rounded-lg border border-white/20 flex flex-col items-center hover:bg-white/10 transition">
+				<a class="glightbox hero-card-link" data-gallery="cases" href="/assets/scar.webp" alt="">
+					<img class="hero-card-img" src="/assets/scar.webp" alt="">
+				</a>
+				<span class="text-sm font-medium px-3 md:px-4 py-3 ">Расхождение швов</span>
+			</div>
+		</div>
+		<!-- CTA -->
+		<div class="text-center d-flex flex-column items-center  mx-auto justify-center">
+			<p class="text-md max-w-sm mx-auto text-400 mb-4">
+				Пришлите фото для&nbsp;расчета стоимости удобным для&nbsp;вас способом
+			</p>
+			<button id="submit-image" onclick="lrOpenPhotoModal()"
+				class="max-w-sm mx-auto bg-lr-accent hover:bg-lr-accent-hover text-white font-bold text-lg px-8 py-5 rounded-full shadow-lg transform transition hover:-translate-y-1 w-full">
+				Отправить фото
+			</button>
+
+			<p class="text-sm text-slate-400 mt-6 mb-4">
+				Или через&nbsp;удобный для&nbsp;вас мессенджер:
+			</p>
+
+			<div
+				class="social-wrapp flex flex-col md:flex-row mx-auto max-w-sm md:max-w-none gap-2 md:gap-4 justify-center">
+
+				<a href="https://telegram.me/lenremont_bot" target="_blank" rel="noreferrer"
+					class="btn-social btn-social-tg shadow-lg transform transition hover:-translate-y-1 rounded-full font-bold text-lg">
+					<!-- Telegram -->
+					<svg class="w-6 h-6" viewBox="0 0 24 20" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+						<path
+							d="M21.9539 0.176566C21.9539 0.176566 24.1741 -0.689148 23.989 1.4133C23.9274 2.27903 23.3724 5.30902 22.9406 8.58639L21.4605 18.2948C21.4605 18.2948 21.3372 19.717 20.2271 19.9644C19.117 20.2117 17.4519 19.0987 17.1435 18.8513C16.8968 18.6658 12.5182 15.8831 10.9763 14.5227C10.5446 14.1517 10.0513 13.4096 11.038 12.5439L17.5136 6.36028C18.2536 5.61823 18.9937 3.8868 15.9101 5.98925L7.27606 11.8638C7.27606 11.8638 6.28932 12.4821 4.4392 11.9256L0.430526 10.6888C0.430526 10.6888 -1.04959 9.76131 1.47894 8.83371C7.64612 5.92737 15.2317 2.9592 21.9539 0.176566Z" />
+					</svg>
 				</a>
 
-				<p class="text-sm text-slate-400 mt-4 flex items-center justify-center gap-2">
-					<i class="fa-solid fa-shield-halved text-emerald-400"></i> Мастер&nbsp;приедет сегодня.
-					Точный&nbsp;подбор цвета на&nbsp;месте. Без&nbsp;грязи.
-				</p>
-			</div>
-		</div>
-	</section>
+				<a href="https://vk.com/lenremont" target="_blank" rel="noreferrer"
+					class="btn-social btn-social-vk shadow-lg transform transition hover:-translate-y-1 rounded-full font-bold text-lg">
+					<!-- VK -->
+					<svg class="w-6 h-6" viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+						<path fill-rule="evenodd" clip-rule="evenodd"
+							d="M12.4805 0C17.9107 0 20.6255.000487 22.3125 1.6875 23.9995 3.37452 24 6.08927 24 11.5195V12.4805C24 17.9107 23.9995 20.6255 22.3125 22.3125 20.6255 23.9995 17.9107 24 12.4805 24H11.5195C6.08927 24 3.37452 23.9995 1.6875 22.3125.000487 20.6255 0 17.9107 0 12.4805V11.5195C0 6.08927.000483 3.37452 1.6875 1.6875 3.37452.000483 6.08927 0 11.5195 0H12.4805ZM4.05078 7.30078C4.18079 13.5408 7.3005 17.291 12.7705 17.291H13.0801V13.7207C15.0901 13.9207 16.6107 15.391 17.2207 17.291H20.0605C19.2805 14.451 17.2302 12.8803 15.9502 12.2803 17.2302 11.5402 19.03 9.74064 19.46 7.30078H16.8799C16.3198 9.28075 14.6601 11.081 13.0801 11.251V7.30078H10.5V14.2207C8.90006 13.8206 6.88003 11.8805 6.79004 7.30078H4.05078Z" />
+					</svg>
 
-	<!-- AGITATION SECTION -->
-	<section class="max-w-full bg-[#fdfaf3] py-16">
-		<div class="lr-container">
-			<div class="lr-2col lr-2col-b">
-				<div class="lr-text-left">
-					<h2 class="font-serif lr-h2 font-bold mb-6 text-slate-900">
-						Знакомая ситуация?
-					</h2>
-					<p class="text-quote font-serif text-2xl font-normal mb-4">
-						Вы&nbsp;смотрите на&nbsp;испорченную кожу и&nbsp;думаете:
-						<br>
-						<span class="italic mt-1 block">
-							«Только&nbsp;не покупка нового дивана…»
-						</span>
-					</p>
-					<div class="text-lg text-slate-700 space-y-4 mb-8">
-						<p>Давайте&nbsp;начистоту. Кожаная мебель&nbsp;стоит безумных денег.</p>
-						<p>
-							И&nbsp;когда на&nbsp;идеальном итальянском диване появляется уродливая
-							царапина от&nbsp;собаки, чернильное пятно от&nbsp;ребенка или&nbsp;трещина от
-							времени&nbsp;— это&nbsp;бесит. Вы&nbsp;накрываете это&nbsp;место пледом. Вы&nbsp;ставите
-							туда подушку. Но&nbsp;вы-то знаете, что&nbsp;дыра там.
-						</p>
-					</div>
+				</a>
 
-					<h3 class="font-bold text-xl mb-6">У вас есть 3 пути:</h3>
-					<ul class="space-y-6">
-						<li class="flex gap-4">
-							<div
-								class="w-10 h-10 rounded-full bg-red-100 text-red-600 flex items-center justify-center shrink-0 font-bold">
-								1
-							</div>
-							<div>
-								<strong class="text-slate-900 block mb-1">Купить новый диван.</strong>
-								<span class="text-slate-600 text-sm">Готовьте от&nbsp;150&nbsp;000
-									до&nbsp;500&nbsp;000&nbsp;рублей. Плюс&nbsp;грузчики,
-									содранные обои в&nbsp;дверных проемах и&nbsp;недели ожидания
-									доставки.</span>
-							</div>
-						</li>
-						<li class="flex gap-4">
-							<div
-								class="w-10 h-10 rounded-full bg-orange-100 text-orange-600 flex items-center justify-center shrink-0 font-bold">
-								2
-							</div>
-							<div>
-								<strong class="text-slate-900 block mb-1">Вызвать «мастера из&nbsp;гаража»
-									по&nbsp;объявлению.</strong>
-								<span class="text-slate-600 text-sm">Приедет с&nbsp;дешевой автомобильной краской,
-									замажет дыру так,
-									что&nbsp;она станет жесткой коркой, а&nbsp;через месяц краска
-									отвалится.</span>
-							</div>
-						</li>
-						<li class="flex gap-4">
-							<div
-								class="w-10 h-10 rounded-full bg-emerald-100 text-emerald-600 flex items-center justify-center shrink-0 font-bold">
-								3
-							</div>
-							<div>
-								<strong class="text-emerald-700 block mb-1">Вызвать реставраторов «Ленремонта».</strong>
-								<span class="text-slate-600 text-sm">Мы используем заводские итальянские полимеры. Кожа
-									останется мягкой, цвет совпадет на 100%, а место ремонта вы
-									не найдете даже с лупой.</span>
-							</div>
-						</li>
-					</ul>
-				</div>
-				<div class="lr-img-right">
-					<img src="/assets/sofa.webp" alt="Испорченный диван"
-						class="agit-img rounded-xl shadow-xl w-full object-cover " />
-				</div>
-			</div>
-		</div>
-	</section>
+				<a href="https://max.ru/id471902475874_3_bot" target="_blank" rel="noreferrer"
+					class="btn-social btn-social-max shadow-lg transform transition hover:-translate-y-1 rounded-full font-bold text-lg">
+					<!-- Max -->
+					<svg class="w-6 h-6" viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+						<path fill-rule="evenodd" clip-rule="evenodd"
+							d="M12.2589 23.9315C9.90029 23.9315 8.80729 23.5862 6.90892 22.2049 5.70086 23.7588 1.89262 24.9733 1.73154 22.8955 1.73154 21.3358 1.38063 20.0177.995206 18.5789.52349 16.8062 0 14.832 0 11.9715 0 5.13969 5.58006 0 12.1956 0 18.8111 0 24 5.39869 24 12.0406 24 18.6825 18.65 23.9373 12.2589 23.9373M12.3567 5.91093C9.13519 5.74402 6.62129 7.98293 6.06903 11.4938 5.60882 14.4003 6.4257 17.94 7.12177 18.1242 7.44967 18.2048 8.28955 17.5256 8.80729 17.0019 9.65868 17.5601 10.6366 17.986 11.7239 18.0436 15.0259 18.2163 17.954 15.6263 18.1323 12.3053 18.1955 10.6964 17.6263 9.12671 16.5467 7.93255 15.4671 6.7384 13.963 6.01477 12.3567 5.91669" />
+					</svg>
 
-	<!-- PROOFS SECTION (SLIDER) -->
-	<section class="slider-sec max-w-full bg-[#fcf8f0] py-16">
-		<div class="lr-container">
-			<div class="text-center max-w-3xl mx-auto mb-12">
-				<h2 class="font-serif lr-h2 font-bold mb-4 text-slate-900">
-					Не верьте нам на слово.
-				</h2>
-				<p class="text-xl text-slate-600">
-					Посмотрите на эти «безнадежные» случаи, которые мы спасли:
-				</p>
+				</a>
 			</div>
 
-			<div class="swiper lr-carousel">
-				<div class="swiper-wrapper">
 
-					<!-- Card 1 -->
-					<div class="swiper-slide bg-[#fdfaf3] lr-carousel-card">
-						<div class="lr-card-image" data-gallery="cases">
-							<img src="/assets/1-before.webp" class="lr-card-img-before object-cover w-full" alt="">
-							<img src="/assets/1-after.webp" class="lr-card-img-after object-cover w-full" alt="">
-							<div class="absolute top-2 right-2 bg-lr-accent/90 text-white text-xs px-2 py-1 rounded">
-								Смотреть</div>
-						</div>
-						<div class="p-6 flex-grow swiper-card-bottom">
-
-							<div class="mb-4">
-								<div class="text-xs uppercase tracking-wide text-lr-accent font-bold mb-2">КЕЙС
-									1:&nbsp;Срочный ремонт</div>
-								<h4 class="font-bold text-lg mb-3">Боль: Прожог от&nbsp;сигареты перед сдачей
-									квартиры
-								</h4>
-								<p class="text-sm text-slate-600 italic mb-4">«Нашёл прожог за&nbsp;день
-									до&nbsp;сдачи
-									квартиры. Думал&nbsp;— всё, депозит&nbsp;не вернут. Мастер приехал вечером,
-									всё&nbsp;восстановил за&nbsp;2&nbsp;часа. Даже&nbsp;не видно, где&nbsp;было.»
-								</p>
-								<div class="text-xs text-slate-500">— Алексей, аренда квартиры</div>
-							</div>
-
-							<div class=" bg-white p-3 rounded text-sm border border-slate-200">
-								<strong>Что&nbsp;сделали:</strong> Ремонт прожога, локальная покраска.<br>
-								<strong>Цена:</strong> 3&nbsp;000&nbsp;₽.
-							</div>
-						</div>
-					</div>
-
-					<!-- Card 2 -->
-					<div class="swiper-slide bg-[#fdfaf3] lr-carousel-card">
-						<div class=" lr-card-image" data-gallery="cases">
-							<img src="/assets/2-before.webp" class="lr-card-img-before object-cover w-full" alt="">
-							<img src="/assets/2-after.webp" class="lr-card-img-after object-cover w-full" alt="">
-							<div class="absolute top-2 right-2 bg-lr-accent/90 text-white text-xs px-2 py-1 rounded">
-								Смотреть</div>
-						</div>
-						<div class="p-6 flex-grow swiper-card-bottom">
-							<div class="mb-4">
-
-								<div class="text-xs uppercase tracking-wide text-lr-accent font-bold mb-2">КЕЙС
-									2:&nbsp;После гостей</div>
-								<h4 class="font-bold text-lg mb-3">Боль: Пятна и&nbsp;потертости на&nbsp;светлом
-									диване
-								</h4>
-								<p class="text-sm text-slate-600 italic mb-4">«После гостей диван выглядел
-									как&nbsp;после войны. Пятна, потертости... Уже&nbsp;думала менять. Почистили
-									и&nbsp;подкрасили&nbsp;— стал как&nbsp;новый.»</p>
-								<div class="text-xs text-slate-500">— Марина, новостройка</div>
-							</div>
-							<div class=" bg-white p-3 rounded text-sm border border-slate-200">
-								<strong>Что&nbsp;сделали:</strong> Чистка + восстановление цвета.<br>
-								<strong>Цена:</strong> 4&nbsp;200&nbsp;₽.
-							</div>
-						</div>
-					</div>
-
-					<!-- Card 3 -->
-					<div class="swiper-slide bg-[#fdfaf3] lr-carousel-card">
-						<div class=" lr-card-image" data-gallery="cases">
-							<img src="/assets/3-before.webp" class="lr-card-img-before object-cover w-full" alt="">
-							<img src="/assets/3-after.webp" class="lr-card-img-after object-cover w-full" alt="">
-							<div class="absolute top-2 right-2 bg-lr-accent/90 text-white text-xs px-2 py-1 rounded">
-								Смотреть</div>
-						</div>
-						<div class="p-6 flex-grow swiper-card-bottom">
-							<div class="mb-4">
-
-								<div class="text-xs uppercase tracking-wide text-lr-accent font-bold mb-2">КЕЙС
-									3:&nbsp;Когти животного</div>
-								<h4 class="font-bold text-lg mb-3">Боль: Глубокие царапины от&nbsp;собаки</h4>
-								<p class="text-sm text-slate-600 italic mb-4">«Собака разодрала бок&nbsp;дивана.
-									Уже&nbsp;думали выкидывать. Восстановили текстуру&nbsp;— даже&nbsp;при свете
-									не&nbsp;видно.»</p>
-								<div class="text-xs text-slate-500">— Ирина, семья с&nbsp;собакой</div>
-							</div>
-							<div class=" bg-white p-3 rounded text-sm border border-slate-200">
-								<strong>Что&nbsp;сделали:</strong> Жидкая кожа, восстановление фактуры.<br>
-								<strong>Цена:</strong> 5&nbsp;800&nbsp;₽.
-							</div>
-						</div>
-					</div>
-
-					<!-- Card 4 -->
-					<div class="swiper-slide bg-[#fdfaf3] lr-carousel-card">
-						<div class=" lr-card-image" data-gallery="cases">
-							<img src="/assets/4-before.webp" class="lr-card-img-before object-cover w-full" alt="">
-							<img src="/assets/4-after.webp" class="lr-card-img-after object-cover w-full" alt="">
-							<div class="absolute top-2 right-2 bg-lr-accent/90 text-white text-xs px-2 py-1 rounded">
-								Смотреть</div>
-						</div>
-						<div class="p-6 flex-grow swiper-card-bottom">
-							<div class="mb-4">
-
-								<div class="text-xs uppercase tracking-wide text-lr-accent font-bold mb-2">КЕЙС
-									4:&nbsp;Старый диван</div>
-								<h4 class="font-bold text-lg mb-3">Боль: Потеря цвета и&nbsp;трещины</h4>
-								<p class="text-sm text-slate-600 italic mb-4">«Дивану 7&nbsp;лет, весь выцвел
-									и&nbsp;потрескался. После&nbsp;восстановления выглядит как&nbsp;новый
-									из&nbsp;салона.»</p>
-								<div class="text-xs text-slate-500">— Олег, загородный дом</div>
-							</div>
-							<div class=" bg-white p-3 rounded text-sm border border-slate-200">
-								<strong>Что&nbsp;сделали:</strong> Полная покраска и&nbsp;защита кожи.<br>
-								<strong>Цена:</strong> 7&nbsp;500&nbsp;₽.
-							</div>
-						</div>
-					</div>
-
-					<!-- Card 5 -->
-					<div class="swiper-slide bg-[#fdfaf3] lr-carousel-card">
-						<div class=" lr-card-image" data-gallery="cases">
-							<img src="/assets/5-before.webp" class="lr-card-img-before object-cover w-full" alt="">
-							<img src="/assets/5-after.webp" class="lr-card-img-after object-cover w-full" alt="">
-							<div class="absolute top-2 right-2 bg-lr-accent/90 text-white text-xs px-2 py-1 rounded">
-								Смотреть</div>
-						</div>
-						<div class="p-6 flex-grow swiper-card-bottom">
-							<div class="mb-4">
-
-								<div class="text-xs uppercase tracking-wide text-lr-accent font-bold mb-2">КЕЙС
-									5:&nbsp;Офисная мебель</div>
-								<h4 class="font-bold text-lg mb-3">Боль: Износ кресел в&nbsp;офисе</h4>
-								<p class="text-sm text-slate-600 italic mb-4">«Кресла в&nbsp;переговорке были
-									убитые.
-									Заменять дорого&nbsp;— решили восстановить. Теперь&nbsp;выглядят
-									презентабельно.»
-								</p>
-								<div class="text-xs text-slate-500">— Сергей, офис</div>
-							</div>
-							<div class=" bg-white p-3 rounded text-sm border border-slate-200">
-								<strong>Что&nbsp;сделали:</strong> Реставрация + покраска.<br>
-								<strong>Цена:</strong> 3&nbsp;200&nbsp;₽&nbsp;/ шт.
-							</div>
-						</div>
-					</div>
-
-				</div>
-
-				<!-- кнопки -->
-				<div class="swiper-button-prev"></div>
-				<div class="swiper-button-next"></div>
-
-				<!-- пагинация -->
-				<div class="swiper-pagination"></div>
-			</div>
-		</div>
-	</section>
-
-	<!-- BENEFITS (Карлтон) -->
-	<section class="max-w-full bg-lr-primary text-white py-16">
-		<div class="lr-container">
-			<div class="text-center max-w-3xl mx-auto mb-12">
-				<h2 class="font-serif lr-h2 font-bold mb-4">
-					Что вы получаете, доверяя свою мебель <span class="text-bg">ЛенРемонту</span>
-				</h2>
-				<p class="text-slate-400">(помимо сохраненных нервов и денег)</p>
-			</div>
-			<div class="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-5xl mx-auto">
-				<div class="flex gap-4">
-					<div class="text-lr-accent text-2xl mt-1 benefits-icon">
-						<i class="fa-solid fa-circle-check"></i>
-					</div>
-					<div>
-						<strong class="text-lg block mb-1">Никаких грузчиков и&nbsp;вырванных косяков.</strong>
-						<span class="text-slate-300 text-sm italic">Вам не&nbsp;нужно нанимать транспорт, спускать
-							тяжелый диван по&nbsp;лестнице и&nbsp;жить в&nbsp;пустой гостиной неделю&nbsp;— 90% ремонтов
-							мы&nbsp;делаем прямо у&nbsp;вас на&nbsp;дому.</span>
-					</div>
-				</div>
-				<div class="flex gap-4">
-					<div class="text-lr-accent text-2xl mt-1 benefits-icon">
-						<i class="fa-solid fa-flask"></i>
-					</div>
-					<div>
-						<strong class="text-lg block mb-1">Хирургически точный подбор цвета.</strong>
-						<span class="text-slate-300 text-sm italic">Мастер смешивает пигменты прямо при&nbsp;вас. Место
-							ремонта не&nbsp;будет выделяться предательским пятном&nbsp;— оно на&nbsp;100% сольется
-							с&nbsp;родным цветом.</span>
-					</div>
-				</div>
-				<div class="flex gap-4">
-					<div class="text-lr-accent text-2xl mt-1 benefits-icon">
-						<i class="fa-solid fa-leaf"></i>
-					</div>
-					<div>
-						<strong class="text-lg block mb-1">Сохранение заводской мягкости кожи.</strong>
-						<span class="text-slate-300 text-sm italic">Мы&nbsp;используем эластичные полимеры, а&nbsp;не
-							жесткий клей. Ваш&nbsp;диван останется мягким и&nbsp;приятным на&nbsp;ощупь,
-							без&nbsp;эффекта «пластиковой заплатки».</span>
-					</div>
-				</div>
-				<div class="flex gap-4">
-					<div class="text-lr-accent text-2xl mt-1 benefits-icon">
-						<i class="fa-solid fa-broom"></i>
-					</div>
-					<div>
-						<strong class="text-lg block mb-1">Никакой грязи и&nbsp;токсичной вони.</strong>
-						<span class="text-slate-300 text-sm italic">Наши составы безопасны. Мастер застелет
-							пол&nbsp;пленкой и&nbsp;уберет мусор. Вы&nbsp;сможете сидеть на&nbsp;диване
-							в&nbsp;тот&nbsp;же вечер.</span>
-					</div>
-				</div>
-				<div class="flex gap-4 md:col-span-2 md:w-1/2 md:mx-auto">
-					<div class="text-lr-accent text-2xl mt-1 benefits-icon">
-						<i class="fa-solid fa-file-contract"></i>
-					</div>
-					<div>
-						<strong class="text-lg block mb-1">Официальная гарантия юридического лица.</strong>
-						<span class="text-slate-300 text-sm italic">Мы&nbsp;— ООО&nbsp;«Ленремонт». Вы&nbsp;получаете
-							чек и&nbsp;гарантию до&nbsp;2&nbsp;лет. Если&nbsp;что-то пойдет не&nbsp;так,
-							мы&nbsp;переделаем за&nbsp;свой счет.</span>
-					</div>
-				</div>
-			</div>
-		</div>
-	</section>
-
-	<!-- OBJECTIONS SECTION -->
-	<section class="max-w-full py-16 bg-white">
-		<div class="lr-container">
-			<div class="text-center max-w-3xl mx-auto mb-10">
-				<h2 class="font-serif lr-h2 font-bold text-slate-900 mb-4">
-					"А вы точно сможете спасти мою мебель?"
-				</h2>
-				<p class="text-slate-600">Отвечаем прямо без увиливаний:</p>
-			</div>
-
-			<div class="max-w-4xl mx-auto space-y-6">
-				<!-- Q1 -->
-				<div
-					class="bg-[#fcf8f0] hover:bg-[#fdfaf3] transition rounded-xl p-6 border border-[#e8e4d9] shadow-sm">
-					<h4 class="font-bold text-lg text-slate-900 mb-3 flex items-center gap-3">
-						<i class="fa-solid fa-circle-question text-blue-400"></i>
-						«У&nbsp;меня сложный цвет, вы&nbsp;не попадете в&nbsp;тон»
-					</h4>
-					<p class="text-slate-600 pl-8">
-						Сможем. Наши мастера используют спектрометры и&nbsp;колористические
-						таблицы. Мы&nbsp;не покупаем «готовую коричневую краску». Мы&nbsp;создаем
-						оттенок с&nbsp;нуля, добавляя микродозы нужных пигментов, чтобы&nbsp;учесть
-						даже выцветание вашей кожи от&nbsp;солнца.
-					</p>
-				</div>
-				<!-- Q2 -->
-				<div class="bg-slate-50 hover:bg-slate-100 transition rounded-xl p-6 border border-slate-100 shadow-sm">
-					<h4 class="font-bold text-lg text-slate-900 mb-3 flex items-center gap-3">
-						<i class="fa-solid fa-circle-question text-blue-400"></i>
-						«А&nbsp;эта ваша краска не&nbsp;испачкает мне одежду?»
-					</h4>
-					<p class="text-slate-600 pl-8">
-						Исключено. Мы&nbsp;не просто "красим". Последним этапом мы&nbsp;наносим
-						специальный защитный лак (матовый, сатиновый или&nbsp;глянцевый&nbsp;— точно
-						как на&nbsp;заводе). Он&nbsp;намертво "запечатывает" цвет. Вы&nbsp;можете тереть
-						диван влажной тряпкой&nbsp;— краска останется на&nbsp;месте.
-					</p>
-				</div>
-				<!-- Q3 -->
-				<div class="bg-slate-50 hover:bg-slate-100 transition rounded-xl p-6 border border-slate-100 shadow-sm">
-					<h4 class="font-bold text-lg text-slate-900 mb-3 flex items-center gap-3">
-						<i class="fa-solid fa-circle-question text-blue-400"></i>
-						«У&nbsp;меня диван в&nbsp;хлам, там&nbsp;не только кожа, там&nbsp;поролон провалился»
-					</h4>
-					<p class="text-slate-600 pl-8">
-						Мы&nbsp;реставраторы, а&nbsp;не просто маляры. Если&nbsp;нужно&nbsp;— мы&nbsp;заберем диван
-						в&nbsp;наш цех, заменим пружины, добавим плотный ППУ (поролон),
-						перешьем разошедшиеся швы и&nbsp;полностью перекрасим кожу. Вы&nbsp;получите
-						диван из&nbsp;салона.
-					</p>
-				</div>
-			</div>
-		</div>
-	</section>
-
-	<!-- PRICE -->
-	<section class="max-w-full bg-[#f5f2e9] py-16 border-t border-slate-200">
-		<div class="lr-container">
-			<div class="lr-2col items-start block md:flex">
-				<div class="lr-text-left">
-					<h2 class="font-serif lr-h2 font-bold text-slate-900 mb-4">
-						Сколько это стоит?
-					</h2>
-					<!-- <p class="text-lg text-lr-accent font-semibold mb-6">
-							Подсказка: на 250 000 рублей дешевле нового дивана.
-						</p> -->
-					<p class="text-quote text-xl text-primary font-bold mb-6">
-						Подсказка:
-						<br>
-						<span class="block mt-2 text-lg font-normal">на&nbsp;<span
-								class="border-lr-secondary border-b-[3px] border-solid">250&nbsp;000&nbsp;рублей</span>
-							дешевле нового дивана</span>
-					</p>
-					<p class="text-slate-600 mb-3">
-						Мы&nbsp;не берем цены с&nbsp;потолка. Но&nbsp;точную смету мастер назовет только
-						после&nbsp;того, как&nbsp;увидит повреждение (вживую или&nbsp;по&nbsp;фото). Почему?
-						Потому&nbsp;что царапина на&nbsp;гладкой коже чинится за&nbsp;час, а&nbsp;царапина на
-						перфорированной коже требует ювелирного восстановления каждой
-						дырочки.
-					</p>
-					<p class="text-slate-500 italic text-sm mb-8">
-						<i class="fa-solid fa-lock text-slate-400 mr-1"></i> Никаких
-						скрытых доплат. Цена фиксируется в&nbsp;договоре ДО&nbsp;начала работ.
-					</p>
-				</div>
-				<div class="lr-img-right bg-white p-6 rounded-xl shadow-lg border border-slate-100 w-full md:w-[450px]">
-					<h4 class="font-bold text-slate-900 text-lg mb-4 border-b pb-2">
-						Ориентировочные цены:
-					</h4>
-					<ul class="space-y-3">
-						<li class="flex justify-between items-center bg-green-50 p-2 rounded-mx-2 mb-2">
-							<span class="text-green-800 font-bold">Осмотр мастера</span>
-							<span class="font-bold text-green-700">БЕСПЛАТНО</span>
-						</li>
-						<li
-							class="flex justify-between hover:bg-slate-50 p-2 transition items-start border-b border-slate-50">
-							<span class="text-slate-700 font-medium">
-								Точечный прожог / порез
-							</span>
-							<div class="text-right">
-								<span class="font-bold text-slate-900">от&nbsp;3&nbsp;000&nbsp;₽</span>
-								<br />
-								<span class="text-[10px] text-slate-400 leading-none">
-									1-2&nbsp;часа
-								</span>
-							</div>
-						</li>
-						<li
-							class="flex justify-between hover:bg-slate-50 p-2 transition items-start border-b border-slate-50">
-							<span class="text-slate-700 font-medium">Царапины от животных</span>
-							<div class="text-right">
-								<span class="font-bold text-slate-900">от&nbsp;3&nbsp;500&nbsp;₽</span>
-								<br />
-								<span class="text-[10px] text-slate-400">
-									2-3 часа
-								</span>
-							</div>
-						</li>
-						<li
-							class="flex justify-between hover:bg-slate-50 p-2 transition items-start border-b border-slate-50">
-							<span class="text-slate-700 font-medium">Цвет подлокотников</span>
-							<div class="text-right">
-								<span class="font-bold text-slate-900">от&nbsp;5&nbsp;000&nbsp;₽</span>
-								<br />
-								<span class="text-[10px] text-slate-400">
-									3-4&nbsp;часа
-								</span>
-							</div>
-						</li>
-						<li
-							class="flex justify-between hover:bg-slate-50 p-2 transition items-start border-b border-slate-50">
-							<span class="text-slate-700 font-medium">Перекраска кресла</span>
-							<div class="text-right">
-								<span class="font-bold text-slate-900">от&nbsp;8&nbsp;000&nbsp;₽</span>
-								<br />
-								<span class="text-[10px] text-slate-400">
-									1&nbsp;день
-								</span>
-							</div>
-						</li>
-						<li
-							class="flex justify-between hover:bg-slate-50 p-2 transition items-start border-b border-slate-50">
-							<span class="text-slate-700 font-medium">Ремонт провалившегося сиденья</span>
-							<div class="text-right">
-								<span class="font-bold text-slate-900">
-									от&nbsp;6&nbsp;000&nbsp;₽
-								</span>
-							</div>
-						</li>
-
-					</ul>
-				</div>
-			</div>
-		</div>
-	</section>
-
-	<!-- QUIZ SECTION -->
-	<section class="max-w-full bg-lr-primary py-16 text-center text-white relative lr-leather-texture">
-		<div
-			class="absolute inset-0 bg-[url('https://images.unsplash.com/photo-1540574163026-643ea20ade25?auto=format&fit=crop&q=80&w=2000')] bg-cover bg-center opacity-10 mix-blend-overlay">
-		</div>
-		<div class="lr-container relative z-10">
-			<div
-				class="inline-block bg-white/20 px-4 py-1 rounded-full text-sm font-semibold tracking-wider uppercase mb-4 shadow-sm border border-white/20">
-				Онлайн-диагностика
-			</div>
-			<h2 class="font-serif lr-h2 font-bold mb-4">
-				Узнайте точную стоимость за&nbsp;60&nbsp;секунд
-			</h2>
-			<p class="text-lg text-slate-300 max-w-2xl mx-auto mb-8">
-				Не&nbsp;хотите ждать мастера? Ответьте на&nbsp;4&nbsp;простых вопроса, прикрепите
-				фото повреждения, и&nbsp;наш старший технолог пришлет вам расчет в&nbsp;WhatsApp
-				через 10&nbsp;минут.
+			<p class="text-sm text-slate-400 mt-6 mb-4">
+				Или&nbsp;звоните по&nbsp;номеру
 			</p>
+
+			<a href="tel:+78004440243"
+				class="max-w-sm mx-auto btn-social bg-lr-green hover:bg-lr-green-hover text-white font-bold text-lg px-8 py-5 rounded-full shadow-lg transform transition hover:-translate-y-1 w-full">
+				Позвонить
+			</a>
+
+			<p class="text-sm text-slate-400 mt-4 flex items-center justify-center gap-2">
+				<i class="fa-solid fa-shield-halved text-emerald-400"></i> Мастер&nbsp;приедет сегодня.
+				Точный&nbsp;подбор цвета на&nbsp;месте. Без&nbsp;грязи.
+			</p>
+		</div>
+	</div>
+</section>
+
+<!-- AGITATION SECTION -->
+<section class="max-w-full bg-[#fdfaf3] py-16">
+	<div class="lr-container">
+		<div class="lr-2col lr-2col-b">
+			<div class="lr-text-left">
+				<h2 class="font-serif lr-h2 font-bold mb-6 text-slate-900">
+					Знакомая ситуация?
+				</h2>
+				<p class="text-quote font-serif text-2xl font-normal mb-4">
+					Вы&nbsp;смотрите на&nbsp;испорченную кожу и&nbsp;думаете:
+					<br>
+					<span class="italic mt-1 block">
+						«Только&nbsp;не покупка нового дивана…»
+					</span>
+				</p>
+				<div class="text-lg text-slate-700 space-y-4 mb-8">
+					<p>Давайте&nbsp;начистоту. Кожаная мебель&nbsp;стоит безумных денег.</p>
+					<p>
+						И&nbsp;когда на&nbsp;идеальном итальянском диване появляется уродливая
+						царапина от&nbsp;собаки, чернильное пятно от&nbsp;ребенка или&nbsp;трещина от
+						времени&nbsp;— это&nbsp;бесит. Вы&nbsp;накрываете это&nbsp;место пледом. Вы&nbsp;ставите
+						туда подушку. Но&nbsp;вы-то знаете, что&nbsp;дыра там.
+					</p>
+				</div>
+
+				<h3 class="font-bold text-xl mb-6">У вас есть 3 пути:</h3>
+				<ul class="space-y-6">
+					<li class="flex gap-4">
+						<div
+							class="w-10 h-10 rounded-full bg-red-100 text-red-600 flex items-center justify-center shrink-0 font-bold">
+							1
+						</div>
+						<div>
+							<strong class="text-slate-900 block mb-1">Купить новый диван.</strong>
+							<span class="text-slate-600 text-sm">Готовьте от&nbsp;150&nbsp;000
+								до&nbsp;500&nbsp;000&nbsp;рублей. Плюс&nbsp;грузчики,
+								содранные обои в&nbsp;дверных проемах и&nbsp;недели ожидания
+								доставки.</span>
+						</div>
+					</li>
+					<li class="flex gap-4">
+						<div
+							class="w-10 h-10 rounded-full bg-orange-100 text-orange-600 flex items-center justify-center shrink-0 font-bold">
+							2
+						</div>
+						<div>
+							<strong class="text-slate-900 block mb-1">Вызвать «мастера из&nbsp;гаража»
+								по&nbsp;объявлению.</strong>
+							<span class="text-slate-600 text-sm">Приедет с&nbsp;дешевой автомобильной краской,
+								замажет дыру так,
+								что&nbsp;она станет жесткой коркой, а&nbsp;через месяц краска
+								отвалится.</span>
+						</div>
+					</li>
+					<li class="flex gap-4">
+						<div
+							class="w-10 h-10 rounded-full bg-emerald-100 text-emerald-600 flex items-center justify-center shrink-0 font-bold">
+							3
+						</div>
+						<div>
+							<strong class="text-emerald-700 block mb-1">Вызвать реставраторов «Ленремонта».</strong>
+							<span class="text-slate-600 text-sm">Мы используем заводские итальянские полимеры. Кожа
+								останется мягкой, цвет совпадет на 100%, а место ремонта вы
+								не найдете даже с лупой.</span>
+						</div>
+					</li>
+				</ul>
+			</div>
+			<div class="lr-img-right">
+				<img src="/assets/sofa.webp" alt="Испорченный диван"
+					class="agit-img rounded-xl shadow-xl w-full object-cover " />
+			</div>
+		</div>
+	</div>
+</section>
+
+<!-- PROOFS SECTION (SLIDER) -->
+<section class="slider-sec max-w-full bg-[#fcf8f0] py-16">
+	<div class="lr-container">
+		<div class="text-center max-w-3xl mx-auto mb-12">
+			<h2 class="font-serif lr-h2 font-bold mb-4 text-slate-900">
+				Не верьте нам на слово.
+			</h2>
+			<p class="text-xl text-slate-600">
+				Посмотрите на эти «безнадежные» случаи, которые мы спасли:
+			</p>
+		</div>
+
+		<div class="swiper lr-carousel">
+			<div class="swiper-wrapper">
+
+				<!-- Card 1 -->
+				<div class="swiper-slide bg-[#fdfaf3] lr-carousel-card">
+					<div class="lr-card-image" data-gallery="cases">
+						<img src="/assets/1-before.webp" class="lr-card-img-before object-cover w-full" alt="">
+						<img src="/assets/1-after.webp" class="lr-card-img-after object-cover w-full" alt="">
+						<div class="absolute top-2 right-2 bg-lr-accent/90 text-white text-xs px-2 py-1 rounded">
+							Смотреть</div>
+					</div>
+					<div class="p-6 flex-grow swiper-card-bottom">
+
+						<div class="mb-4">
+							<div class="text-xs uppercase tracking-wide text-lr-accent font-bold mb-2">КЕЙС
+								1:&nbsp;Срочный ремонт</div>
+							<h4 class="font-bold text-lg mb-3">Боль: Прожог от&nbsp;сигареты перед сдачей
+								квартиры
+							</h4>
+							<p class="text-sm text-slate-600 italic mb-4">«Нашёл прожог за&nbsp;день
+								до&nbsp;сдачи
+								квартиры. Думал&nbsp;— всё, депозит&nbsp;не вернут. Мастер приехал вечером,
+								всё&nbsp;восстановил за&nbsp;2&nbsp;часа. Даже&nbsp;не видно, где&nbsp;было.»
+							</p>
+							<div class="text-xs text-slate-500">— Алексей, аренда квартиры</div>
+						</div>
+
+						<div class=" bg-white p-3 rounded text-sm border border-slate-200">
+							<strong>Что&nbsp;сделали:</strong> Ремонт прожога, локальная покраска.<br>
+							<strong>Цена:</strong> 3&nbsp;000&nbsp;₽.
+						</div>
+					</div>
+				</div>
+
+				<!-- Card 2 -->
+				<div class="swiper-slide bg-[#fdfaf3] lr-carousel-card">
+					<div class=" lr-card-image" data-gallery="cases">
+						<img src="/assets/2-before.webp" class="lr-card-img-before object-cover w-full" alt="">
+						<img src="/assets/2-after.webp" class="lr-card-img-after object-cover w-full" alt="">
+						<div class="absolute top-2 right-2 bg-lr-accent/90 text-white text-xs px-2 py-1 rounded">
+							Смотреть</div>
+					</div>
+					<div class="p-6 flex-grow swiper-card-bottom">
+						<div class="mb-4">
+
+							<div class="text-xs uppercase tracking-wide text-lr-accent font-bold mb-2">КЕЙС
+								2:&nbsp;После гостей</div>
+							<h4 class="font-bold text-lg mb-3">Боль: Пятна и&nbsp;потертости на&nbsp;светлом
+								диване
+							</h4>
+							<p class="text-sm text-slate-600 italic mb-4">«После гостей диван выглядел
+								как&nbsp;после войны. Пятна, потертости... Уже&nbsp;думала менять. Почистили
+								и&nbsp;подкрасили&nbsp;— стал как&nbsp;новый.»</p>
+							<div class="text-xs text-slate-500">— Марина, новостройка</div>
+						</div>
+						<div class=" bg-white p-3 rounded text-sm border border-slate-200">
+							<strong>Что&nbsp;сделали:</strong> Чистка + восстановление цвета.<br>
+							<strong>Цена:</strong> 4&nbsp;200&nbsp;₽.
+						</div>
+					</div>
+				</div>
+
+				<!-- Card 3 -->
+				<div class="swiper-slide bg-[#fdfaf3] lr-carousel-card">
+					<div class=" lr-card-image" data-gallery="cases">
+						<img src="/assets/3-before.webp" class="lr-card-img-before object-cover w-full" alt="">
+						<img src="/assets/3-after.webp" class="lr-card-img-after object-cover w-full" alt="">
+						<div class="absolute top-2 right-2 bg-lr-accent/90 text-white text-xs px-2 py-1 rounded">
+							Смотреть</div>
+					</div>
+					<div class="p-6 flex-grow swiper-card-bottom">
+						<div class="mb-4">
+
+							<div class="text-xs uppercase tracking-wide text-lr-accent font-bold mb-2">КЕЙС
+								3:&nbsp;Когти животного</div>
+							<h4 class="font-bold text-lg mb-3">Боль: Глубокие царапины от&nbsp;собаки</h4>
+							<p class="text-sm text-slate-600 italic mb-4">«Собака разодрала бок&nbsp;дивана.
+								Уже&nbsp;думали выкидывать. Восстановили текстуру&nbsp;— даже&nbsp;при свете
+								не&nbsp;видно.»</p>
+							<div class="text-xs text-slate-500">— Ирина, семья с&nbsp;собакой</div>
+						</div>
+						<div class=" bg-white p-3 rounded text-sm border border-slate-200">
+							<strong>Что&nbsp;сделали:</strong> Жидкая кожа, восстановление фактуры.<br>
+							<strong>Цена:</strong> 5&nbsp;800&nbsp;₽.
+						</div>
+					</div>
+				</div>
+
+				<!-- Card 4 -->
+				<div class="swiper-slide bg-[#fdfaf3] lr-carousel-card">
+					<div class=" lr-card-image" data-gallery="cases">
+						<img src="/assets/4-before.webp" class="lr-card-img-before object-cover w-full" alt="">
+						<img src="/assets/4-after.webp" class="lr-card-img-after object-cover w-full" alt="">
+						<div class="absolute top-2 right-2 bg-lr-accent/90 text-white text-xs px-2 py-1 rounded">
+							Смотреть</div>
+					</div>
+					<div class="p-6 flex-grow swiper-card-bottom">
+						<div class="mb-4">
+
+							<div class="text-xs uppercase tracking-wide text-lr-accent font-bold mb-2">КЕЙС
+								4:&nbsp;Старый диван</div>
+							<h4 class="font-bold text-lg mb-3">Боль: Потеря цвета и&nbsp;трещины</h4>
+							<p class="text-sm text-slate-600 italic mb-4">«Дивану 7&nbsp;лет, весь выцвел
+								и&nbsp;потрескался. После&nbsp;восстановления выглядит как&nbsp;новый
+								из&nbsp;салона.»</p>
+							<div class="text-xs text-slate-500">— Олег, загородный дом</div>
+						</div>
+						<div class=" bg-white p-3 rounded text-sm border border-slate-200">
+							<strong>Что&nbsp;сделали:</strong> Полная покраска и&nbsp;защита кожи.<br>
+							<strong>Цена:</strong> 7&nbsp;500&nbsp;₽.
+						</div>
+					</div>
+				</div>
+
+				<!-- Card 5 -->
+				<div class="swiper-slide bg-[#fdfaf3] lr-carousel-card">
+					<div class=" lr-card-image" data-gallery="cases">
+						<img src="/assets/5-before.webp" class="lr-card-img-before object-cover w-full" alt="">
+						<img src="/assets/5-after.webp" class="lr-card-img-after object-cover w-full" alt="">
+						<div class="absolute top-2 right-2 bg-lr-accent/90 text-white text-xs px-2 py-1 rounded">
+							Смотреть</div>
+					</div>
+					<div class="p-6 flex-grow swiper-card-bottom">
+						<div class="mb-4">
+
+							<div class="text-xs uppercase tracking-wide text-lr-accent font-bold mb-2">КЕЙС
+								5:&nbsp;Офисная мебель</div>
+							<h4 class="font-bold text-lg mb-3">Боль: Износ кресел в&nbsp;офисе</h4>
+							<p class="text-sm text-slate-600 italic mb-4">«Кресла в&nbsp;переговорке были
+								убитые.
+								Заменять дорого&nbsp;— решили восстановить. Теперь&nbsp;выглядят
+								презентабельно.»
+							</p>
+							<div class="text-xs text-slate-500">— Сергей, офис</div>
+						</div>
+						<div class=" bg-white p-3 rounded text-sm border border-slate-200">
+							<strong>Что&nbsp;сделали:</strong> Реставрация + покраска.<br>
+							<strong>Цена:</strong> 3&nbsp;200&nbsp;₽&nbsp;/ шт.
+						</div>
+					</div>
+				</div>
+
+			</div>
+
+			<!-- кнопки -->
+			<div class="swiper-button-prev"></div>
+			<div class="swiper-button-next"></div>
+
+			<!-- пагинация -->
+			<div class="swiper-pagination"></div>
+		</div>
+	</div>
+</section>
+
+<!-- BENEFITS (Карлтон) -->
+<section class="max-w-full bg-lr-primary text-white py-16">
+	<div class="lr-container">
+		<div class="text-center max-w-3xl mx-auto mb-12">
+			<h2 class="font-serif lr-h2 font-bold mb-4">
+				Что вы получаете, доверяя свою мебель <span class="text-bg">ЛенРемонту</span>
+			</h2>
+			<p class="text-slate-400">(помимо сохраненных нервов и денег)</p>
+		</div>
+		<div class="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-5xl mx-auto">
+			<div class="flex gap-4">
+				<div class="text-lr-accent text-2xl mt-1 benefits-icon">
+					<i class="fa-solid fa-circle-check"></i>
+				</div>
+				<div>
+					<strong class="text-lg block mb-1">Никаких грузчиков и&nbsp;вырванных косяков.</strong>
+					<span class="text-slate-300 text-sm italic">Вам не&nbsp;нужно нанимать транспорт, спускать
+						тяжелый диван по&nbsp;лестнице и&nbsp;жить в&nbsp;пустой гостиной неделю&nbsp;— 90% ремонтов
+						мы&nbsp;делаем прямо у&nbsp;вас на&nbsp;дому.</span>
+				</div>
+			</div>
+			<div class="flex gap-4">
+				<div class="text-lr-accent text-2xl mt-1 benefits-icon">
+					<i class="fa-solid fa-flask"></i>
+				</div>
+				<div>
+					<strong class="text-lg block mb-1">Хирургически точный подбор цвета.</strong>
+					<span class="text-slate-300 text-sm italic">Мастер смешивает пигменты прямо при&nbsp;вас. Место
+						ремонта не&nbsp;будет выделяться предательским пятном&nbsp;— оно на&nbsp;100% сольется
+						с&nbsp;родным цветом.</span>
+				</div>
+			</div>
+			<div class="flex gap-4">
+				<div class="text-lr-accent text-2xl mt-1 benefits-icon">
+					<i class="fa-solid fa-leaf"></i>
+				</div>
+				<div>
+					<strong class="text-lg block mb-1">Сохранение заводской мягкости кожи.</strong>
+					<span class="text-slate-300 text-sm italic">Мы&nbsp;используем эластичные полимеры, а&nbsp;не
+						жесткий клей. Ваш&nbsp;диван останется мягким и&nbsp;приятным на&nbsp;ощупь,
+						без&nbsp;эффекта «пластиковой заплатки».</span>
+				</div>
+			</div>
+			<div class="flex gap-4">
+				<div class="text-lr-accent text-2xl mt-1 benefits-icon">
+					<i class="fa-solid fa-broom"></i>
+				</div>
+				<div>
+					<strong class="text-lg block mb-1">Никакой грязи и&nbsp;токсичной вони.</strong>
+					<span class="text-slate-300 text-sm italic">Наши составы безопасны. Мастер застелет
+						пол&nbsp;пленкой и&nbsp;уберет мусор. Вы&nbsp;сможете сидеть на&nbsp;диване
+						в&nbsp;тот&nbsp;же вечер.</span>
+				</div>
+			</div>
+			<div class="flex gap-4 md:col-span-2 md:w-1/2 md:mx-auto">
+				<div class="text-lr-accent text-2xl mt-1 benefits-icon">
+					<i class="fa-solid fa-file-contract"></i>
+				</div>
+				<div>
+					<strong class="text-lg block mb-1">Официальная гарантия юридического лица.</strong>
+					<span class="text-slate-300 text-sm italic">Мы&nbsp;— ООО&nbsp;«Ленремонт». Вы&nbsp;получаете
+						чек и&nbsp;гарантию до&nbsp;2&nbsp;лет. Если&nbsp;что-то пойдет не&nbsp;так,
+						мы&nbsp;переделаем за&nbsp;свой счет.</span>
+				</div>
+			</div>
+		</div>
+	</div>
+</section>
+
+<!-- OBJECTIONS SECTION -->
+<section class="max-w-full py-16 bg-white">
+	<div class="lr-container">
+		<div class="text-center max-w-3xl mx-auto mb-10">
+			<h2 class="font-serif lr-h2 font-bold text-slate-900 mb-4">
+				"А вы точно сможете спасти мою мебель?"
+			</h2>
+			<p class="text-slate-600">Отвечаем прямо без увиливаний:</p>
+		</div>
+
+		<div class="max-w-4xl mx-auto space-y-6">
+			<!-- Q1 -->
+			<div
+				class="bg-[#fcf8f0] hover:bg-[#fdfaf3] transition rounded-xl p-6 border border-[#e8e4d9] shadow-sm">
+				<h4 class="font-bold text-lg text-slate-900 mb-3 flex items-center gap-3">
+					<i class="fa-solid fa-circle-question text-blue-400"></i>
+					«У&nbsp;меня сложный цвет, вы&nbsp;не попадете в&nbsp;тон»
+				</h4>
+				<p class="text-slate-600 pl-8">
+					Сможем. Наши мастера используют спектрометры и&nbsp;колористические
+					таблицы. Мы&nbsp;не покупаем «готовую коричневую краску». Мы&nbsp;создаем
+					оттенок с&nbsp;нуля, добавляя микродозы нужных пигментов, чтобы&nbsp;учесть
+					даже выцветание вашей кожи от&nbsp;солнца.
+				</p>
+			</div>
+			<!-- Q2 -->
+			<div class="bg-slate-50 hover:bg-slate-100 transition rounded-xl p-6 border border-slate-100 shadow-sm">
+				<h4 class="font-bold text-lg text-slate-900 mb-3 flex items-center gap-3">
+					<i class="fa-solid fa-circle-question text-blue-400"></i>
+					«А&nbsp;эта ваша краска не&nbsp;испачкает мне одежду?»
+				</h4>
+				<p class="text-slate-600 pl-8">
+					Исключено. Мы&nbsp;не просто "красим". Последним этапом мы&nbsp;наносим
+					специальный защитный лак (матовый, сатиновый или&nbsp;глянцевый&nbsp;— точно
+					как на&nbsp;заводе). Он&nbsp;намертво "запечатывает" цвет. Вы&nbsp;можете тереть
+					диван влажной тряпкой&nbsp;— краска останется на&nbsp;месте.
+				</p>
+			</div>
+			<!-- Q3 -->
+			<div class="bg-slate-50 hover:bg-slate-100 transition rounded-xl p-6 border border-slate-100 shadow-sm">
+				<h4 class="font-bold text-lg text-slate-900 mb-3 flex items-center gap-3">
+					<i class="fa-solid fa-circle-question text-blue-400"></i>
+					«У&nbsp;меня диван в&nbsp;хлам, там&nbsp;не только кожа, там&nbsp;поролон провалился»
+				</h4>
+				<p class="text-slate-600 pl-8">
+					Мы&nbsp;реставраторы, а&nbsp;не просто маляры. Если&nbsp;нужно&nbsp;— мы&nbsp;заберем диван
+					в&nbsp;наш цех, заменим пружины, добавим плотный ППУ (поролон),
+					перешьем разошедшиеся швы и&nbsp;полностью перекрасим кожу. Вы&nbsp;получите
+					диван из&nbsp;салона.
+				</p>
+			</div>
+		</div>
+	</div>
+</section>
+
+<!-- PRICE -->
+<section class="max-w-full bg-[#f5f2e9] py-16 border-t border-slate-200">
+	<div class="lr-container">
+		<div class="lr-2col items-start block md:flex">
+			<div class="lr-text-left">
+				<h2 class="font-serif lr-h2 font-bold text-slate-900 mb-4">
+					Сколько это стоит?
+				</h2>
+				<!-- <p class="text-lg text-lr-accent font-semibold mb-6">
+						Подсказка: на 250 000 рублей дешевле нового дивана.
+					</p> -->
+				<p class="text-quote text-xl text-primary font-bold mb-6">
+					Подсказка:
+					<br>
+					<span class="block mt-2 text-lg font-normal">на&nbsp;<span
+							class="border-lr-secondary border-b-[3px] border-solid">250&nbsp;000&nbsp;рублей</span>
+						дешевле нового дивана</span>
+				</p>
+				<p class="text-slate-600 mb-3">
+					Мы&nbsp;не берем цены с&nbsp;потолка. Но&nbsp;точную смету мастер назовет только
+					после&nbsp;того, как&nbsp;увидит повреждение (вживую или&nbsp;по&nbsp;фото). Почему?
+					Потому&nbsp;что царапина на&nbsp;гладкой коже чинится за&nbsp;час, а&nbsp;царапина на
+					перфорированной коже требует ювелирного восстановления каждой
+					дырочки.
+				</p>
+				<p class="text-slate-500 italic text-sm mb-8">
+					<i class="fa-solid fa-lock text-slate-400 mr-1"></i> Никаких
+					скрытых доплат. Цена фиксируется в&nbsp;договоре ДО&nbsp;начала работ.
+				</p>
+			</div>
+			<div class="lr-img-right bg-white p-6 rounded-xl shadow-lg border border-slate-100 w-full md:w-[450px]">
+				<h4 class="font-bold text-slate-900 text-lg mb-4 border-b pb-2">
+					Ориентировочные цены:
+				</h4>
+				<ul class="space-y-3">
+					<li class="flex justify-between items-center bg-green-50 p-2 rounded-mx-2 mb-2">
+						<span class="text-green-800 font-bold">Осмотр мастера</span>
+						<span class="font-bold text-green-700">БЕСПЛАТНО</span>
+					</li>
+					<li
+						class="flex justify-between hover:bg-slate-50 p-2 transition items-start border-b border-slate-50">
+						<span class="text-slate-700 font-medium">
+							Точечный прожог / порез
+						</span>
+						<div class="text-right">
+							<span class="font-bold text-slate-900">от&nbsp;3&nbsp;000&nbsp;₽</span>
+							<br />
+							<span class="text-[10px] text-slate-400 leading-none">
+								1-2&nbsp;часа
+							</span>
+						</div>
+					</li>
+					<li
+						class="flex justify-between hover:bg-slate-50 p-2 transition items-start border-b border-slate-50">
+						<span class="text-slate-700 font-medium">Царапины от животных</span>
+						<div class="text-right">
+							<span class="font-bold text-slate-900">от&nbsp;3&nbsp;500&nbsp;₽</span>
+							<br />
+							<span class="text-[10px] text-slate-400">
+								2-3 часа
+							</span>
+						</div>
+					</li>
+					<li
+						class="flex justify-between hover:bg-slate-50 p-2 transition items-start border-b border-slate-50">
+						<span class="text-slate-700 font-medium">Цвет подлокотников</span>
+						<div class="text-right">
+							<span class="font-bold text-slate-900">от&nbsp;5&nbsp;000&nbsp;₽</span>
+							<br />
+							<span class="text-[10px] text-slate-400">
+								3-4&nbsp;часа
+							</span>
+						</div>
+					</li>
+					<li
+						class="flex justify-between hover:bg-slate-50 p-2 transition items-start border-b border-slate-50">
+						<span class="text-slate-700 font-medium">Перекраска кресла</span>
+						<div class="text-right">
+							<span class="font-bold text-slate-900">от&nbsp;8&nbsp;000&nbsp;₽</span>
+							<br />
+							<span class="text-[10px] text-slate-400">
+								1&nbsp;день
+							</span>
+						</div>
+					</li>
+					<li
+						class="flex justify-between hover:bg-slate-50 p-2 transition items-start border-b border-slate-50">
+						<span class="text-slate-700 font-medium">Ремонт провалившегося сиденья</span>
+						<div class="text-right">
+							<span class="font-bold text-slate-900">
+								от&nbsp;6&nbsp;000&nbsp;₽
+							</span>
+						</div>
+					</li>
+
+				</ul>
+			</div>
+		</div>
+	</div>
+</section>
+
+<!-- QUIZ SECTION -->
+<section class="max-w-full bg-lr-primary py-16 text-center text-white relative lr-leather-texture">
+	<div
+		class="absolute inset-0 bg-[url('https://images.unsplash.com/photo-1540574163026-643ea20ade25?auto=format&fit=crop&q=80&w=2000')] bg-cover bg-center opacity-10 mix-blend-overlay">
+	</div>
+	<div class="lr-container relative z-10">
+		<div
+			class="inline-block bg-white/20 px-4 py-1 rounded-full text-sm font-semibold tracking-wider uppercase mb-4 shadow-sm border border-white/20">
+			Онлайн-диагностика
+		</div>
+		<h2 class="font-serif lr-h2 font-bold mb-4">
+			Узнайте точную стоимость за&nbsp;60&nbsp;секунд
+		</h2>
+		<p class="text-lg text-slate-300 max-w-2xl mx-auto mb-8">
+			Не&nbsp;хотите ждать мастера? Ответьте на&nbsp;4&nbsp;простых вопроса, прикрепите
+			фото повреждения, и&nbsp;наш старший технолог пришлет вам расчет в&nbsp;WhatsApp
+			через 10&nbsp;минут.
+		</p>
+		<button onclick="lrOpenModal()"
+			class="bg-lr-accent hover:bg-lr-accent-hover text-white font-bold  text-sm sm:text-lg px-8 py-4 rounded-full shadow-lg transform transition hover:-translate-y-1">
+			<i class="fa-solid fa-clipboard-list mr-2"></i> Начать
+			онлайн-диагностику
+		</button>
+	</div>
+</section>
+
+<!-- FINAL CTA -->
+<section class="max-w-full py-20 bg-[#fcf8f0] lr-leather-texture">
+	<div class="lr-container max-w-4xl text-center">
+		<h2 class="font-serif lr-h1 font-bold text-slate-900 mb-6">
+			Ваша мебель разрушается каждый&nbsp;день.
+			<span class="text-[#8c1c13]">Остановите&nbsp;это сейчас.</span>
+		</h2>
+		<p class="text-lg text-slate-600 mb-8">
+			Маленькая трещина на&nbsp;коже завтра превратится в&nbsp;рваную дыру. Небольшая
+			потертость начнет впитывать грязь и&nbsp;пот, разрушая кожу изнутри. Чем&nbsp;дольше вы&nbsp;ждете,
+			тем&nbsp;дороже будет ремонт.
+		</p>
+
+		<div class="bg-[#fdfaf3] border border-[#e8e4d9] rounded-2xl p-8 mb-10 relative overflow-hidden text-left">
+			<div class="absolute top-0 left-0 w-2 h-full bg-lr-accent"></div>
+			<h3 class="font-bold text-xl mb-2 text-slate-900">
+				<i class="fa-solid fa-gift text-lr-accent mr-2"></i> БОНУС ЗА
+				<span class="border-lr-secondary border-b-[3px] border-solid">БЫСТРОЕ</span> РЕШЕНИЕ:
+			</h3>
+			<p class="text-slate-700">
+				Оставьте заявку сегодня, и после ремонта мы
+				<strong>БЕСПЛАТНО нанесем профессиональный защитный кондиционер</strong>
+				(обычная цена 1&nbsp;500&nbsp;руб.), который защитит кожу от&nbsp;высыхания на&nbsp;полгода.
+			</p>
+		</div>
+
+		<div class="flex flex-col md:flex-row mb-10 gap-6 justify-center items-center">
 			<button onclick="lrOpenModal()"
-				class="bg-lr-accent hover:bg-lr-accent-hover text-white font-bold  text-sm sm:text-lg px-8 py-4 rounded-full shadow-lg transform transition hover:-translate-y-1">
-				<i class="fa-solid fa-clipboard-list mr-2"></i> Начать
-				онлайн-диагностику
+				class="bg-lr-accent hover:bg-lr-accent-hover text-white font-bold text-sm smc:text-lg px-8 py-5 rounded-full shadow-lg transform transition hover:-translate-y-1 w-full md:w-auto text-center flex justify-center items-center gap-2">
+				<span>Вызвать мастера + забрать бонус</span>
+			</button>
+
+			<div class="text-left">
+				<div class="text-sm text-slate-500 uppercase font-bold text-center md:text-left">
+					Круглосуточно:
+				</div>
+				<a href="tel:+78123444444" class="text-2xl font-bold text-slate-900 mb-1">
+					<svg class="inline w-5 h-5 mr-1 opacity-40" viewBox="0 0 24 23" fill="currentColor"
+						xmlns="http://www.w3.org/2000/svg">
+						<path
+							d="M16.7416 14.7555L16.1342 15.3681C16.1342 15.3681 14.6908 16.8245 10.7508 12.8492C6.81082 8.87397 8.25426 7.41761 8.25426 7.41761L8.63666 7.03176C9.57879 6.08127 9.66759 4.55524 8.84559 3.44118L7.16434 1.16228C6.14703 -0.216584 4.18127 -0.398731 3.01526 0.777709L0.922463 2.88924C0.344304 3.47257 -0.0431357 4.22875 0.00385093 5.0676C0.124051 7.21365 1.08094 11.8311 6.42047 17.2184C12.0828 22.9313 17.3957 23.1584 19.5684 22.9528C20.2556 22.8879 20.8532 22.5328 21.3348 22.0468L23.2289 20.1359C24.5074 18.8458 24.1469 16.6343 22.511 15.732L19.9637 14.3269C18.8896 13.7344 17.581 13.9084 16.7416 14.7555Z" />
+					</svg>
+					8 (812) 344-44-44
+				</a>
+			</div>
+
+		</div>
+		<div class="flex flex-col items-center">
+			<p class="text-sm text-slate-400 mb-6">
+				Или через&nbsp;удобный для&nbsp;вас мессенджер:
+			</p>
+
+			<div
+				class="social-wrapp flex flex-col md:flex-row w-full max-w-sm md:max-w-3xl gap-2 md:gap-4 justify-center">
+				<a href="https://telegram.me/lenremont_bot" target="_blank" rel="noreferrer"
+					class="border border-white/10 rounded-full flex items-center justify-center btn-social transition shadow-lg btn-social-tg">
+					<svg class="w-6 h-6" viewBox="0 0 24 20" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+						<path
+							d="M21.9539 0.176566C21.9539 0.176566 24.1741 -0.689148 23.989 1.4133C23.9274 2.27903 23.3724 5.30902 22.9406 8.58639L21.4605 18.2948C21.4605 18.2948 21.3372 19.717 20.2271 19.9644C19.117 20.2117 17.4519 19.0987 17.1435 18.8513C16.8968 18.6658 12.5182 15.8831 10.9763 14.5227C10.5446 14.1517 10.0513 13.4096 11.038 12.5439L17.5136 6.36028C18.2536 5.61823 18.9937 3.8868 15.9101 5.98925L7.27606 11.8638C7.27606 11.8638 6.28932 12.4821 4.4392 11.9256L0.430526 10.6888C0.430526 10.6888 -1.04959 9.76131 1.47894 8.83371C7.64612 5.92737 15.2317 2.9592 21.9539 0.176566Z" />
+					</svg>
+				</a>
+				<a href="https://vk.com/lenremont" target="_blank" rel="noreferrer"
+					class="border border-white/10 rounded-full flex items-center justify-center btn-social transition shadow-lg btn-social-vk">
+					<svg class="w-6 h-6" viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+						<path fill-rule="evenodd" clip-rule="evenodd"
+							d="M12.4805 0C17.9107 0 20.6255.000487 22.3125 1.6875 23.9995 3.37452 24 6.08927 24 11.5195V12.4805C24 17.9107 23.9995 20.6255 22.3125 22.3125 20.6255 23.9995 17.9107 24 12.4805 24H11.5195C6.08927 24 3.37452 23.9995 1.6875 22.3125.000487 20.6255 0 17.9107 0 12.4805V11.5195C0 6.08927.000483 3.37452 1.6875 1.6875 3.37452.000483 6.08927 0 11.5195 0H12.4805ZM4.05078 7.30078C4.18079 13.5408 7.3005 17.291 12.7705 17.291H13.0801V13.7207C15.0901 13.9207 16.6107 15.391 17.2207 17.291H20.0605C19.2805 14.451 17.2302 12.8803 15.9502 12.2803 17.2302 11.5402 19.03 9.74064 19.46 7.30078H16.8799C16.3198 9.28075 14.6601 11.081 13.0801 11.251V7.30078H10.5V14.2207C8.90006 13.8206 6.88003 11.8805 6.79004 7.30078H4.05078Z" />
+					</svg>
+				</a>
+				<a href="https://max.ru/id471902475874_3_bot" target="_blank" rel="noreferrer"
+					class="border border-white/10 rounded-full flex items-center justify-center btn-social transition shadow-lg btn-social-max">
+					<svg class="w-6 h-6" viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+						<path fill-rule="evenodd" clip-rule="evenodd"
+							d="M12.2589 23.9315C9.90029 23.9315 8.80729 23.5862 6.90892 22.2049 5.70086 23.7588 1.89262 24.9733 1.73154 22.8955 1.73154 21.3358 1.38063 20.0177.995206 18.5789.52349 16.8062 0 14.832 0 11.9715 0 5.13969 5.58006 0 12.1956 0 18.8111 0 24 5.39869 24 12.0406 24 18.6825 18.65 23.9373 12.2589 23.9373M12.3567 5.91093C9.13519 5.74402 6.62129 7.98293 6.06903 11.4938 5.60882 14.4003 6.4257 17.94 7.12177 18.1242 7.44967 18.2048 8.28955 17.5256 8.80729 17.0019 9.65868 17.5601 10.6366 17.986 11.7239 18.0436 15.0259 18.2163 17.954 15.6263 18.1323 12.3053 18.1955 10.6964 17.6263 9.12671 16.5467 7.93255 15.4671 6.7384 13.963 6.01477 12.3567 5.91669" />
+					</svg>
+				</a>
+			</div>
+		</div>
+	</div>
+</section>
+
+<!-- Modal / Quiz Form -->
+<div id="lr-quiz-modal" class="lr-modal" onclick="if(event.target === this) lrCloseModal()">
+	<div class="lr-modal-content">
+		<!-- Modal Header: Back + Progress + Close -->
+		<div class="flex items-center gap-3 mb-2">
+			<button id="lr-quiz-back-btn" onclick="lrGoBack()"
+				class="text-slate-400 hover:text-slate-600 text-xl hidden" aria-label="Назад">
+				<i class="fa-solid fa-arrow-left"></i>
+			</button>
+			<div class="lr-progress-container flex-1">
+				<div id="lr-progress-fill" class="lr-progress-bar"></div>
+			</div>
+			<button onclick="lrCloseModal()" class="text-slate-400 hover:text-slate-600 text-2xl"
+				aria-label="Закрыть">
+				&times;
 			</button>
 		</div>
-	</section>
 
-	<!-- FINAL CTA -->
-	<section class="max-w-full py-20 bg-[#fcf8f0] lr-leather-texture">
-		<div class="lr-container max-w-4xl text-center">
-			<h2 class="font-serif lr-h1 font-bold text-slate-900 mb-6">
-				Ваша мебель разрушается каждый&nbsp;день.
-				<span class="text-[#8c1c13]">Остановите&nbsp;это сейчас.</span>
-			</h2>
-			<p class="text-lg text-slate-600 mb-8">
-				Маленькая трещина на&nbsp;коже завтра превратится в&nbsp;рваную дыру. Небольшая
-				потертость начнет впитывать грязь и&nbsp;пот, разрушая кожу изнутри. Чем&nbsp;дольше вы&nbsp;ждете,
-				тем&nbsp;дороже будет ремонт.
-			</p>
-
-			<div class="bg-[#fdfaf3] border border-[#e8e4d9] rounded-2xl p-8 mb-10 relative overflow-hidden text-left">
-				<div class="absolute top-0 left-0 w-2 h-full bg-lr-accent"></div>
-				<h3 class="font-bold text-xl mb-2 text-slate-900">
-					<i class="fa-solid fa-gift text-lr-accent mr-2"></i> БОНУС ЗА
-					<span class="border-lr-secondary border-b-[3px] border-solid">БЫСТРОЕ</span> РЕШЕНИЕ:
-				</h3>
-				<p class="text-slate-700">
-					Оставьте заявку сегодня, и после ремонта мы
-					<strong>БЕСПЛАТНО нанесем профессиональный защитный кондиционер</strong>
-					(обычная цена 1&nbsp;500&nbsp;руб.), который защитит кожу от&nbsp;высыхания на&nbsp;полгода.
-				</p>
+		<!-- Step 1 -->
+		<div id="lr-step-1" class="lr-step block">
+			<div class="text-xs font-bold text-slate-400 uppercase tracking-widest mb-1">
+				Шаг&nbsp;1 из&nbsp;5
 			</div>
+			<h3 class="font-serif text-2xl font-bold text-slate-900 mb-6">
+				Какое изделие нужно восстановить?
+			</h3>
+			<div class="grid grid-cols-2 gap-3 mb-6">
+				<label
+					class="lr-choice-label border rounded-lg p-3 text-center cursor-pointer hover:border-lr-accent hover:bg-slate-50 transition">
+					<input type="radio" name="furniture" value="Диван" class="hidden"
+						onchange="lrHandleSelection(this)" onclick="lrNextStep(2)" />
+					<i class="fa-solid fa-couch text-2xl text-slate-400 mb-2 block"></i>
+					<span class="font-medium text-slate-700">Диван</span>
+				</label>
+				<label
+					class="lr-choice-label border rounded-lg p-3 text-center cursor-pointer hover:border-lr-accent hover:bg-slate-50 transition">
+					<input type="radio" name="furniture" value="Кресло" class="hidden"
+						onchange="lrHandleSelection(this)" onclick="lrNextStep(2)" />
+					<i class="fa-solid fa-chair text-2xl text-slate-400 mb-2 block"></i>
+					<span class="font-medium text-slate-700">Кресло</span>
+				</label>
+				<label
+					class="lr-choice-label border rounded-lg p-3 text-center cursor-pointer hover:border-lr-accent hover:bg-slate-50 transition">
+					<input type="radio" name="furniture" value="Изголовье" class="hidden"
+						onchange="lrHandleSelection(this)" onclick="lrNextStep(2)" />
+					<i class="fa-solid fa-bed text-2xl text-slate-400 mb-2 block"></i>
+					<span class="font-medium text-slate-700">Изголовье кровати</span>
+				</label>
+				<label
+					class="lr-choice-label border rounded-lg p-3 text-center cursor-pointer hover:border-lr-accent hover:bg-slate-50 transition">
+					<input type="radio" name="furniture" value="Другое" class="hidden"
+						onchange="lrHandleSelection(this)" onclick="lrNextStep(2)" />
+					<i class="fa-solid fa-ellipsis text-2xl text-slate-400 mb-2 block"></i>
+					<span class="font-medium text-slate-700">Другое</span>
+				</label>
+			</div>
+			<button id="lr-next-1" onclick="lrNextStep(2)" disabled
+				class="w-full bg-lr-primary text-white font-bold py-3 rounded-lg hover:bg-lr-secondary transition opacity-50 cursor-not-allowed">
+				Далее <i class="fa-solid fa-arrow-right ml-2 text-sm"></i>
+			</button>
+		</div>
 
-			<div class="flex flex-col md:flex-row mb-10 gap-6 justify-center items-center">
-				<button onclick="lrOpenModal()"
-					class="bg-lr-accent hover:bg-lr-accent-hover text-white font-bold text-sm smc:text-lg px-8 py-5 rounded-full shadow-lg transform transition hover:-translate-y-1 w-full md:w-auto text-center flex justify-center items-center gap-2">
-					<span>Вызвать мастера + забрать бонус</span>
+		<!-- Step 2 -->
+		<div id="lr-step-2" class="lr-step hidden">
+			<div class="text-xs font-bold text-slate-400 uppercase tracking-widest mb-1">
+				Шаг&nbsp;2 из&nbsp;5
+			</div>
+			<h3 class="font-serif text-2xl font-bold text-slate-900 mb-6">
+				Что случилось?
+			</h3>
+			<div class="space-y-2 mb-6">
+				<label
+					class="lr-choice-label flex items-center gap-3 p-3 border rounded-lg cursor-pointer hover:bg-slate-50">
+					<input type="checkbox" name="problem" value="Прожог" class="w-5 h-5 text-lr-accent"
+						onchange="lrHandleSelection(this)" />
+					<span class="font-medium text-slate-700">Прожог / порез</span>
+				</label>
+				<label
+					class="lr-choice-label flex items-center gap-3 p-3 border rounded-lg cursor-pointer hover:bg-slate-50">
+					<input type="checkbox" name="problem" value="Когти" class="w-5 h-5 text-lr-accent"
+						onchange="lrHandleSelection(this)" />
+					<span class="font-medium text-slate-700">Царапины от когтей</span>
+				</label>
+				<label
+					class="lr-choice-label flex items-center gap-3 p-3 border rounded-lg cursor-pointer hover:bg-slate-50">
+					<input type="checkbox" name="problem" value="Потертости" class="w-5 h-5 text-lr-accent"
+						onchange="lrHandleSelection(this)" />
+					<span class="font-medium text-slate-700">Потертости / выцветание</span>
+				</label>
+				<label
+					class="lr-choice-label flex items-center gap-3 p-3 border rounded-lg cursor-pointer hover:bg-slate-50">
+					<input type="checkbox" name="problem" value="Экокожа" class="w-5 h-5 text-lr-accent"
+						onchange="lrHandleSelection(this)" />
+					<span class="font-medium text-slate-700">Облезает (экокожа)</span>
+				</label>
+			</div>
+			<div class="flex gap-3">
+				<button id="lr-next-2" onclick="lrNextStep(3)" disabled
+					class="flex-1 bg-lr-primary text-white font-bold py-3 rounded-lg hover:bg-lr-secondary transition opacity-50 cursor-not-allowed">
+					Далее
 				</button>
-
-				<div class="text-left">
-					<div class="text-sm text-slate-500 uppercase font-bold text-center md:text-left">
-						Круглосуточно:
-					</div>
-					<a href="tel:+78123444444" class="text-2xl font-bold text-slate-900 mb-1">
-						<svg class="inline w-5 h-5 mr-1 opacity-40" viewBox="0 0 24 23" fill="currentColor"
-							xmlns="http://www.w3.org/2000/svg">
-							<path
-								d="M16.7416 14.7555L16.1342 15.3681C16.1342 15.3681 14.6908 16.8245 10.7508 12.8492C6.81082 8.87397 8.25426 7.41761 8.25426 7.41761L8.63666 7.03176C9.57879 6.08127 9.66759 4.55524 8.84559 3.44118L7.16434 1.16228C6.14703 -0.216584 4.18127 -0.398731 3.01526 0.777709L0.922463 2.88924C0.344304 3.47257 -0.0431357 4.22875 0.00385093 5.0676C0.124051 7.21365 1.08094 11.8311 6.42047 17.2184C12.0828 22.9313 17.3957 23.1584 19.5684 22.9528C20.2556 22.8879 20.8532 22.5328 21.3348 22.0468L23.2289 20.1359C24.5074 18.8458 24.1469 16.6343 22.511 15.732L19.9637 14.3269C18.8896 13.7344 17.581 13.9084 16.7416 14.7555Z" />
-						</svg>
-						8 (812) 344-44-44
-					</a>
-				</div>
-
-			</div>
-			<div class="flex flex-col items-center">
-				<p class="text-sm text-slate-400 mb-6">
-					Или через&nbsp;удобный для&nbsp;вас мессенджер:
-				</p>
-
-				<div
-					class="social-wrapp flex flex-col md:flex-row w-full max-w-sm md:max-w-3xl gap-2 md:gap-4 justify-center">
-					<a href="https://telegram.me/lenremont_bot" target="_blank" rel="noreferrer"
-						class="border border-white/10 rounded-full flex items-center justify-center btn-social transition shadow-lg btn-social-tg">
-						<svg class="w-6 h-6" viewBox="0 0 24 20" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
-							<path
-								d="M21.9539 0.176566C21.9539 0.176566 24.1741 -0.689148 23.989 1.4133C23.9274 2.27903 23.3724 5.30902 22.9406 8.58639L21.4605 18.2948C21.4605 18.2948 21.3372 19.717 20.2271 19.9644C19.117 20.2117 17.4519 19.0987 17.1435 18.8513C16.8968 18.6658 12.5182 15.8831 10.9763 14.5227C10.5446 14.1517 10.0513 13.4096 11.038 12.5439L17.5136 6.36028C18.2536 5.61823 18.9937 3.8868 15.9101 5.98925L7.27606 11.8638C7.27606 11.8638 6.28932 12.4821 4.4392 11.9256L0.430526 10.6888C0.430526 10.6888 -1.04959 9.76131 1.47894 8.83371C7.64612 5.92737 15.2317 2.9592 21.9539 0.176566Z" />
-						</svg>
-					</a>
-					<a href="https://vk.com/lenremont" target="_blank" rel="noreferrer"
-						class="border border-white/10 rounded-full flex items-center justify-center btn-social transition shadow-lg btn-social-vk">
-						<svg class="w-6 h-6" viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
-							<path fill-rule="evenodd" clip-rule="evenodd"
-								d="M12.4805 0C17.9107 0 20.6255.000487 22.3125 1.6875 23.9995 3.37452 24 6.08927 24 11.5195V12.4805C24 17.9107 23.9995 20.6255 22.3125 22.3125 20.6255 23.9995 17.9107 24 12.4805 24H11.5195C6.08927 24 3.37452 23.9995 1.6875 22.3125.000487 20.6255 0 17.9107 0 12.4805V11.5195C0 6.08927.000483 3.37452 1.6875 1.6875 3.37452.000483 6.08927 0 11.5195 0H12.4805ZM4.05078 7.30078C4.18079 13.5408 7.3005 17.291 12.7705 17.291H13.0801V13.7207C15.0901 13.9207 16.6107 15.391 17.2207 17.291H20.0605C19.2805 14.451 17.2302 12.8803 15.9502 12.2803 17.2302 11.5402 19.03 9.74064 19.46 7.30078H16.8799C16.3198 9.28075 14.6601 11.081 13.0801 11.251V7.30078H10.5V14.2207C8.90006 13.8206 6.88003 11.8805 6.79004 7.30078H4.05078Z" />
-						</svg>
-					</a>
-					<a href="https://max.ru/id471902475874_3_bot" target="_blank" rel="noreferrer"
-						class="border border-white/10 rounded-full flex items-center justify-center btn-social transition shadow-lg btn-social-max">
-						<svg class="w-6 h-6" viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
-							<path fill-rule="evenodd" clip-rule="evenodd"
-								d="M12.2589 23.9315C9.90029 23.9315 8.80729 23.5862 6.90892 22.2049 5.70086 23.7588 1.89262 24.9733 1.73154 22.8955 1.73154 21.3358 1.38063 20.0177.995206 18.5789.52349 16.8062 0 14.832 0 11.9715 0 5.13969 5.58006 0 12.1956 0 18.8111 0 24 5.39869 24 12.0406 24 18.6825 18.65 23.9373 12.2589 23.9373M12.3567 5.91093C9.13519 5.74402 6.62129 7.98293 6.06903 11.4938 5.60882 14.4003 6.4257 17.94 7.12177 18.1242 7.44967 18.2048 8.28955 17.5256 8.80729 17.0019 9.65868 17.5601 10.6366 17.986 11.7239 18.0436 15.0259 18.2163 17.954 15.6263 18.1323 12.3053 18.1955 10.6964 17.6263 9.12671 16.5467 7.93255 15.4671 6.7384 13.963 6.01477 12.3567 5.91669" />
-						</svg>
-					</a>
-				</div>
 			</div>
 		</div>
-	</section>
 
-	<!-- Modal / Quiz Form -->
-	<div id="lr-quiz-modal" class="lr-modal" onclick="if(event.target === this) lrCloseModal()">
-		<div class="lr-modal-content">
-			<!-- Modal Header: Back + Progress + Close -->
-			<div class="flex items-center gap-3 mb-2">
-				<button id="lr-quiz-back-btn" onclick="lrGoBack()"
-					class="text-slate-400 hover:text-slate-600 text-xl hidden" aria-label="Назад">
-					<i class="fa-solid fa-arrow-left"></i>
-				</button>
-				<div class="lr-progress-container flex-1">
-					<div id="lr-progress-fill" class="lr-progress-bar"></div>
-				</div>
-				<button onclick="lrCloseModal()" class="text-slate-400 hover:text-slate-600 text-2xl"
-					aria-label="Закрыть">
-					&times;
-				</button>
+		<!-- Step 3 -->
+		<div id="lr-step-3" class="lr-step hidden">
+			<div class="text-xs font-bold text-slate-400 uppercase tracking-widest mb-1">
+				Шаг&nbsp;3 из&nbsp;5
 			</div>
-
-			<!-- Step 1 -->
-			<div id="lr-step-1" class="lr-step block">
-				<div class="text-xs font-bold text-slate-400 uppercase tracking-widest mb-1">
-					Шаг&nbsp;1 из&nbsp;5
-				</div>
-				<h3 class="font-serif text-2xl font-bold text-slate-900 mb-6">
-					Какое изделие нужно восстановить?
-				</h3>
-				<div class="grid grid-cols-2 gap-3 mb-6">
-					<label
-						class="lr-choice-label border rounded-lg p-3 text-center cursor-pointer hover:border-lr-accent hover:bg-slate-50 transition">
-						<input type="radio" name="furniture" value="Диван" class="hidden"
-							onchange="lrHandleSelection(this)" onclick="lrNextStep(2)" />
-						<i class="fa-solid fa-couch text-2xl text-slate-400 mb-2 block"></i>
-						<span class="font-medium text-slate-700">Диван</span>
-					</label>
-					<label
-						class="lr-choice-label border rounded-lg p-3 text-center cursor-pointer hover:border-lr-accent hover:bg-slate-50 transition">
-						<input type="radio" name="furniture" value="Кресло" class="hidden"
-							onchange="lrHandleSelection(this)" onclick="lrNextStep(2)" />
-						<i class="fa-solid fa-chair text-2xl text-slate-400 mb-2 block"></i>
-						<span class="font-medium text-slate-700">Кресло</span>
-					</label>
-					<label
-						class="lr-choice-label border rounded-lg p-3 text-center cursor-pointer hover:border-lr-accent hover:bg-slate-50 transition">
-						<input type="radio" name="furniture" value="Изголовье" class="hidden"
-							onchange="lrHandleSelection(this)" onclick="lrNextStep(2)" />
-						<i class="fa-solid fa-bed text-2xl text-slate-400 mb-2 block"></i>
-						<span class="font-medium text-slate-700">Изголовье кровати</span>
-					</label>
-					<label
-						class="lr-choice-label border rounded-lg p-3 text-center cursor-pointer hover:border-lr-accent hover:bg-slate-50 transition">
-						<input type="radio" name="furniture" value="Другое" class="hidden"
-							onchange="lrHandleSelection(this)" onclick="lrNextStep(2)" />
-						<i class="fa-solid fa-ellipsis text-2xl text-slate-400 mb-2 block"></i>
-						<span class="font-medium text-slate-700">Другое</span>
-					</label>
-				</div>
-				<button id="lr-next-1" onclick="lrNextStep(2)" disabled
-					class="w-full bg-lr-primary text-white font-bold py-3 rounded-lg hover:bg-lr-secondary transition opacity-50 cursor-not-allowed">
-					Далее <i class="fa-solid fa-arrow-right ml-2 text-sm"></i>
-				</button>
-			</div>
-
-			<!-- Step 2 -->
-			<div id="lr-step-2" class="lr-step hidden">
-				<div class="text-xs font-bold text-slate-400 uppercase tracking-widest mb-1">
-					Шаг&nbsp;2 из&nbsp;5
-				</div>
-				<h3 class="font-serif text-2xl font-bold text-slate-900 mb-6">
-					Что случилось?
-				</h3>
-				<div class="space-y-2 mb-6">
-					<label
-						class="lr-choice-label flex items-center gap-3 p-3 border rounded-lg cursor-pointer hover:bg-slate-50">
-						<input type="checkbox" name="problem" value="Прожог" class="w-5 h-5 text-lr-accent"
-							onchange="lrHandleSelection(this)" />
-						<span class="font-medium text-slate-700">Прожог / порез</span>
-					</label>
-					<label
-						class="lr-choice-label flex items-center gap-3 p-3 border rounded-lg cursor-pointer hover:bg-slate-50">
-						<input type="checkbox" name="problem" value="Когти" class="w-5 h-5 text-lr-accent"
-							onchange="lrHandleSelection(this)" />
-						<span class="font-medium text-slate-700">Царапины от когтей</span>
-					</label>
-					<label
-						class="lr-choice-label flex items-center gap-3 p-3 border rounded-lg cursor-pointer hover:bg-slate-50">
-						<input type="checkbox" name="problem" value="Потертости" class="w-5 h-5 text-lr-accent"
-							onchange="lrHandleSelection(this)" />
-						<span class="font-medium text-slate-700">Потертости / выцветание</span>
-					</label>
-					<label
-						class="lr-choice-label flex items-center gap-3 p-3 border rounded-lg cursor-pointer hover:bg-slate-50">
-						<input type="checkbox" name="problem" value="Экокожа" class="w-5 h-5 text-lr-accent"
-							onchange="lrHandleSelection(this)" />
-						<span class="font-medium text-slate-700">Облезает (экокожа)</span>
-					</label>
-				</div>
-				<div class="flex gap-3">
-					<button id="lr-next-2" onclick="lrNextStep(3)" disabled
-						class="flex-1 bg-lr-primary text-white font-bold py-3 rounded-lg hover:bg-lr-secondary transition opacity-50 cursor-not-allowed">
-						Далее
-					</button>
-				</div>
-			</div>
-
-			<!-- Step 3 -->
-			<div id="lr-step-3" class="lr-step hidden">
-				<div class="text-xs font-bold text-slate-400 uppercase tracking-widest mb-1">
-					Шаг&nbsp;3 из&nbsp;5
-				</div>
-				<h3 class="font-serif text-2xl font-bold text-slate-900 mb-6">
-					Прикрепите фото (необязательно)
-				</h3>
-				<p class="text-sm text-slate-500">
-					Фото&nbsp;поможет мастеру сразу&nbsp;оценить масштаб проблемы.
-				</p>
-
-				<div
-					class="border-2 border-dashed border-slate-300 rounded-xl p-8 text-center mb-4 bg-slate-50 relative cursor-pointer hover:bg-slate-100 transition">
-					<input type="file" id="lr-quiz-file" class="absolute inset-0 w-full h-full opacity-0 cursor-pointer"
-						accept="image/*" onchange="lrHandleFileSelect(this)" />
-					<i class="fa-solid fa-cloud-arrow-up text-4xl text-slate-400 mb-3 block"></i>
-					<span class="font-medium text-lr-primary">Нажмите, чтобы загрузить фото</span>
-					<span class="block text-xs text-slate-400 mt-1">или перетащите файл сюда</span>
-				</div>
-
-				<div id="lr-file-info" class="lr-file-preview">
-					<i class="fa-solid fa-image text-lr-accent"></i>
-					<span id="lr-file-name" class="truncate">filename.jpg</span>
-					<button onclick="lrResetFile()" class="ml-auto text-slate-400 hover:text-red-500">
-						<i class="fa-solid fa-xmark"></i>
-					</button>
-				</div>
-
-				<div class="flex gap-3 mt-6">
-					<button onclick="lrNextStep(4)"
-						class="flex-1 bg-lr-primary text-white font-bold py-3 rounded-lg hover:bg-lr-secondary transition">
-						Далее
-					</button>
-				</div>
-			</div>
-
-			<!-- Step 4 (Communication Method) -->
-			<div id="lr-step-4" class="lr-step hidden">
-				<div class="text-xs font-bold text-slate-400 uppercase tracking-widest mb-1">
-					Шаг&nbsp;4 из&nbsp;5
-				</div>
-				<h3 class="font-serif text-2xl font-bold text-slate-900 mb-6">
-					Как Вам удобнее получить расчет стоимости:
-				</h3>
-				<div class="grid grid-cols-2 md:grid-cols-3 gap-3 mb-6">
-					<label
-						class="lr-choice-label border rounded-lg p-3 text-center cursor-pointer hover:border-lr-accent hover:bg-slate-50 transition">
-						<input type="radio" name="contact_method" value="Позвонить" class="hidden"
-							onchange="lrHandleSelection(this)" onclick="lrNextStep(5)" />
-						<svg class="w-6 h-6 mx-auto mb-2 text-slate-400" viewBox="0 0 24 23" fill="currentColor"
-							xmlns="http://www.w3.org/2000/svg">
-							<path
-								d="M16.7416 14.7555L16.1342 15.3681C16.1342 15.3681 14.6908 16.8245 10.7508 12.8492C6.81082 8.87397 8.25426 7.41761 8.25426 7.41761L8.63666 7.03176C9.57879 6.08127 9.66759 4.55524 8.84559 3.44118L7.16434 1.16228C6.14703 -0.216584 4.18127 -0.398731 3.01526 0.777709L0.922463 2.88924C0.344304 3.47257 -0.0431357 4.22875 0.00385093 5.0676C0.124051 7.21365 1.08094 11.8311 6.42047 17.2184C12.0828 22.9313 17.3957 23.1584 19.5684 22.9528C20.2556 22.8879 20.8532 22.5328 21.3348 22.0468L23.2289 20.1359C24.5074 18.8458 24.1469 16.6343 22.511 15.732L19.9637 14.3269C18.8896 13.7344 17.581 13.9084 16.7416 14.7555Z" />
-						</svg>
-						<span class="font-medium text-slate-700">Позвонить</span>
-					</label>
-					<label
-						class="lr-choice-label border rounded-lg p-3 text-center cursor-pointer hover:border-lr-accent hover:bg-slate-50 transition">
-						<input type="radio" name="contact_method" value="Вотсап" class="hidden"
-							onchange="lrHandleSelection(this)" onclick="lrNextStep(5)" />
-						<svg class="w-6 h-6 mx-auto mb-2 text-slate-400" viewBox="0 0 24 24" fill="currentColor"
-							xmlns="http://www.w3.org/2000/svg">
-							<path
-								d="M20.4934 3.5136C18.2301 1.2492 15.2204.0012 12.0138 0 5.40627 0 .0288015 5.3748.0264014 11.982.0252013 14.094.577229 16.1556 1.62608 17.9724L0 24 6.27991 22.5156C8.0308 23.4708 10.0013 23.9736 12.0078 23.9748H12.0126C18.6189 23.9748 23.9964 18.5988 24 11.9928 24.0024 8.79 22.7567 5.7792 20.4934 3.5136ZM17.8785 16.2648C17.6289 16.9644 16.406 17.6388 15.8564 17.688 15.3068 17.7384 14.7919 17.9364 12.2622 16.9392 9.21766 15.7392 7.29516 12.618 7.14636 12.4188 6.99635 12.2184 5.92349 10.7952 5.92349 9.3216 5.92349 7.848 6.69753 7.1232 6.97235 6.8244 7.24716 6.5244 7.57118 6.45 7.77159 6.45 7.9708 6.45 8.17121 6.45 8.34522 6.4572 8.55883 6.4656 8.79524 6.4764 9.01965 6.9744 9.28606 7.5672 9.86809 9.048 9.9425 9.198 10.0169 9.348 10.0673 9.5232 9.9677 9.7224 9.86809 9.9216 9.81769 10.0464 9.66888 10.2216 9.51887 10.3968 9.35447 10.6116 9.22006 10.746 9.07005 10.8948 8.91404 11.058 9.08805 11.3568 9.26326 11.6568 9.86329 12.6372 10.7537 13.4304 11.8986 14.4504 12.8622 14.766 13.1623 14.9172 13.4623 15.0672 13.6363 15.042 13.8115 14.8416 13.9867 14.6424 14.5603 13.968 14.7595 13.668 14.9587 13.368 15.1592 13.4184 15.434 13.518 15.7088 13.6176 17.1813 14.3424 17.4801 14.4924 17.7801 14.6424 17.9793 14.7168 18.0537 14.8416 18.1281 14.9652 18.1281 15.5652 17.8785 16.2648Z" />
-						</svg>
-						<span class="font-medium text-slate-700">Вотсап</span>
-					</label>
-					<label
-						class="lr-choice-label border rounded-lg p-3 text-center cursor-pointer hover:border-lr-accent hover:bg-slate-50 transition">
-						<input type="radio" name="contact_method" value="Телеграм" class="hidden"
-							onchange="lrHandleSelection(this)" onclick="lrNextStep(5)" />
-						<svg class="w-6 h-6 mx-auto mb-2 text-slate-400" viewBox="0 0 24 20" fill="currentColor"
-							xmlns="http://www.w3.org/2000/svg">
-							<path
-								d="M21.9539 0.176566C21.9539 0.176566 24.1741 -0.689148 23.989 1.4133C23.9274 2.27903 23.3724 5.30902 22.9406 8.58639L21.4605 18.2948C21.4605 18.2948 21.3372 19.717 20.2271 19.9644C19.117 20.2117 17.4519 19.0987 17.1435 18.8513C16.8968 18.6658 12.5182 15.8831 10.9763 14.5227C10.5446 14.1517 10.0513 13.4096 11.038 12.5439L17.5136 6.36028C18.2536 5.61823 18.9937 3.8868 15.9101 5.98925L7.27606 11.8638C7.27606 11.8638 6.28932 12.4821 4.4392 11.9256L0.430526 10.6888C0.430526 10.6888 -1.04959 9.76131 1.47894 8.83371C7.64612 5.92737 15.2317 2.9592 21.9539 0.176566Z" />
-						</svg>
-						<span class="font-medium text-slate-700">Телеграм</span>
-					</label>
-					<label
-						class="lr-choice-label border rounded-lg p-3 text-center cursor-pointer hover:border-lr-accent hover:bg-slate-50 transition">
-						<input type="radio" name="contact_method" value="Макс" class="hidden"
-							onchange="lrHandleSelection(this)" onclick="lrNextStep(5)" />
-						<svg class="w-6 h-6 mx-auto mb-2 text-slate-400" viewBox="0 0 24 24" fill="currentColor"
-							xmlns="http://www.w3.org/2000/svg">
-							<path fill-rule="evenodd" clip-rule="evenodd"
-								d="M12.2589 23.9315C9.90029 23.9315 8.80729 23.5862 6.90892 22.2049 5.70086 23.7588 1.89262 24.9733 1.73154 22.8955 1.73154 21.3358 1.38063 20.0177.995206 18.5789.52349 16.8062 0 14.832 0 11.9715 0 5.13969 5.58006 0 12.1956 0 18.8111 0 24 5.39869 24 12.0406 24 18.6825 18.65 23.9373 12.2589 23.9373M12.3567 5.91093C9.13519 5.74402 6.62129 7.98293 6.06903 11.4938 5.60882 14.4003 6.4257 17.94 7.12177 18.1242 7.44967 18.2048 8.28955 17.5256 8.80729 17.0019 9.65868 17.5601 10.6366 17.986 11.7239 18.0436 15.0259 18.2163 17.954 15.6263 18.1323 12.3053 18.1955 10.6964 17.6263 9.12671 16.5467 7.93255 15.4671 6.7384 13.963 6.01477 12.3567 5.91669" />
-						</svg>
-						<span class="font-medium text-slate-700">Макс</span>
-					</label>
-					<label
-						class="lr-choice-label border rounded-lg p-3 text-center cursor-pointer hover:border-lr-accent hover:bg-slate-50 transition">
-						<input type="radio" name="contact_method" value="ВК" class="hidden"
-							onchange="lrHandleSelection(this)" onclick="lrNextStep(5)" />
-						<svg class="w-6 h-6 mx-auto mb-2 text-slate-400" viewBox="0 0 24 24" fill="currentColor"
-							xmlns="http://www.w3.org/2000/svg">
-							<path fill-rule="evenodd" clip-rule="evenodd"
-								d="M12.4805 0C17.9107 0 20.6255.000487 22.3125 1.6875 23.9995 3.37452 24 6.08927 24 11.5195V12.4805C24 17.9107 23.9995 20.6255 22.3125 22.3125 20.6255 23.9995 17.9107 24 12.4805 24H11.5195C6.08927 24 3.37452 23.9995 1.6875 22.3125.000487 20.6255 0 17.9107 0 12.4805V11.5195C0 6.08927.000483 3.37452 1.6875 1.6875 3.37452.000483 6.08927 0 11.5195 0H12.4805ZM4.05078 7.30078C4.18079 13.5408 7.3005 17.291 12.7705 17.291H13.0801V13.7207C15.0901 13.9207 16.6107 15.391 17.2207 17.291H20.0605C19.2805 14.451 17.2302 12.8803 15.9502 12.2803 17.2302 11.5402 19.03 9.74064 19.46 7.30078H16.8799C16.3198 9.28075 14.6601 11.081 13.0801 11.251V7.30078H10.5V14.2207C8.90006 13.8206 6.88003 11.8805 6.79004 7.30078H4.05078Z" />
-						</svg>
-						<span class="font-medium text-slate-700">ВК</span>
-					</label>
-					<label
-						class="lr-choice-label border rounded-lg p-3 text-center cursor-pointer hover:border-lr-accent hover:bg-slate-50 transition">
-						<input type="radio" name="contact_method" value="СМС" class="hidden"
-							onchange="lrHandleSelection(this)" onclick="lrNextStep(5)" />
-						<svg class="w-6 h-6 mx-auto mb-2 text-slate-400" viewBox="0 0 24 19" fill="currentColor"
-							xmlns="http://www.w3.org/2000/svg">
-							<path
-								d="M19.92 0H4.08C2.99889.00313 1.96296.42952 1.1985 1.18602.434038 1.94252.00317 2.96765 0 4.0375V14.9625C.00317 16.0323.434038 17.0575 1.1985 17.814 1.96296 18.5705 2.99889 18.9969 4.08 19H19.92C21.0011 18.9969 22.037 18.5705 22.8015 17.814 23.566 17.0575 23.9968 16.0323 24 14.9625V4.0375C23.9968 2.96765 23.566 1.94252 22.8015 1.18602 22.037.42952 21.0011.00313 19.92 0ZM19.692 6.68563L13.884 10.45C13.3368 10.8329 12.6821 11.0364 12.012 11.0319 11.3202 11.0324 10.6453 10.8208 10.08 10.4262L4.308 6.68563C4.20872 6.62169 4.12314 6.53903 4.05614 6.44236 3.98915 6.34569 3.94205 6.23691 3.91753 6.12223 3.89302 6.00755 3.89157 5.88922 3.91327 5.77398 3.93497 5.65875 3.97939 5.54887 4.044 5.45063 4.10861 5.35238 4.19214 5.26769 4.28983 5.20139 4.38751 5.13509 4.49744 5.08848 4.61332 5.06422 4.72921 5.03996 4.84879 5.03853 4.96524 5.06 5.08169 5.08148 5.19272 5.12544 5.292 5.18937L11.1 8.95375C11.3582 9.13914 11.669 9.23898 11.988 9.23898 12.307 9.23898 12.6178 9.13914 12.876 8.95375L18.708 5.16563C18.8073 5.10169 18.9183 5.05773 19.0348 5.03625 19.1512 5.01478 19.2708 5.01621 19.3867 5.04047 19.5026 5.06473 19.6125 5.11134 19.7102 5.17764 19.8079 5.24394 19.8914 5.32863 19.956 5.42687 20.0206 5.52512 20.065 5.635 20.0867 5.75023 20.1084 5.86547 20.107 5.9838 20.0825 6.09848 20.058 6.21316 20.0109 6.32194 19.9439 6.41861 19.8769 6.51528 19.7913 6.59794 19.692 6.66187V6.68563Z" />
-						</svg>
-						<span class="font-medium text-slate-700">СМС</span>
-					</label>
-				</div>
-				<div class="flex gap-3">
-					<button id="lr-next-4" onclick="lrNextStep(5)" disabled
-						class="flex-1 bg-lr-primary text-white font-bold py-3 rounded-lg hover:bg-lr-secondary transition opacity-50 cursor-not-allowed">
-						Далее
-					</button>
-				</div>
-			</div>
-
-			<!-- Step 5 (Phone Input with Custom Dialpad) -->
-			<div id="lr-step-5" class="lr-step hidden">
-				<div class="text-xs font-bold text-slate-400 uppercase tracking-widest mb-1">
-					Шаг&nbsp;5 из&nbsp;5
-				</div>
-				<h3 class="font-serif text-2xl font-bold text-slate-900 mb-2">
-					Введите номер телефона
-				</h3>
-				<p class="text-sm text-slate-500 mb-4">Номер, привязанный к выбранному способу связи</p>
-
-				<!-- Desktop: standard input -->
-				<div class="lr-desktop-phone">
-					<input type="tel" id="lr-phone-input-desktop" placeholder="+7 (___) ___-__-__"
-						class="w-full border border-slate-300 rounded-lg p-4 text-lg outline-none focus:border-lr-accent focus:ring-1 focus:ring-lr-accent" />
-				</div>
-
-				<!-- Mobile: dialpad -->
-				<div class="lr-mobile-phone">
-					<div class="lr-phone-display" id="lr-phone-display">+7</div>
-					<div class="lr-dialpad" id="lr-dialpad">
-						<button type="button" class="lr-dialpad-key" onclick="lrDialpadInput('1')"><span
-								class="lr-key-num">1</span></button>
-						<button type="button" class="lr-dialpad-key" onclick="lrDialpadInput('2')"><span
-								class="lr-key-num">2</span><span class="lr-key-letters">АБВ</span></button>
-						<button type="button" class="lr-dialpad-key" onclick="lrDialpadInput('3')"><span
-								class="lr-key-num">3</span><span class="lr-key-letters">ГДЕ</span></button>
-						<button type="button" class="lr-dialpad-key" onclick="lrDialpadInput('4')"><span
-								class="lr-key-num">4</span><span class="lr-key-letters">ЖЗИ</span></button>
-						<button type="button" class="lr-dialpad-key" onclick="lrDialpadInput('5')"><span
-								class="lr-key-num">5</span><span class="lr-key-letters">КЛМ</span></button>
-						<button type="button" class="lr-dialpad-key" onclick="lrDialpadInput('6')"><span
-								class="lr-key-num">6</span><span class="lr-key-letters">НОП</span></button>
-						<button type="button" class="lr-dialpad-key" onclick="lrDialpadInput('7')"><span
-								class="lr-key-num">7</span><span class="lr-key-letters">РСТ</span></button>
-						<button type="button" class="lr-dialpad-key" onclick="lrDialpadInput('8')"><span
-								class="lr-key-num">8</span><span class="lr-key-letters">УФХ</span></button>
-						<button type="button" class="lr-dialpad-key" onclick="lrDialpadInput('9')"><span
-								class="lr-key-num">9</span><span class="lr-key-letters">ЦЧШ</span></button>
-						<button type="button" class="lr-dialpad-key lr-dialpad-backspace"
-							onclick="lrDialpadBackspace()"><i class="fa-solid fa-delete-left"></i></button>
-						<button type="button" class="lr-dialpad-key" onclick="lrDialpadInput('0')"><span
-								class="lr-key-num">0</span></button>
-						<div class="lr-dialpad-key" style="visibility:hidden"></div>
-					</div>
-				</div>
-
-				<input type="hidden" id="lr-phone-value" name="phone" />
-
-				<div class="flex gap-3 mt-4">
-					<button type="button" id="lr-submit-btn" onclick="lrSubmitQuiz()"
-						class="flex-1 bg-lr-green text-white font-bold py-3 rounded-lg hover:bg-lr-green-hover transition shadow-lg">
-						<!-- <i class="fa-solid fa-phone mr-2"></i>  -->
-						Получить расчет
-					</button>
-				</div>
-			</div>
-
-			<!-- Step 6 (Success) -->
-			<div id="lr-step-6" class="lr-step hidden">
-				<div class="lr-step-success">
-					<div class="lr-success-icon">
-						<i class="fa-solid fa-check"></i>
-					</div>
-					<h3 class="font-serif text-2xl font-bold text-slate-900 mb-4">
-						Спасибо за заявку!
-					</h3>
-					<p class="text-slate-600 mb-8">
-						Наш&nbsp;старший технолог уже&nbsp;изучает вашу проблему.
-						Ваш&nbsp;расчет будет готов в&nbsp;течение 10-15&nbsp;минут.
-					</p>
-					<button onclick="lrCloseModal()"
-						class="w-full bg-lr-primary text-white font-bold py-3 rounded-lg hover:bg-lr-secondary transition">
-						Закрыть окно
-					</button>
-				</div>
-			</div>
-			<p class="text-[10px] text-center text-slate-400 mt-4">
-				Нажимая кнопку, вы соглашаетесь с условиями обработки персональных
-				данных.
+			<h3 class="font-serif text-2xl font-bold text-slate-900 mb-6">
+				Прикрепите фото (необязательно)
+			</h3>
+			<p class="text-sm text-slate-500">
+				Фото&nbsp;поможет мастеру сразу&nbsp;оценить масштаб проблемы.
 			</p>
-		</div>
-	</div>
-	</div>
 
-	<!-- Photo Modal -->
-	<div id="lr-photo-modal" class="lr-modal" onclick="if(event.target === this) lrClosePhotoModal()">
-		<div class="lr-modal-content">
-			<!-- Modal Header: Back + Progress + Close -->
-			<div class="flex items-center gap-3 mb-2">
-				<button id="lr-photo-back-btn" onclick="lrPhotoGoBack()"
-					class="text-slate-400 hover:text-slate-600 text-xl hidden" aria-label="Назад">
-					<i class="fa-solid fa-arrow-left"></i>
-				</button>
-				<div class="lr-progress-container flex-1">
-					<div id="lr-photo-progress-fill" class="lr-progress-bar"></div>
-				</div>
-				<button onclick="lrClosePhotoModal()" class="text-slate-400 hover:text-slate-600 text-2xl"
-					aria-label="Закрыть">
-					&times;
+			<div
+				class="border-2 border-dashed border-slate-300 rounded-xl p-8 text-center mb-4 bg-slate-50 relative cursor-pointer hover:bg-slate-100 transition">
+				<input type="file" id="lr-quiz-file" class="absolute inset-0 w-full h-full opacity-0 cursor-pointer"
+					accept="image/*" onchange="lrHandleFileSelect(this)" />
+				<i class="fa-solid fa-cloud-arrow-up text-4xl text-slate-400 mb-3 block"></i>
+				<span class="font-medium text-lr-primary">Нажмите, чтобы загрузить фото</span>
+				<span class="block text-xs text-slate-400 mt-1">или перетащите файл сюда</span>
+			</div>
+
+			<div id="lr-file-info" class="lr-file-preview">
+				<i class="fa-solid fa-image text-lr-accent"></i>
+				<span id="lr-file-name" class="truncate">filename.jpg</span>
+				<button onclick="lrResetFile()" class="ml-auto text-slate-400 hover:text-red-500">
+					<i class="fa-solid fa-xmark"></i>
 				</button>
 			</div>
 
-			<!-- Step 1 (Photo) -->
-			<div id="lr-photo-step-1" class="lr-step block">
-				<div class="text-xs font-bold text-slate-400 uppercase tracking-widest mb-1">
-					Шаг&nbsp;1 из&nbsp;3
+			<div class="flex gap-3 mt-6">
+				<button onclick="lrNextStep(4)"
+					class="flex-1 bg-lr-primary text-white font-bold py-3 rounded-lg hover:bg-lr-secondary transition">
+					Далее
+				</button>
+			</div>
+		</div>
+
+		<!-- Step 4 (Communication Method) -->
+		<div id="lr-step-4" class="lr-step hidden">
+			<div class="text-xs font-bold text-slate-400 uppercase tracking-widest mb-1">
+				Шаг&nbsp;4 из&nbsp;5
+			</div>
+			<h3 class="font-serif text-2xl font-bold text-slate-900 mb-6">
+				Как Вам удобнее получить расчет стоимости:
+			</h3>
+			<div class="grid grid-cols-2 md:grid-cols-3 gap-3 mb-6">
+				<label
+					class="lr-choice-label border rounded-lg p-3 text-center cursor-pointer hover:border-lr-accent hover:bg-slate-50 transition">
+					<input type="radio" name="contact_method" value="Позвонить" class="hidden"
+						onchange="lrHandleSelection(this)" onclick="lrNextStep(5)" />
+					<svg class="w-6 h-6 mx-auto mb-2 text-slate-400" viewBox="0 0 24 23" fill="currentColor"
+						xmlns="http://www.w3.org/2000/svg">
+						<path
+							d="M16.7416 14.7555L16.1342 15.3681C16.1342 15.3681 14.6908 16.8245 10.7508 12.8492C6.81082 8.87397 8.25426 7.41761 8.25426 7.41761L8.63666 7.03176C9.57879 6.08127 9.66759 4.55524 8.84559 3.44118L7.16434 1.16228C6.14703 -0.216584 4.18127 -0.398731 3.01526 0.777709L0.922463 2.88924C0.344304 3.47257 -0.0431357 4.22875 0.00385093 5.0676C0.124051 7.21365 1.08094 11.8311 6.42047 17.2184C12.0828 22.9313 17.3957 23.1584 19.5684 22.9528C20.2556 22.8879 20.8532 22.5328 21.3348 22.0468L23.2289 20.1359C24.5074 18.8458 24.1469 16.6343 22.511 15.732L19.9637 14.3269C18.8896 13.7344 17.581 13.9084 16.7416 14.7555Z" />
+					</svg>
+					<span class="font-medium text-slate-700">Позвонить</span>
+				</label>
+				<label
+					class="lr-choice-label border rounded-lg p-3 text-center cursor-pointer hover:border-lr-accent hover:bg-slate-50 transition">
+					<input type="radio" name="contact_method" value="Вотсап" class="hidden"
+						onchange="lrHandleSelection(this)" onclick="lrNextStep(5)" />
+					<svg class="w-6 h-6 mx-auto mb-2 text-slate-400" viewBox="0 0 24 24" fill="currentColor"
+						xmlns="http://www.w3.org/2000/svg">
+						<path
+							d="M20.4934 3.5136C18.2301 1.2492 15.2204.0012 12.0138 0 5.40627 0 .0288015 5.3748.0264014 11.982.0252013 14.094.577229 16.1556 1.62608 17.9724L0 24 6.27991 22.5156C8.0308 23.4708 10.0013 23.9736 12.0078 23.9748H12.0126C18.6189 23.9748 23.9964 18.5988 24 11.9928 24.0024 8.79 22.7567 5.7792 20.4934 3.5136ZM17.8785 16.2648C17.6289 16.9644 16.406 17.6388 15.8564 17.688 15.3068 17.7384 14.7919 17.9364 12.2622 16.9392 9.21766 15.7392 7.29516 12.618 7.14636 12.4188 6.99635 12.2184 5.92349 10.7952 5.92349 9.3216 5.92349 7.848 6.69753 7.1232 6.97235 6.8244 7.24716 6.5244 7.57118 6.45 7.77159 6.45 7.9708 6.45 8.17121 6.45 8.34522 6.4572 8.55883 6.4656 8.79524 6.4764 9.01965 6.9744 9.28606 7.5672 9.86809 9.048 9.9425 9.198 10.0169 9.348 10.0673 9.5232 9.9677 9.7224 9.86809 9.9216 9.81769 10.0464 9.66888 10.2216 9.51887 10.3968 9.35447 10.6116 9.22006 10.746 9.07005 10.8948 8.91404 11.058 9.08805 11.3568 9.26326 11.6568 9.86329 12.6372 10.7537 13.4304 11.8986 14.4504 12.8622 14.766 13.1623 14.9172 13.4623 15.0672 13.6363 15.042 13.8115 14.8416 13.9867 14.6424 14.5603 13.968 14.7595 13.668 14.9587 13.368 15.1592 13.4184 15.434 13.518 15.7088 13.6176 17.1813 14.3424 17.4801 14.4924 17.7801 14.6424 17.9793 14.7168 18.0537 14.8416 18.1281 14.9652 18.1281 15.5652 17.8785 16.2648Z" />
+					</svg>
+					<span class="font-medium text-slate-700">Вотсап</span>
+				</label>
+				<label
+					class="lr-choice-label border rounded-lg p-3 text-center cursor-pointer hover:border-lr-accent hover:bg-slate-50 transition">
+					<input type="radio" name="contact_method" value="Телеграм" class="hidden"
+						onchange="lrHandleSelection(this)" onclick="lrNextStep(5)" />
+					<svg class="w-6 h-6 mx-auto mb-2 text-slate-400" viewBox="0 0 24 20" fill="currentColor"
+						xmlns="http://www.w3.org/2000/svg">
+						<path
+							d="M21.9539 0.176566C21.9539 0.176566 24.1741 -0.689148 23.989 1.4133C23.9274 2.27903 23.3724 5.30902 22.9406 8.58639L21.4605 18.2948C21.4605 18.2948 21.3372 19.717 20.2271 19.9644C19.117 20.2117 17.4519 19.0987 17.1435 18.8513C16.8968 18.6658 12.5182 15.8831 10.9763 14.5227C10.5446 14.1517 10.0513 13.4096 11.038 12.5439L17.5136 6.36028C18.2536 5.61823 18.9937 3.8868 15.9101 5.98925L7.27606 11.8638C7.27606 11.8638 6.28932 12.4821 4.4392 11.9256L0.430526 10.6888C0.430526 10.6888 -1.04959 9.76131 1.47894 8.83371C7.64612 5.92737 15.2317 2.9592 21.9539 0.176566Z" />
+					</svg>
+					<span class="font-medium text-slate-700">Телеграм</span>
+				</label>
+				<label
+					class="lr-choice-label border rounded-lg p-3 text-center cursor-pointer hover:border-lr-accent hover:bg-slate-50 transition">
+					<input type="radio" name="contact_method" value="Макс" class="hidden"
+						onchange="lrHandleSelection(this)" onclick="lrNextStep(5)" />
+					<svg class="w-6 h-6 mx-auto mb-2 text-slate-400" viewBox="0 0 24 24" fill="currentColor"
+						xmlns="http://www.w3.org/2000/svg">
+						<path fill-rule="evenodd" clip-rule="evenodd"
+							d="M12.2589 23.9315C9.90029 23.9315 8.80729 23.5862 6.90892 22.2049 5.70086 23.7588 1.89262 24.9733 1.73154 22.8955 1.73154 21.3358 1.38063 20.0177.995206 18.5789.52349 16.8062 0 14.832 0 11.9715 0 5.13969 5.58006 0 12.1956 0 18.8111 0 24 5.39869 24 12.0406 24 18.6825 18.65 23.9373 12.2589 23.9373M12.3567 5.91093C9.13519 5.74402 6.62129 7.98293 6.06903 11.4938 5.60882 14.4003 6.4257 17.94 7.12177 18.1242 7.44967 18.2048 8.28955 17.5256 8.80729 17.0019 9.65868 17.5601 10.6366 17.986 11.7239 18.0436 15.0259 18.2163 17.954 15.6263 18.1323 12.3053 18.1955 10.6964 17.6263 9.12671 16.5467 7.93255 15.4671 6.7384 13.963 6.01477 12.3567 5.91669" />
+					</svg>
+					<span class="font-medium text-slate-700">Макс</span>
+				</label>
+				<label
+					class="lr-choice-label border rounded-lg p-3 text-center cursor-pointer hover:border-lr-accent hover:bg-slate-50 transition">
+					<input type="radio" name="contact_method" value="ВК" class="hidden"
+						onchange="lrHandleSelection(this)" onclick="lrNextStep(5)" />
+					<svg class="w-6 h-6 mx-auto mb-2 text-slate-400" viewBox="0 0 24 24" fill="currentColor"
+						xmlns="http://www.w3.org/2000/svg">
+						<path fill-rule="evenodd" clip-rule="evenodd"
+							d="M12.4805 0C17.9107 0 20.6255.000487 22.3125 1.6875 23.9995 3.37452 24 6.08927 24 11.5195V12.4805C24 17.9107 23.9995 20.6255 22.3125 22.3125 20.6255 23.9995 17.9107 24 12.4805 24H11.5195C6.08927 24 3.37452 23.9995 1.6875 22.3125.000487 20.6255 0 17.9107 0 12.4805V11.5195C0 6.08927.000483 3.37452 1.6875 1.6875 3.37452.000483 6.08927 0 11.5195 0H12.4805ZM4.05078 7.30078C4.18079 13.5408 7.3005 17.291 12.7705 17.291H13.0801V13.7207C15.0901 13.9207 16.6107 15.391 17.2207 17.291H20.0605C19.2805 14.451 17.2302 12.8803 15.9502 12.2803 17.2302 11.5402 19.03 9.74064 19.46 7.30078H16.8799C16.3198 9.28075 14.6601 11.081 13.0801 11.251V7.30078H10.5V14.2207C8.90006 13.8206 6.88003 11.8805 6.79004 7.30078H4.05078Z" />
+					</svg>
+					<span class="font-medium text-slate-700">ВК</span>
+				</label>
+				<label
+					class="lr-choice-label border rounded-lg p-3 text-center cursor-pointer hover:border-lr-accent hover:bg-slate-50 transition">
+					<input type="radio" name="contact_method" value="СМС" class="hidden"
+						onchange="lrHandleSelection(this)" onclick="lrNextStep(5)" />
+					<svg class="w-6 h-6 mx-auto mb-2 text-slate-400" viewBox="0 0 24 19" fill="currentColor"
+						xmlns="http://www.w3.org/2000/svg">
+						<path
+							d="M19.92 0H4.08C2.99889.00313 1.96296.42952 1.1985 1.18602.434038 1.94252.00317 2.96765 0 4.0375V14.9625C.00317 16.0323.434038 17.0575 1.1985 17.814 1.96296 18.5705 2.99889 18.9969 4.08 19H19.92C21.0011 18.9969 22.037 18.5705 22.8015 17.814 23.566 17.0575 23.9968 16.0323 24 14.9625V4.0375C23.9968 2.96765 23.566 1.94252 22.8015 1.18602 22.037.42952 21.0011.00313 19.92 0ZM19.692 6.68563L13.884 10.45C13.3368 10.8329 12.6821 11.0364 12.012 11.0319 11.3202 11.0324 10.6453 10.8208 10.08 10.4262L4.308 6.68563C4.20872 6.62169 4.12314 6.53903 4.05614 6.44236 3.98915 6.34569 3.94205 6.23691 3.91753 6.12223 3.89302 6.00755 3.89157 5.88922 3.91327 5.77398 3.93497 5.65875 3.97939 5.54887 4.044 5.45063 4.10861 5.35238 4.19214 5.26769 4.28983 5.20139 4.38751 5.13509 4.49744 5.08848 4.61332 5.06422 4.72921 5.03996 4.84879 5.03853 4.96524 5.06 5.08169 5.08148 5.19272 5.12544 5.292 5.18937L11.1 8.95375C11.3582 9.13914 11.669 9.23898 11.988 9.23898 12.307 9.23898 12.6178 9.13914 12.876 8.95375L18.708 5.16563C18.8073 5.10169 18.9183 5.05773 19.0348 5.03625 19.1512 5.01478 19.2708 5.01621 19.3867 5.04047 19.5026 5.06473 19.6125 5.11134 19.7102 5.17764 19.8079 5.24394 19.8914 5.32863 19.956 5.42687 20.0206 5.52512 20.065 5.635 20.0867 5.75023 20.1084 5.86547 20.107 5.9838 20.0825 6.09848 20.058 6.21316 20.0109 6.32194 19.9439 6.41861 19.8769 6.51528 19.7913 6.59794 19.692 6.66187V6.68563Z" />
+					</svg>
+					<span class="font-medium text-slate-700">СМС</span>
+				</label>
+			</div>
+			<div class="flex gap-3">
+				<button id="lr-next-4" onclick="lrNextStep(5)" disabled
+					class="flex-1 bg-lr-primary text-white font-bold py-3 rounded-lg hover:bg-lr-secondary transition opacity-50 cursor-not-allowed">
+					Далее
+				</button>
+			</div>
+		</div>
+
+		<!-- Step 5 (Phone Input with Custom Dialpad) -->
+		<div id="lr-step-5" class="lr-step hidden">
+			<div class="text-xs font-bold text-slate-400 uppercase tracking-widest mb-1">
+				Шаг&nbsp;5 из&nbsp;5
+			</div>
+			<h3 class="font-serif text-2xl font-bold text-slate-900 mb-2">
+				Введите номер телефона
+			</h3>
+			<p class="text-sm text-slate-500 mb-4">Номер, привязанный к выбранному способу связи</p>
+
+			<!-- Desktop: standard input -->
+			<div class="lr-desktop-phone">
+				<input type="tel" id="lr-phone-input-desktop" placeholder="+7 (___) ___-__-__"
+					class="w-full border border-slate-300 rounded-lg p-4 text-lg outline-none focus:border-lr-accent focus:ring-1 focus:ring-lr-accent" />
+			</div>
+
+			<!-- Mobile: dialpad -->
+			<div class="lr-mobile-phone">
+				<div class="lr-phone-display" id="lr-phone-display">+7</div>
+				<div class="lr-dialpad" id="lr-dialpad">
+					<button type="button" class="lr-dialpad-key" onclick="lrDialpadInput('1')"><span
+							class="lr-key-num">1</span></button>
+					<button type="button" class="lr-dialpad-key" onclick="lrDialpadInput('2')"><span
+							class="lr-key-num">2</span><span class="lr-key-letters">АБВ</span></button>
+					<button type="button" class="lr-dialpad-key" onclick="lrDialpadInput('3')"><span
+							class="lr-key-num">3</span><span class="lr-key-letters">ГДЕ</span></button>
+					<button type="button" class="lr-dialpad-key" onclick="lrDialpadInput('4')"><span
+							class="lr-key-num">4</span><span class="lr-key-letters">ЖЗИ</span></button>
+					<button type="button" class="lr-dialpad-key" onclick="lrDialpadInput('5')"><span
+							class="lr-key-num">5</span><span class="lr-key-letters">КЛМ</span></button>
+					<button type="button" class="lr-dialpad-key" onclick="lrDialpadInput('6')"><span
+							class="lr-key-num">6</span><span class="lr-key-letters">НОП</span></button>
+					<button type="button" class="lr-dialpad-key" onclick="lrDialpadInput('7')"><span
+							class="lr-key-num">7</span><span class="lr-key-letters">РСТ</span></button>
+					<button type="button" class="lr-dialpad-key" onclick="lrDialpadInput('8')"><span
+							class="lr-key-num">8</span><span class="lr-key-letters">УФХ</span></button>
+					<button type="button" class="lr-dialpad-key" onclick="lrDialpadInput('9')"><span
+							class="lr-key-num">9</span><span class="lr-key-letters">ЦЧШ</span></button>
+					<button type="button" class="lr-dialpad-key lr-dialpad-backspace"
+						onclick="lrDialpadBackspace()"><i class="fa-solid fa-delete-left"></i></button>
+					<button type="button" class="lr-dialpad-key" onclick="lrDialpadInput('0')"><span
+							class="lr-key-num">0</span></button>
+					<div class="lr-dialpad-key" style="visibility:hidden"></div>
 				</div>
-				<h3 class="font-serif text-2xl font-bold text-slate-900 mb-6">
-					Прикрепите фото
+			</div>
+
+			<input type="hidden" id="lr-phone-value" name="phone" />
+
+			<div class="flex gap-3 mt-4">
+				<button type="button" id="lr-submit-btn" onclick="lrSubmitQuiz()"
+					class="flex-1 bg-lr-green text-white font-bold py-3 rounded-lg hover:bg-lr-green-hover transition shadow-lg">
+					<!-- <i class="fa-solid fa-phone mr-2"></i>  -->
+					Получить расчет
+				</button>
+			</div>
+		</div>
+
+		<!-- Step 6 (Success) -->
+		<div id="lr-step-6" class="lr-step hidden">
+			<div class="lr-step-success">
+				<div class="lr-success-icon">
+					<i class="fa-solid fa-check"></i>
+				</div>
+				<h3 class="font-serif text-2xl font-bold text-slate-900 mb-4">
+					Спасибо за заявку!
 				</h3>
-				<p class="text-sm text-slate-500">
-					Фото&nbsp;поможет мастеру сразу&nbsp;оценить масштаб проблемы.
+				<p class="text-slate-600 mb-8">
+					Наш&nbsp;старший технолог уже&nbsp;изучает вашу проблему.
+					Ваш&nbsp;расчет будет готов в&nbsp;течение 10-15&nbsp;минут.
 				</p>
-
-				<div
-					class="border-2 border-dashed border-slate-300 rounded-xl p-8 text-center mb-4 bg-slate-50 relative cursor-pointer hover:bg-slate-100 transition">
-					<input type="file" id="lr-photo-file-input"
-						class="absolute inset-0 w-full h-full opacity-0 cursor-pointer" accept="image/*"
-						onchange="lrHandlePhotoFileSelect(this)" />
-					<i class="fa-solid fa-cloud-arrow-up text-4xl text-slate-400 mb-3 block"></i>
-					<span class="font-medium text-lr-primary">Нажмите, чтобы загрузить фото</span>
-					<span class="block text-xs text-slate-400 mt-1">или перетащите файл сюда</span>
-				</div>
-
-				<div id="lr-photo-file-info" class="lr-file-preview">
-					<i class="fa-solid fa-image text-lr-accent"></i>
-					<span id="lr-photo-file-name" class="truncate">filename.jpg</span>
-					<button onclick="lrResetPhotoFile()" class="ml-auto text-slate-400 hover:text-red-500">
-						<i class="fa-solid fa-xmark"></i>
-					</button>
-				</div>
-
-				<div class="flex gap-3 mt-6">
-					<button onclick="lrPhotoGoToStep(2)"
-						class="flex-1 bg-lr-primary text-white font-bold py-3 rounded-lg hover:bg-lr-secondary transition">
-						Далее
-					</button>
-				</div>
+				<button onclick="lrCloseModal()"
+					class="w-full bg-lr-primary text-white font-bold py-3 rounded-lg hover:bg-lr-secondary transition">
+					Закрыть окно
+				</button>
 			</div>
-
-			<!-- Step 2 (Contact Method) -->
-			<div id="lr-photo-step-2" class="lr-step hidden">
-				<div class="text-xs font-bold text-slate-400 uppercase tracking-widest mb-1">
-					Шаг&nbsp;2 из&nbsp;3
-				</div>
-				<h3 class="font-serif text-2xl font-bold text-slate-900 mb-6">
-					Как Вам удобнее получить расчет стоимости:
-				</h3>
-				<div class="grid grid-cols-2 md:grid-cols-3 gap-3 mb-6">
-					<label
-						class="lr-choice-label border rounded-lg p-3 text-center cursor-pointer hover:border-lr-accent hover:bg-slate-50 transition">
-						<input type="radio" name="photo_contact_method" value="Позвонить" class="hidden"
-							onchange="lrHandlePhotoSelection(this)" onclick="lrPhotoGoToStep(3)" />
-						<svg class="w-6 h-6 mx-auto mb-2 text-slate-400" viewBox="0 0 24 23" fill="currentColor"
-							xmlns="http://www.w3.org/2000/svg">
-							<path
-								d="M16.7416 14.7555L16.1342 15.3681C16.1342 15.3681 14.6908 16.8245 10.7508 12.8492C6.81082 8.87397 8.25426 7.41761 8.25426 7.41761L8.63666 7.03176C9.57879 6.08127 9.66759 4.55524 8.84559 3.44118L7.16434 1.16228C6.14703 -0.216584 4.18127 -0.398731 3.01526 0.777709L0.922463 2.88924C0.344304 3.47257 -0.0431357 4.22875 0.00385093 5.0676C0.124051 7.21365 1.08094 11.8311 6.42047 17.2184C12.0828 22.9313 17.3957 23.1584 19.5684 22.9528C20.2556 22.8879 20.8532 22.5328 21.3348 22.0468L23.2289 20.1359C24.5074 18.8458 24.1469 16.6343 22.511 15.732L19.9637 14.3269C18.8896 13.7344 17.581 13.9084 16.7416 14.7555Z" />
-						</svg>
-						<span class="font-medium text-slate-700">Позвонить</span>
-					</label>
-					<label
-						class="lr-choice-label border rounded-lg p-3 text-center cursor-pointer hover:border-lr-accent hover:bg-slate-50 transition">
-						<input type="radio" name="photo_contact_method" value="Вотсап" class="hidden"
-							onchange="lrHandlePhotoSelection(this)" onclick="lrPhotoGoToStep(3)" />
-						<svg class="w-6 h-6 mx-auto mb-2 text-slate-400" viewBox="0 0 24 24" fill="currentColor"
-							xmlns="http://www.w3.org/2000/svg">
-							<path
-								d="M20.4934 3.5136C18.2301 1.2492 15.2204.0012 12.0138 0 5.40627 0 .0288015 5.3748.0264014 11.982.0252013 14.094.577229 16.1556 1.62608 17.9724L0 24 6.27991 22.5156C8.0308 23.4708 10.0013 23.9736 12.0078 23.9748H12.0126C18.6189 23.9748 23.9964 18.5988 24 11.9928 24.0024 8.79 22.7567 5.7792 20.4934 3.5136ZM17.8785 16.2648C17.6289 16.9644 16.406 17.6388 15.8564 17.688 15.3068 17.7384 14.7919 17.9364 12.2622 16.9392 9.21766 15.7392 7.29516 12.618 7.14636 12.4188 6.99635 12.2184 5.92349 10.7952 5.92349 9.3216 5.92349 7.848 6.69753 7.1232 6.97235 6.8244 7.24716 6.5244 7.57118 6.45 7.77159 6.45 7.9708 6.45 8.17121 6.45 8.34522 6.4572 8.55883 6.4656 8.79524 6.4764 9.01965 6.9744 9.28606 7.5672 9.86809 9.048 9.9425 9.198 10.0169 9.348 10.0673 9.5232 9.9677 9.7224 9.86809 9.9216 9.81769 10.0464 9.66888 10.2216 9.51887 10.3968 9.35447 10.6116 9.22006 10.746 9.07005 10.8948 8.91404 11.058 9.08805 11.3568 9.26326 11.6568 9.86329 12.6372 10.7537 13.4304 11.8986 14.4504 12.8622 14.766 13.1623 14.9172 13.4623 15.0672 13.6363 15.042 13.8115 14.8416 13.9867 14.6424 14.5603 13.968 14.7595 13.668 14.9587 13.368 15.1592 13.4184 15.434 13.518 15.7088 13.6176 17.1813 14.3424 17.4801 14.4924 17.7801 14.6424 17.9793 14.7168 18.0537 14.8416 18.1281 14.9652 18.1281 15.5652 17.8785 16.2648Z" />
-						</svg>
-						<span class="font-medium text-slate-700">Вотсап</span>
-					</label>
-					<label
-						class="lr-choice-label border rounded-lg p-3 text-center cursor-pointer hover:border-lr-accent hover:bg-slate-50 transition">
-						<input type="radio" name="photo_contact_method" value="Телеграм" class="hidden"
-							onchange="lrHandlePhotoSelection(this)" onclick="lrPhotoGoToStep(3)" />
-						<svg class="w-6 h-6 mx-auto mb-2 text-slate-400" viewBox="0 0 24 20" fill="currentColor"
-							xmlns="http://www.w3.org/2000/svg">
-							<path
-								d="M21.9539 0.176566C21.9539 0.176566 24.1741 -0.689148 23.989 1.4133C23.9274 2.27903 23.3724 5.30902 22.9406 8.58639L21.4605 18.2948C21.4605 18.2948 21.3372 19.717 20.2271 19.9644C19.117 20.2117 17.4519 19.0987 17.1435 18.8513C16.8968 18.6658 12.5182 15.8831 10.9763 14.5227C10.5446 14.1517 10.0513 13.4096 11.038 12.5439L17.5136 6.36028C18.2536 5.61823 18.9937 3.8868 15.9101 5.98925L7.27606 11.8638C7.27606 11.8638 6.28932 12.4821 4.4392 11.9256L0.430526 10.6888C0.430526 10.6888 -1.04959 9.76131 1.47894 8.83371C7.64612 5.92737 15.2317 2.9592 21.9539 0.176566Z" />
-						</svg>
-						<span class="font-medium text-slate-700">Телеграм</span>
-					</label>
-					<label
-						class="lr-choice-label border rounded-lg p-3 text-center cursor-pointer hover:border-lr-accent hover:bg-slate-50 transition">
-						<input type="radio" name="photo_contact_method" value="Макс" class="hidden"
-							onchange="lrHandlePhotoSelection(this)" onclick="lrPhotoGoToStep(3)" />
-						<svg class="w-6 h-6 mx-auto mb-2 text-slate-400" viewBox="0 0 24 24" fill="currentColor"
-							xmlns="http://www.w3.org/2000/svg">
-							<path fill-rule="evenodd" clip-rule="evenodd"
-								d="M12.2589 23.9315C9.90029 23.9315 8.80729 23.5862 6.90892 22.2049 5.70086 23.7588 1.89262 24.9733 1.73154 22.8955 1.73154 21.3358 1.38063 20.0177.995206 18.5789.52349 16.8062 0 14.832 0 11.9715 0 5.13969 5.58006 0 12.1956 0 18.8111 0 24 5.39869 24 12.0406 24 18.6825 18.65 23.9373 12.2589 23.9373M12.3567 5.91093C9.13519 5.74402 6.62129 7.98293 6.06903 11.4938 5.60882 14.4003 6.4257 17.94 7.12177 18.1242 7.44967 18.2048 8.28955 17.5256 8.80729 17.0019 9.65868 17.5601 10.6366 17.986 11.7239 18.0436 15.0259 18.2163 17.954 15.6263 18.1323 12.3053 18.1955 10.6964 17.6263 9.12671 16.5467 7.93255 15.4671 6.7384 13.963 6.01477 12.3567 5.91669" />
-						</svg>
-						<span class="font-medium text-slate-700">Макс</span>
-					</label>
-					<label
-						class="lr-choice-label border rounded-lg p-3 text-center cursor-pointer hover:border-lr-accent hover:bg-slate-50 transition">
-						<input type="radio" name="photo_contact_method" value="ВК" class="hidden"
-							onchange="lrHandlePhotoSelection(this)" onclick="lrPhotoGoToStep(3)" />
-						<svg class="w-6 h-6 mx-auto mb-2 text-slate-400" viewBox="0 0 24 24" fill="currentColor"
-							xmlns="http://www.w3.org/2000/svg">
-							<path fill-rule="evenodd" clip-rule="evenodd"
-								d="M12.4805 0C17.9107 0 20.6255.000487 22.3125 1.6875 23.9995 3.37452 24 6.08927 24 11.5195V12.4805C24 17.9107 23.9995 20.6255 22.3125 22.3125 20.6255 23.9995 17.9107 24 12.4805 24H11.5195C6.08927 24 3.37452 23.9995 1.6875 22.3125.000487 20.6255 0 17.9107 0 12.4805V11.5195C0 6.08927.000483 3.37452 1.6875 1.6875 3.37452.000483 6.08927 0 11.5195 0H12.4805ZM4.05078 7.30078C4.18079 13.5408 7.3005 17.291 12.7705 17.291H13.0801V13.7207C15.0901 13.9207 16.6107 15.391 17.2207 17.291H20.0605C19.2805 14.451 17.2302 12.8803 15.9502 12.2803 17.2302 11.5402 19.03 9.74064 19.46 7.30078H16.8799C16.3198 9.28075 14.6601 11.081 13.0801 11.251V7.30078H10.5V14.2207C8.90006 13.8206 6.88003 11.8805 6.79004 7.30078H4.05078Z" />
-						</svg>
-						<span class="font-medium text-slate-700">ВК</span>
-					</label>
-					<label
-						class="lr-choice-label border rounded-lg p-3 text-center cursor-pointer hover:border-lr-accent hover:bg-slate-50 transition">
-						<input type="radio" name="photo_contact_method" value="СМС" class="hidden"
-							onchange="lrHandlePhotoSelection(this)" onclick="lrPhotoGoToStep(3)" />
-						<svg class="w-6 h-6 mx-auto mb-2 text-slate-400" viewBox="0 0 24 19" fill="currentColor"
-							xmlns="http://www.w3.org/2000/svg">
-							<path
-								d="M19.92 0H4.08C2.99889.00313 1.96296.42952 1.1985 1.18602.434038 1.94252.00317 2.96765 0 4.0375V14.9625C.00317 16.0323.434038 17.0575 1.1985 17.814 1.96296 18.5705 2.99889 18.9969 4.08 19H19.92C21.0011 18.9969 22.037 18.5705 22.8015 17.814 23.566 17.0575 23.9968 16.0323 24 14.9625V4.0375C23.9968 2.96765 23.566 1.94252 22.8015 1.18602 22.037.42952 21.0011.00313 19.92 0ZM19.692 6.68563L13.884 10.45C13.3368 10.8329 12.6821 11.0364 12.012 11.0319 11.3202 11.0324 10.6453 10.8208 10.08 10.4262L4.308 6.68563C4.20872 6.62169 4.12314 6.53903 4.05614 6.44236 3.98915 6.34569 3.94205 6.23691 3.91753 6.12223 3.89302 6.00755 3.89157 5.88922 3.91327 5.77398 3.93497 5.65875 3.97939 5.54887 4.044 5.45063 4.10861 5.35238 4.19214 5.26769 4.28983 5.20139 4.38751 5.13509 4.49744 5.08848 4.61332 5.06422 4.72921 5.03996 4.84879 5.03853 4.96524 5.06 5.08169 5.08148 5.19272 5.12544 5.292 5.18937L11.1 8.95375C11.3582 9.13914 11.669 9.23898 11.988 9.23898 12.307 9.23898 12.6178 9.13914 12.876 8.95375L18.708 5.16563C18.8073 5.10169 18.9183 5.05773 19.0348 5.03625 19.1512 5.01478 19.2708 5.01621 19.3867 5.04047 19.5026 5.06473 19.6125 5.11134 19.7102 5.17764 19.8079 5.24394 19.8914 5.32863 19.956 5.42687 20.0206 5.52512 20.065 5.635 20.0867 5.75023 20.1084 5.86547 20.107 5.9838 20.0825 6.09848 20.058 6.21316 20.0109 6.32194 19.9439 6.41861 19.8769 6.51528 19.7913 6.59794 19.692 6.66187V6.68563Z" />
-						</svg>
-						<span class="font-medium text-slate-700">СМС</span>
-					</label>
-				</div>
-				<div class="flex gap-3">
-					<button id="lr-photo-next-2" onclick="lrPhotoGoToStep(3)" disabled
-						class="flex-1 bg-lr-primary text-white font-bold py-3 rounded-lg hover:bg-lr-secondary transition opacity-50 cursor-not-allowed">
-						Далее
-					</button>
-				</div>
-			</div>
-
-			<!-- Step 3 (Phone Input with Dialpad) -->
-			<div id="lr-photo-step-3" class="lr-step hidden">
-				<div class="text-xs font-bold text-slate-400 uppercase tracking-widest mb-1">
-					Шаг&nbsp;3 из&nbsp;3
-				</div>
-				<h3 class="font-serif text-2xl font-bold text-slate-900 mb-2">
-					Введите номер телефона
-				</h3>
-				<p class="text-sm text-slate-500 mb-4">Номер, привязанный к выбранному способу связи</p>
-
-				<!-- Desktop: standard input -->
-				<div class="lr-desktop-phone">
-					<input type="tel" id="lr-photo-phone-input-desktop" placeholder="+7 (___) ___-__-__"
-						class="w-full border border-slate-300 rounded-lg p-4 text-lg outline-none focus:border-lr-accent focus:ring-1 focus:ring-lr-accent" />
-				</div>
-
-				<!-- Mobile: dialpad -->
-				<div class="lr-mobile-phone">
-					<div class="lr-phone-display" id="lr-photo-phone-display">+7</div>
-					<div class="lr-dialpad" id="lr-photo-dialpad">
-						<button type="button" class="lr-dialpad-key" onclick="lrDialpadInput('1','photo')"><span
-								class="lr-key-num">1</span></button>
-						<button type="button" class="lr-dialpad-key" onclick="lrDialpadInput('2','photo')"><span
-								class="lr-key-num">2</span><span class="lr-key-letters">АБВ</span></button>
-						<button type="button" class="lr-dialpad-key" onclick="lrDialpadInput('3','photo')"><span
-								class="lr-key-num">3</span><span class="lr-key-letters">ГДЕ</span></button>
-						<button type="button" class="lr-dialpad-key" onclick="lrDialpadInput('4','photo')"><span
-								class="lr-key-num">4</span><span class="lr-key-letters">ЖЗИ</span></button>
-						<button type="button" class="lr-dialpad-key" onclick="lrDialpadInput('5','photo')"><span
-								class="lr-key-num">5</span><span class="lr-key-letters">КЛМ</span></button>
-						<button type="button" class="lr-dialpad-key" onclick="lrDialpadInput('6','photo')"><span
-								class="lr-key-num">6</span><span class="lr-key-letters">НОП</span></button>
-						<button type="button" class="lr-dialpad-key" onclick="lrDialpadInput('7','photo')"><span
-								class="lr-key-num">7</span><span class="lr-key-letters">РСТ</span></button>
-						<button type="button" class="lr-dialpad-key" onclick="lrDialpadInput('8','photo')"><span
-								class="lr-key-num">8</span><span class="lr-key-letters">УФХ</span></button>
-						<button type="button" class="lr-dialpad-key" onclick="lrDialpadInput('9','photo')"><span
-								class="lr-key-num">9</span><span class="lr-key-letters">ЦЧШ</span></button>
-						<button type="button" class="lr-dialpad-key lr-dialpad-backspace"
-							onclick="lrDialpadBackspace('photo')"><i class="fa-solid fa-delete-left"></i></button>
-						<button type="button" class="lr-dialpad-key" onclick="lrDialpadInput('0','photo')"><span
-								class="lr-key-num">0</span></button>
-						<div class="lr-dialpad-key" style="visibility:hidden"></div>
-					</div>
-				</div>
-
-				<input type="hidden" id="lr-photo-phone-value" name="photo_phone" />
-
-				<div class="flex gap-3 mt-4">
-					<button type="button" id="lr-photo-submit-btn" onclick="lrSubmitPhotoForm()"
-						class="flex-1 bg-lr-green text-white font-bold py-3 rounded-lg hover:bg-lr-green-hover transition shadow-lg">
-						Получить расчет
-					</button>
-				</div>
-			</div>
-
-			<!-- Step 4 (Success) -->
-			<div id="lr-photo-step-4" class="lr-step hidden">
-				<div class="lr-step-success">
-					<div class="lr-success-icon">
-						<i class="fa-solid fa-check"></i>
-					</div>
-					<h3 class="font-serif text-2xl font-bold text-slate-900 mb-4">
-						Спасибо за заявку!
-					</h3>
-					<p class="text-slate-600 mb-8">
-						Наш&nbsp;старший технолог уже&nbsp;изучает вашу проблему.
-						Ваш&nbsp;расчет будет готов в&nbsp;течение 10-15&nbsp;минут.
-					</p>
-					<button onclick="lrClosePhotoModal()"
-						class="w-full bg-lr-primary text-white font-bold py-3 rounded-lg hover:bg-lr-secondary transition">
-						Закрыть окно
-					</button>
-				</div>
-			</div>
-
-			<p class="text-[10px] text-center text-slate-400 mt-4">
-				Нажимая кнопку, вы соглашаетесь с условиями обработки персональных
-				данных.
-			</p>
 		</div>
+		<p class="text-[10px] text-center text-slate-400 mt-4">
+			Нажимая кнопку, вы соглашаетесь с условиями обработки персональных
+			данных.
+		</p>
 	</div>
+</div>
+</div>
 
-	<script>
-		// swiper
-		const swiper = new Swiper('.lr-carousel', {
-			slidesPerView: 1,
-			spaceBetween: 10,
-			loop: false,
-			grabCursor: false,
-			watchSlidesProgress: true,
-			navigation: {
-				nextEl: '.swiper-button-next',
-				prevEl: '.swiper-button-prev',
+<!-- Photo Modal -->
+<div id="lr-photo-modal" class="lr-modal" onclick="if(event.target === this) lrClosePhotoModal()">
+	<div class="lr-modal-content">
+		<!-- Modal Header: Back + Progress + Close -->
+		<div class="flex items-center gap-3 mb-2">
+			<button id="lr-photo-back-btn" onclick="lrPhotoGoBack()"
+				class="text-slate-400 hover:text-slate-600 text-xl hidden" aria-label="Назад">
+				<i class="fa-solid fa-arrow-left"></i>
+			</button>
+			<div class="lr-progress-container flex-1">
+				<div id="lr-photo-progress-fill" class="lr-progress-bar"></div>
+			</div>
+			<button onclick="lrClosePhotoModal()" class="text-slate-400 hover:text-slate-600 text-2xl"
+				aria-label="Закрыть">
+				&times;
+			</button>
+		</div>
+
+		<!-- Step 1 (Photo) -->
+		<div id="lr-photo-step-1" class="lr-step block">
+			<div class="text-xs font-bold text-slate-400 uppercase tracking-widest mb-1">
+				Шаг&nbsp;1 из&nbsp;3
+			</div>
+			<h3 class="font-serif text-2xl font-bold text-slate-900 mb-6">
+				Прикрепите фото
+			</h3>
+			<p class="text-sm text-slate-500">
+				Фото&nbsp;поможет мастеру сразу&nbsp;оценить масштаб проблемы.
+			</p>
+
+			<div
+				class="border-2 border-dashed border-slate-300 rounded-xl p-8 text-center mb-4 bg-slate-50 relative cursor-pointer hover:bg-slate-100 transition">
+				<input type="file" id="lr-photo-file-input"
+					class="absolute inset-0 w-full h-full opacity-0 cursor-pointer" accept="image/*"
+					onchange="lrHandlePhotoFileSelect(this)" />
+				<i class="fa-solid fa-cloud-arrow-up text-4xl text-slate-400 mb-3 block"></i>
+				<span class="font-medium text-lr-primary">Нажмите, чтобы загрузить фото</span>
+				<span class="block text-xs text-slate-400 mt-1">или перетащите файл сюда</span>
+			</div>
+
+			<div id="lr-photo-file-info" class="lr-file-preview">
+				<i class="fa-solid fa-image text-lr-accent"></i>
+				<span id="lr-photo-file-name" class="truncate">filename.jpg</span>
+				<button onclick="lrResetPhotoFile()" class="ml-auto text-slate-400 hover:text-red-500">
+					<i class="fa-solid fa-xmark"></i>
+				</button>
+			</div>
+
+			<div class="flex gap-3 mt-6">
+				<button onclick="lrPhotoGoToStep(2)"
+					class="flex-1 bg-lr-primary text-white font-bold py-3 rounded-lg hover:bg-lr-secondary transition">
+					Далее
+				</button>
+			</div>
+		</div>
+
+		<!-- Step 2 (Contact Method) -->
+		<div id="lr-photo-step-2" class="lr-step hidden">
+			<div class="text-xs font-bold text-slate-400 uppercase tracking-widest mb-1">
+				Шаг&nbsp;2 из&nbsp;3
+			</div>
+			<h3 class="font-serif text-2xl font-bold text-slate-900 mb-6">
+				Как Вам удобнее получить расчет стоимости:
+			</h3>
+			<div class="grid grid-cols-2 md:grid-cols-3 gap-3 mb-6">
+				<label
+					class="lr-choice-label border rounded-lg p-3 text-center cursor-pointer hover:border-lr-accent hover:bg-slate-50 transition">
+					<input type="radio" name="photo_contact_method" value="Позвонить" class="hidden"
+						onchange="lrHandlePhotoSelection(this)" onclick="lrPhotoGoToStep(3)" />
+					<svg class="w-6 h-6 mx-auto mb-2 text-slate-400" viewBox="0 0 24 23" fill="currentColor"
+						xmlns="http://www.w3.org/2000/svg">
+						<path
+							d="M16.7416 14.7555L16.1342 15.3681C16.1342 15.3681 14.6908 16.8245 10.7508 12.8492C6.81082 8.87397 8.25426 7.41761 8.25426 7.41761L8.63666 7.03176C9.57879 6.08127 9.66759 4.55524 8.84559 3.44118L7.16434 1.16228C6.14703 -0.216584 4.18127 -0.398731 3.01526 0.777709L0.922463 2.88924C0.344304 3.47257 -0.0431357 4.22875 0.00385093 5.0676C0.124051 7.21365 1.08094 11.8311 6.42047 17.2184C12.0828 22.9313 17.3957 23.1584 19.5684 22.9528C20.2556 22.8879 20.8532 22.5328 21.3348 22.0468L23.2289 20.1359C24.5074 18.8458 24.1469 16.6343 22.511 15.732L19.9637 14.3269C18.8896 13.7344 17.581 13.9084 16.7416 14.7555Z" />
+					</svg>
+					<span class="font-medium text-slate-700">Позвонить</span>
+				</label>
+				<label
+					class="lr-choice-label border rounded-lg p-3 text-center cursor-pointer hover:border-lr-accent hover:bg-slate-50 transition">
+					<input type="radio" name="photo_contact_method" value="Вотсап" class="hidden"
+						onchange="lrHandlePhotoSelection(this)" onclick="lrPhotoGoToStep(3)" />
+					<svg class="w-6 h-6 mx-auto mb-2 text-slate-400" viewBox="0 0 24 24" fill="currentColor"
+						xmlns="http://www.w3.org/2000/svg">
+						<path
+							d="M20.4934 3.5136C18.2301 1.2492 15.2204.0012 12.0138 0 5.40627 0 .0288015 5.3748.0264014 11.982.0252013 14.094.577229 16.1556 1.62608 17.9724L0 24 6.27991 22.5156C8.0308 23.4708 10.0013 23.9736 12.0078 23.9748H12.0126C18.6189 23.9748 23.9964 18.5988 24 11.9928 24.0024 8.79 22.7567 5.7792 20.4934 3.5136ZM17.8785 16.2648C17.6289 16.9644 16.406 17.6388 15.8564 17.688 15.3068 17.7384 14.7919 17.9364 12.2622 16.9392 9.21766 15.7392 7.29516 12.618 7.14636 12.4188 6.99635 12.2184 5.92349 10.7952 5.92349 9.3216 5.92349 7.848 6.69753 7.1232 6.97235 6.8244 7.24716 6.5244 7.57118 6.45 7.77159 6.45 7.9708 6.45 8.17121 6.45 8.34522 6.4572 8.55883 6.4656 8.79524 6.4764 9.01965 6.9744 9.28606 7.5672 9.86809 9.048 9.9425 9.198 10.0169 9.348 10.0673 9.5232 9.9677 9.7224 9.86809 9.9216 9.81769 10.0464 9.66888 10.2216 9.51887 10.3968 9.35447 10.6116 9.22006 10.746 9.07005 10.8948 8.91404 11.058 9.08805 11.3568 9.26326 11.6568 9.86329 12.6372 10.7537 13.4304 11.8986 14.4504 12.8622 14.766 13.1623 14.9172 13.4623 15.0672 13.6363 15.042 13.8115 14.8416 13.9867 14.6424 14.5603 13.968 14.7595 13.668 14.9587 13.368 15.1592 13.4184 15.434 13.518 15.7088 13.6176 17.1813 14.3424 17.4801 14.4924 17.7801 14.6424 17.9793 14.7168 18.0537 14.8416 18.1281 14.9652 18.1281 15.5652 17.8785 16.2648Z" />
+					</svg>
+					<span class="font-medium text-slate-700">Вотсап</span>
+				</label>
+				<label
+					class="lr-choice-label border rounded-lg p-3 text-center cursor-pointer hover:border-lr-accent hover:bg-slate-50 transition">
+					<input type="radio" name="photo_contact_method" value="Телеграм" class="hidden"
+						onchange="lrHandlePhotoSelection(this)" onclick="lrPhotoGoToStep(3)" />
+					<svg class="w-6 h-6 mx-auto mb-2 text-slate-400" viewBox="0 0 24 20" fill="currentColor"
+						xmlns="http://www.w3.org/2000/svg">
+						<path
+							d="M21.9539 0.176566C21.9539 0.176566 24.1741 -0.689148 23.989 1.4133C23.9274 2.27903 23.3724 5.30902 22.9406 8.58639L21.4605 18.2948C21.4605 18.2948 21.3372 19.717 20.2271 19.9644C19.117 20.2117 17.4519 19.0987 17.1435 18.8513C16.8968 18.6658 12.5182 15.8831 10.9763 14.5227C10.5446 14.1517 10.0513 13.4096 11.038 12.5439L17.5136 6.36028C18.2536 5.61823 18.9937 3.8868 15.9101 5.98925L7.27606 11.8638C7.27606 11.8638 6.28932 12.4821 4.4392 11.9256L0.430526 10.6888C0.430526 10.6888 -1.04959 9.76131 1.47894 8.83371C7.64612 5.92737 15.2317 2.9592 21.9539 0.176566Z" />
+					</svg>
+					<span class="font-medium text-slate-700">Телеграм</span>
+				</label>
+				<label
+					class="lr-choice-label border rounded-lg p-3 text-center cursor-pointer hover:border-lr-accent hover:bg-slate-50 transition">
+					<input type="radio" name="photo_contact_method" value="Макс" class="hidden"
+						onchange="lrHandlePhotoSelection(this)" onclick="lrPhotoGoToStep(3)" />
+					<svg class="w-6 h-6 mx-auto mb-2 text-slate-400" viewBox="0 0 24 24" fill="currentColor"
+						xmlns="http://www.w3.org/2000/svg">
+						<path fill-rule="evenodd" clip-rule="evenodd"
+							d="M12.2589 23.9315C9.90029 23.9315 8.80729 23.5862 6.90892 22.2049 5.70086 23.7588 1.89262 24.9733 1.73154 22.8955 1.73154 21.3358 1.38063 20.0177.995206 18.5789.52349 16.8062 0 14.832 0 11.9715 0 5.13969 5.58006 0 12.1956 0 18.8111 0 24 5.39869 24 12.0406 24 18.6825 18.65 23.9373 12.2589 23.9373M12.3567 5.91093C9.13519 5.74402 6.62129 7.98293 6.06903 11.4938 5.60882 14.4003 6.4257 17.94 7.12177 18.1242 7.44967 18.2048 8.28955 17.5256 8.80729 17.0019 9.65868 17.5601 10.6366 17.986 11.7239 18.0436 15.0259 18.2163 17.954 15.6263 18.1323 12.3053 18.1955 10.6964 17.6263 9.12671 16.5467 7.93255 15.4671 6.7384 13.963 6.01477 12.3567 5.91669" />
+					</svg>
+					<span class="font-medium text-slate-700">Макс</span>
+				</label>
+				<label
+					class="lr-choice-label border rounded-lg p-3 text-center cursor-pointer hover:border-lr-accent hover:bg-slate-50 transition">
+					<input type="radio" name="photo_contact_method" value="ВК" class="hidden"
+						onchange="lrHandlePhotoSelection(this)" onclick="lrPhotoGoToStep(3)" />
+					<svg class="w-6 h-6 mx-auto mb-2 text-slate-400" viewBox="0 0 24 24" fill="currentColor"
+						xmlns="http://www.w3.org/2000/svg">
+						<path fill-rule="evenodd" clip-rule="evenodd"
+							d="M12.4805 0C17.9107 0 20.6255.000487 22.3125 1.6875 23.9995 3.37452 24 6.08927 24 11.5195V12.4805C24 17.9107 23.9995 20.6255 22.3125 22.3125 20.6255 23.9995 17.9107 24 12.4805 24H11.5195C6.08927 24 3.37452 23.9995 1.6875 22.3125.000487 20.6255 0 17.9107 0 12.4805V11.5195C0 6.08927.000483 3.37452 1.6875 1.6875 3.37452.000483 6.08927 0 11.5195 0H12.4805ZM4.05078 7.30078C4.18079 13.5408 7.3005 17.291 12.7705 17.291H13.0801V13.7207C15.0901 13.9207 16.6107 15.391 17.2207 17.291H20.0605C19.2805 14.451 17.2302 12.8803 15.9502 12.2803 17.2302 11.5402 19.03 9.74064 19.46 7.30078H16.8799C16.3198 9.28075 14.6601 11.081 13.0801 11.251V7.30078H10.5V14.2207C8.90006 13.8206 6.88003 11.8805 6.79004 7.30078H4.05078Z" />
+					</svg>
+					<span class="font-medium text-slate-700">ВК</span>
+				</label>
+				<label
+					class="lr-choice-label border rounded-lg p-3 text-center cursor-pointer hover:border-lr-accent hover:bg-slate-50 transition">
+					<input type="radio" name="photo_contact_method" value="СМС" class="hidden"
+						onchange="lrHandlePhotoSelection(this)" onclick="lrPhotoGoToStep(3)" />
+					<svg class="w-6 h-6 mx-auto mb-2 text-slate-400" viewBox="0 0 24 19" fill="currentColor"
+						xmlns="http://www.w3.org/2000/svg">
+						<path
+							d="M19.92 0H4.08C2.99889.00313 1.96296.42952 1.1985 1.18602.434038 1.94252.00317 2.96765 0 4.0375V14.9625C.00317 16.0323.434038 17.0575 1.1985 17.814 1.96296 18.5705 2.99889 18.9969 4.08 19H19.92C21.0011 18.9969 22.037 18.5705 22.8015 17.814 23.566 17.0575 23.9968 16.0323 24 14.9625V4.0375C23.9968 2.96765 23.566 1.94252 22.8015 1.18602 22.037.42952 21.0011.00313 19.92 0ZM19.692 6.68563L13.884 10.45C13.3368 10.8329 12.6821 11.0364 12.012 11.0319 11.3202 11.0324 10.6453 10.8208 10.08 10.4262L4.308 6.68563C4.20872 6.62169 4.12314 6.53903 4.05614 6.44236 3.98915 6.34569 3.94205 6.23691 3.91753 6.12223 3.89302 6.00755 3.89157 5.88922 3.91327 5.77398 3.93497 5.65875 3.97939 5.54887 4.044 5.45063 4.10861 5.35238 4.19214 5.26769 4.28983 5.20139 4.38751 5.13509 4.49744 5.08848 4.61332 5.06422 4.72921 5.03996 4.84879 5.03853 4.96524 5.06 5.08169 5.08148 5.19272 5.12544 5.292 5.18937L11.1 8.95375C11.3582 9.13914 11.669 9.23898 11.988 9.23898 12.307 9.23898 12.6178 9.13914 12.876 8.95375L18.708 5.16563C18.8073 5.10169 18.9183 5.05773 19.0348 5.03625 19.1512 5.01478 19.2708 5.01621 19.3867 5.04047 19.5026 5.06473 19.6125 5.11134 19.7102 5.17764 19.8079 5.24394 19.8914 5.32863 19.956 5.42687 20.0206 5.52512 20.065 5.635 20.0867 5.75023 20.1084 5.86547 20.107 5.9838 20.0825 6.09848 20.058 6.21316 20.0109 6.32194 19.9439 6.41861 19.8769 6.51528 19.7913 6.59794 19.692 6.66187V6.68563Z" />
+					</svg>
+					<span class="font-medium text-slate-700">СМС</span>
+				</label>
+			</div>
+			<div class="flex gap-3">
+				<button id="lr-photo-next-2" onclick="lrPhotoGoToStep(3)" disabled
+					class="flex-1 bg-lr-primary text-white font-bold py-3 rounded-lg hover:bg-lr-secondary transition opacity-50 cursor-not-allowed">
+					Далее
+				</button>
+			</div>
+		</div>
+
+		<!-- Step 3 (Phone Input with Dialpad) -->
+		<div id="lr-photo-step-3" class="lr-step hidden">
+			<div class="text-xs font-bold text-slate-400 uppercase tracking-widest mb-1">
+				Шаг&nbsp;3 из&nbsp;3
+			</div>
+			<h3 class="font-serif text-2xl font-bold text-slate-900 mb-2">
+				Введите номер телефона
+			</h3>
+			<p class="text-sm text-slate-500 mb-4">Номер, привязанный к выбранному способу связи</p>
+
+			<!-- Desktop: standard input -->
+			<div class="lr-desktop-phone">
+				<input type="tel" id="lr-photo-phone-input-desktop" placeholder="+7 (___) ___-__-__"
+					class="w-full border border-slate-300 rounded-lg p-4 text-lg outline-none focus:border-lr-accent focus:ring-1 focus:ring-lr-accent" />
+			</div>
+
+			<!-- Mobile: dialpad -->
+			<div class="lr-mobile-phone">
+				<div class="lr-phone-display" id="lr-photo-phone-display">+7</div>
+				<div class="lr-dialpad" id="lr-photo-dialpad">
+					<button type="button" class="lr-dialpad-key" onclick="lrDialpadInput('1','photo')"><span
+							class="lr-key-num">1</span></button>
+					<button type="button" class="lr-dialpad-key" onclick="lrDialpadInput('2','photo')"><span
+							class="lr-key-num">2</span><span class="lr-key-letters">АБВ</span></button>
+					<button type="button" class="lr-dialpad-key" onclick="lrDialpadInput('3','photo')"><span
+							class="lr-key-num">3</span><span class="lr-key-letters">ГДЕ</span></button>
+					<button type="button" class="lr-dialpad-key" onclick="lrDialpadInput('4','photo')"><span
+							class="lr-key-num">4</span><span class="lr-key-letters">ЖЗИ</span></button>
+					<button type="button" class="lr-dialpad-key" onclick="lrDialpadInput('5','photo')"><span
+							class="lr-key-num">5</span><span class="lr-key-letters">КЛМ</span></button>
+					<button type="button" class="lr-dialpad-key" onclick="lrDialpadInput('6','photo')"><span
+							class="lr-key-num">6</span><span class="lr-key-letters">НОП</span></button>
+					<button type="button" class="lr-dialpad-key" onclick="lrDialpadInput('7','photo')"><span
+							class="lr-key-num">7</span><span class="lr-key-letters">РСТ</span></button>
+					<button type="button" class="lr-dialpad-key" onclick="lrDialpadInput('8','photo')"><span
+							class="lr-key-num">8</span><span class="lr-key-letters">УФХ</span></button>
+					<button type="button" class="lr-dialpad-key" onclick="lrDialpadInput('9','photo')"><span
+							class="lr-key-num">9</span><span class="lr-key-letters">ЦЧШ</span></button>
+					<button type="button" class="lr-dialpad-key lr-dialpad-backspace"
+						onclick="lrDialpadBackspace('photo')"><i class="fa-solid fa-delete-left"></i></button>
+					<button type="button" class="lr-dialpad-key" onclick="lrDialpadInput('0','photo')"><span
+							class="lr-key-num">0</span></button>
+					<div class="lr-dialpad-key" style="visibility:hidden"></div>
+				</div>
+			</div>
+
+			<input type="hidden" id="lr-photo-phone-value" name="photo_phone" />
+
+			<div class="flex gap-3 mt-4">
+				<button type="button" id="lr-photo-submit-btn" onclick="lrSubmitPhotoForm()"
+					class="flex-1 bg-lr-green text-white font-bold py-3 rounded-lg hover:bg-lr-green-hover transition shadow-lg">
+					Получить расчет
+				</button>
+			</div>
+		</div>
+
+		<!-- Step 4 (Success) -->
+		<div id="lr-photo-step-4" class="lr-step hidden">
+			<div class="lr-step-success">
+				<div class="lr-success-icon">
+					<i class="fa-solid fa-check"></i>
+				</div>
+				<h3 class="font-serif text-2xl font-bold text-slate-900 mb-4">
+					Спасибо за заявку!
+				</h3>
+				<p class="text-slate-600 mb-8">
+					Наш&nbsp;старший технолог уже&nbsp;изучает вашу проблему.
+					Ваш&nbsp;расчет будет готов в&nbsp;течение 10-15&nbsp;минут.
+				</p>
+				<button onclick="lrClosePhotoModal()"
+					class="w-full bg-lr-primary text-white font-bold py-3 rounded-lg hover:bg-lr-secondary transition">
+					Закрыть окно
+				</button>
+			</div>
+		</div>
+
+		<p class="text-[10px] text-center text-slate-400 mt-4">
+			Нажимая кнопку, вы соглашаетесь с условиями обработки персональных
+			данных.
+		</p>
+	</div>
+</div>
+
+<script>
+	// swiper
+	const swiper = new Swiper('.lr-carousel', {
+		slidesPerView: 1,
+		spaceBetween: 10,
+		loop: false,
+		grabCursor: false,
+		watchSlidesProgress: true,
+		navigation: {
+			nextEl: '.swiper-button-next',
+			prevEl: '.swiper-button-prev',
+		},
+		pagination: {
+			el: '.swiper-pagination',
+			clickable: true,
+		},
+		breakpoints: {
+			640: {
+				slidesPerView: 2,
+				spaceBetween: 20,
 			},
-			pagination: {
-				el: '.swiper-pagination',
-				clickable: true,
+			1024: {
+				slidesPerView: 2,
+				spaceBetween: 20,
 			},
-			breakpoints: {
-				640: {
-					slidesPerView: 2,
-					spaceBetween: 20,
-				},
-				1024: {
-					slidesPerView: 2,
-					spaceBetween: 20,
-				},
-			},
-		})
+		},
+	})
 
-		const lightbox = GLightbox({
-			selector: '.glightbox',
-			touchNavigation: true,
-			loop: true,
-		})
+	const lightbox = GLightbox({
+		selector: '.glightbox',
+		touchNavigation: true,
+		loop: true,
+	})
 
-		// Modal & Quiz Logic
-		const totalSteps = 5
-		let currentStep = 1
+	// Modal & Quiz Logic
+	const totalSteps = 5
+	let currentStep = 1
 
-		function lrOpenModal() {
-			const modal = document.getElementById('lr-quiz-modal')
-			modal.classList.add('lr-active')
-			document.body.style.overflow = 'hidden'
-			lrGoToStep(1)
-		}
+	function lrOpenModal() {
+		const modal = document.getElementById('lr-quiz-modal')
+		modal.classList.add('lr-active')
+		document.body.style.overflow = 'hidden'
+		lrGoToStep(1)
+	}
 
-		function lrCloseModal() {
-			const modal = document.getElementById('lr-quiz-modal')
-			modal.classList.remove('lr-active')
-			document.body.style.overflow = ''
-			// Reset quiz state when closing
-			setTimeout(() => {
-				lrResetQuiz()
-			}, 300)
-		}
+	function lrCloseModal() {
+		const modal = document.getElementById('lr-quiz-modal')
+		modal.classList.remove('lr-active')
+		document.body.style.overflow = ''
+		// Reset quiz state when closing
+		setTimeout(() => {
+			lrResetQuiz()
+		}, 300)
+	}
 
-		function lrNextStep(stepNum) {
-			if (lrValidateStep(stepNum - 1)) {
-				lrGoToStep(stepNum)
-			}
-		}
-
-		function lrPrevStep(stepNum) {
+	function lrNextStep(stepNum) {
+		if (lrValidateStep(stepNum - 1)) {
 			lrGoToStep(stepNum)
 		}
+	}
 
-		function lrGoBack() {
-			if (currentStep > 1) {
-				lrGoToStep(currentStep - 1)
-			}
+	function lrPrevStep(stepNum) {
+		lrGoToStep(stepNum)
+	}
+
+	function lrGoBack() {
+		if (currentStep > 1) {
+			lrGoToStep(currentStep - 1)
 		}
+	}
 
-		function lrGoToStep(stepNum) {
-			currentStep = stepNum
-			document
-				.querySelectorAll('#lr-quiz-modal .lr-step')
-				.forEach(step => step.classList.add('hidden'))
-			const targetStep = document.getElementById('lr-step-' + stepNum)
-			if (targetStep) {
-				targetStep.classList.remove('hidden')
-				lrUpdateProgressBar(stepNum)
-				// Scroll modal to top
-				const modalContent = document.querySelector('#lr-quiz-modal .lr-modal-content')
-				if (modalContent) modalContent.scrollTop = 0
-			}
-			// Show/hide header back button
-			const backBtn = document.getElementById('lr-quiz-back-btn')
-			if (backBtn) {
-				if (stepNum > 1 && stepNum <= totalSteps) {
-					backBtn.classList.remove('hidden')
-				} else {
-					backBtn.classList.add('hidden')
-				}
-			}
+	function lrGoToStep(stepNum) {
+		currentStep = stepNum
+		document
+			.querySelectorAll('#lr-quiz-modal .lr-step')
+			.forEach(step => step.classList.add('hidden'))
+		const targetStep = document.getElementById('lr-step-' + stepNum)
+		if (targetStep) {
+			targetStep.classList.remove('hidden')
+			lrUpdateProgressBar(stepNum)
+			// Scroll modal to top
+			const modalContent = document.querySelector('#lr-quiz-modal .lr-modal-content')
+			if (modalContent) modalContent.scrollTop = 0
 		}
-
-		function lrUpdateProgressBar(step) {
-			const progressFill = document.getElementById('lr-progress-fill')
-			if (progressFill) {
-				const percentage = (step / totalSteps) * 100
-				progressFill.style.width = percentage + '%'
-			}
-		}
-
-		function lrHandleSelection(input) {
-			const name = input.getAttribute('name')
-			const container = input.closest('.grid') || input.closest('.space-y-2')
-
-			if (input.type === 'radio') {
-				container
-					.querySelectorAll('.lr-choice-label')
-					.forEach(label => label.classList.remove('active'))
-				input.closest('.lr-choice-label').classList.add('active')
-			} else if (input.type === 'checkbox') {
-				input.closest('.lr-choice-label').classList.toggle('active', input.checked)
-			}
-
-			lrValidateStep(currentStep)
-		}
-
-		function lrValidateStep(step) {
-			let isValid = false
-			if (step === 1) {
-				isValid = !!document.querySelector('input[name="furniture"]:checked')
-				const nextBtn = document.getElementById('lr-next-1')
-				lrToggleBtnState(nextBtn, isValid)
-			} else if (step === 2) {
-				isValid = !!document.querySelector('input[name="problem"]:checked')
-				const nextBtn = document.getElementById('lr-next-2')
-				lrToggleBtnState(nextBtn, isValid)
-			} else if (step === 4) {
-				isValid = !!document.querySelector('input[name="contact_method"]:checked')
-				const nextBtn = document.getElementById('lr-next-4')
-				lrToggleBtnState(nextBtn, isValid)
+		// Show/hide header back button
+		const backBtn = document.getElementById('lr-quiz-back-btn')
+		if (backBtn) {
+			if (stepNum > 1 && stepNum <= totalSteps) {
+				backBtn.classList.remove('hidden')
 			} else {
-				isValid = true
-			}
-			return isValid
-		}
-
-		function lrToggleBtnState(btn, isValid) {
-			if (!btn) return
-			if (isValid) {
-				btn.disabled = false
-				btn.classList.remove('opacity-50', 'cursor-not-allowed')
-			} else {
-				btn.disabled = true
-				btn.classList.add('opacity-50', 'cursor-not-allowed')
+				backBtn.classList.add('hidden')
 			}
 		}
+	}
 
-		function lrHandleFileSelect(input) {
-			const fileInfo = document.getElementById('lr-file-info')
-			const fileName = document.getElementById('lr-file-name')
-
-			if (input.files && input.files[0]) {
-				fileName.textContent = input.files[0].name
-				fileInfo.classList.add('active')
-			} else {
-				lrResetFile()
-			}
+	function lrUpdateProgressBar(step) {
+		const progressFill = document.getElementById('lr-progress-fill')
+		if (progressFill) {
+			const percentage = (step / totalSteps) * 100
+			progressFill.style.width = percentage + '%'
 		}
+	}
 
-		function lrResetFile() {
-			const fileInput = document.getElementById('lr-quiz-file')
-			const fileInfo = document.getElementById('lr-file-info')
-			if (fileInput) fileInput.value = ''
-			if (fileInfo) fileInfo.classList.remove('active')
-		}
+	function lrHandleSelection(input) {
+		const name = input.getAttribute('name')
+		const container = input.closest('.grid') || input.closest('.space-y-2')
 
-		function lrSubmitQuiz() {
-			// Show step 6 (Success)
-			lrGoToStep(6)
-			// Hide progress bar and back button on success
-			const header = document.querySelector('#lr-quiz-modal .flex.items-center.gap-3.mb-2')
-			if (header) header.style.display = 'none'
-		}
-
-		function lrResetQuiz() {
-			// Reset all inputs
-			document.querySelectorAll('#lr-quiz-modal input').forEach(input => {
-				if (input.type === 'radio' || input.type === 'checkbox') {
-					input.checked = false
-				} else {
-					input.value = ''
-				}
-			})
-			// Reset labels
-			document
-				.querySelectorAll('#lr-quiz-modal .lr-choice-label')
+		if (input.type === 'radio') {
+			container
+				.querySelectorAll('.lr-choice-label')
 				.forEach(label => label.classList.remove('active'))
-			// Reset progress and file
+			input.closest('.lr-choice-label').classList.add('active')
+		} else if (input.type === 'checkbox') {
+			input.closest('.lr-choice-label').classList.toggle('active', input.checked)
+		}
+
+		lrValidateStep(currentStep)
+	}
+
+	function lrValidateStep(step) {
+		let isValid = false
+		if (step === 1) {
+			isValid = !!document.querySelector('input[name="furniture"]:checked')
+			const nextBtn = document.getElementById('lr-next-1')
+			lrToggleBtnState(nextBtn, isValid)
+		} else if (step === 2) {
+			isValid = !!document.querySelector('input[name="problem"]:checked')
+			const nextBtn = document.getElementById('lr-next-2')
+			lrToggleBtnState(nextBtn, isValid)
+		} else if (step === 4) {
+			isValid = !!document.querySelector('input[name="contact_method"]:checked')
+			const nextBtn = document.getElementById('lr-next-4')
+			lrToggleBtnState(nextBtn, isValid)
+		} else {
+			isValid = true
+		}
+		return isValid
+	}
+
+	function lrToggleBtnState(btn, isValid) {
+		if (!btn) return
+		if (isValid) {
+			btn.disabled = false
+			btn.classList.remove('opacity-50', 'cursor-not-allowed')
+		} else {
+			btn.disabled = true
+			btn.classList.add('opacity-50', 'cursor-not-allowed')
+		}
+	}
+
+	function lrHandleFileSelect(input) {
+		const fileInfo = document.getElementById('lr-file-info')
+		const fileName = document.getElementById('lr-file-name')
+
+		if (input.files && input.files[0]) {
+			fileName.textContent = input.files[0].name
+			fileInfo.classList.add('active')
+		} else {
 			lrResetFile()
-			// Reset phone dialpad
-			lrPhoneDigits = ''
-			const phoneDisplay = document.getElementById('lr-phone-display')
-			if (phoneDisplay) phoneDisplay.textContent = '+7'
-			const header = document.querySelector('#lr-quiz-modal .flex.items-center.gap-3.mb-2')
-			if (header) header.style.display = ''
-			lrUpdateProgressBar(1)
-			// Reset buttons
-			lrToggleBtnState(document.getElementById('lr-next-1'), false)
-			lrToggleBtnState(document.getElementById('lr-next-2'), false)
-			lrToggleBtnState(document.getElementById('lr-next-4'), false)
 		}
+	}
 
-		// Dialpad Logic (shared by both quiz and photo modals)
-		let lrPhoneDigits = ''       // digits for quiz modal
-		let lrPhotoPhoneDigits = ''  // digits for photo modal
+	function lrResetFile() {
+		const fileInput = document.getElementById('lr-quiz-file')
+		const fileInfo = document.getElementById('lr-file-info')
+		if (fileInput) fileInput.value = ''
+		if (fileInfo) fileInfo.classList.remove('active')
+	}
 
-		function lrFormatPhone(digits) {
-			if (digits.length === 0) return '+7'
-			let d = digits.slice(0, 10)
-			let result = '+7 ('
-			result += d.substring(0, 3)
-			if (d.length >= 3) result += ') '
-			result += d.substring(3, 6)
-			if (d.length >= 6) result += '-'
-			result += d.substring(6, 8)
-			if (d.length >= 8) result += '-'
-			result += d.substring(8, 10)
-			return result
-		}
+	function lrSubmitQuiz() {
+		// Show step 6 (Success)
+		lrGoToStep(6)
+		// Hide progress bar and back button on success
+		const header = document.querySelector('#lr-quiz-modal .flex.items-center.gap-3.mb-2')
+		if (header) header.style.display = 'none'
+	}
 
-		function lrDialpadInput(digit, context) {
-			if (context === 'photo') {
-				if (lrPhotoPhoneDigits.length >= 10) return
-				lrPhotoPhoneDigits += digit
-				document.getElementById('lr-photo-phone-display').textContent = lrFormatPhone(lrPhotoPhoneDigits)
-				document.getElementById('lr-photo-phone-value').value = '+7' + lrPhotoPhoneDigits
+	function lrResetQuiz() {
+		// Reset all inputs
+		document.querySelectorAll('#lr-quiz-modal input').forEach(input => {
+			if (input.type === 'radio' || input.type === 'checkbox') {
+				input.checked = false
 			} else {
-				if (lrPhoneDigits.length >= 10) return
-				lrPhoneDigits += digit
-				document.getElementById('lr-phone-display').textContent = lrFormatPhone(lrPhoneDigits)
-				document.getElementById('lr-phone-value').value = '+7' + lrPhoneDigits
+				input.value = ''
 			}
-		}
+		})
+		// Reset labels
+		document
+			.querySelectorAll('#lr-quiz-modal .lr-choice-label')
+			.forEach(label => label.classList.remove('active'))
+		// Reset progress and file
+		lrResetFile()
+		// Reset phone dialpad
+		lrPhoneDigits = ''
+		const phoneDisplay = document.getElementById('lr-phone-display')
+		if (phoneDisplay) phoneDisplay.textContent = '+7'
+		const header = document.querySelector('#lr-quiz-modal .flex.items-center.gap-3.mb-2')
+		if (header) header.style.display = ''
+		lrUpdateProgressBar(1)
+		// Reset buttons
+		lrToggleBtnState(document.getElementById('lr-next-1'), false)
+		lrToggleBtnState(document.getElementById('lr-next-2'), false)
+		lrToggleBtnState(document.getElementById('lr-next-4'), false)
+	}
 
-		function lrDialpadBackspace(context) {
-			if (context === 'photo') {
-				lrPhotoPhoneDigits = lrPhotoPhoneDigits.slice(0, -1)
-				document.getElementById('lr-photo-phone-display').textContent = lrFormatPhone(lrPhotoPhoneDigits)
-				document.getElementById('lr-photo-phone-value').value = '+7' + lrPhotoPhoneDigits
+	// Dialpad Logic (shared by both quiz and photo modals)
+	let lrPhoneDigits = ''       // digits for quiz modal
+	let lrPhotoPhoneDigits = ''  // digits for photo modal
+
+	function lrFormatPhone(digits) {
+		if (digits.length === 0) return '+7'
+		let d = digits.slice(0, 10)
+		let result = '+7 ('
+		result += d.substring(0, 3)
+		if (d.length >= 3) result += ') '
+		result += d.substring(3, 6)
+		if (d.length >= 6) result += '-'
+		result += d.substring(6, 8)
+		if (d.length >= 8) result += '-'
+		result += d.substring(8, 10)
+		return result
+	}
+
+	function lrDialpadInput(digit, context) {
+		if (context === 'photo') {
+			if (lrPhotoPhoneDigits.length >= 10) return
+			lrPhotoPhoneDigits += digit
+			document.getElementById('lr-photo-phone-display').textContent = lrFormatPhone(lrPhotoPhoneDigits)
+			document.getElementById('lr-photo-phone-value').value = '+7' + lrPhotoPhoneDigits
+		} else {
+			if (lrPhoneDigits.length >= 10) return
+			lrPhoneDigits += digit
+			document.getElementById('lr-phone-display').textContent = lrFormatPhone(lrPhoneDigits)
+			document.getElementById('lr-phone-value').value = '+7' + lrPhoneDigits
+		}
+	}
+
+	function lrDialpadBackspace(context) {
+		if (context === 'photo') {
+			lrPhotoPhoneDigits = lrPhotoPhoneDigits.slice(0, -1)
+			document.getElementById('lr-photo-phone-display').textContent = lrFormatPhone(lrPhotoPhoneDigits)
+			document.getElementById('lr-photo-phone-value').value = '+7' + lrPhotoPhoneDigits
+		} else {
+			lrPhoneDigits = lrPhoneDigits.slice(0, -1)
+			document.getElementById('lr-phone-display').textContent = lrFormatPhone(lrPhoneDigits)
+			document.getElementById('lr-phone-value').value = '+7' + lrPhoneDigits
+		}
+	}
+
+	// Photo Modal Logic
+	const totalPhotoSteps = 3
+	let currentPhotoStep = 1
+
+	function lrOpenPhotoModal() {
+		const modal = document.getElementById('lr-photo-modal')
+		if (modal) {
+			modal.classList.add('lr-active')
+			document.body.style.overflow = 'hidden'
+			lrPhotoGoToStep(1)
+		}
+	}
+
+	function lrClosePhotoModal() {
+		const modal = document.getElementById('lr-photo-modal')
+		if (modal) {
+			modal.classList.remove('lr-active')
+			document.body.style.overflow = ''
+			setTimeout(() => {
+				lrResetPhotoModal()
+			}, 300)
+		}
+	}
+
+	function lrPhotoGoToStep(stepNum) {
+		currentPhotoStep = stepNum
+		const modal = document.getElementById('lr-photo-modal')
+		if (!modal) return
+
+		modal.querySelectorAll('.lr-step').forEach(step => step.classList.add('hidden'))
+		const targetStep = document.getElementById('lr-photo-step-' + stepNum)
+		if (targetStep) {
+			targetStep.classList.remove('hidden')
+			lrUpdatePhotoProgressBar(stepNum)
+			const modalContent = modal.querySelector('.lr-modal-content')
+			if (modalContent) modalContent.scrollTop = 0
+		}
+		// Show/hide header back button
+		const backBtn = document.getElementById('lr-photo-back-btn')
+		if (backBtn) {
+			if (stepNum > 1 && stepNum <= totalPhotoSteps) {
+				backBtn.classList.remove('hidden')
 			} else {
-				lrPhoneDigits = lrPhoneDigits.slice(0, -1)
-				document.getElementById('lr-phone-display').textContent = lrFormatPhone(lrPhoneDigits)
-				document.getElementById('lr-phone-value').value = '+7' + lrPhoneDigits
+				backBtn.classList.add('hidden')
 			}
 		}
+	}
 
-		// Photo Modal Logic
-		const totalPhotoSteps = 3
-		let currentPhotoStep = 1
-
-		function lrOpenPhotoModal() {
-			const modal = document.getElementById('lr-photo-modal')
-			if (modal) {
-				modal.classList.add('lr-active')
-				document.body.style.overflow = 'hidden'
-				lrPhotoGoToStep(1)
-			}
+	function lrPhotoGoBack() {
+		if (currentPhotoStep > 1) {
+			lrPhotoGoToStep(currentPhotoStep - 1)
 		}
+	}
 
-		function lrClosePhotoModal() {
-			const modal = document.getElementById('lr-photo-modal')
-			if (modal) {
-				modal.classList.remove('lr-active')
-				document.body.style.overflow = ''
-				setTimeout(() => {
-					lrResetPhotoModal()
-				}, 300)
-			}
+	function lrUpdatePhotoProgressBar(step) {
+		const progressFill = document.getElementById('lr-photo-progress-fill')
+		if (progressFill) {
+			const percentage = (step / totalPhotoSteps) * 100
+			progressFill.style.width = percentage + '%'
 		}
+	}
 
-		function lrPhotoGoToStep(stepNum) {
-			currentPhotoStep = stepNum
-			const modal = document.getElementById('lr-photo-modal')
-			if (!modal) return
-
-			modal.querySelectorAll('.lr-step').forEach(step => step.classList.add('hidden'))
-			const targetStep = document.getElementById('lr-photo-step-' + stepNum)
-			if (targetStep) {
-				targetStep.classList.remove('hidden')
-				lrUpdatePhotoProgressBar(stepNum)
-				const modalContent = modal.querySelector('.lr-modal-content')
-				if (modalContent) modalContent.scrollTop = 0
-			}
-			// Show/hide header back button
-			const backBtn = document.getElementById('lr-photo-back-btn')
-			if (backBtn) {
-				if (stepNum > 1 && stepNum <= totalPhotoSteps) {
-					backBtn.classList.remove('hidden')
-				} else {
-					backBtn.classList.add('hidden')
-				}
-			}
-		}
-
-		function lrPhotoGoBack() {
-			if (currentPhotoStep > 1) {
-				lrPhotoGoToStep(currentPhotoStep - 1)
-			}
-		}
-
-		function lrUpdatePhotoProgressBar(step) {
-			const progressFill = document.getElementById('lr-photo-progress-fill')
-			if (progressFill) {
-				const percentage = (step / totalPhotoSteps) * 100
-				progressFill.style.width = percentage + '%'
-			}
-		}
-
-		function lrHandlePhotoSelection(input) {
-			const container = input.closest('.grid') || input.closest('.space-y-2')
-			if (input.type === 'radio') {
-				container
-					.querySelectorAll('.lr-choice-label')
-					.forEach(label => label.classList.remove('active'))
-				input.closest('.lr-choice-label').classList.add('active')
-			}
-			// Enable next button
-			const nextBtn = document.getElementById('lr-photo-next-2')
-			if (nextBtn) lrToggleBtnState(nextBtn, true)
-		}
-
-		function lrHandlePhotoFileSelect(input) {
-			const fileInfo = document.getElementById('lr-photo-file-info')
-			const fileName = document.getElementById('lr-photo-file-name')
-
-			if (input.files && input.files[0]) {
-				fileName.textContent = input.files[0].name
-				fileInfo.classList.add('active')
-			} else {
-				lrResetPhotoFile()
-			}
-		}
-
-		function lrResetPhotoFile() {
-			const fileInput = document.getElementById('lr-photo-file-input')
-			const fileInfo = document.getElementById('lr-photo-file-info')
-			if (fileInput) fileInput.value = ''
-			if (fileInfo) fileInfo.classList.remove('active')
-		}
-
-		function lrSubmitPhotoForm() {
-			// Show success step (step 4)
-			lrPhotoGoToStep(4)
-			// Hide header (progress bar + back button) on success
-			const header = document.querySelector('#lr-photo-modal .flex.items-center.gap-3.mb-2')
-			if (header) header.style.display = 'none'
-		}
-
-		function lrResetPhotoModal() {
-			// Reset inputs
-			document.querySelectorAll('#lr-photo-modal input').forEach(input => {
-				if (input.type === 'radio' || input.type === 'checkbox') {
-					input.checked = false
-				} else {
-					input.value = ''
-				}
-			})
-			// Reset labels
-			document.querySelectorAll('#lr-photo-modal .lr-choice-label')
+	function lrHandlePhotoSelection(input) {
+		const container = input.closest('.grid') || input.closest('.space-y-2')
+		if (input.type === 'radio') {
+			container
+				.querySelectorAll('.lr-choice-label')
 				.forEach(label => label.classList.remove('active'))
-			// Reset progress, file, and phone
-			lrResetPhotoFile()
-			lrPhotoPhoneDigits = ''
-			const phoneDisplay = document.getElementById('lr-photo-phone-display')
-			if (phoneDisplay) phoneDisplay.textContent = '+7'
-			const header = document.querySelector('#lr-photo-modal .flex.items-center.gap-3.mb-2')
-			if (header) header.style.display = ''
-			lrUpdatePhotoProgressBar(1)
-			// Reset next button
-			const nextBtn = document.getElementById('lr-photo-next-2')
-			if (nextBtn) lrToggleBtnState(nextBtn, false)
+			input.closest('.lr-choice-label').classList.add('active')
 		}
+		// Enable next button
+		const nextBtn = document.getElementById('lr-photo-next-2')
+		if (nextBtn) lrToggleBtnState(nextBtn, true)
+	}
 
-	</script>
-	<!--  -->
-</body>
+	function lrHandlePhotoFileSelect(input) {
+		const fileInfo = document.getElementById('lr-photo-file-info')
+		const fileName = document.getElementById('lr-photo-file-name')
 
-</html>
+		if (input.files && input.files[0]) {
+			fileName.textContent = input.files[0].name
+			fileInfo.classList.add('active')
+		} else {
+			lrResetPhotoFile()
+		}
+	}
+
+	function lrResetPhotoFile() {
+		const fileInput = document.getElementById('lr-photo-file-input')
+		const fileInfo = document.getElementById('lr-photo-file-info')
+		if (fileInput) fileInput.value = ''
+		if (fileInfo) fileInfo.classList.remove('active')
+	}
+
+	function lrSubmitPhotoForm() {
+		// Show success step (step 4)
+		lrPhotoGoToStep(4)
+		// Hide header (progress bar + back button) on success
+		const header = document.querySelector('#lr-photo-modal .flex.items-center.gap-3.mb-2')
+		if (header) header.style.display = 'none'
+	}
+
+	function lrResetPhotoModal() {
+		// Reset inputs
+		document.querySelectorAll('#lr-photo-modal input').forEach(input => {
+			if (input.type === 'radio' || input.type === 'checkbox') {
+				input.checked = false
+			} else {
+				input.value = ''
+			}
+		})
+		// Reset labels
+		document.querySelectorAll('#lr-photo-modal .lr-choice-label')
+			.forEach(label => label.classList.remove('active'))
+		// Reset progress, file, and phone
+		lrResetPhotoFile()
+		lrPhotoPhoneDigits = ''
+		const phoneDisplay = document.getElementById('lr-photo-phone-display')
+		if (phoneDisplay) phoneDisplay.textContent = '+7'
+		const header = document.querySelector('#lr-photo-modal .flex.items-center.gap-3.mb-2')
+		if (header) header.style.display = ''
+		lrUpdatePhotoProgressBar(1)
+		// Reset next button
+		const nextBtn = document.getElementById('lr-photo-next-2')
+		if (nextBtn) lrToggleBtnState(nextBtn, false)
+	}
+
+</script>
