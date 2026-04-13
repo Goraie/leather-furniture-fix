@@ -732,6 +732,15 @@
 	.lr-dialpad-backspace:active {
 		background: #fca5a5;
 	}
+
+	.qr-code-text {
+		opacity: 0;
+		transition: all 0.3s ease-in-out;
+	}
+
+	.qr-code-image:hover .qr-code-text {
+		opacity: 1;
+	}
 </style>
 
 <!-- HERO SECTION -->
@@ -880,7 +889,8 @@
 						class="qr-code-image hidden md:block transition-all duration-300 transform group-hover:scale-105">
 						<img src="images/lr-qr-tg-white.webp" alt="QR Telegram"
 							class="object-contain bg-white/10 p-2 rounded-xl backdrop-blur-sm border border-white/20">
-						<p class="text-[9px] text-white/40 mt-1.5 text-center uppercase tracking-widest font-bold">
+						<p
+							class="text-[9px] text-white/40 mt-1.5 text-center uppercase tracking-widest font-bold qr-code-text">
 							Наведите камеру</p>
 					</div>
 				</div>
@@ -897,7 +907,8 @@
 						class="qr-code-image hidden md:block transition-all duration-300 transform group-hover:scale-105">
 						<img src="images/lr-qr-vk-white.webp" alt="QR VK"
 							class="object-contain bg-white/10 p-2 rounded-xl backdrop-blur-sm border border-white/20">
-						<p class="text-[9px] text-white/40 mt-1.5 text-center uppercase tracking-widest font-bold">
+						<p
+							class="text-[9px] text-white/40 mt-1.5 text-center uppercase tracking-widest font-bold qr-code-text">
 							Наведите камеру</p>
 					</div>
 				</div>
@@ -915,7 +926,8 @@
 						class="qr-code-image hidden md:block transition-all duration-300 transform group-hover:scale-105">
 						<img src="images/lr-qr-max-white.webp" alt="QR Max"
 							class="object-contain bg-white/10 p-2 rounded-xl backdrop-blur-sm border border-white/20">
-						<p class="text-[9px] text-white/40 mt-1.5 text-center uppercase tracking-widest font-bold">
+						<p
+							class="text-[9px] text-white/40 mt-1.5 text-center uppercase tracking-widest font-bold qr-code-text">
 							Наведите камеру</p>
 					</div>
 				</div>
@@ -1313,8 +1325,8 @@
 					Сколько это стоит?
 				</h2>
 				<!-- <p class="text-lg text-lr-accent font-semibold mb-6">
-						Подсказка: на 250 000 рублей дешевле нового дивана.
-					</p> -->
+					Подсказка: на 250 000 рублей дешевле нового дивана.
+				</p> -->
 				<p class="text-quote text-xl text-primary font-bold mb-6">
 					Подсказка:
 					<br>
@@ -1498,7 +1510,8 @@
 						class="qr-code-image hidden md:block transition-all duration-300 transform group-hover:scale-105">
 						<img src="images/lr-qr-tg-black.webp" alt="QR Telegram"
 							class="object-contain bg-white p-2 rounded-xl shadow-lg border border-slate-200">
-						<p class="text-[9px] text-slate-400 mt-1.5 text-center uppercase tracking-widest font-bold">
+						<p
+							class="text-[9px] text-slate-400 mt-1.5 text-center uppercase tracking-widest font-bold qr-code-text">
 							Наведите камеру</p>
 					</div>
 				</div>
@@ -1515,7 +1528,8 @@
 						class="qr-code-image hidden md:block transition-all duration-300 transform group-hover:scale-105">
 						<img src="images/lr-qr-vk-black.webp" alt="QR VK"
 							class="object-contain bg-white p-2 rounded-xl shadow-lg border border-slate-200">
-						<p class="text-[9px] text-slate-400 mt-1.5 text-center uppercase tracking-widest font-bold">
+						<p
+							class="text-[9px] text-slate-400 mt-1.5 text-center uppercase tracking-widest font-bold qr-code-text">
 							Наведите камеру</p>
 					</div>
 				</div>
@@ -1532,7 +1546,8 @@
 						class="qr-code-image hidden md:block transition-all duration-300 transform group-hover:scale-105">
 						<img src="images/lr-qr-max-black.webp" alt="QR Max"
 							class="object-contain bg-white p-2 rounded-xl shadow-lg border border-slate-200">
-						<p class="text-[9px] text-slate-400 mt-1.5 text-center uppercase tracking-widest font-bold">
+						<p
+							class="text-[9px] text-slate-400 mt-1.5 text-center uppercase tracking-widest font-bold qr-code-text">
 							Наведите камеру</p>
 					</div>
 				</div>
